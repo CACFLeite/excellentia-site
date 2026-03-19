@@ -141,7 +141,7 @@ export default function Home() {
             <div className="order-1 md:order-2 flex justify-center">
               <div className="relative w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/caio-leite.jpg"
+                  src="/caio-hero.jpg"
                   alt="Caio Leite — Fundador da Excellentia"
                   fill
                   className="object-cover object-top"
