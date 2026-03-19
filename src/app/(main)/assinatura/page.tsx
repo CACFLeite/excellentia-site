@@ -23,7 +23,7 @@ const plans = [
     price: 'R$588',
     period: '/ano',
     savings: 'Economize R$138',
-    priceDetail: 'Equivale a R$49/mês',
+    priceDetail: 'Pagamento único anual de R$588',
     href: 'https://buy.stripe.com/cNi7sL4YK0vL7wO4Ef6c001',
     highlight: true,
   },

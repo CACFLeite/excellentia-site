@@ -29,9 +29,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Legal */}
           <div>
-            <h3 className="font-semibold text-gold mb-4">Contato</h3>
+            <h3 className="font-semibold text-gold mb-4">Legal</h3>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li><Link href="/privacidade" className="hover:text-gold-light transition-colors">Política de Privacidade</Link></li>
+              <li><Link href="/cancelamento" className="hover:text-gold-light transition-colors">Política de Cancelamento</Link></li>
+              <li><Link href="/privacidade" className="hover:text-gold-light transition-colors">Termos de Uso</Link></li>
+            </ul>
+            <h3 className="font-semibold text-gold mb-4 mt-6">Contato</h3>
             <p className="text-gray-300 text-sm">
               <a href="mailto:atendimento@excellentia-edu.com" className="hover:text-gold-light transition-colors">
                 atendimento@excellentia-edu.com

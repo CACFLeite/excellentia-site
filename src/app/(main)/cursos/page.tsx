@@ -75,7 +75,7 @@ export default function CursosPage() {
               href="/assinatura"
               className="border-2 border-white text-white hover:bg-white hover:text-navy font-bold px-8 py-4 rounded-xl text-lg transition-colors"
             >
-              Ver plano anual (R$49/mês)
+              Ver plano anual — R$588/ano
             </Link>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function CursosPage() {
               Tudo isso por R$69/mês
             </h3>
             <p className="text-gray-300 mb-2">
-              Ou R$588/ano — equivale a R$49/mês. Economia de R$138.
+              Ou R$588/ano — pague uma vez, use o ano todo. Economia de R$138.
             </p>
             <p className="text-gray-400 text-sm mb-8">
               Acesso imediato. Certificado em cada curso concluído. Cancele quando quiser.

@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import CookieBanner from '@/components/CookieBanner'
 
 export default function MainLayout({
   children,
@@ -11,6 +12,7 @@ export default function MainLayout({
       <Navbar />
       <main>{children}</main>
       <Footer />
+      <CookieBanner />
 
       {/* WhatsApp floating button */}
       <a
