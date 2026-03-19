@@ -211,7 +211,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="mt-12 pt-8 border-t border-gray-200">
             <div className="bg-navy text-white rounded-2xl p-8 text-center">
               <p className="text-gray-300 mb-4">
-                Gostou do conteúdo? Acesse todos os cursos da Excellentia por R$9/mês.
+                Gostou do conteúdo? Acesse todos os cursos da Excellentia por R$69/mês.
               </p>
               <Link
                 href="/assinatura"

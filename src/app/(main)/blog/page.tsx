@@ -92,7 +92,7 @@ export default function BlogPage() {
               href="/assinatura"
               className="bg-gold hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-lg transition-colors inline-block"
             >
-              Assinar Excellentia — R$9/mês
+              Assinar Excellentia — R$69/mês
             </Link>
           </div>
         </div>

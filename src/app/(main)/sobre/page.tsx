@@ -150,7 +150,7 @@ export default function SobrePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-4">Pronto para levar sua carreira a sério?</h2>
           <p className="text-gray-300 mb-8">
-            Junte-se à Excellentia e tenha acesso a todo o conteúdo por R$9/mês.
+            Junte-se à Excellentia e tenha acesso a todo o conteúdo por R$69/mês.
           </p>
           <Link
             href="/assinatura"
