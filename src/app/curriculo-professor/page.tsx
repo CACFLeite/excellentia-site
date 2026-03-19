@@ -32,18 +32,17 @@ export default function CurriculoPage() {
         </div>
       </section>
 
-      {/* Video placeholder */}
+      {/* Video — YouTube embed */}
       <section className="py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-navy rounded-2xl aspect-video flex items-center justify-center relative overflow-hidden shadow-xl">
-            <div className="text-center text-white">
-              <div className="w-20 h-20 bg-gold rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-yellow-600 transition-colors">
-                <svg className="w-10 h-10 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <p className="text-gray-300 text-sm">Vídeo de apresentação</p>
-            </div>
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }} className="rounded-2xl shadow-xl overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/naDddYlS990"
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
@@ -67,6 +66,56 @@ export default function CurriculoPage() {
         </div>
       </section>
 
+      {/* Método Excellentia */}
+      <section className="py-16 bg-navy text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-4xl font-extrabold mb-3">
+            Mais do que um currículo — uma prévia do método Excellentia
+          </h2>
+          <p className="text-gray-300 text-lg mb-10">Cada curso da plataforma funciona assim:</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+            {[
+              {
+                emoji: '📖',
+                title: 'Teoria',
+                desc: 'Conceito pedagógico claro, aplicado à realidade do professor',
+              },
+              {
+                emoji: '🎯',
+                title: 'Situação real',
+                desc: 'Um cenário do cotidiano escolar que você vai enfrentar',
+              },
+              {
+                emoji: '💬',
+                title: 'Sua resposta',
+                desc: 'Você responde com suas próprias palavras, sem gabarito',
+              },
+              {
+                emoji: '🔍',
+                title: 'Feedback único',
+                desc: 'A IA analisa com rubricas invisíveis e devolve feedback personalizado para desenvolver suas skills',
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="bg-white/10 border border-white/20 rounded-xl p-6 flex gap-4 items-start hover:bg-white/15 transition-colors"
+              >
+                <span className="text-4xl flex-none">{card.emoji}</span>
+                <div>
+                  <h3 className="font-bold text-gold text-lg mb-1">{card.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{card.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 text-xl font-semibold text-gold">
+            Sem certo ou errado. Sem múltipla escolha. Só desenvolvimento real.
+          </p>
+        </div>
+      </section>
+
       {/* Form */}
       <section className="py-12 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +124,7 @@ export default function CurriculoPage() {
               Quero meu currículo profissional
             </h2>
             <p className="text-gray-600">
-              Preencha os campos abaixo e entraremos em contato em até 24 horas.
+              Preencha os campos abaixo e enviaremos seu currículo em até 24 horas.
             </p>
           </div>
           <CurriculoForm />
