@@ -32,7 +32,7 @@ export default function SobrePage() {
             <div className="flex justify-center">
               <div className="relative w-80 h-96 md:w-96 md:h-[480px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://excellentia-edu.com/wp-content/uploads/2026/03/caio-leite-excellentia.jpg"
+                  src="/caio-leite.jpg"
                   alt="Caio Leite — Fundador da Excellentia"
                   fill
                   className="object-cover object-top"
