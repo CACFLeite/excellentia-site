@@ -158,7 +158,7 @@ export default function AssinaturaPage() {
               Entre em contato com a gente. Respondemos em até 24 horas.
             </p>
             <a
-              href="https://wa.me/5511999999999?text=Olá!%20Tenho%20dúvidas%20sobre%20a%20assinatura%20Excellentia"
+              href="https://wa.me/5511952133049?text=Olá!%20Tenho%20dúvidas%20sobre%20a%20assinatura%20Excellentia"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-white text-white hover:bg-white hover:text-navy font-bold px-8 py-3 rounded-lg transition-colors inline-block"

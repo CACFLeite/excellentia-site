@@ -14,7 +14,7 @@ export default function MainLayout({
 
       {/* WhatsApp floating button */}
       <a
-        href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20da%20Excellentia"
+        href="https://wa.me/5511952133049?text=Olá!%20Vim%20pelo%20site%20da%20Excellentia"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar pelo WhatsApp"
