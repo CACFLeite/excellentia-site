@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-navy-light mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <p>© 2026 Excellentia. Todos os direitos reservados.</p>
+          <p>CACFL Educacional — CNPJ 50.939.805/0001-73 — © 2026 Excellentia. Todos os Direitos Reservados.</p>
           <p>Desenvolvido com ♥ para os professores do Brasil</p>
         </div>
       </div>

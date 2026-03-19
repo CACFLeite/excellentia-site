@@ -55,7 +55,7 @@ export default function Home() {
                 href="/assinatura"
                 className="bg-gold hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center"
               >
-                Começar agora — R$9/mês
+                Começar agora — R$69/mês
               </Link>
               <Link
                 href="/cursos"
@@ -204,13 +204,13 @@ export default function Home() {
             Pronto para dar o próximo passo na sua carreira?
           </h2>
           <p className="text-gray-600 text-lg mb-10">
-            Acesse todos os cursos, conteúdos e recursos por apenas R$9/mês. Cancele quando quiser.
+            Acesse todos os cursos, conteúdos e recursos por apenas R$69/mês. Cancele quando quiser.
           </p>
           <Link
             href="/assinatura"
             className="bg-gold hover:bg-yellow-600 text-white font-extrabold px-10 py-5 rounded-xl text-xl transition-colors inline-block shadow-lg hover:shadow-xl"
           >
-            Assinar agora — R$9/mês
+            Assinar agora — R$69/mês
           </Link>
           <p className="text-sm text-gray-400 mt-4">Garantia de 7 dias. Sem fidelidade.</p>
         </div>

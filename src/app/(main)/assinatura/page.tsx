@@ -3,14 +3,14 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Assinatura — Excellentia',
-  description: 'Assine a Excellentia e acesse todos os cursos por R$9/mês. Garantia de 7 dias.',
+  description: 'Assine a Excellentia e acesse todos os cursos por R$69/mês. Garantia de 7 dias.',
 }
 
 const plans = [
   {
     id: 'monthly',
     name: 'Mensal',
-    price: 'R$9',
+    price: 'R$69',
     period: '/mês',
     savings: null,
     priceDetail: 'Cobrado mensalmente',
@@ -20,10 +20,10 @@ const plans = [
   {
     id: 'annual',
     name: 'Anual',
-    price: 'R$88',
+    price: 'R$588',
     period: '/ano',
-    savings: 'Economize R$20',
-    priceDetail: 'Equivale a R$7,33/mês',
+    savings: 'Economize R$138',
+    priceDetail: 'Equivale a R$49/mês',
     href: 'https://buy.stripe.com/cNi7sL4YK0vL7wO4Ef6c001',
     highlight: true,
   },
@@ -157,12 +157,14 @@ export default function AssinaturaPage() {
             <p className="text-gray-300 mb-6">
               Entre em contato com a gente. Respondemos em até 24 horas.
             </p>
-            <Link
-              href="/contato"
+            <a
+              href="https://wa.me/5511999999999?text=Olá!%20Tenho%20dúvidas%20sobre%20a%20assinatura%20Excellentia"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border-2 border-white text-white hover:bg-white hover:text-navy font-bold px-8 py-3 rounded-lg transition-colors inline-block"
             >
               Falar com o suporte
-            </Link>
+            </a>
           </div>
         </div>
       </section>

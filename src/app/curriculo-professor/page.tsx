@@ -82,15 +82,6 @@ export default function CurriculoPage() {
         </div>
       </section>
 
-      {/* Social proof */}
-      <section className="py-12 bg-navy text-white text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <p className="text-gray-300 text-lg italic">
-            &ldquo;Depois de 8 anos enviando currículos, finalmente entendi por que não estava sendo chamado. Reformulei com o Caio e em 3 semanas tive duas entrevistas.&rdquo;
-          </p>
-          <p className="mt-4 font-semibold text-gold">— Professor de História, São Paulo</p>
-        </div>
-      </section>
     </div>
   )
 }
