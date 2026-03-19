@@ -41,7 +41,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl">
             <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
-              Para professores de escolas particulares
+              Para professores que levam a carreira a sério
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
               A plataforma do{' '}
