@@ -375,6 +375,36 @@ export default function CurriculoForm() {
             <p className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">{errorMsg}</p>
           )}
 
+          {/* Consentimento LGPD — obrigatório */}
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 space-y-3">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Consentimento (obrigatório)</p>
+
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="consentimento_dados"
+                required
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-gold focus:ring-gold flex-shrink-0"
+              />
+              <span className="text-sm text-gray-700 leading-relaxed">
+                Concordo com o tratamento dos meus dados pessoais pela <strong>CACFL Educacional (CNPJ 50.939.805/0001-73)</strong> para fins de geração do currículo profissional solicitado, conforme a{' '}
+                <a href="/privacidade" target="_blank" className="text-gold underline hover:text-yellow-700">Política de Privacidade</a>.
+                Os dados serão utilizados exclusivamente para este fim e não serão compartilhados com terceiros sem meu consentimento.
+              </span>
+            </label>
+
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="consentimento_comunicacao"
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-gold focus:ring-gold flex-shrink-0"
+              />
+              <span className="text-sm text-gray-700 leading-relaxed">
+                <strong>(Opcional)</strong> Aceito receber conteúdo relevante sobre carreira profissional docente, legislação educacional e novidades da plataforma Excellentia por e-mail. Posso cancelar a qualquer momento.
+              </span>
+            </label>
+          </div>
+
           <div className="flex gap-3">
             <button
               type="button"
@@ -393,7 +423,7 @@ export default function CurriculoForm() {
           </div>
 
           <p className="text-center text-xs text-gray-400">
-            Seus dados estão seguros. Não enviamos spam.
+            🔒 Seus dados são protegidos pela LGPD (Lei 13.709/2018) e nunca serão vendidos ou compartilhados sem seu consentimento.
           </p>
         </form>
       )}
