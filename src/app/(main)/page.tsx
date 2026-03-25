@@ -38,7 +38,7 @@ export default function Home() {
         {/* Imagem de fundo com opacidade */}
         <div className="absolute inset-0">
           <Image
-            src="/caio-hero.jpg"
+            src="/hero-bg.jpg"
             alt=""
             fill
             className="object-cover object-center"
