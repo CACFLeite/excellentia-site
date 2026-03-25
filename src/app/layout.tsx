@@ -5,13 +5,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Excellentia — A plataforma do professor profissional',
-  description: 'Carreira. Direitos. Saúde. Tudo que nenhuma faculdade te ensinou sobre ser professor.',
-  keywords: 'professor, carreira docente, gestão de carreira, escola particular, currículo professor',
+  title: 'Excellentia — Profissionalizar a educação',
+  description: 'Para professores que querem crescer. Para escolas que querem parar de improvisar. Carreira. Direitos. Saúde. Compliance.',
+  keywords: 'professor, carreira docente, gestão de carreira, escola particular, NR1, Lei Lucas, compliance escolar, professionalização educação',
   authors: [{ name: 'Caio Leite' }],
   openGraph: {
-    title: 'Excellentia — A plataforma do professor profissional',
-    description: 'Carreira. Direitos. Saúde. Tudo que nenhuma faculdade te ensinou sobre ser professor.',
+    title: 'Excellentia — Profissionalizar a educação',
+    description: 'Para professores que querem crescer. Para escolas que querem parar de improvisar.',
     url: 'https://excellentia-edu.com',
     siteName: 'Excellentia',
     type: 'website',

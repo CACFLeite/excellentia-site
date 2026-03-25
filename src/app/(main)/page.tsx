@@ -52,14 +52,14 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl">
             <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
-              Para professores que levam a carreira a sério
+              Para professores e escolas que levam a educação a sério
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-              A plataforma do{' '}
-              <span className="text-gold-light">professor profissional</span>
+              Profissionalizar{' '}
+              <span className="text-gold-light">a educação.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
-              Carreira. Direitos. Saúde. Tudo que nenhuma faculdade te ensinou sobre ser professor.
+              Para professores que querem crescer. Para escolas que querem parar de improvisar.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
