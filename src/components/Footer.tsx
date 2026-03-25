@@ -12,9 +12,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Excellentia"
-                width={48}
-                height={48}
-                className="h-12 w-auto"
+                width={120}
+                height={120}
+                className="h-16 w-auto"
               />
             </Link>
             <p className="mt-3 text-gray-300 text-sm leading-relaxed">

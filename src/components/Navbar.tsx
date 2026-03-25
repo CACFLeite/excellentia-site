@@ -16,9 +16,9 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Excellentia"
-              width={44}
-              height={44}
-              className="h-11 w-auto"
+              width={120}
+              height={120}
+              className="h-14 w-auto"
               priority
             />
           </Link>
