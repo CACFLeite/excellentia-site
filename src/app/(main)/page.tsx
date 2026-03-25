@@ -35,8 +35,19 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="bg-navy text-white py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-navy to-navy-dark" />
+        {/* Imagem de fundo com opacidade */}
+        <div className="absolute inset-0">
+          <Image
+            src="/caio-hero.jpg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          {/* Overlay navy com opacidade para legibilidade */}
+          <div className="absolute inset-0 bg-navy opacity-80" />
+          {/* Gradiente sutil para reforçar o lado do texto */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-transparent" />
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl">

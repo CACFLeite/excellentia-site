@@ -10,15 +10,15 @@ export default function Navbar() {
   return (
     <nav className="bg-navy text-white sticky top-0 z-50 shadow-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
               alt="Excellentia"
-              width={120}
-              height={120}
-              className="h-14 w-auto"
+              width={180}
+              height={180}
+              className="h-20 w-auto"
               priority
             />
           </Link>
