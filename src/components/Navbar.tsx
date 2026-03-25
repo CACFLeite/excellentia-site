@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Navbar() {
@@ -12,9 +13,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold tracking-tight">
-              Excel<span className="text-gold">lentia</span>
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Excellentia"
+              width={44}
+              height={44}
+              className="h-11 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

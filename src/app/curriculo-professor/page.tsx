@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import CurriculoForm from './CurriculoForm'
 
 export const metadata: Metadata = {
@@ -12,9 +13,7 @@ export default function CurriculoPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Simple LP header without full navbar links */}
       <header className="bg-navy py-4 px-6 flex justify-center">
-        <span className="text-white text-2xl font-bold">
-          Excel<span className="text-gold">lentia</span>
-        </span>
+        <Image src="/logo.png" alt="Excellentia" width={48} height={48} className="h-12 w-auto" />
       </header>
 
       {/* Hero */}
