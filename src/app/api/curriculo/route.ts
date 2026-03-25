@@ -97,6 +97,33 @@ ${q5Socioemocionais}
       console.log(emailBody)
     }
 
+    // 3. Notificação Telegram
+    const tgToken = process.env.TELEGRAM_BOT_TOKEN
+    const tgChatId = process.env.TELEGRAM_ADMIN_CHAT_ID || '6893152608'
+    if (tgToken) {
+      const tgMsg = [
+        '🎓 Novo currículo solicitado!',
+        '',
+        `Nome: ${nome}`,
+        `Email: ${email}`,
+        `Telefone: ${telefone || '—'}`,
+        `Cidade: ${cidadeBairro || '—'}`,
+        `Disciplinas: ${disciplinas || '—'}`,
+        `Segmentos: ${Array.isArray(segmentos) ? segmentos.join(', ') : segmentos || '—'}`,
+        `Experiência: ${experiencia || '—'}`,
+        '',
+        'Responda ao professor em até 24h.',
+      ].join('\n')
+
+      fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: tgChatId, text: tgMsg }),
+      }).catch((err) => console.error('[curriculo] Telegram notify error:', err))
+    } else {
+      console.warn('[curriculo] TELEGRAM_BOT_TOKEN não configurado')
+    }
+
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[curriculo] Erro na API:', err)
