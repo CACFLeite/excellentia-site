@@ -31,10 +31,10 @@ export default function PrivacidadePage() {
               <p className="mt-2">
                 Encarregado de Dados (DPO):{' '}
                 <a
-                  href="mailto:atendimento@excellentia-edu.com"
+                  href="mailto:juridico@excellentia-edu.com"
                   className="text-gold hover:underline"
                 >
-                  atendimento@excellentia-edu.com
+                  juridico@excellentia-edu.com
                 </a>
               </p>
             </section>
@@ -175,6 +175,13 @@ export default function PrivacidadePage() {
               <p className="mt-3">
                 Para exercer qualquer desses direitos, entre em contato pelo e-mail{' '}
                 <a
+                  href="mailto:juridico@excellentia-edu.com"
+                  className="text-gold hover:underline"
+                >
+                  juridico@excellentia-edu.com
+                </a>{' '}
+                ou{' '}
+                <a
                   href="mailto:atendimento@excellentia-edu.com"
                   className="text-gold hover:underline"
                 >
@@ -214,10 +221,10 @@ export default function PrivacidadePage() {
               <p className="mt-2">
                 📧{' '}
                 <a
-                  href="mailto:atendimento@excellentia-edu.com"
+                  href="mailto:juridico@excellentia-edu.com"
                   className="text-gold hover:underline"
                 >
-                  atendimento@excellentia-edu.com
+                  juridico@excellentia-edu.com
                 </a>
               </p>
               <p className="mt-1">

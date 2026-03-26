@@ -50,6 +50,12 @@ export default function Footer() {
                 atendimento@excellentia-edu.com
               </a>
             </p>
+            <p className="text-gray-300 text-sm mt-1">
+              <a href="mailto:juridico@excellentia-edu.com" className="hover:text-gold-light transition-colors">
+                juridico@excellentia-edu.com
+              </a>{' '}
+              <span className="text-gray-500 text-xs">(jurídico/LGPD)</span>
+            </p>
             <p className="text-gray-300 text-sm mt-2">São Paulo, Brasil</p>
           </div>
         </div>
