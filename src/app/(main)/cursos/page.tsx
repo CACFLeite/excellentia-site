@@ -32,12 +32,13 @@ const courses = [
     lessons: null,
   },
   {
-    title: 'NR1 nas Escolas',
-    description: 'Gestão de riscos psicossociais: o que a nova NR1 exige, como implementar e o que todo professor e gestor precisa saber.',
+    title: 'NR-1 nas Escolas',
+    description: 'Gestão de riscos psicossociais: o que a NR-1 exige, como iniciar a adequação e o que equipes escolares precisam saber.',
     icon: '⚖️',
-    available: false,
-    modules: null,
-    lessons: null,
+    available: true,
+    modules: 1,
+    lessons: 8,
+    href: '/cursos/nr1-escolas',
   },
   {
     title: 'Lei Lucas — Prevenção a Afogamentos',
@@ -124,6 +125,14 @@ export default function CursosPage() {
                     {course.lessons && <span>🎬 {course.lessons} aulas</span>}
                     <span>🏆 Com certificado</span>
                   </div>
+                )}
+                {course.available && 'href' in course && course.href && (
+                  <Link
+                    href={course.href}
+                    className="inline-block text-sm font-bold text-gold hover:text-yellow-700 transition-colors"
+                  >
+                    Acessar curso →
+                  </Link>
                 )}
                 {!course.available && (
                   <div className="flex gap-2 text-xs text-gray-400 mb-4">
