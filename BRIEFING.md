@@ -71,10 +71,10 @@ ATENÇÃO: Esta página é o funil de entrada ativo. Deve ser preservada com:
 ## API Routes
 
 ### /api/waitlist (POST)
-Cria subscriber no Kit e aplica tag "lista-espera-app" (ID: 17671416)
-- ConvertKit API Key v3: ${KIT_API_KEY}
-- Endpoint Kit v4: POST https://api.kit.com/v4/subscribers (Bearer token: ${KIT_BEARER_TOKEN})
-- Tag via v3: POST https://api.convertkit.com/v3/tags/17671416/subscribe?api_key=${KIT_API_KEY}
+Cria/atualiza lead no MailerLite e associa ao grupo de leads do funil de currículo.
+- API key via env `MAILERLITE_API_KEY`
+- Grupo via env `MAILERLITE_CURRICULO_GROUP_ID`
+- Endpoint: `POST https://connect.mailerlite.com/api/subscribers`
 
 ### /api/contact (POST)
 Envia email para atendimento@excellentia-edu.com

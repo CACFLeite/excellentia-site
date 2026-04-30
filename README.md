@@ -33,7 +33,8 @@
 
 | Rota | Método | Descrição |
 |------|--------|-----------|
-| `/api/waitlist` | POST | Cadastro no Kit com tag lista-espera-app |
+| `/api/waitlist` | POST | Cadastro de lead no MailerLite |
+| `/api/curriculo` | POST | Captura do funil de currículo, cadastro no MailerLite e notificação interna |
 | `/api/contact` | POST | Envio de email via Resend |
 
 ## Variáveis de Ambiente
@@ -43,8 +44,8 @@ Criar `.env.local` baseado em `.env.local.example`:
 ```
 RESEND_API_KEY=         # Chave Resend para envio de emails
 CONTACT_EMAIL=atendimento@excellentia-edu.com
-KIT_API_KEY=yjKDVn1i9myc2cljJgH9tQ
-KIT_TAG_ID=17671416
+MAILERLITE_API_KEY=     # Chave MailerLite para captura de leads
+MAILERLITE_CURRICULO_GROUP_ID=183684901612029007
 ```
 
 ## Desenvolvimento

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getCurriculoLeadsGroupId, subscribeToMailerLite } from '@/lib/mailerlite'
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,31 +10,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'E-mail é obrigatório' }, { status: 400 })
     }
 
-    const apiKey = process.env.KIT_API_KEY || 'yjKDVn1i9myc2cljJgH9tQ'
-    const tagId = process.env.KIT_TAG_ID || '17671416'
+    const mailerLiteResult = await subscribeToMailerLite({
+      email,
+      name,
+      groups: [getCurriculoLeadsGroupId()],
+    })
 
-    // Subscribe via Kit v3 tag endpoint (also creates subscriber if needed)
-    const kitResponse = await fetch(
-      `https://api.convertkit.com/v3/tags/${tagId}/subscribe?api_key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          first_name: name || '',
-          fields: {
-            experiencia: experiencia || '',
-            area: area || '',
-            escola_desejada: escola || '',
-          },
-        }),
-      }
-    )
-
-    if (!kitResponse.ok) {
-      const errorText = await kitResponse.text()
-      console.error('Kit API error:', errorText)
-      // Don't fail the user-facing response even if Kit fails
+    if (!mailerLiteResult.ok && !mailerLiteResult.skipped) {
+      // Não falha a resposta pública: a pessoa já demonstrou interesse, e a falha fica logada para correção operacional.
+      console.error('MailerLite subscribe failed:', mailerLiteResult)
     }
 
     return NextResponse.json(

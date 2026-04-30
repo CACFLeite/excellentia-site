@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getCurriculoLeadsGroupId, subscribeToMailerLite } from '@/lib/mailerlite'
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,26 +12,15 @@ export async function POST(req: NextRequest) {
       q4Interdisciplinaridade, q5Socioemocionais,
     } = data
 
-    // 1. Salvar no Kit (ConvertKit)
-    const ckKey = process.env.CONVERTKIT_API_KEY
-    if (ckKey) {
-      await fetch(`https://api.convertkit.com/v3/tags/17407005/subscribe?api_key=${ckKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          first_name: nome?.split(' ')[0] || nome,
-          fields: {
-            telefone: telefone || '',
-            cidade_bairro: cidadeBairro || '',
-            disciplinas: disciplinas || '',
-            segmentos: Array.isArray(segmentos) ? segmentos.join(', ') : '',
-            experiencia: experiencia || '',
-          },
-        }),
+    // 1. Salvar lead no MailerLite
+    if (email) {
+      await subscribeToMailerLite({
+        email,
+        name: nome,
+        phone: telefone,
+        city: cidadeBairro,
+        groups: [getCurriculoLeadsGroupId()],
       })
-    } else {
-      console.warn('[curriculo] CONVERTKIT_API_KEY não configurada')
     }
 
     // 2. Enviar email de notificação
