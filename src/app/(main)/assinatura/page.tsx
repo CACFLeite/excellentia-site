@@ -14,7 +14,7 @@ const plans = [
     period: '/mês',
     savings: null,
     priceDetail: 'Cobrado mensalmente',
-    href: 'https://buy.stripe.com/9B67sLcrc5Q55oG0nZ6c000',
+    href: '/checkout-professores?plan=monthly',
     highlight: false,
   },
   {
@@ -24,7 +24,7 @@ const plans = [
     period: '/ano',
     savings: 'Economize R$138',
     priceDetail: 'Pagamento único anual de R$588',
-    href: 'https://buy.stripe.com/cNi7sL4YK0vL7wO4Ef6c001',
+    href: '/checkout-professores?plan=annual',
     highlight: true,
   },
 ]
@@ -95,10 +95,8 @@ export default function AssinaturaPage() {
                     ))}
                   </ul>
 
-                  <a
+                  <Link
                     href={plan.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className={`block text-center font-bold px-6 py-4 rounded-xl text-lg transition-colors ${
                       plan.highlight
                         ? 'bg-gold hover:bg-yellow-600 text-white'
@@ -106,7 +104,7 @@ export default function AssinaturaPage() {
                     }`}
                   >
                     Assinar {plan.name}
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
