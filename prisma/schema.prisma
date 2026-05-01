@@ -107,8 +107,64 @@ model Organization {
   communications      Communication[]
   pgrDocuments        PgrDocument[]
   commercialProposals CommercialProposal[]
+  dataSubjectRequests DataSubjectRequest[]
 
   @@index([status])
+}
+
+model DataSubjectRequest {
+  id                    String    @id @default(cuid())
+  organizationId        String?
+  name                  String
+  email                 String
+  cpf                   String?
+  requestType           String
+  details               String?
+  status                String    @default("pending_verification")
+  verificationTokenHash String    @unique
+  verificationExpiresAt DateTime
+  verifiedAt            DateTime?
+  completedAt           DateTime?
+  deliveryEmail         String?
+  exportData            Json?
+  auditLog              Json?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  @@index([email, status])
+  @@index([createdAt])
+}
+
+model PrivacyPolicyVersion {
+  id              String   @id @default(cuid())
+  version         String   @unique
+  title           String
+  summary         String
+  policyUrl       String
+  publishedAt     DateTime @default(now())
+  notificationLog Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  notifications PrivacyPolicyNotification[]
+}
+
+model PrivacyPolicyNotification {
+  id        String    @id @default(cuid())
+  versionId String
+  email     String
+  status    String    @default("pending")
+  provider  String?
+  error     String?
+  sentAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  version PrivacyPolicyVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+
+  @@unique([versionId, email])
+  @@index([email, status])
 }
 
 model Unit {

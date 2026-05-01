@@ -189,7 +189,9 @@ export default function PrivacidadePage() {
                 <li><strong>Informação sobre compartilhamento:</strong> saber com quais terceiros seus dados são compartilhados.</li>
               </ul>
               <p className="mt-3">
-                Para exercer qualquer desses direitos, entre em contato pelo e-mail{' '}
+                Para exercer qualquer desses direitos, use o canal seguro de solicitação em{' '}
+                <a href="/dados/titular" className="text-gold hover:underline">/dados/titular</a>{' '}
+                ou entre em contato pelo e-mail{' '}
                 <a
                   href="mailto:juridico@excellentia-edu.com"
                   className="text-gold hover:underline"
@@ -241,9 +243,9 @@ export default function PrivacidadePage() {
               <h2 className="text-xl font-bold text-navy mb-3">11. Alterações nesta Política</h2>
               <p>
                 Esta Política pode ser atualizada periodicamente. Alterações relevantes serão
-                comunicadas por aviso na plataforma e/ou por e-mail quando houver canal de contato
-                válido e fluxo operacional ativo para essa comunicação. A data da última atualização
-                está indicada no início deste documento.
+                comunicadas por aviso na plataforma e, quando houver e-mail válido cadastrado,
+                também por e-mail transacional com registro operacional de envio. A data da última
+                atualização está indicada no início deste documento.
               </p>
             </section>
 
