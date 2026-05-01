@@ -37,7 +37,7 @@ export default function CancelamentoPage() {
               </h2>
               <div className="bg-gold/10 border border-gold/30 rounded-xl p-4 mb-4">
                 <p className="font-semibold text-navy">
-                  ✅ Você tem direito ao reembolso integral dentro de 7 dias corridos após a
+                  Você tem direito ao reembolso integral dentro de 7 dias corridos após a
                   contratação, sem necessidade de justificativa.
                 </p>
               </div>
@@ -137,7 +137,6 @@ export default function CancelamentoPage() {
                 entre em contato com nossa equipe:
               </p>
               <p className="mt-2">
-                📧{' '}
                 <a
                   href="mailto:atendimento@excellentia-edu.com"
                   className="text-gold hover:underline"

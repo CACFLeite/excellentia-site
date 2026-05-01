@@ -4,6 +4,37 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 
+const operatingFlow = [
+  'Diagnóstico',
+  'Trilhas',
+  'Evidências',
+  'Documentos',
+  'Relatórios',
+]
+
+const workstreams = [
+  {
+    title: 'Soluções para escolas',
+    description: 'Treinamentos obrigatórios, PGR, certificados, relatórios e documentação operacional para reduzir improviso e exposição institucional.',
+    href: '/admin/login',
+    cta: 'Acessar área de escolas',
+  },
+  {
+    title: 'Desenvolvimento para professores',
+    description: 'Cursos, currículo, processos seletivos, carreira, direitos e saúde profissional para docentes que querem crescer com consistência.',
+    href: '/assinatura',
+    cta: 'Ver planos para professores',
+  },
+]
+
+const fronts = [
+  'Formação obrigatória e trilhas regulatórias',
+  'PGR/GRO e documentação de risco ocupacional',
+  'Certificados verificáveis e evidências de conclusão',
+  'Canal seguro para comunicação e solicitações LGPD',
+  'Desenvolvimento de carreira docente',
+]
+
 export default function Home() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -20,7 +51,7 @@ export default function Home() {
       })
       if (res.ok) {
         setStatus('success')
-        setMessage('Ótimo! Você está na lista. Avisaremos quando o app for lançado.')
+        setMessage('Cadastro recebido. Avisaremos quando houver nova etapa do app.')
         setEmail('')
       } else {
         throw new Error('Erro ao cadastrar')
@@ -33,197 +64,134 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-navy text-white py-20 md:py-32 relative overflow-hidden">
-        {/* Imagem de fundo com opacidade */}
+      <section className="bg-navy text-white py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/hero-bg.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          {/* Overlay navy com opacidade para legibilidade */}
-          <div className="absolute inset-0 bg-navy opacity-80" />
-          {/* Gradiente sutil para reforçar o lado do texto */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-transparent" />
+          <Image src="/hero-bg.jpg" alt="" fill className="object-cover object-center" priority />
+          <div className="absolute inset-0 bg-navy opacity-[0.88]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/40" />
         </div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-3xl">
-            <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
-              Para professores e escolas que levam a educação a sério
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-[1.08fr_.92fr] gap-12 items-center">
+          <div>
+            <div className="inline-block bg-gold-light text-navy text-sm font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
+              Educação privada com método, evidência e continuidade
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-              Profissionalizar{' '}
-              <span className="text-gold-light">a educação.</span>
+              Formação, carreira e conformidade para a educação privada.
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
-              Para professores que querem crescer. Para escolas que querem parar de improvisar.
+            <p className="text-xl text-gray-200 mb-10 leading-relaxed max-w-3xl">
+              A Excellentia conecta desenvolvimento profissional docente, treinamentos obrigatórios e documentação operacional para escolas que querem reduzir improviso e elevar seu padrão institucional.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/assinatura"
-                className="bg-gold hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center"
-              >
-                Começar agora — R$69/mês
+              <Link href="/admin/login" className="bg-gold hover:bg-gold-dark text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center">
+                Soluções para escolas
               </Link>
-              <Link
-                href="/cursos"
-                className="border-2 border-white text-white hover:bg-white hover:text-navy font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center"
-              >
-                Ver cursos
+              <Link href="/assinatura" className="border-2 border-white text-white hover:bg-white hover:text-navy font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center">
+                Planos para professores
               </Link>
             </div>
+          </div>
+
+          <div className="bg-white/10 border border-white/20 rounded-3xl p-6 backdrop-blur-sm shadow-2xl">
+            <div className="text-sm uppercase tracking-[0.22em] text-gold-light font-bold mb-5">Fluxo operacional</div>
+            <div className="space-y-4">
+              {operatingFlow.map((step, index) => (
+                <div key={step} className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-gold-light text-navy font-extrabold flex items-center justify-center shadow-lg animate-pulse" style={{ animationDelay: `${index * 180}ms`, animationDuration: '2.6s' }}>
+                    {index + 1}
+                  </div>
+                  <div className="flex-1 bg-white/10 border border-white/15 rounded-xl px-4 py-3">
+                    <div className="font-bold text-white">{step}</div>
+                    <div className="h-1 mt-2 bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-gold-light rounded-full" style={{ width: `${42 + index * 12}%` }} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-gray-300 mt-6 leading-relaxed">
+              Uma plataforma para transformar obrigações e desenvolvimento docente em processos rastreáveis.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Pillars Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {workstreams.map((item) => (
+            <div key={item.title} className="rounded-2xl border border-gray-200 p-8 shadow-sm hover:shadow-md transition-shadow bg-white">
+              <h2 className="text-2xl font-bold text-navy mb-3">{item.title}</h2>
+              <p className="text-gray-600 leading-relaxed mb-6">{item.description}</p>
+              <Link href={item.href} className="inline-flex text-gold font-bold hover:text-gold-dark transition-colors">
+                {item.cta} →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="section-title">O que você vai encontrar aqui</h2>
-            <p className="section-subtitle">
-              Três pilares que nenhuma licenciatura ensina — mas que todo professor precisa dominar.
+          <div className="max-w-3xl mb-12">
+            <div className="inline-block bg-gold/10 text-gold font-semibold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+              Frentes de atuação
+            </div>
+            <h2 className="section-title text-left">O que a Excellentia estrutura</h2>
+            <p className="section-subtitle text-left">
+              A plataforma foi desenhada para integrar formação, conformidade e carreira sem transformar obrigações educacionais em burocracia solta.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: '🎯',
-                title: 'Carreira',
-                description:
-                  'Currículo profissional, processos seletivos, entrevistas, aula teste. Como se posicionar e conquistar as melhores escolas.',
-                color: 'border-gold',
-              },
-              {
-                icon: '⚖️',
-                title: 'Direitos',
-                description:
-                  'NR1, Lei Lucas, Política de Salvaguarda. O que a escola é obrigada a cumprir — e o que você precisa saber para se proteger.',
-                color: 'border-navy',
-              },
-              {
-                icon: '🧠',
-                title: 'Saúde',
-                description:
-                  'Saúde emocional do professor: burnout, limites, autocuidado. Ensinar bem começa por cuidar de si mesmo.',
-                color: 'border-gold',
-              },
-            ].map((pillar) => (
-              <div
-                key={pillar.title}
-                className={`bg-white border-t-4 ${pillar.color} rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow`}
-              >
-                <div className="text-5xl mb-4">{pillar.icon}</div>
-                <h3 className="text-2xl font-bold text-navy mb-3">{pillar.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{pillar.description}</p>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {fronts.map((front, index) => (
+              <div key={front} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                <div className="text-xs text-gold font-bold uppercase tracking-widest mb-3">0{index + 1}</div>
+                <p className="text-navy font-semibold leading-snug">{front}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Caio Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <div className="inline-block bg-gold/10 text-gold font-semibold text-sm px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-                Quem está por trás da Excellentia
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
-                17 anos dentro da sala de aula
-              </h2>
-              <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                Sou <strong className="text-navy">Caio Leite</strong>, professor há 17 anos na rede privada de São Paulo. Vi de perto tudo o que nenhuma faculdade te prepara: processos seletivos, currículos errados, professores sem direitos básicos, saúde emocional esgotada.
-              </p>
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                Criei a Excellentia porque o professor merece ser tratado como profissional — com ferramentas, conhecimento e suporte real para construir uma carreira sólida.
-              </p>
-              <Link
-                href="/sobre"
-                className="border-2 border-navy text-navy hover:bg-navy hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors inline-block"
-              >
-                Conhecer minha história
-              </Link>
-            </div>
-            <div className="order-1 md:order-2 flex justify-center">
-              <div className="relative w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/caio-hero.jpg"
-                  alt="Caio Leite — Fundador da Excellentia"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 288px, 320px"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* App Waitlist Section */}
       <section className="py-20 bg-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
-            🚀 Em breve
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block bg-gold-light text-navy text-sm font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
+            Plataforma em evolução
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            O app está chegando
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">O app Excellentia está em preparação</h2>
           <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
-            O aplicativo Excellentia vai trazer todo o conteúdo no seu celular, com trilhas personalizadas, conquistas e comunidade de professores. Cadastre-se para ser avisado em primeira mão.
+            A próxima etapa reunirá trilhas, evidências, cursos e recursos de desenvolvimento profissional em uma experiência mais contínua para professores e escolas.
           </p>
           {status === 'success' ? (
             <div className="bg-gold/20 border border-gold rounded-xl p-6 max-w-md mx-auto">
-              <p className="text-gold-light font-semibold text-lg">✓ {message}</p>
+              <p className="text-gold-light font-semibold text-lg">{message}</p>
             </div>
           ) : (
-            <form
-              onSubmit={handleWaitlist}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Seu melhor e-mail"
-                className="flex-1 px-4 py-3 rounded-lg text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold"
-              />
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="bg-gold hover:bg-yellow-600 disabled:opacity-60 text-white font-bold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
-              >
+            <form onSubmit={handleWaitlist} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Seu melhor e-mail" className="flex-1 px-4 py-3 rounded-lg text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold" />
+              <button type="submit" disabled={status === 'loading'} className="bg-gold hover:bg-gold-dark disabled:opacity-60 text-white font-bold px-6 py-3 rounded-lg transition-colors whitespace-nowrap">
                 {status === 'loading' ? 'Enviando...' : 'Quero ser avisado'}
               </button>
             </form>
           )}
-          {status === 'error' && (
-            <p className="text-red-400 mt-3 text-sm">{message}</p>
-          )}
+          {status === 'error' && <p className="text-red-400 mt-3 text-sm">{message}</p>}
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="py-20 bg-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-            Pronto para dar o próximo passo na sua carreira?
+            Escolas e professores operando com mais clareza.
           </h2>
           <p className="text-gray-600 text-lg mb-10">
-            Acesse todos os cursos, conteúdos e recursos por apenas R$69/mês. Cancele quando quiser.
+            Escolha a porta de entrada mais adequada ao seu momento: estrutura institucional para escolas ou desenvolvimento de carreira para professores.
           </p>
-          <Link
-            href="/assinatura"
-            className="bg-gold hover:bg-yellow-600 text-white font-extrabold px-10 py-5 rounded-xl text-xl transition-colors inline-block shadow-lg hover:shadow-xl"
-          >
-            Assinar agora — R$69/mês
-          </Link>
-          <p className="text-sm text-gray-400 mt-4">Garantia de 7 dias. Sem fidelidade.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/admin/login" className="bg-navy hover:bg-navy-dark text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors inline-block">
+              Área de escolas
+            </Link>
+            <Link href="/assinatura" className="bg-gold hover:bg-gold-dark text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors inline-block">
+              Assinatura docente
+            </Link>
+          </div>
         </div>
       </section>
     </>

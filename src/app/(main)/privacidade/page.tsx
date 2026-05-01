@@ -257,7 +257,6 @@ export default function PrivacidadePage() {
                 devem ser encaminhadas ao nosso Encarregado de Dados (DPO):
               </p>
               <p className="mt-2">
-                📧{' '}
                 <a
                   href="mailto:juridico@excellentia-edu.com"
                   className="text-gold hover:underline"

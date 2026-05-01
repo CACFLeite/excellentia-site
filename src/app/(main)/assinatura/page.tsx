@@ -30,12 +30,12 @@ const plans = [
 ]
 
 const benefits = [
-  { icon: '🎯', text: 'Curso de Gestão de Carreira para Professores (completo)' },
-  { icon: '📚', text: 'Acesso a todos os cursos futuros sem custo adicional' },
-  { icon: '📝', text: 'Artigos e materiais exclusivos para assinantes' },
-  { icon: '🎓', text: 'Certificado de conclusão em cada curso' },
-  { icon: '📱', text: 'Acesso antecipado ao app Excellentia (em breve)' },
-  { icon: '🔒', text: 'Cancele quando quiser, sem fidelidade' },
+  'Curso de Gestão de Carreira para Professores (completo)',
+  'Acesso a todos os cursos futuros sem custo adicional',
+  'Artigos e materiais exclusivos para assinantes',
+  'Certificado de conclusão em cada curso',
+  'Acesso antecipado ao app Excellentia quando disponível',
+  'Cancelamento sem fidelidade',
 ]
 
 export default function AssinaturaPage() {
@@ -48,10 +48,10 @@ export default function AssinaturaPage() {
             Planos Excellentia
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Invista na sua carreira
+            Desenvolvimento profissional docente
           </h1>
           <p className="text-xl text-gray-300">
-            Menos de um café por semana. Acesso a todo o conteúdo da plataforma.
+            Acesso contínuo a cursos, materiais e certificações para professores da educação privada.
           </p>
         </div>
       </section>
@@ -71,7 +71,7 @@ export default function AssinaturaPage() {
               >
                 {plan.highlight && (
                   <div className="bg-gold text-white text-center py-2 font-bold text-sm uppercase tracking-wide">
-                    ⭐ Melhor valor
+                    Melhor valor
                   </div>
                 )}
                 <div className="bg-white p-8">
@@ -88,9 +88,9 @@ export default function AssinaturaPage() {
 
                   <ul className="space-y-3 mb-8">
                     {benefits.map((benefit) => (
-                      <li key={benefit.text} className="flex items-start gap-3">
-                        <span className="text-xl flex-shrink-0">{benefit.icon}</span>
-                        <span className="text-gray-700 text-sm leading-snug">{benefit.text}</span>
+                      <li key={benefit} className="flex items-start gap-3">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-gold flex-shrink-0" />
+                        <span className="text-gray-700 text-sm leading-snug">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -112,7 +112,7 @@ export default function AssinaturaPage() {
 
           {/* Guarantee */}
           <div className="bg-white rounded-2xl border-2 border-gold/30 p-8 text-center shadow-sm">
-            <div className="text-5xl mb-4">🛡️</div>
+            <div className="mx-auto mb-4 h-12 w-12 rounded-full border-2 border-gold flex items-center justify-center text-gold font-extrabold">7</div>
             <h3 className="text-2xl font-bold text-navy mb-3">Garantia de 7 dias</h3>
             <p className="text-gray-600 max-w-xl mx-auto">
               Se por qualquer motivo você não ficar satisfeito nos primeiros 7 dias, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.

@@ -15,8 +15,8 @@ export default function AcessoEscolarPage({ searchParams }: { searchParams?: { c
       <div className="w-full max-w-md">
         {/* Logo / título */}
         <div className="text-center mb-10">
-          <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center mx-auto mb-4 text-3xl">
-            🏫
+          <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center mx-auto mb-4 text-white font-extrabold">
+            Ex
           </div>
           <h1 className="text-2xl font-bold text-white">Acesso Corporativo</h1>
           <p className="text-gray-400 mt-2 text-sm leading-relaxed">

@@ -43,8 +43,8 @@ export default function ContatoForm() {
   if (status === 'success') {
     return (
       <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-10 text-center">
-        <div className="text-5xl mb-4">✅</div>
-        <h3 className="text-2xl font-bold text-navy mb-3">Mensagem enviada!</h3>
+        <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-green-100 text-green-700 font-extrabold flex items-center justify-center">OK</div>
+        <h3 className="text-2xl font-bold text-navy mb-3">Mensagem enviada</h3>
         <p className="text-gray-600">{message}</p>
         <button
           onClick={() => setStatus('idle')}

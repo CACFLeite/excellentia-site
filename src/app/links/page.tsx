@@ -5,13 +5,13 @@ import Link from 'next/link'
 // ─── Adicionar ou remover links aqui ───────────────────────────────────────
 const LINKS = [
   {
-    emoji: '🎓',
-    label: 'Currículo Gratuito em 24h',
+    tag: 'CV',
+    label: 'Currículo profissional em 24h',
     description: 'Monte seu currículo profissional com a gente',
     href: '/curriculo-professor',
   },
   {
-    emoji: '📖',
+    tag: 'Artigos',
     label: 'Blog — Carreira Docente',
     description: 'Artigos sobre carreira, direitos e saúde do professor',
     href: '/blog',
@@ -46,10 +46,12 @@ export default function LinksPage() {
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 1rem',
-            fontSize: '2rem',
+            fontSize: '1rem',
+            color: '#ffffff',
+            fontWeight: 800,
           }}
         >
-          🎓
+          Ex
         </div>
         <h1
           style={{
@@ -70,7 +72,7 @@ export default function LinksPage() {
             maxWidth: 280,
           }}
         >
-          A plataforma do professor profissional
+          Formação, carreira e conformidade para a educação privada
         </p>
       </div>
 
@@ -111,7 +113,7 @@ export default function LinksPage() {
               ;(e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)'
             }}
           >
-            <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{link.emoji}</span>
+            <span style={{ fontSize: '0.72rem', flexShrink: 0, textTransform: 'uppercase', letterSpacing: '.04em', backgroundColor: 'rgba(255,255,255,.16)', borderRadius: 999, padding: '.35rem .5rem' }}>{link.tag}</span>
             <div>
               <div style={{ lineHeight: 1.3 }}>{link.label}</div>
               {link.description && (

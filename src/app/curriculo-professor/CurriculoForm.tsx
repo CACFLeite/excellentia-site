@@ -95,8 +95,8 @@ export default function CurriculoForm() {
   if (status === 'success') {
     return (
       <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-10 text-center">
-        <div className="text-5xl mb-4">✅</div>
-        <h3 className="text-2xl font-bold text-navy mb-3">Tudo certo!</h3>
+        <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-green-100 text-green-700 font-extrabold flex items-center justify-center">OK</div>
+        <h3 className="text-2xl font-bold text-navy mb-3">Solicitação recebida</h3>
         <p className="text-gray-700 text-lg">
           Recebemos tudo! Seu currículo profissional será enviado em até 24 horas para{' '}
           <strong>{form.email}</strong>. Fique de olho na caixa de entrada (e no spam, por

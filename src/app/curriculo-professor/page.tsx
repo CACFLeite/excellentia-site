@@ -23,10 +23,10 @@ export default function CurriculoPage() {
             Processo Seletivo
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-            Seu currículo em 24h, feito por quem conhece o processo seletivo das escolas
+            Currículo profissional para professores da educação privada
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            17 anos de experiência em escolas particulares transformados em um currículo que chama atenção dos coordenadores certos.
+            Uma entrega objetiva para apresentar sua trajetória com clareza, organização e linguagem adequada aos processos seletivos escolares.
           </p>
         </div>
       </section>
@@ -51,12 +51,12 @@ export default function CurriculoPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
-              { icon: '✅', title: 'Entrega em 24h', desc: 'Você envia as informações, recebe o currículo pronto no dia seguinte.' },
-              { icon: '🎯', title: 'Focado nas escolas', desc: 'Feito para passar pelo crivo de coordenadores de escolas particulares.' },
-              { icon: '👨‍🏫', title: 'Experiência real', desc: 'Baseado em 17 anos participando e avaliando processos seletivos.' },
+              { number: '01', title: 'Entrega em 24h', desc: 'Você envia as informações e recebe o currículo pronto no dia seguinte.' },
+              { number: '02', title: 'Foco em escolas privadas', desc: 'Estrutura pensada para leitura de coordenação, direção e RH escolar.' },
+              { number: '03', title: 'Leitura profissional', desc: 'Organização da experiência, formação e diferenciais em linguagem institucional.' },
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                <div className="text-3xl mb-3">{item.icon}</div>
+                <div className="text-xs text-gold font-bold uppercase tracking-widest mb-3">{item.number}</div>
                 <h3 className="font-bold text-navy text-lg mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
@@ -76,23 +76,23 @@ export default function CurriculoPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
             {[
               {
-                emoji: '📖',
-                title: 'Teoria',
+                number: '01',
+                title: 'Base conceitual',
                 desc: 'Conceito pedagógico claro, aplicado à realidade do professor',
               },
               {
-                emoji: '🎯',
+                number: '02',
                 title: 'Situação real',
                 desc: 'Um cenário do cotidiano escolar que você vai enfrentar',
               },
               {
-                emoji: '💬',
+                number: '03',
                 title: 'Sua resposta',
                 desc: 'Você responde com suas próprias palavras, sem gabarito',
               },
               {
-                emoji: '🔍',
-                title: 'Feedback único',
+                number: '04',
+                title: 'Feedback estruturado',
                 desc: 'A IA analisa com rubricas invisíveis e devolve feedback personalizado para desenvolver suas skills',
               },
             ].map((card) => (
@@ -100,7 +100,7 @@ export default function CurriculoPage() {
                 key={card.title}
                 className="bg-white/10 border border-white/20 rounded-xl p-6 flex gap-4 items-start hover:bg-white/15 transition-colors"
               >
-                <span className="text-4xl flex-none">{card.emoji}</span>
+                <span className="h-10 w-10 rounded-full bg-gold/15 text-gold font-extrabold flex-none flex items-center justify-center">{card.number}</span>
                 <div>
                   <h3 className="font-bold text-gold text-lg mb-1">{card.title}</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">{card.desc}</p>
@@ -110,7 +110,7 @@ export default function CurriculoPage() {
           </div>
 
           <p className="mt-10 text-xl font-semibold text-gold">
-            Sem certo ou errado. Sem múltipla escolha. Só desenvolvimento real.
+            Sem depender de múltipla escolha. O foco é desenvolvimento profissional com contexto, critério e devolutiva.
           </p>
         </div>
       </section>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Sobre — Excellentia',
-  description: 'Conheça Caio Leite, professor há 17 anos na rede privada de São Paulo e fundador da Excellentia.',
+  description: 'Conheça a origem institucional da Excellentia: formação, carreira e conformidade para a educação privada.'
 }
 
 export default function SobrePage() {
@@ -19,7 +19,7 @@ export default function SobrePage() {
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Sobre a Excellentia</h1>
             <p className="text-xl text-gray-300">
-              De professor a fundador. Uma plataforma construída de dentro da sala de aula para fora.
+              Uma empresa construída a partir da experiência concreta da educação privada e das exigências reais de gestão escolar.
             </p>
           </div>
         </div>
@@ -45,16 +45,16 @@ export default function SobrePage() {
                 Caio Leite
               </h2>
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                Professor há 17 anos na rede privada de São Paulo, já passei por escolas de todos os tipos — do colegiado tradicional ao bilíngue, do sistema de apostila ao projeto pedagógico alternativo. Participei de mais processos seletivos do que consigo contar.
+                A Excellentia foi fundada por Caio Leite, professor com 17 anos de atuação na rede privada de São Paulo, com passagem por diferentes modelos escolares, processos seletivos, rotinas pedagógicas e contextos institucionais.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                E em todos esses anos, percebi um problema que ninguém resolve: professores excelentes perdendo oportunidades por não saberem como se apresentar. Currículos errados. Entrevistas mal conduzidas. Aulas teste que destroçam professores experientes.
+                Essa experiência revelou uma lacuna recorrente: escolas operando com processos formativos e documentais frágeis, e professores tentando construir carreira sem orientação prática sobre posicionamento, direitos, saúde profissional e desempenho em processos seletivos.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                A faculdade ensina didática, pedagogia, metodologia — mas não ensina como <em>construir uma carreira docente</em>. Não fala de direitos trabalhistas, de saúde emocional, de como navegar a política interna das escolas.
+                A formação inicial ensina fundamentos pedagógicos, mas raramente organiza a dimensão profissional e institucional do trabalho docente: carreira, documentação, conformidade, comunicação, riscos psicossociais e evidências de formação.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                A Excellentia nasceu dessa lacuna. É a plataforma que eu gostaria que existisse quando comecei.
+                A Excellentia nasce dessa lacuna: uma plataforma para profissionalizar a relação entre escolas, professores, formação continuada e obrigações operacionais da educação privada.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="bg-navy text-white rounded-xl px-5 py-3 text-center">
@@ -66,8 +66,8 @@ export default function SobrePage() {
                   <div className="text-sm text-gray-300">rede privada</div>
                 </div>
                 <div className="bg-navy text-white rounded-xl px-5 py-3 text-center">
-                  <div className="text-2xl font-extrabold text-gold">3</div>
-                  <div className="text-sm text-gray-300">pilares de atuação</div>
+                  <div className="text-2xl font-extrabold text-gold">5</div>
+                  <div className="text-sm text-gray-300">frentes de atuação</div>
                 </div>
               </div>
             </div>
@@ -79,17 +79,16 @@ export default function SobrePage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="section-title">Os 3 pilares da Excellentia</h2>
+            <h2 className="section-title">Frentes de atuação da Excellentia</h2>
             <p className="section-subtitle">
-              Três dimensões que todo professor profissional precisa dominar.
+              Áreas integradas para apoiar escolas e professores com método, evidência e continuidade.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 number: '01',
-                icon: '🎯',
-                title: 'Carreira',
+                title: 'Carreira docente',
                 items: [
                   'Currículo profissional para escolas particulares',
                   'Como se preparar para processos seletivos',
@@ -100,8 +99,7 @@ export default function SobrePage() {
               },
               {
                 number: '02',
-                icon: '⚖️',
-                title: 'Direitos',
+                title: 'Conformidade e direitos',
                 items: [
                   'NR1 — Gestão de riscos psicossociais',
                   'Lei Lucas — Prevenção a afogamentos',
@@ -112,8 +110,7 @@ export default function SobrePage() {
               },
               {
                 number: '03',
-                icon: '🧠',
-                title: 'Saúde',
+                title: 'Saúde profissional',
                 items: [
                   'Burnout docente: identificar e prevenir',
                   'Limites saudáveis com alunos e pais',
@@ -125,9 +122,9 @@ export default function SobrePage() {
             ].map((pillar) => (
               <div key={pillar.title} className="bg-white rounded-2xl shadow-md p-8">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-4xl">{pillar.icon}</span>
+                  <div className="h-11 w-11 rounded-full bg-gold/10 text-gold font-extrabold flex items-center justify-center">{pillar.number}</div>
                   <div>
-                    <div className="text-xs text-gold font-bold uppercase tracking-widest">Pilar {pillar.number}</div>
+                    <div className="text-xs text-gold font-bold uppercase tracking-widest">Frente {pillar.number}</div>
                     <h3 className="text-2xl font-bold text-navy">{pillar.title}</h3>
                   </div>
                 </div>
@@ -148,9 +145,9 @@ export default function SobrePage() {
       {/* CTA */}
       <section className="py-16 bg-navy text-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-4">Pronto para levar sua carreira a sério?</h2>
+          <h2 className="text-3xl font-bold mb-4">Uma plataforma para profissionalizar a educação privada.</h2>
           <p className="text-gray-300 mb-8">
-            Junte-se à Excellentia e tenha acesso a todo o conteúdo por R$69/mês.
+            Escolas encontram estrutura operacional. Professores encontram desenvolvimento de carreira.
           </p>
           <Link
             href="/assinatura"

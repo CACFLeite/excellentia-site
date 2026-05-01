@@ -3,7 +3,7 @@ import ContatoForm from './ContatoForm'
 
 export const metadata: Metadata = {
   title: 'Contato — Excellentia',
-  description: 'Entre em contato com a Excellentia. Estamos aqui para ajudar professores.',
+  description: 'Entre em contato com a Excellentia para assuntos de escolas, professores, cursos e suporte operacional.',
 }
 
 export default function ContatoPage() {
@@ -15,7 +15,7 @@ export default function ContatoPage() {
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Fale com a gente</h1>
             <p className="text-xl text-gray-300">
-              Tem dúvidas, sugestões ou quer saber mais? Estamos aqui.
+              Canal para escolas, professores e parceiros que precisam falar com a Excellentia.
             </p>
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function ContatoPage() {
               <h2 className="text-xl font-bold text-navy mb-6">Canais de contato</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="bg-gold/10 rounded-lg p-3 text-2xl flex-shrink-0">📧</div>
+                  <div className="bg-gold/10 rounded-lg p-3 text-xs font-bold text-gold flex-shrink-0">E-mail</div>
                   <div>
                     <p className="font-semibold text-navy text-sm mb-1">E-mail</p>
                     <a
@@ -41,14 +41,14 @@ export default function ContatoPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-gold/10 rounded-lg p-3 text-2xl flex-shrink-0">⏱️</div>
+                  <div className="bg-gold/10 rounded-lg p-3 text-xs font-bold text-gold flex-shrink-0">Prazo</div>
                   <div>
                     <p className="font-semibold text-navy text-sm mb-1">Tempo de resposta</p>
                     <p className="text-gray-600 text-sm">Em até 24 horas úteis</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="bg-gold/10 rounded-lg p-3 text-2xl flex-shrink-0">📍</div>
+                  <div className="bg-gold/10 rounded-lg p-3 text-xs font-bold text-gold flex-shrink-0">Base</div>
                   <div>
                     <p className="font-semibold text-navy text-sm mb-1">Localização</p>
                     <p className="text-gray-600 text-sm">São Paulo, SP — Brasil</p>
