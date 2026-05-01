@@ -141,6 +141,11 @@ export default function PrivacidadePage() {
                   amparada pelas mesmas salvaguardas (SCCs).
                 </li>
                 <li>
+                  <strong>Neon/Postgres.</strong> — banco de dados utilizado para armazenar registros
+                  operacionais da plataforma, como escola, colaboradores, convites, respostas,
+                  certificados, PGR e comunicações, com controles de acesso e segurança aplicáveis.
+                </li>
+                <li>
                   <strong>MailerSend/MailerLite.</strong> — envio de e-mails transacionais, como convites de acesso e avisos operacionais do serviço.
                 </li>
               </ul>
@@ -200,6 +205,14 @@ export default function PrivacidadePage() {
                 </a>
                 . Respondemos em até 15 dias úteis.
               </p>
+              <p className="mt-3">
+                Para proteger o titular e evitar entrega indevida de dados a terceiros, solicitações
+                de acesso, cópia, portabilidade ou exclusão poderão exigir verificação razoável de
+                identidade, confirmação por canal já vinculado ao cadastro, validação de dados
+                mínimos e, quando aplicável, comprovação de poderes de representação. A Excellentia
+                poderá recusar ou suspender o atendimento quando houver dúvida fundada sobre a
+                identidade do solicitante ou risco de fraude.
+              </p>
             </section>
 
             <section>
@@ -227,8 +240,9 @@ export default function PrivacidadePage() {
             <section>
               <h2 className="text-xl font-bold text-navy mb-3">11. Alterações nesta Política</h2>
               <p>
-                Esta Política pode ser atualizada periodicamente. Notificaremos você por e-mail ou
-                aviso na plataforma em caso de alterações relevantes. A data da última atualização
+                Esta Política pode ser atualizada periodicamente. Alterações relevantes serão
+                comunicadas por aviso na plataforma e/ou por e-mail quando houver canal de contato
+                válido e fluxo operacional ativo para essa comunicação. A data da última atualização
                 está indicada no início deste documento.
               </p>
             </section>

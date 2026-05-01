@@ -15,6 +15,17 @@ const sourceFiles = [
   'excellentia-nr1-aula08-rubrica-v1-rascunho-2026-04-30.md',
 ];
 
+const lessonTitles = [
+  'Introdução à NR-1 e riscos psicossociais',
+  'Sinais iniciais de burnout e desgaste',
+  'Mudanças institucionais, sobrecarga e registros',
+  'Comunicação de riscos sem exposição indevida',
+  'Mapeamento de riscos em diferentes funções',
+  'Canais formais e comunicação profissional',
+  'Canal anônimo, proteção e segurança psicológica',
+  'Aplicação prática e registro de conclusão',
+];
+
 function section(markdown, heading) {
   const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const re = new RegExp(`## ${escaped}[^\\n]*\\n([\\s\\S]*?)(?=\\n## |$)`, 'i');
@@ -49,7 +60,7 @@ async function main() {
     const order = i + 1;
     const file = path.join(workspace, sourceFiles[i]);
     const markdown = fs.readFileSync(file, 'utf8');
-    const title = firstNonEmptyLine(markdown).replace(/^#\s*/, '') || `Aula ${String(order).padStart(2, '0')}`;
+    const title = lessonTitles[i] || firstNonEmptyLine(markdown).replace(/^#\s*/, '') || `Aula ${String(order).padStart(2, '0')}`;
     const prompt =
       section(markdown, `Situação-problema — versão final Aula ${String(order).padStart(2, '0')}`) ||
       section(markdown, `Situação-problema — versão final Aula ${order}`) ||

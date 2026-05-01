@@ -2,6 +2,61 @@
 
 import { useEffect, useState } from 'react';
 
+const emphasisTerms = [
+  'descreva',
+  'cite',
+  'explique',
+  'diferenciar',
+  'inclua',
+  'incluir',
+  'identificar',
+  'identifique',
+  'registrar',
+  'comunicar',
+  'formular',
+  'relatar',
+  'nomear',
+  'usar',
+  'contribuir',
+  'fortalecer',
+  'observar',
+];
+
+function emphasizeText(text: string) {
+  const pattern = new RegExp(`\\b(${emphasisTerms.join('|')})\\b`, 'gi');
+  const parts = text.split(pattern);
+  return parts.map((part, index) => (
+    emphasisTerms.includes(part.toLowerCase()) ? <strong key={`${part}-${index}`}>{part}</strong> : part
+  ));
+}
+
+function PromptText({ text }: { text: string }) {
+  return (
+    <div className="text-gray-700 leading-relaxed mb-5 space-y-3">
+      {text.split('\n').map((line, index) => {
+        const trimmed = line.trim();
+        if (!trimmed) return null;
+        const isCoreQuestion = trimmed.startsWith('Pensando na sua') || trimmed.startsWith('Pensando na rotina');
+        const itemMatch = trimmed.match(/^(\d+\.\s+)(.*)$/);
+
+        if (itemMatch) {
+          return (
+            <p key={index} className="pl-3">
+              <span className="font-bold text-navy">{itemMatch[1]}</span>{emphasizeText(itemMatch[2])}
+            </p>
+          );
+        }
+
+        return (
+          <p key={index} className={isCoreQuestion ? 'font-bold text-navy' : undefined}>
+            {emphasizeText(trimmed)}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
 type Lesson = {
   id: string;
   order: number;
@@ -142,28 +197,14 @@ export default function NR1CourseClient({ token }: { token: string }) {
           <a href={`/comunicacao?convite=${encodeURIComponent(token)}`} className="inline-block mt-4 bg-gold hover:bg-yellow-600 text-white font-bold px-5 py-3 rounded-xl text-sm">
             Acessar canal de comunicação
           </a>
-          {isComplete && (
+          {isComplete && data.certificate && (
             <div className="mt-4 bg-white text-navy rounded-xl p-5">
-              {data.certificate ? (
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-gold mb-1">Certificado emitido</p>
-                  <p className="font-bold">Código de verificação: {data.certificate.verificationCode}</p>
-                  <p className="text-sm text-gray-600 mt-1">Este certificado comprova curso ofertado e respostas enviadas, sem nota pública qualitativa.</p>
-                  <a href={`/certificados/${data.certificate.verificationCode}`} className="inline-block mt-3 text-sm font-bold text-gold hover:underline">
-                    Abrir certificado →
-                  </a>
-                </div>
-              ) : (
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <div>
-                    <p className="font-bold">Todas as atividades foram respondidas.</p>
-                    <p className="text-sm text-gray-600 mt-1">Você já pode emitir o registro de conclusão do curso.</p>
-                  </div>
-                  <button onClick={issueCertificate} disabled={issuingCertificate} className="bg-gold hover:bg-yellow-600 disabled:opacity-50 text-white font-bold px-5 py-3 rounded-xl text-sm">
-                    {issuingCertificate ? 'Emitindo...' : 'Emitir certificado'}
-                  </button>
-                </div>
-              )}
+              <p className="text-xs font-bold uppercase tracking-wide text-gold mb-1">Certificado emitido</p>
+              <p className="font-bold">Código de verificação: {data.certificate.verificationCode}</p>
+              <p className="text-sm text-gray-600 mt-1">Este certificado comprova curso ofertado e respostas enviadas, sem nota pública qualitativa.</p>
+              <a href={`/certificados/${data.certificate.verificationCode}`} className="inline-block mt-3 text-sm font-bold text-gold hover:underline">
+                Abrir certificado →
+              </a>
             </div>
           )}
         </div>
@@ -200,7 +241,7 @@ export default function NR1CourseClient({ token }: { token: string }) {
               {currentLesson.activity && (
                 <div className="p-5 md:p-6 border-t border-gray-100">
                   <h3 className="text-lg font-bold text-navy mb-3">Situação-problema</h3>
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-line mb-5">{currentLesson.activity.prompt}</p>
+                  <PromptText text={currentLesson.activity.prompt} />
 
                   <textarea
                     value={answers[currentLesson.activity.id] ?? ''}
@@ -229,7 +270,17 @@ export default function NR1CourseClient({ token }: { token: string }) {
               )}
               <div className="p-5 md:p-6 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                 <button onClick={() => setCurrentLessonIndex(Math.max(0, currentLessonIndex - 1))} disabled={currentLessonIndex === 0} className="bg-white border border-gray-200 hover:border-gold disabled:opacity-50 text-navy font-bold px-5 py-3 rounded-xl text-sm">Aula anterior</button>
-                <button onClick={() => setCurrentLessonIndex(Math.min(data.course.lessons.length - 1, currentLessonIndex + 1))} disabled={currentLessonIndex === data.course.lessons.length - 1} className="bg-navy hover:bg-blue-950 disabled:opacity-50 text-white font-bold px-5 py-3 rounded-xl text-sm">Próxima aula</button>
+                {currentLessonIndex === data.course.lessons.length - 1 ? (
+                  data.certificate ? (
+                    <a href={`/certificados/${data.certificate.verificationCode}`} className="bg-gold hover:bg-yellow-600 text-white font-bold px-5 py-3 rounded-xl text-sm text-center">Abrir certificado</a>
+                  ) : (
+                    <button onClick={issueCertificate} disabled={!isComplete || issuingCertificate} className="bg-gold hover:bg-yellow-600 disabled:opacity-50 text-white font-bold px-5 py-3 rounded-xl text-sm">
+                      {issuingCertificate ? 'Emitindo...' : 'Emitir certificado'}
+                    </button>
+                  )
+                ) : (
+                  <button onClick={() => setCurrentLessonIndex(Math.min(data.course.lessons.length - 1, currentLessonIndex + 1))} className="bg-navy hover:bg-blue-950 text-white font-bold px-5 py-3 rounded-xl text-sm">Próxima aula</button>
+                )}
               </div>
             </article>
           )}
