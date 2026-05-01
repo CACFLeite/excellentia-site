@@ -77,6 +77,21 @@ const armazenamentoOptions = [
   { value: 'nao_sei', label: 'Não sei' },
 ];
 
+const produtosLimpezaOptions = [
+  { value: 'saneantes_comuns', label: 'Produtos comuns de limpeza escolar (detergente, desinfetante, água sanitária, álcool)' },
+  { value: 'produtos_profissionais', label: 'Produtos profissionais/concentrados usados por equipe própria ou terceirizada' },
+  { value: 'dedetizacao_terceirizada', label: 'Produtos aplicados por empresa terceirizada de dedetização/fumigação' },
+  { value: 'nao_sei', label: 'Não sei detalhar os produtos utilizados' },
+  { value: 'outro', label: 'Outro / observação específica' },
+];
+
+const reagentesLaboratorioOptions = [
+  { value: 'nao_usa', label: 'Não usa reagentes químicos; apenas demonstrações simples/seguras' },
+  { value: 'baixo_risco', label: 'Usa poucos reagentes de baixo risco, em atividades supervisionadas' },
+  { value: 'usa_reagentes', label: 'Usa reagentes químicos e precisa revisar lista, FISPQ e armazenamento' },
+  { value: 'nao_sei', label: 'Não sei informar; necessário consultar professor/responsável pelo laboratório' },
+];
+
 // C.3 — Riscos Biológicos
 const contatoCriancasDoentesOptions = [
   { value: 'frequente', label: 'Sim, frequentemente — às vezes ficamos com a criança doente por horas' },
@@ -300,14 +315,23 @@ const BlockC: React.FC<BlockCProps> = ({ formData, onFormDataChange }) => {
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-gray-800 border-b pb-2">C.2 — Riscos Químicos</h3>
 
-        <TextInput
+        <CheckboxGroup
           id="C07"
-          label="C07 — Quais produtos de limpeza são utilizados na escola?"
-          value={formData.C07 || ''}
-          onChange={(value) => onFormDataChange('C07', value)}
-          placeholder="Ex: Água sanitária, detergente, desinfetante de piso, álcool 70%"
+          label="C07 — Que tipo de produtos de limpeza/saneantes são utilizados?"
+          values={formData.C07 || []}
+          onChange={(values) => onFormDataChange('C07', values)}
+          options={produtosLimpezaOptions}
           required
         />
+        {(formData.C07 || []).includes('outro') && (
+          <TextInput
+            id="C07_outro"
+            label="Observação sobre produtos de limpeza, se houver:"
+            value={formData.C07_outro || ''}
+            onChange={(value) => onFormDataChange('C07_outro', value)}
+            placeholder="Ex: produto específico de piscina, limpeza pesada terceirizada, etc."
+          />
+        )}
 
         <SelectInput
           id="C08"
@@ -319,14 +343,20 @@ const BlockC: React.FC<BlockCProps> = ({ formData, onFormDataChange }) => {
         />
 
         {temLabCiencias && (
-          <TextInput
+          <SelectInput
             id="C09"
-            label="C09 — O laboratório de ciências usa reagentes químicos? Quais?"
+            label="C09 — Como a escola usa reagentes químicos no laboratório de ciências?"
             value={formData.C09 || ''}
             onChange={(value) => onFormDataChange('C09', value)}
-            placeholder="Ex: Ácido clorídrico, hidróxido de sódio, álcool etílico"
+            options={reagentesLaboratorioOptions}
             required
           />
+        )}
+
+        {temLabCiencias && ['usa_reagentes', 'nao_sei'].includes(formData.C09 || '') && (
+          <div className="rounded-lg border border-amber-100 bg-amber-50 p-3 text-sm text-amber-900">
+            Para a versão final do PGR, a lista exata de reagentes, FISPQ e armazenamento deve ser confirmada com quem opera o laboratório. O sistema marcará isso como pendência técnica quando a direção não souber informar.
+          </div>
         )}
 
         <SelectInput

@@ -97,7 +97,12 @@ const BlockF: React.FC<BlockFProps> = ({ formData, onFormDataChange }) => {
         label="F05 — Qual é o telefone do responsável pelo PGR?"
         value={formData.F05_telefone || ''}
         onChange={(value) => onFormDataChange('F05_telefone', value)}
-        placeholder="Ex: (11) 99999-9999"
+        placeholder="Ex: (11) 3333-4444 ou (11) 99999-9999"
+        mask="phone"
+        inputMode="tel"
+        maxLength={15}
+        pattern="^\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$"
+        helperText="Use o padrão (DDD) número fixo ou móvel."
         required
       />
 
@@ -113,7 +118,7 @@ const BlockF: React.FC<BlockFProps> = ({ formData, onFormDataChange }) => {
       <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-md">
         <p className="text-sm text-blue-800">
           <strong>📋 Aviso Legal:</strong> O PGR gerado deve ser armazenado por no mínimo <strong>20 anos</strong>.
-          Deve estar disponível para fiscalização do MTE e para os trabalhadores.
+          A escola continua responsável pela guarda e apresentação do documento às autoridades e trabalhadores quando exigido. A Excellentia pode manter cópia digital e registros de geração na plataforma enquanto houver contrato/obrigação aplicável, como apoio documental e trilha de evidência.
           Base legal: NR-1 (Portaria MTE nº 1.419/2024, vigência 26/05/2025).
         </p>
       </div>

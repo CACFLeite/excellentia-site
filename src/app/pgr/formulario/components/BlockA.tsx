@@ -20,14 +20,6 @@ const cnaeOptions = [
   { value: 'outro', label: 'Outro (especificar)' },
 ];
 
-const riskGradeOptions = [
-  { value: '1', label: 'Grau 1' },
-  { value: '2', label: 'Grau 2' },
-  { value: '3', label: 'Grau 3' },
-  { value: '4', label: 'Grau 4' },
-  { value: 'nao_sei', label: 'Não sei (a plataforma calculará)' },
-];
-
 const yesNoOptions = [
   { value: 'sim', label: 'Sim' },
   { value: 'nao', label: 'Não' },
@@ -76,10 +68,25 @@ const BlockA: React.FC<BlockAProps> = ({ formData, onFormDataChange }) => {
         />
       )}
       <TextInput
-        id="A05"
-        label="A05 — Qual é o telefone e e-mail de contato da escola?"
-        value={formData.A05 || ''}
-        onChange={(value) => onFormDataChange('A05', value)}
+        id="A05_telefone"
+        label="A05 — Qual é o telefone de contato da escola?"
+        value={formData.A05_telefone || ''}
+        onChange={(value) => onFormDataChange('A05_telefone', value)}
+        placeholder="Ex: (11) 3333-4444 ou (11) 99999-9999"
+        mask="phone"
+        inputMode="tel"
+        maxLength={15}
+        pattern="^\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$"
+        helperText="Use o padrão (DDD) número fixo ou móvel."
+        required
+      />
+      <TextInput
+        id="A05_email"
+        label="A05 — Qual é o e-mail de contato da escola?"
+        value={formData.A05_email || ''}
+        onChange={(value) => onFormDataChange('A05_email', value)}
+        type="email"
+        placeholder="Ex: contato@escola.com.br"
         required
       />
       <SelectInput
@@ -99,14 +106,9 @@ const BlockA: React.FC<BlockAProps> = ({ formData, onFormDataChange }) => {
           required
         />
       )}
-      <SelectInput
-        id="A07"
-        label="A07 — Qual é o Grau de Risco da escola?"
-        value={formData.A07 || ''}
-        onChange={(value) => onFormDataChange('A07', value)}
-        options={riskGradeOptions}
-        required
-      />
+      <div className="rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm text-blue-950">
+        O grau de risco será estimado pelo sistema a partir do CNAE, das atividades, ambientes e respostas do formulário. Se houver laudo técnico ou enquadramento oficial divergente, ele deve prevalecer na validação final.
+      </div>
       <TextInput
         id="A08"
         label="A08 — Quantos funcionários trabalham nesta unidade?"

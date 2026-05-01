@@ -88,6 +88,7 @@ const BlockD: React.FC<BlockDProps> = ({ formData, onFormDataChange }) => {
         values={formData.D01 || []}
         onChange={(values) => onFormDataChange('D01', values)}
         options={episOptions}
+        exclusiveValues={['nenhum']}
         required
       />
       {(formData.D01 || []).includes('outro') && (
@@ -115,6 +116,7 @@ const BlockD: React.FC<BlockDProps> = ({ formData, onFormDataChange }) => {
         values={formData.D03 || []}
         onChange={(values) => onFormDataChange('D03', values)}
         options={treinamentosOptions}
+        exclusiveValues={['nenhum']}
         required
       />
       {(formData.D03 || []).includes('outro') && (

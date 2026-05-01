@@ -13,6 +13,7 @@ interface CheckboxGroupProps {
   onChange: (values: string[]) => void;
   options: CheckboxOption[];
   required?: boolean;
+  exclusiveValues?: string[];
 }
 
 const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
@@ -22,10 +23,15 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   onChange,
   options,
   required = false,
+  exclusiveValues = [],
 }) => {
   const handleChange = (value: string, checked: boolean) => {
     if (checked) {
-      onChange([...values, value]);
+      if (exclusiveValues.includes(value)) {
+        onChange([value]);
+      } else {
+        onChange([...values.filter((v) => !exclusiveValues.includes(v)), value]);
+      }
     } else {
       onChange(values.filter((v) => v !== value));
     }

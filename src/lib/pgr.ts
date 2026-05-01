@@ -168,8 +168,20 @@ function buildMarkdownTable(rows: string[][]) {
   ].join('\n');
 }
 
+function estimateRiskGrade(formData: PgrFormData, risks: RiskItem[]) {
+  const cnae = String(formData.A06 || '');
+  const employeeCount = Number(formData.A08 || 0);
+  const hasHighRisk = risks.some((risk) => risk.level === 'alto');
+  const hasLabOrKitchen = hasAny(formData.B01, ['lab_ciencias', 'cozinha_refeitorio']);
+
+  if (hasHighRisk || hasLabOrKitchen || employeeCount > 100) return 'Grau estimado 2 — validar tecnicamente conforme CNAE, ambientes e atividades reais';
+  if (cnae.startsWith('85') || employeeCount > 30) return 'Grau estimado 1/2 — escola típica, sujeito a validação pelo CNAE e atividades acessórias';
+  return 'Grau estimado 1 — sujeito a validação pelo CNAE e atividades reais';
+}
+
 export function generatePgrDocument(formData: PgrFormData) {
   const risks = buildRiskInventory(formData);
+  const estimatedRiskGrade = estimateRiskGrade(formData, risks);
   const now = new Date();
   const organizationName = formData.A01 || 'Escola/organização não informada';
 
@@ -199,7 +211,7 @@ export function generatePgrDocument(formData: PgrFormData) {
     `Este rascunho organiza informações para o Gerenciamento de Riscos Ocupacionais previsto na NR-1. O PGR deve conter, no mínimo, inventário de riscos e plano de ação, ser mantido por estabelecimento, revisado quando houver mudanças relevantes e preservado historicamente. O documento não substitui inspeção técnica, medições ambientais, laudos, PCMSO, AEP/AET ou validação por profissional habilitado quando aplicável.\n\n` +
     `## Caracterização resumida\n\n` +
     `- CNAE informado: ${formData.A06 === 'outro' ? formData.A06_outro : formData.A06 || 'não informado'}\n` +
-    `- Grau de risco informado: ${formData.A07 || 'não informado'}\n` +
+    `- Grau de risco calculado preliminarmente: ${estimatedRiskGrade}\n` +
     `- Número de funcionários na unidade: ${formData.A08 || 'não informado'}\n` +
     `- Quadro por cargo: ${formData.A09 || 'não informado'}\n` +
     `- Terceirizados: ${formData.A10 || 'não informado'} ${formData.A10_sub ? `(${formData.A10_sub})` : ''}\n\n` +
@@ -220,6 +232,7 @@ export function generatePgrDocument(formData: PgrFormData) {
       risks,
       source: 'excellentia-pgr-form-v1',
       legalNote: 'Rascunho operacional baseado na estrutura mínima da NR-1: inventário de riscos e plano de ação. Requer validação técnica antes de uso formal.',
+      estimatedRiskGrade,
     },
   };
 }

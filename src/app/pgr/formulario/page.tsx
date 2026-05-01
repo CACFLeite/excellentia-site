@@ -2,7 +2,7 @@
 "use client";
 
 import React, { Suspense, useMemo, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import BlockA from './components/BlockA';
 import BlockB from './components/BlockB';
 import BlockC from './components/BlockC';
@@ -14,6 +14,7 @@ const totalSteps = 6; // A, B, C, D, E, F
 
 function PGRFormPageContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const organizationId = useMemo(() => searchParams.get('organizationId') || searchParams.get('orgId') || '', [searchParams]);
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<Record<string, any>>({});
@@ -48,6 +49,19 @@ function PGRFormPageContent() {
         return;
       }
 
+      const accidentDescription = String(formData.E02_descricao || '').toLowerCase();
+      const occupationalIllnessTerms = ['doença ocupacional', 'doenca ocupacional', 'burnout', 'depressão', 'depressao', 'ler', 'dort', 'disfonia'];
+      const accidentTerms = ['queda', 'corte', 'queimadura', 'batida', 'escorreg', 'trajeto', 'choque', 'fratura', 'acidente'];
+      if (
+        formData.E01 === 'sim' &&
+        occupationalIllnessTerms.some((term) => accidentDescription.includes(term)) &&
+        !accidentTerms.some((term) => accidentDescription.includes(term))
+      ) {
+        setMessage({ type: 'error', text: 'No bloco E, doença ocupacional/afastamento deve ser informado em E04/E05, não como acidente de trabalho em E02. Ajuste o preenchimento antes de gerar o PGR.' });
+        setCurrentStep(5);
+        return;
+      }
+
       const response = await fetch('/api/pgr', {
         method: 'POST',
         headers: {
@@ -60,9 +74,7 @@ function PGRFormPageContent() {
 
       if (response.ok) {
         setMessage({ type: 'success', text: `${data.message} Inventário preliminar com ${data.riskCount ?? 0} risco(s) identificado(s).` });
-        // Optionally reset form or redirect
-        setFormData({});
-        setCurrentStep(1);
+        router.push(`/admin/escolas/${organizationId}/painel`);
       } else {
         setMessage({ type: 'error', text: data.error || 'Erro desconhecido ao gerar PGR.' });
       }
