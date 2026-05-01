@@ -37,6 +37,9 @@ export default function Navbar() {
             <Link href="/contato" className="hover:text-gold-light transition-colors font-medium">
               Contato
             </Link>
+            <Link href="/admin/login" className="hover:text-gold-light transition-colors font-medium">
+              Escolas
+            </Link>
             <Link
               href="/assinatura"
               className="bg-gold hover:bg-yellow-600 text-white font-semibold px-5 py-2 rounded-lg transition-colors"
@@ -98,6 +101,13 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Contato
+            </Link>
+            <Link
+              href="/admin/login"
+              className="hover:text-gold-light transition-colors font-medium py-2"
+              onClick={() => setMenuOpen(false)}
+            >
+              Escolas
             </Link>
             <Link
               href="/assinatura"
