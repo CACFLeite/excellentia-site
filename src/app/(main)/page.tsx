@@ -16,8 +16,8 @@ const workstreams = [
   {
     title: 'Soluções para escolas',
     description: 'Treinamentos obrigatórios, PGR, certificados, relatórios e documentação operacional para reduzir improviso e exposição institucional.',
-    href: '/admin/login',
-    cta: 'Acessar área de escolas',
+    href: '/escolas',
+    cta: 'Conhecer soluções para escolas',
   },
   {
     title: 'Desenvolvimento para professores',
@@ -82,7 +82,7 @@ export default function Home() {
               A Excellentia conecta desenvolvimento profissional docente, treinamentos obrigatórios e documentação operacional para escolas que querem reduzir improviso e elevar seu padrão institucional.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/admin/login" className="bg-gold hover:bg-gold-dark text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center">
+              <Link href="/escolas" className="bg-gold hover:bg-gold-dark text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center">
                 Soluções para escolas
               </Link>
               <Link href="/assinatura" className="border-2 border-white text-white hover:bg-white hover:text-navy font-bold px-8 py-4 rounded-lg text-lg transition-colors text-center">
@@ -185,8 +185,8 @@ export default function Home() {
             Escolha a porta de entrada mais adequada ao seu momento: estrutura institucional para escolas ou desenvolvimento de carreira para professores.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/admin/login" className="bg-navy hover:bg-navy-dark text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors inline-block">
-              Área de escolas
+            <Link href="/escolas" className="bg-navy hover:bg-navy-dark text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors inline-block">
+              Soluções para escolas
             </Link>
             <Link href="/assinatura" className="bg-gold hover:bg-gold-dark text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors inline-block">
               Assinatura docente

@@ -37,7 +37,7 @@ export default function Navbar() {
             <Link href="/contato" className="hover:text-gold-light transition-colors font-medium">
               Contato
             </Link>
-            <Link href="/admin/login" className="hover:text-gold-light transition-colors font-medium">
+            <Link href="/escolas" className="hover:text-gold-light transition-colors font-medium">
               Escolas
             </Link>
             <Link
@@ -103,7 +103,7 @@ export default function Navbar() {
               Contato
             </Link>
             <Link
-              href="/admin/login"
+              href="/escolas"
               className="hover:text-gold-light transition-colors font-medium py-2"
               onClick={() => setMenuOpen(false)}
             >
