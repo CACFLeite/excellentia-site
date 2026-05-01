@@ -1,34 +1,51 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/firebaseConfig';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { prisma } from '@/lib/prisma';
+import { generatePgrDocument } from '@/lib/pgr';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { formData, orgId } = body;
+    const { formData, orgId, organizationId, organizationSlug, signedBy } = body;
 
-    if (!orgId) {
-      return NextResponse.json({ error: 'ID da organização é obrigatório' }, { status: 400 });
+    if (!formData || typeof formData !== 'object') {
+      return NextResponse.json({ error: 'Dados do formulário são obrigatórios.' }, { status: 400 });
     }
 
-    if (!formData) {
-      return NextResponse.json({ error: 'Dados do formulário são obrigatórios' }, { status: 400 });
+    const resolvedOrgId = orgId || organizationId;
+
+    const organization = resolvedOrgId
+      ? await prisma.organization.findUnique({ where: { id: String(resolvedOrgId) }, select: { id: true } })
+      : organizationSlug
+        ? await prisma.organization.findUnique({ where: { slug: String(organizationSlug) }, select: { id: true } })
+        : null;
+
+    if (!organization) {
+      return NextResponse.json({ error: 'Escola/organização não encontrada.' }, { status: 404 });
     }
 
-    const pgrCollectionRef = collection(db, `organizations/${orgId}/pgr`);
-    await addDoc(pgrCollectionRef, {
-      status: "draft",
-      formData: formData,
-      createdAt: serverTimestamp(),
-      // generatedDocument: "", // Will be added later
-      // signatureId: "", // Will be added later
-      // signedAt: null,
-      // signedBy: "",
+    const generated = generatePgrDocument(formData);
+
+    const pgr = await prisma.pgrDocument.create({
+      data: {
+        organizationId: organization.id,
+        status: 'draft',
+        formData,
+        generatedBody: generated.body,
+        metadata: generated.metadata,
+        signedBy: typeof signedBy === 'string' ? signedBy : undefined,
+      },
     });
 
-    return NextResponse.json({ message: 'PGR gerado com sucesso — aguarde o documento' }, { status: 200 });
+    return NextResponse.json(
+      {
+        message: 'Rascunho do Programa de Gerenciamento de Riscos salvo com sucesso.',
+        pgrId: pgr.id,
+        riskCount: generated.metadata.riskCount,
+      },
+      { status: 201 },
+    );
   } catch (error) {
-    console.error('Erro ao salvar PGR no Firestore:', error);
-    return NextResponse.json({ error: 'Erro interno ao gerar PGR' }, { status: 500 });
+    console.error('Erro ao salvar Programa de Gerenciamento de Riscos:', error);
+    return NextResponse.json({ error: 'Erro interno ao salvar PGR.' }, { status: 500 });
   }
 }

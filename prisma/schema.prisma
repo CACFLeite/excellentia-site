@@ -1,0 +1,366 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrganizationStatus {
+  lead
+  onboarding
+  active
+  suspended
+  archived
+}
+
+enum OrganizationRole {
+  owner
+  admin
+  compliance_manager
+  pedagogical_manager
+  legal_reviewer
+  viewer
+}
+
+enum EmployeeStatus {
+  invited
+  active
+  inactive
+  archived
+}
+
+enum InviteStatus {
+  pending
+  accepted
+  expired
+  revoked
+}
+
+enum CourseStatus {
+  draft
+  published
+  archived
+}
+
+enum EnrollmentStatus {
+  invited
+  in_progress
+  completed
+  cancelled
+}
+
+enum ActivityResponseStatus {
+  submitted
+  feedback_ready
+  needs_review
+}
+
+enum CertificateStatus {
+  issued
+  revoked
+}
+
+enum CommunicationKind {
+  anonymous
+  identified
+}
+
+enum CommunicationStatus {
+  new
+  triaged
+  in_review
+  closed
+  archived
+}
+
+enum PgrStatus {
+  draft
+  generated
+  approved
+  signed
+  archived
+}
+
+model Organization {
+  id               String             @id @default(cuid())
+  name             String
+  legalName        String?
+  document         String?
+  slug             String             @unique
+  status           OrganizationStatus @default(onboarding)
+  contractStartsAt DateTime?
+  contractEndsAt   DateTime?
+  employeeLimit    Int?
+  stripeCustomerId String?
+  metadata         Json?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  units               Unit[]
+  members             OrganizationMember[]
+  employees           Employee[]
+  invitations         EmployeeInvitation[]
+  enrollments         Enrollment[]
+  certificates        Certificate[]
+  communications      Communication[]
+  pgrDocuments        PgrDocument[]
+  commercialProposals CommercialProposal[]
+
+  @@index([status])
+}
+
+model Unit {
+  id             String   @id @default(cuid())
+  organizationId String
+  name           String
+  city           String?
+  state          String?
+  isMain         Boolean  @default(false)
+  metadata       Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  employees    Employee[]
+
+  @@index([organizationId])
+}
+
+model OrganizationMember {
+  id                     String           @id @default(cuid())
+  organizationId         String
+  name                   String
+  email                  String
+  role                   OrganizationRole @default(viewer)
+  receivesCommunications Boolean          @default(false)
+  managesPgr             Boolean          @default(false)
+  createdAt              DateTime         @default(now())
+  updatedAt              DateTime         @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, email])
+  @@index([organizationId, role])
+}
+
+model Employee {
+  id             String         @id @default(cuid())
+  organizationId String
+  unitId         String?
+  fullName       String
+  email          String?
+  cpf            String?
+  jobTitle       String?
+  status         EmployeeStatus @default(invited)
+  metadata       Json?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  organization   Organization         @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  unit           Unit?                @relation(fields: [unitId], references: [id], onDelete: SetNull)
+  invitations    EmployeeInvitation[]
+  enrollments    Enrollment[]
+  responses      ActivityResponse[]
+  certificates   Certificate[]
+  communications Communication[]
+
+  @@unique([organizationId, cpf])
+  @@index([organizationId, email])
+  @@index([organizationId, status])
+}
+
+model EmployeeInvitation {
+  id             String       @id @default(cuid())
+  organizationId String
+  employeeId     String?
+  email          String?
+  tokenHash      String       @unique
+  status         InviteStatus @default(pending)
+  expiresAt      DateTime
+  acceptedAt     DateTime?
+  lastSentAt     DateTime?
+  sendCount      Int          @default(0)
+  lastSendError  String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  employee     Employee?    @relation(fields: [employeeId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, status])
+  @@index([employeeId])
+}
+
+model Course {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  title       String
+  description String?
+  status      CourseStatus @default(draft)
+  metadata    Json?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  lessons     Lesson[]
+  enrollments Enrollment[]
+}
+
+model Lesson {
+  id         String   @id @default(cuid())
+  courseId   String
+  order      Int
+  title      String
+  videoUrl   String?
+  transcript String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  course     Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  activities Activity[]
+
+  @@unique([courseId, order])
+  @@index([courseId])
+}
+
+model Activity {
+  id        String   @id @default(cuid())
+  lessonId  String
+  prompt    String
+  rubric    Json
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lesson    Lesson             @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  responses ActivityResponse[]
+
+  @@index([lessonId])
+}
+
+model Enrollment {
+  id             String           @id @default(cuid())
+  organizationId String
+  employeeId     String
+  courseId       String
+  status         EnrollmentStatus @default(invited)
+  startedAt      DateTime?
+  completedAt    DateTime?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  employee     Employee     @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  course       Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  certificate  Certificate?
+
+  @@unique([employeeId, courseId])
+  @@index([organizationId, status])
+}
+
+model ActivityResponse {
+  id          String                 @id @default(cuid())
+  employeeId  String
+  activityId  String
+  answer      String
+  status      ActivityResponseStatus @default(submitted)
+  submittedAt DateTime               @default(now())
+  metadata    Json?
+
+  employee Employee          @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  activity Activity          @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  feedback ActivityFeedback?
+
+  @@unique([employeeId, activityId])
+  @@index([employeeId, status])
+}
+
+model ActivityFeedback {
+  id         String   @id @default(cuid())
+  responseId String   @unique
+  level      String
+  summary    String
+  strengths  String[]
+  nextSteps  String[]
+  model      String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  response ActivityResponse @relation(fields: [responseId], references: [id], onDelete: Cascade)
+}
+
+model Certificate {
+  id               String            @id @default(cuid())
+  organizationId   String
+  employeeId       String
+  enrollmentId     String            @unique
+  status           CertificateStatus @default(issued)
+  verificationCode String            @unique
+  issuedAt         DateTime          @default(now())
+  revokedAt        DateTime?
+  metadata         Json?
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  employee     Employee     @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  enrollment   Enrollment   @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, issuedAt])
+}
+
+model Communication {
+  id             String              @id @default(cuid())
+  organizationId String
+  employeeId     String?
+  kind           CommunicationKind
+  category       String?
+  message        String
+  status         CommunicationStatus @default(new)
+  recipientRole  String?
+  identitySealed Boolean             @default(true)
+  auditHash      String?
+  metadata       Json?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  employee     Employee?    @relation(fields: [employeeId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, status, createdAt])
+}
+
+model PgrDocument {
+  id             String    @id @default(cuid())
+  organizationId String
+  status         PgrStatus @default(draft)
+  formData       Json
+  generatedBody  String?
+  signedAt       DateTime?
+  signedBy       String?
+  metadata       Json?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, status])
+}
+
+model CommercialProposal {
+  id                String   @id @default(cuid())
+  organizationId    String?
+  leadName          String
+  leadEmail         String?
+  collaboratorRange String
+  billingCycle      String
+  lineItems         Json
+  stripeCheckoutUrl String?
+  status            String   @default("draft")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+}

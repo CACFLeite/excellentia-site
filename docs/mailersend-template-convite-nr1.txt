@@ -1,0 +1,17 @@
+Template: Excellentia — Convite NR-1 Escolas
+Subject: Seu acesso ao curso NR-1 da {{organization_name}}
+
+Olá, {{full_name}}.
+
+A {{organization_name}} liberou seu acesso individual ao curso NR-1 nas Escolas, oferecido pela Excellentia.
+
+Para começar, confirme seus dados no link abaixo e siga as aulas e atividades propostas. O curso gera um registro de participação e respostas enviadas.
+
+Acessar meu curso:
+{{invitation_url}}
+
+Este link é individual e não deve ser encaminhado para outras pessoas.{% if expires_text %} Ele está previsto para expirar em {{expires_text}}.{% endif %}
+
+As respostas têm finalidade formativa e de registro institucional. O feedback não valida fatos narrados nem substitui orientação jurídica, médica ou trabalhista.
+
+Excellentia — formação e conformidade para escolas.

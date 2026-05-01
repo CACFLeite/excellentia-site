@@ -1,7 +1,8 @@
 // src/app/pgr/formulario/page.tsx
 "use client";
 
-import React, { useState } from 'react';
+import React, { Suspense, useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import BlockA from './components/BlockA';
 import BlockB from './components/BlockB';
 import BlockC from './components/BlockC';
@@ -11,7 +12,9 @@ import BlockF from './components/BlockF';
 
 const totalSteps = 6; // A, B, C, D, E, F
 
-export default function PGRFormPage() {
+function PGRFormPageContent() {
+  const searchParams = useSearchParams();
+  const organizationId = useMemo(() => searchParams.get('organizationId') || searchParams.get('orgId') || '', [searchParams]);
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<Record<string, any>>({});
   const [loading, setLoading] = useState(false);
@@ -40,21 +43,23 @@ export default function PGRFormPage() {
     setLoading(true);
     setMessage(null);
     try {
-      // For now, use a dummy orgId. In a real app, this would come from user session.
-      const orgId = "excellentia_dummy_org_id"; 
-      
+      if (!organizationId) {
+        setMessage({ type: 'error', text: 'Abra o formulário pelo painel da escola para vincular o PGR à organização correta.' });
+        return;
+      }
+
       const response = await fetch('/api/pgr', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ formData, orgId }),
+        body: JSON.stringify({ formData, organizationId }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage({ type: 'success', text: data.message });
+        setMessage({ type: 'success', text: `${data.message} Inventário preliminar com ${data.riskCount ?? 0} risco(s) identificado(s).` });
         // Optionally reset form or redirect
         setFormData({});
         setCurrentStep(1);
@@ -92,7 +97,15 @@ export default function PGRFormPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-xl">
-        <h1 className="text-3xl font-extrabold text-center text-navy mb-8">Formulário PGR - Programa de Gerenciamento de Riscos</h1>
+        <h1 className="text-3xl font-extrabold text-center text-navy mb-4">Formulário PGR - Programa de Gerenciamento de Riscos</h1>
+        <p className="text-sm text-gray-600 text-center mb-8">
+          Estruturado para coletar os dados mínimos do GRO/NR-1: caracterização, perigos, controles, histórico, responsável, inventário de riscos e plano de ação preliminar.
+        </p>
+        {!organizationId && (
+          <div className="py-3 px-6 rounded-md mb-6 text-center bg-yellow-50 text-yellow-900 border border-yellow-200">
+            Este formulário precisa ser aberto pelo painel de uma escola para salvar o PGR corretamente.
+          </div>
+        )}
         
         {message && (
           <div className={`py-3 px-6 rounded-md mb-6 text-center ${message.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
@@ -151,5 +164,13 @@ export default function PGRFormPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function PGRFormPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50 py-12 px-4 text-center text-gray-600">Carregando formulário PGR...</div>}>
+      <PGRFormPageContent />
+    </Suspense>
   );
 }

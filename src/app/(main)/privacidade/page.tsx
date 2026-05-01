@@ -81,7 +81,12 @@ export default function PrivacidadePage() {
                 </li>
                 <li>
                   <strong>Dados de uso da plataforma:</strong> cursos acessados, progresso, aulas
-                  assistidas, certificados emitidos.
+                  assistidas, respostas enviadas, feedback formativo, certificados emitidos.
+                </li>
+                <li>
+                  <strong>Dados escolares/NR-1:</strong> vínculo com escola ou unidade, cargo/função,
+                  CPF para certificado, registros de convite, aceite, conclusão e comunicações enviadas
+                  pelo canal institucional.
                 </li>
                 <li>
                   <strong>Dados de navegação:</strong> endereço IP, tipo de navegador, páginas
@@ -98,6 +103,8 @@ export default function PrivacidadePage() {
                 <li>Prestação dos serviços educacionais contratados.</li>
                 <li>Processamento de cobranças e controle de assinaturas.</li>
                 <li>Emissão de certificados de conclusão.</li>
+                <li>Gestão de treinamentos obrigatórios, evidências de participação, relatórios escolares e apoio ao Programa de Gerenciamento de Riscos (PGR), quando contratado pela escola.</li>
+                <li>Operação de canal de comunicação/denúncia, preservando anonimato quando essa opção for selecionada pelo titular.</li>
                 <li>Comunicações sobre o serviço, atualizações e novidades (com opção de descadastro).</li>
                 <li>Cumprimento de obrigações legais e fiscais.</li>
                 <li>Melhoria contínua da plataforma por meio de análise de dados agregados.</li>
@@ -119,8 +126,9 @@ export default function PrivacidadePage() {
             <section>
               <h2 className="text-xl font-bold text-navy mb-3">6. Transferência Internacional de Dados</h2>
               <p>
-                Seus dados podem ser transferidos para os Estados Unidos da América nos seguintes
-                contextos, sempre com salvaguardas adequadas:
+                Seus dados podem ser tratados por fornecedores de infraestrutura e comunicação,
+                inclusive com transferência internacional quando tecnicamente necessário, sempre
+                com salvaguardas adequadas:
               </p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>
@@ -131,6 +139,9 @@ export default function PrivacidadePage() {
                 <li>
                   <strong>Vercel, Inc.</strong> — hospedagem da plataforma. A transferência é
                   amparada pelas mesmas salvaguardas (SCCs).
+                </li>
+                <li>
+                  <strong>MailerSend/MailerLite.</strong> — envio de e-mails transacionais, como convites de acesso e avisos operacionais do serviço.
                 </li>
               </ul>
             </section>
@@ -191,9 +202,20 @@ export default function PrivacidadePage() {
               </p>
             </section>
 
-            {/* 9. Segurança */}
             <section>
-              <h2 className="text-xl font-bold text-navy mb-3">9. Segurança</h2>
+              <h2 className="text-xl font-bold text-navy mb-3">9. Canal de comunicação e anonimato</h2>
+              <p>
+                Quando a plataforma oferecer canal de comunicação ou denúncia, o usuário poderá escolher
+                se deseja se identificar ou enviar relato anônimo, conforme o fluxo disponível. Relatos
+                anônimos são exibidos à escola sem identificação direta do colaborador. A Excellentia pode
+                manter registros técnicos mínimos para segurança, auditoria e prevenção de abuso, com acesso
+                restrito.
+              </p>
+            </section>
+
+            {/* 10. Segurança */}
+            <section>
+              <h2 className="text-xl font-bold text-navy mb-3">10. Segurança</h2>
               <p>
                 Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados
                 contra acesso não autorizado, perda, alteração ou divulgação indevida, incluindo
@@ -201,9 +223,9 @@ export default function PrivacidadePage() {
               </p>
             </section>
 
-            {/* 10. Alterações */}
+            {/* 11. Alterações */}
             <section>
-              <h2 className="text-xl font-bold text-navy mb-3">10. Alterações nesta Política</h2>
+              <h2 className="text-xl font-bold text-navy mb-3">11. Alterações nesta Política</h2>
               <p>
                 Esta Política pode ser atualizada periodicamente. Notificaremos você por e-mail ou
                 aviso na plataforma em caso de alterações relevantes. A data da última atualização
@@ -211,9 +233,9 @@ export default function PrivacidadePage() {
               </p>
             </section>
 
-            {/* 11. Contato */}
+            {/* 12. Contato */}
             <section>
-              <h2 className="text-xl font-bold text-navy mb-3">11. Contato e DPO</h2>
+              <h2 className="text-xl font-bold text-navy mb-3">12. Contato e DPO</h2>
               <p>
                 Dúvidas, solicitações ou reclamações relacionadas ao tratamento de dados pessoais
                 devem ser encaminhadas ao nosso Encarregado de Dados (DPO):

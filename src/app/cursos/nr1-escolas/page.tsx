@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import NR1CourseClient from './NR1CourseClient'
 
 export const metadata: Metadata = {
   title: 'NR-1 nas Escolas — Excellentia',
@@ -58,7 +59,11 @@ const lessons = [
   },
 ]
 
-export default function NR1EscolasPage() {
+export default function NR1EscolasPage({ searchParams }: { searchParams?: { convite?: string } }) {
+  if (searchParams?.convite) {
+    return <NR1CourseClient token={searchParams.convite} />
+  }
+
   return (
     <main className="min-h-screen bg-gray-50">
       <section className="bg-navy text-white py-14 md:py-20">
@@ -100,7 +105,7 @@ export default function NR1EscolasPage() {
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">Aulas do curso</h2>
             <p className="text-gray-600 leading-relaxed max-w-3xl">
-              Esta é a primeira publicação do curso no site. As atividades situacionais, registro de conclusão e feedback por rubrica serão adicionados em uma etapa separada, depois da validação pedagógica e operacional.
+              Esta é a página pública do curso. Colaboradores convidados acessam a experiência formativa completa pelo link individual recebido da escola, com situações-problema, respostas, feedback formativo e registro de participação.
             </p>
           </div>
 

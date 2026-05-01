@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import InviteActivation from './InviteActivation'
 
 export const metadata: Metadata = {
   title: 'Acesso Corporativo — Excellentia',
   description: 'Ative seu acesso à plataforma Excellentia com o código fornecido pela sua escola.',
 }
 
-export default function AcessoEscolarPage() {
+export default function AcessoEscolarPage({ searchParams }: { searchParams?: { convite?: string } }) {
+  const token = searchParams?.convite
+
   return (
     <main className="min-h-screen bg-navy flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
@@ -22,7 +25,7 @@ export default function AcessoEscolarPage() {
           </p>
         </div>
 
-        {/* Card instruções */}
+        {token ? <InviteActivation token={token} /> : (
         <div className="bg-white rounded-2xl p-8 shadow-xl">
           <h2 className="text-navy font-bold text-lg mb-4">Como ativar seu acesso</h2>
 
@@ -64,6 +67,7 @@ export default function AcessoEscolarPage() {
             Acessar a plataforma →
           </a>
         </div>
+        )}
 
         {/* Links adicionais */}
         <div className="text-center mt-6 space-y-2">

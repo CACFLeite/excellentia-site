@@ -1,0 +1,64 @@
+<!--
+MailerSend template: Excellentia — Convite NR-1 Escolas
+Subject: Seu acesso ao curso NR-1 da {{organization_name}}
+Variables expected:
+- {{full_name}}
+- {{organization_name}}
+- {{invitation_url}}
+- {{expires_text}}
+-->
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seu acesso ao curso NR-1</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f5f7fb;font-family:Arial,Helvetica,sans-serif;color:#172033;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f5f7fb;padding:28px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #e8edf5;">
+            <tr>
+              <td style="background:#0b1f3a;padding:28px 30px;color:#ffffff;">
+                <div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#c9a227;font-weight:700;">Excellentia</div>
+                <h1 style="margin:10px 0 0;font-size:26px;line-height:1.2;color:#ffffff;">Seu acesso ao curso NR-1 nas Escolas</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:30px;">
+                <p style="margin:0 0 16px;font-size:16px;line-height:1.55;">Olá, <strong>{{full_name}}</strong>.</p>
+                <p style="margin:0 0 16px;font-size:16px;line-height:1.55;">
+                  A <strong>{{organization_name}}</strong> liberou seu acesso individual ao curso <strong>NR-1 nas Escolas</strong>, oferecido pela Excellentia.
+                </p>
+                <p style="margin:0 0 22px;font-size:15px;line-height:1.55;color:#4b5565;">
+                  Para começar, confirme seus dados no link abaixo e siga as aulas e atividades propostas. O curso gera um registro de participação e respostas enviadas.
+                </p>
+                <p style="margin:0 0 24px;">
+                  <a href="{{invitation_url}}" style="display:inline-block;background:#c9a227;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 20px;border-radius:12px;">Acessar meu curso</a>
+                </p>
+                <div style="background:#f8fafc;border:1px solid #e8edf5;border-radius:12px;padding:14px 16px;margin:0 0 18px;">
+                  <p style="margin:0 0 8px;font-size:13px;color:#667085;">Se o botão não funcionar, copie e cole este link no navegador:</p>
+                  <p style="margin:0;font-size:13px;line-height:1.45;word-break:break-all;color:#0b1f3a;">{{invitation_url}}</p>
+                </div>
+                <div style="background:#fff7e0;border:1px solid #f0dfac;border-radius:12px;padding:14px 16px;margin:0 0 18px;">
+                  <p style="margin:0;font-size:13px;line-height:1.5;color:#7a5200;">
+                    Este link é individual e não deve ser encaminhado para outras pessoas.{% if expires_text %} Ele está previsto para expirar em {{expires_text}}.{% endif %}
+                  </p>
+                </div>
+                <p style="margin:0;font-size:13px;line-height:1.5;color:#667085;">
+                  As respostas têm finalidade formativa e de registro institucional. O feedback não valida fatos narrados nem substitui orientação jurídica, médica ou trabalhista.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 30px;background:#f8fafc;border-top:1px solid #e8edf5;">
+                <p style="margin:0;font-size:12px;line-height:1.5;color:#667085;">Excellentia — formação e conformidade para escolas.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
