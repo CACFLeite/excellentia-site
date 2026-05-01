@@ -63,32 +63,32 @@ function buildInviteEmail(input: SendInviteEmailInput) {
     <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
       ${safeOrganization} liberou seu acesso ao curso NR-1 nas Escolas pela Excellentia.
     </div>
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:28px 12px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eaeaea;padding:28px 12px;">
       <tr>
         <td align="center">
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #e7ebf0;box-shadow:0 8px 28px rgba(15,23,42,0.08);">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #eaeaea;box-shadow:0 8px 28px rgba(10,39,73,0.10);">
             <tr>
-              <td style="background:#0A2749;padding:24px 28px;">
-                <div style="font-size:24px;font-weight:800;letter-spacing:-0.03em;color:#ffffff;">Excel<span style="color:#C9A227;">lentia</span></div>
-                <div style="margin-top:6px;font-size:13px;line-height:1.5;color:#cbd5e1;">Formação e conformidade para escolas</div>
+              <td style="background:#0a2749;padding:24px 28px;">
+                <div style="font-size:24px;font-weight:800;letter-spacing:-0.03em;color:#ffffff;">Excel<span style="color:#f4db76;">lentia</span></div>
+                <div style="margin-top:6px;font-size:13px;line-height:1.5;color:#eaeaea;">Formação e conformidade para escolas</div>
               </td>
             </tr>
             <tr>
               <td style="padding:30px 28px 8px;">
-                <div style="display:inline-block;background:#fff7df;color:#8a5a00;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;">Convite individual</div>
-                <h1 style="margin:18px 0 10px;font-size:25px;line-height:1.2;color:#0A2749;">Seu acesso ao curso NR-1 está liberado</h1>
+                <div style="display:inline-block;background:#f4db76;color:#0a2749;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;">Convite individual</div>
+                <h1 style="margin:18px 0 10px;font-size:25px;line-height:1.2;color:#0a2749;">Seu acesso ao curso NR-1 está liberado</h1>
                 <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#334155;">Olá, <strong>${safeName}</strong>.</p>
                 <p style="margin:0;font-size:16px;line-height:1.6;color:#334155;"><strong>${safeOrganization}</strong> liberou seu acesso ao curso <strong>NR-1 nas Escolas</strong> pela Excellentia.</p>
               </td>
             </tr>
             <tr>
               <td style="padding:22px 28px 12px;">
-                <a href="${safeUrl}" style="display:inline-block;background:#C9A227;color:#ffffff;text-decoration:none;font-weight:800;font-size:15px;padding:14px 22px;border-radius:12px;box-shadow:0 6px 16px rgba(201,162,39,.25);">Acessar curso</a>
+                <a href="${safeUrl}" style="display:inline-block;background:#b07908;color:#ffffff;text-decoration:none;font-weight:800;font-size:15px;padding:14px 22px;border-radius:12px;box-shadow:0 6px 16px rgba(176,121,8,.25);">Acessar curso</a>
               </td>
             </tr>
             <tr>
               <td style="padding:8px 28px 0;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #eaeaea;border-radius:14px;">
                   <tr>
                     <td style="padding:16px 18px;">
                       <p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#64748b;">Se o botão não funcionar, copie e cole este link no navegador:</p>
@@ -100,9 +100,9 @@ function buildInviteEmail(input: SendInviteEmailInput) {
             </tr>
             <tr>
               <td style="padding:16px 28px 0;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff8e8;border:1px solid #f3dfac;border-radius:14px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4db76;border:1px solid #b07908;border-radius:14px;">
                   <tr>
-                    <td style="padding:14px 16px;font-size:13px;line-height:1.55;color:#76510b;">
+                    <td style="padding:14px 16px;font-size:13px;line-height:1.55;color:#0a2749;">
                       <strong>Importante:</strong> este link é individual e não deve ser encaminhado para outras pessoas.${expiresText ? ` O convite está previsto para expirar em <strong>${expiresText}</strong>.` : ''}
                     </td>
                   </tr>
@@ -112,7 +112,7 @@ function buildInviteEmail(input: SendInviteEmailInput) {
             <tr>
               <td style="padding:24px 28px 30px;font-size:13px;line-height:1.6;color:#64748b;">
                 <p style="margin:0;">Se você não reconhece este convite, ignore esta mensagem ou avise a escola responsável.</p>
-                <p style="margin:18px 0 0;color:#0A2749;font-weight:700;">Excellentia</p>
+                <p style="margin:18px 0 0;color:#0a2749;font-weight:700;">Excellentia</p>
               </td>
             </tr>
           </table>
