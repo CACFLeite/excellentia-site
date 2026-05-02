@@ -231,7 +231,17 @@ export const courseDefinitions = {
           pandaExternalId: 'b2a6059f-a4a7-40ff-8d96-0e55904bd011',
         },
       },
-      { order: 3, title: 'Protocolos de acionamento: quem chama quem, quando e como' },
+      {
+        order: 3,
+        title: 'Protocolos de acionamento: quem chama quem, quando e como',
+        duration: '4min35',
+        videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=679de7b7-558f-4b43-a10f-91ffc06ba7fa',
+        metadata: {
+          videoStatus: 'published_to_panda',
+          pandaVideoId: 'b32cb330-d9dc-4240-8fd9-d06a9318b1d5',
+          pandaExternalId: '679de7b7-558f-4b43-a10f-91ffc06ba7fa',
+        },
+      },
       { order: 4, title: 'Preparação antes do treinamento prático' },
       { order: 5, title: 'Durante a ocorrência: proteção, comunicação e limites de atuação' },
       { order: 6, title: 'Depois da ocorrência: registro, família e revisão do protocolo' },
@@ -242,7 +252,7 @@ export const courseDefinitions = {
       'Curso formativo, protocolar e documental; não substitui treinamento prático presencial de primeiros socorros quando exigido.',
       'Não ensina manobras técnicas por vídeo; organiza preparação, acionamento, comunicação, registro e evidências.',
     ],
-    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_aula02_published_to_panda_aula03_in_production' },
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_aula02_aula03_published_to_panda_aula04_in_production' },
   },
   'incendio-escolas': {
     slug: 'incendio-escolas',
