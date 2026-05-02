@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
           email: employee.email,
           fullName: employee.fullName,
           courseAttached: Boolean(course),
-          invitationUrl: `${baseUrl}/acesso-escolar?convite=${token}`,
+          invitationUrl: `${baseUrl}/acesso-escolar?convite=${token}&curso=${encodeURIComponent(courseSlug)}`,
         });
       }
 

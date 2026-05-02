@@ -19,7 +19,7 @@ function formatCpf(value: string) {
     .replace(/\.(\d{3})(\d)/, '.$1-$2');
 }
 
-export default function InviteActivation({ token }: { token?: string }) {
+export default function InviteActivation({ token, courseSlug = 'nr1-escolas' }: { token?: string; courseSlug?: string }) {
   const [invite, setInvite] = useState<InviteData | null>(null);
   const [form, setForm] = useState({ fullName: '', email: '', cpf: '', jobTitle: '', privacyAccepted: false });
   const [loading, setLoading] = useState(Boolean(token));
@@ -73,7 +73,7 @@ export default function InviteActivation({ token }: { token?: string }) {
       return;
     }
 
-    window.location.href = `/cursos/nr1-escolas?convite=${encodeURIComponent(token)}`;
+    window.location.href = `/cursos/${courseSlug}?convite=${encodeURIComponent(token)}`;
   }
 
   if (!token) return null;
@@ -102,11 +102,11 @@ export default function InviteActivation({ token }: { token?: string }) {
       <p className="text-xs font-bold uppercase tracking-wide text-gold mb-2">Convite encontrado</p>
       <h2 className="text-navy font-bold text-xl mb-2">{invite.organization.name}</h2>
       <p className="text-gray-600 text-sm leading-relaxed mb-6">
-        Confirme seus dados para liberar o curso NR-1. O certificado usará essas informações.
+        Confirme seus dados para liberar o curso da Excellentia. O certificado usará essas informações.
       </p>
 
       {invite.status === 'accepted' ? (
-        <Link href={`/cursos/nr1-escolas?convite=${encodeURIComponent(token)}`} className="block w-full bg-gold hover:bg-yellow-600 text-white font-bold py-3 rounded-lg text-center transition-colors text-sm mb-6">
+        <Link href={`/cursos/${courseSlug}?convite=${encodeURIComponent(token)}`} className="block w-full bg-gold hover:bg-yellow-600 text-white font-bold py-3 rounded-lg text-center transition-colors text-sm mb-6">
           Continuar curso
         </Link>
       ) : null}

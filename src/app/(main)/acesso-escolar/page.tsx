@@ -7,8 +7,9 @@ export const metadata: Metadata = {
   description: 'Ative seu acesso à plataforma Excellentia com o código fornecido pela sua escola.',
 }
 
-export default function AcessoEscolarPage({ searchParams }: { searchParams?: { convite?: string } }) {
+export default function AcessoEscolarPage({ searchParams }: { searchParams?: { convite?: string; curso?: string } }) {
   const token = searchParams?.convite
+  const courseSlug = searchParams?.curso ?? 'nr1-escolas'
 
   return (
     <main className="min-h-screen bg-navy flex items-center justify-center px-4 py-12">
@@ -25,7 +26,7 @@ export default function AcessoEscolarPage({ searchParams }: { searchParams?: { c
           </p>
         </div>
 
-        {token ? <InviteActivation token={token} /> : (
+        {token ? <InviteActivation token={token} courseSlug={courseSlug} /> : (
         <div className="bg-white rounded-2xl p-8 shadow-xl">
           <h2 className="text-navy font-bold text-lg mb-4">Como ativar seu acesso</h2>
 
