@@ -133,6 +133,51 @@ export const courseDefinitions = {
     ],
     metadata: { definitionVersion: '2026-05-01' },
   },
+
+  'pgr-gro-escolas': {
+    slug: 'pgr-gro-escolas',
+    title: 'PGR/GRO para Escolas — Diagnóstico, Evidências e Plano de Ação',
+    shortTitle: 'PGR/GRO Escolar',
+    description:
+      'Formação e camada operacional para apoiar escolas na organização de diagnóstico, evidências e plano de ação ligados ao GRO/PGR e à gestão de riscos no ambiente escolar.',
+    status: 'draft',
+    availability: 'in_production',
+    audience: 'school_manager',
+    track: 'saude-ocupacional',
+    area: 'Conformidade',
+    certificatePrefix: 'PGR',
+    modules: 1,
+    lessonsCount: 6,
+    publicPage: {
+      badge: 'Trilha escolar em produção',
+      headline: 'PGR/GRO para Escolas',
+      summary:
+        'Uma formação para transformar riscos ocupacionais e psicossociais em diagnóstico, plano de ação, evidências e rotina mínima de governança escolar.',
+      cards: [
+        { title: 'Diagnóstico', description: 'Leitura inicial dos riscos psicossociais e operacionais da escola' },
+        { title: 'Evidências', description: 'Registros, documentos, comunicações e plano de ação acompanhável' },
+        { title: 'Governança', description: 'Limites entre formação, gestão escolar, SST e apoio jurídico especializado' },
+      ],
+      courseIntro:
+        'Esta trilha conecta a formação NR-1 a uma camada de gestão: identificação de riscos, comunicação, plano de ação, canal governado e evidências institucionais.',
+      ctaTitle: 'PGR como processo, não arquivo solto',
+      ctaDescription:
+        'A Excellentia ajuda a escola a organizar a rotina documental e formativa, sem substituir profissionais de SST, jurídico ou responsáveis técnicos quando exigidos.',
+    },
+    lessons: [
+      { order: 1, title: 'O que são GRO e PGR no contexto escolar' },
+      { order: 2, title: 'Riscos psicossociais, assédio, sobrecarga e conflitos' },
+      { order: 3, title: 'Como levantar evidências sem expor pessoas indevidamente' },
+      { order: 4, title: 'Plano de ação: prioridade, responsável, prazo e registro' },
+      { order: 5, title: 'Canal de comunicação, sigilo e tratamento institucional' },
+      { order: 6, title: 'Relatório, acompanhamento e revisão periódica' },
+    ],
+    complianceNotes: [
+      'Camada formativa e operacional; não substitui elaboração técnica quando profissional habilitado for exigido.',
+      'Canal, diagnóstico e documentos devem respeitar LGPD, sigilo e governança institucional.',
+    ],
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'pending_content_production' },
+  },
   'lei-lucas-escolas': {
     slug: 'lei-lucas-escolas',
     title: 'Lei Lucas nas Escolas — Preparação, Protocolo e Evidências',
@@ -183,26 +228,181 @@ export const courseDefinitions = {
     slug: 'incendio-escolas',
     title: 'Prevenção e Combate a Incêndio na Escola',
     shortTitle: 'Prevenção e Incêndio',
-    description: 'Curso em produção sobre prevenção, uso responsável de extintores e encaminhamentos seguros na rotina escolar.',
+    description:
+      'Formação escolar sobre prevenção de incêndios, rotas, sinalização, extintores, limites de atuação e evidências, sem substituir brigada, AVCB ou treinamento prático exigido localmente.',
     status: 'draft',
     availability: 'in_production',
     audience: 'school_employee',
     track: 'seguranca-escolar',
     area: 'Segurança escolar',
     certificatePrefix: 'INC',
-    modules: null,
-    lessonsCount: null,
+    modules: 1,
+    lessonsCount: 6,
     publicPage: {
-      badge: 'Em produção',
+      badge: 'Trilha escolar em produção',
       headline: 'Prevenção e Combate a Incêndio na Escola',
-      summary: 'Formação em produção para reduzir improviso, orientar prevenção e organizar evidências sem substituir exigências locais de brigada, AVCB ou treinamento prático.',
+      summary:
+        'Formação para reduzir improviso, orientar prevenção e organizar evidências sem substituir exigências locais de brigada, AVCB ou treinamento prático.',
       cards: [
-        { title: 'Prevenção', description: 'Riscos cotidianos, rotas, sinalização e cultura de segurança' },
-        { title: 'Extintores', description: 'Uso responsável e limites de atuação de colaboradores' },
+        { title: 'Prevenção', description: 'Riscos cotidianos, rotas de fuga, sinalização e cultura de segurança' },
+        { title: 'Extintores', description: 'Uso responsável, limites de atuação e acionamento de apoio' },
         { title: 'Normas locais', description: 'Validação conforme Corpo de Bombeiros, AVCB e exigências aplicáveis' },
       ],
+      courseIntro:
+        'Esta trilha organiza o que toda equipe escolar precisa compreender sobre prevenção, acionamento e limites de atuação, mantendo a exigência de treinamentos técnicos e normas locais quando aplicáveis.',
+      ctaTitle: 'Segurança contra incêndio como rotina escolar',
+      ctaDescription:
+        'A Excellentia apoia formação, registro e evidências, mas não substitui brigada, laudos, AVCB ou orientação técnica do Corpo de Bombeiros e profissionais habilitados.',
     },
-    lessons: [],
+    lessons: [
+      { order: 1, title: 'Prevenção de incêndio na rotina escolar' },
+      { order: 2, title: 'Rotas, sinalização, portas e pontos de encontro' },
+      { order: 3, title: 'Extintores: tipos, limites e uso responsável' },
+      { order: 4, title: 'O que o colaborador deve e não deve fazer' },
+      { order: 5, title: 'Acionamento, evacuação e comunicação interna' },
+      { order: 6, title: 'Evidências, simulações e revisão periódica' },
+    ],
+    complianceNotes: [
+      'Curso formativo e documental; não substitui brigada, AVCB, laudos, treinamento prático ou exigências do Corpo de Bombeiros.',
+      'Conteúdo deve ser validado conforme legislação local e realidade física da escola.',
+    ],
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'pending_content_production' },
+  },
+
+  'violencia-escolar-protecao': {
+    slug: 'violencia-escolar-protecao',
+    title: 'Proteção contra Violência Escolar — Bullying, Cyberbullying e Encaminhamentos',
+    shortTitle: 'Proteção contra Violência',
+    description:
+      'Formação para equipes escolares sobre prevenção, identificação, registro e encaminhamento de bullying, cyberbullying, violência e violações de direitos no ambiente escolar.',
+    status: 'draft',
+    availability: 'in_production',
+    audience: 'school_employee',
+    track: 'protecao-digital',
+    area: 'Proteção escolar',
+    certificatePrefix: 'PVE',
+    modules: 1,
+    lessonsCount: 8,
+    publicPage: {
+      badge: 'Trilha escolar em produção',
+      headline: 'Proteção contra Violência Escolar',
+      summary:
+        'Uma trilha para ajudar a escola a sair da reação improvisada e organizar prevenção, escuta responsável, registro, encaminhamento e evidências diante de violência escolar.',
+      cards: [
+        { title: 'Bullying e cyberbullying', description: 'Leitura institucional sem banalizar nem exagerar conflitos' },
+        { title: 'Proteção integral', description: 'ECA, sinais de violência, deveres da escola e encaminhamentos' },
+        { title: 'Registros e fluxos', description: 'Como documentar, comunicar e acompanhar casos com responsabilidade' },
+      ],
+      courseIntro:
+        'A trilha trata violência escolar como tema de proteção institucional: prevenção, escuta, registro, comunicação com famílias e encaminhamento a autoridades quando aplicável.',
+      ctaTitle: 'Proteger estudantes exige método',
+      ctaDescription:
+        'A Excellentia organiza formação e evidências para que a escola tenha critérios, fluxos e registros mais consistentes diante de situações sensíveis.',
+    },
+    lessons: [
+      { order: 1, title: 'Violência escolar: entre conflito, bullying e violação de direitos' },
+      { order: 2, title: 'Bullying e cyberbullying: sinais, recorrência e impacto' },
+      { order: 3, title: 'ECA, proteção integral e deveres da escola' },
+      { order: 4, title: 'Escuta responsável sem investigação improvisada' },
+      { order: 5, title: 'Fluxo de registro, coordenação e família' },
+      { order: 6, title: 'Quando acionar Conselho Tutelar ou autoridades' },
+      { order: 7, title: 'Prevenção, cultura escolar e acompanhamento' },
+      { order: 8, title: 'Evidências institucionais e revisão de casos' },
+    ],
+    complianceNotes: [
+      'Curso formativo; não substitui atuação de psicologia, serviço social, jurídico, Conselho Tutelar ou autoridades quando cabível.',
+      'Casos de violência devem observar proteção da vítima, sigilo, devido encaminhamento e legislação aplicável.',
+    ],
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'pending_content_production' },
+  },
+  'protecao-digital-dados-escolas': {
+    slug: 'protecao-digital-dados-escolas',
+    title: 'Proteção Digital, Telas e Dados na Escola',
+    shortTitle: 'Proteção Digital e Dados',
+    description:
+      'Formação para equipes escolares sobre ambiente digital, uso de telas, imagem, plataformas, exposição, dados pessoais e proteção de crianças e adolescentes.',
+    status: 'draft',
+    availability: 'in_production',
+    audience: 'school_employee',
+    track: 'protecao-digital',
+    area: 'Proteção digital',
+    certificatePrefix: 'PDD',
+    modules: 1,
+    lessonsCount: 7,
+    publicPage: {
+      badge: 'Trilha escolar em produção',
+      headline: 'Proteção Digital, Telas e Dados na Escola',
+      summary:
+        'Formação para organizar condutas e evidências sobre telas, celulares, imagem, plataformas digitais e dados de crianças e adolescentes.',
+      cards: [
+        { title: 'ECA Digital', description: 'Proteção de crianças e adolescentes em ambientes digitais' },
+        { title: 'Telas e celulares', description: 'Rotina escolar, sofrimento psíquico, limites e comunicação institucional' },
+        { title: 'Dados e imagem', description: 'Consentimento, exposição, fornecedores digitais e boas práticas de proteção' },
+      ],
+      courseIntro:
+        'Esta trilha une proteção digital, uso de telas e dados escolares para orientar decisões cotidianas de professores, gestores e equipes administrativas.',
+      ctaTitle: 'Proteção digital como responsabilidade escolar',
+      ctaDescription:
+        'A Excellentia ajuda a escola a formar sua equipe, organizar evidências e reduzir improviso diante de riscos digitais e tratamento de dados.',
+    },
+    lessons: [
+      { order: 1, title: 'Por que proteção digital virou tema escolar' },
+      { order: 2, title: 'ECA Digital e proteção de crianças e adolescentes' },
+      { order: 3, title: 'Uso de celulares e telas na educação básica' },
+      { order: 4, title: 'Imagem, exposição e comunicação com famílias' },
+      { order: 5, title: 'Dados pessoais e dados sensíveis na rotina escolar' },
+      { order: 6, title: 'Fornecedores, plataformas e grupos digitais' },
+      { order: 7, title: 'Protocolos, registros e revisão de práticas' },
+    ],
+    complianceNotes: [
+      'Curso formativo e preventivo; não substitui parecer jurídico, DPO ou adequação LGPD completa quando necessária.',
+      'Condutas devem ser compatibilizadas com regimento escolar, contratos, políticas de privacidade e legislação vigente.',
+    ],
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'pending_content_production' },
+  },
+  'lgpd-escolas': {
+    slug: 'lgpd-escolas',
+    title: 'LGPD Aplicada à Rotina Escolar',
+    shortTitle: 'LGPD nas Escolas',
+    description:
+      'Formação introdutória para equipes escolares sobre dados pessoais, dados sensíveis, imagem, comunicação, fornecedores e evidências de boas práticas de proteção de dados.',
+    status: 'draft',
+    availability: 'in_production',
+    audience: 'school_employee',
+    track: 'protecao-digital',
+    area: 'LGPD escolar',
+    certificatePrefix: 'LGPD',
+    modules: 1,
+    lessonsCount: 6,
+    publicPage: {
+      badge: 'Trilha escolar em produção',
+      headline: 'LGPD Aplicada à Rotina Escolar',
+      summary:
+        'Uma trilha para tirar a LGPD do documento jurídico e levar boas práticas para a rotina de atendimento, comunicação, imagem, arquivos e plataformas da escola.',
+      cards: [
+        { title: 'Dados escolares', description: 'Dados pessoais e sensíveis de alunos, famílias e colaboradores' },
+        { title: 'Rotina prática', description: 'Atendimento, grupos, fotos, relatórios, fornecedores e documentos' },
+        { title: 'Evidências', description: 'Registros, políticas, comunicações e condutas de proteção' },
+      ],
+      courseIntro:
+        'Esta trilha é uma camada formativa para a equipe escolar compreender riscos comuns e boas práticas no tratamento de dados pessoais.',
+      ctaTitle: 'LGPD precisa chegar à rotina',
+      ctaDescription:
+        'A Excellentia apoia formação e evidências, sem substituir mapeamento jurídico completo, DPO, contratos ou políticas formais quando exigidos.',
+    },
+    lessons: [
+      { order: 1, title: 'O que é LGPD na prática da escola' },
+      { order: 2, title: 'Dados de alunos, famílias e colaboradores' },
+      { order: 3, title: 'Imagem, autorização e exposição indevida' },
+      { order: 4, title: 'Comunicação escolar, grupos e mensagens' },
+      { order: 5, title: 'Fornecedores, plataformas e documentos' },
+      { order: 6, title: 'Boas práticas, registros e evidências' },
+    ],
+    complianceNotes: [
+      'Curso formativo; não substitui programa completo de adequação LGPD, DPO ou assessoria jurídica.',
+      'Tratamento de dados de crianças e adolescentes exige cuidado reforçado, base legal adequada e governança documental.',
+    ],
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'pending_content_production' },
   },
 } satisfies Record<string, CourseDefinition>;
 
