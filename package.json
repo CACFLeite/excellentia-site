@@ -13,6 +13,7 @@
     "db:studio": "prisma studio",
     "seed:nr1": "node scripts/seed-nr1-course.js",
     "seed:lei-lucas": "node scripts/seed-lei-lucas-course.js",
+    "seed:violencia-escolar": "node scripts/seed-violencia-escolar-course.js",
     "postinstall": "prisma generate"
   },
   "dependencies": {
