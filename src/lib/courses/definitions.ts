@@ -262,7 +262,7 @@ export const courseDefinitions = {
       'Curso formativo, protocolar e documental; não substitui treinamento prático presencial de primeiros socorros quando exigido.',
       'Não ensina manobras técnicas por vídeo; organiza preparação, acionamento, comunicação, registro e evidências.',
     ],
-    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_aula02_aula03_aula04_aula05_published_to_panda_aula06_in_production' },
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_aula02_aula03_aula04_aula05_aula06_published_to_panda_aula07_in_production' },
   },
   'incendio-escolas': {
     slug: 'incendio-escolas',
