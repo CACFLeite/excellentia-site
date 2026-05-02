@@ -19,6 +19,14 @@ const lessonVideoData = {
     pandaFolderId: 'bb6c993a-853b-4aa9-88b1-c108d2800bcb',
     videoStatus: 'published_to_panda',
   },
+  2: {
+    videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=b2a6059f-a4a7-40ff-8d96-0e55904bd011',
+    duration: '5min29',
+    pandaVideoId: 'b2d81ffb-8631-4a4a-b8c6-d09eef161020',
+    pandaExternalId: 'b2a6059f-a4a7-40ff-8d96-0e55904bd011',
+    pandaFolderId: 'bb6c993a-853b-4aa9-88b1-c108d2800bcb',
+    videoStatus: 'published_to_panda',
+  },
 };
 
 function section(markdown, heading) {
@@ -92,7 +100,7 @@ async function main() {
         track: 'primeiros-socorros',
         certificatePrefix: 'LLC',
         definitionVersion: '2026-05-02',
-        productionStatus: 'aula01_published_to_panda_aula02_in_production',
+        productionStatus: 'aula01_aula02_published_to_panda_aula03_in_production',
         practicalTrainingDisclaimer:
           'Não substitui treinamento prático presencial de primeiros socorros ministrado por profissional habilitado quando aplicável.',
       },
@@ -108,7 +116,7 @@ async function main() {
         track: 'primeiros-socorros',
         certificatePrefix: 'LLC',
         definitionVersion: '2026-05-02',
-        productionStatus: 'aula01_published_to_panda_aula02_in_production',
+        productionStatus: 'aula01_aula02_published_to_panda_aula03_in_production',
         practicalTrainingDisclaimer:
           'Não substitui treinamento prático presencial de primeiros socorros ministrado por profissional habilitado quando aplicável.',
       },

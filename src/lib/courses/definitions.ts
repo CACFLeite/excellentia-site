@@ -206,7 +206,7 @@ export const courseDefinitions = {
         'A trilha Lei Lucas nas Escolas foi desenhada como camada institucional de preparação, protocolo e evidências. Ela apoia a escola antes, durante e depois do treinamento prático, sem prometer ensinar manobras técnicas por vídeo.',
       ctaTitle: 'Status de produção',
       ctaDescription:
-        'Os roteiros, rubricas e áudios estão prontos. A etapa atual é validar o padrão visual com avatar antes de publicar os vídeos finais.',
+        'Os roteiros, rubricas e áudios estão prontos. A etapa atual é produzir as próximas aulas no padrão audiovisual local aprovado.',
     },
     lessons: [
       {
@@ -220,7 +220,17 @@ export const courseDefinitions = {
           pandaExternalId: 'c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
         },
       },
-      { order: 2, title: 'O papel de cada adulto diante de uma emergência escolar' },
+      {
+        order: 2,
+        title: 'O papel de cada adulto diante de uma emergência escolar',
+        duration: '5min29',
+        videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=b2a6059f-a4a7-40ff-8d96-0e55904bd011',
+        metadata: {
+          videoStatus: 'published_to_panda',
+          pandaVideoId: 'b2d81ffb-8631-4a4a-b8c6-d09eef161020',
+          pandaExternalId: 'b2a6059f-a4a7-40ff-8d96-0e55904bd011',
+        },
+      },
       { order: 3, title: 'Protocolos de acionamento: quem chama quem, quando e como' },
       { order: 4, title: 'Preparação antes do treinamento prático' },
       { order: 5, title: 'Durante a ocorrência: proteção, comunicação e limites de atuação' },
@@ -232,7 +242,7 @@ export const courseDefinitions = {
       'Curso formativo, protocolar e documental; não substitui treinamento prático presencial de primeiros socorros quando exigido.',
       'Não ensina manobras técnicas por vídeo; organiza preparação, acionamento, comunicação, registro e evidências.',
     ],
-    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_published_to_panda_aula02_in_production' },
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_aula02_published_to_panda_aula03_in_production' },
   },
   'incendio-escolas': {
     slug: 'incendio-escolas',
