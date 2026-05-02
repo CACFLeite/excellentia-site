@@ -242,7 +242,17 @@ export const courseDefinitions = {
           pandaExternalId: '679de7b7-558f-4b43-a10f-91ffc06ba7fa',
         },
       },
-      { order: 4, title: 'Preparação antes do treinamento prático' },
+      {
+        order: 4,
+        title: 'Preparação antes do treinamento prático',
+        duration: '4min56',
+        videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=f67802e0-1dd5-4bf3-b7e0-81eb3377e883',
+        metadata: {
+          videoStatus: 'published_to_panda',
+          pandaVideoId: '62fe9184-42ca-4099-9844-95a2a806fa24',
+          pandaExternalId: 'f67802e0-1dd5-4bf3-b7e0-81eb3377e883',
+        },
+      },
       { order: 5, title: 'Durante a ocorrência: proteção, comunicação e limites de atuação' },
       { order: 6, title: 'Depois da ocorrência: registro, família e revisão do protocolo' },
       { order: 7, title: 'Evidências, reciclagem e continuidade ao longo do ano' },
@@ -252,7 +262,7 @@ export const courseDefinitions = {
       'Curso formativo, protocolar e documental; não substitui treinamento prático presencial de primeiros socorros quando exigido.',
       'Não ensina manobras técnicas por vídeo; organiza preparação, acionamento, comunicação, registro e evidências.',
     ],
-    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_aula02_aula03_published_to_panda_aula04_in_production' },
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_aula02_aula03_aula04_published_to_panda_aula05_in_production' },
   },
   'incendio-escolas': {
     slug: 'incendio-escolas',
