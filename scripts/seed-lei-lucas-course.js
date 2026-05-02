@@ -10,11 +10,31 @@ const sourceFiles = Array.from({ length: 8 }, (_, index) =>
   `excellentia-lei-lucas-aula${String(index + 1).padStart(2, '0')}-roteiro-rubrica-v1-rascunho-2026-05-01.md`,
 );
 
+const lessonVideoData = {
+  1: {
+    videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
+    duration: '5min13',
+    pandaVideoId: '916580d4-cfae-49dd-a28c-45635355a6ca',
+    pandaExternalId: 'c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
+    pandaFolderId: 'bb6c993a-853b-4aa9-88b1-c108d2800bcb',
+    videoStatus: 'published_to_panda',
+  },
+};
+
 function section(markdown, heading) {
-  const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const regex = new RegExp(`^##+\\s+${escaped}\\s*$([\\s\\S]*?)(?=^##+\\s+|\\z)`, 'im');
-  const match = markdown.match(regex);
-  return match ? match[1].trim() : '';
+  const lines = markdown.split(/\r?\n/);
+  const headingRegex = new RegExp(`^##+\\s+${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i');
+  const start = lines.findIndex((line) => headingRegex.test(line.trim()));
+
+  if (start === -1) return '';
+
+  const collected = [];
+  for (let index = start + 1; index < lines.length; index += 1) {
+    if (/^##+\s+/.test(lines[index])) break;
+    collected.push(lines[index]);
+  }
+
+  return collected.join('\n').trim();
 }
 
 function firstNonEmptyLine(text) {
@@ -72,7 +92,7 @@ async function main() {
         track: 'primeiros-socorros',
         certificatePrefix: 'LLC',
         definitionVersion: '2026-05-02',
-        productionStatus: 'scripts_rubrics_audio_ready_video_pipeline_in_validation',
+        productionStatus: 'aula01_published_to_panda_aula02_in_production',
         practicalTrainingDisclaimer:
           'Não substitui treinamento prático presencial de primeiros socorros ministrado por profissional habilitado quando aplicável.',
       },
@@ -88,7 +108,7 @@ async function main() {
         track: 'primeiros-socorros',
         certificatePrefix: 'LLC',
         definitionVersion: '2026-05-02',
-        productionStatus: 'scripts_rubrics_audio_ready_video_pipeline_in_validation',
+        productionStatus: 'aula01_published_to_panda_aula02_in_production',
         practicalTrainingDisclaimer:
           'Não substitui treinamento prático presencial de primeiros socorros ministrado por profissional habilitado quando aplicável.',
       },
@@ -102,27 +122,32 @@ async function main() {
     const markdown = fs.readFileSync(file, 'utf8');
     const title = lessonTitle(markdown, order);
 
+    const videoData = lessonVideoData[order] ?? { videoStatus: 'pending_final_avatar_video' };
+    const lessonMetadata = {
+      sourceFile,
+      narrationFile: `excellentia-lei-lucas-aula${String(order).padStart(2, '0')}-elevenlabs-v1-2026-05-01.txt`,
+      videoStatus: videoData.videoStatus,
+      ...(videoData.duration ? { duration: videoData.duration } : {}),
+      ...(videoData.pandaVideoId ? { pandaVideoId: videoData.pandaVideoId } : {}),
+      ...(videoData.pandaExternalId ? { pandaExternalId: videoData.pandaExternalId } : {}),
+      ...(videoData.pandaFolderId ? { pandaFolderId: videoData.pandaFolderId } : {}),
+    };
+
     const lesson = await prisma.lesson.upsert({
       where: { courseId_order: { courseId: course.id, order } },
       update: {
         title,
+        videoUrl: videoData.videoUrl ?? null,
         transcript: markdown,
-        metadata: {
-          sourceFile,
-          narrationFile: `excellentia-lei-lucas-aula${String(order).padStart(2, '0')}-elevenlabs-v1-2026-05-01.txt`,
-          videoStatus: 'pending_final_avatar_video',
-        },
+        metadata: lessonMetadata,
       },
       create: {
         courseId: course.id,
         order,
         title,
+        videoUrl: videoData.videoUrl ?? null,
         transcript: markdown,
-        metadata: {
-          sourceFile,
-          narrationFile: `excellentia-lei-lucas-aula${String(order).padStart(2, '0')}-elevenlabs-v1-2026-05-01.txt`,
-          videoStatus: 'pending_final_avatar_video',
-        },
+        metadata: lessonMetadata,
       },
     });
 

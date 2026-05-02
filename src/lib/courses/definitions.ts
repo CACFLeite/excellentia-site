@@ -209,7 +209,17 @@ export const courseDefinitions = {
         'Os roteiros, rubricas e áudios estão prontos. A etapa atual é validar o padrão visual com avatar antes de publicar os vídeos finais.',
     },
     lessons: [
-      { order: 1, title: 'O que a Lei Lucas exige — e o que ela não resolve sozinha' },
+      {
+        order: 1,
+        title: 'O que a Lei Lucas exige — e o que ela não resolve sozinha',
+        duration: '5min13',
+        videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
+        metadata: {
+          videoStatus: 'published_to_panda',
+          pandaVideoId: '916580d4-cfae-49dd-a28c-45635355a6ca',
+          pandaExternalId: 'c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
+        },
+      },
       { order: 2, title: 'O papel de cada adulto diante de uma emergência escolar' },
       { order: 3, title: 'Protocolos de acionamento: quem chama quem, quando e como' },
       { order: 4, title: 'Preparação antes do treinamento prático' },
@@ -222,7 +232,7 @@ export const courseDefinitions = {
       'Curso formativo, protocolar e documental; não substitui treinamento prático presencial de primeiros socorros quando exigido.',
       'Não ensina manobras técnicas por vídeo; organiza preparação, acionamento, comunicação, registro e evidências.',
     ],
-    metadata: { definitionVersion: '2026-05-02', videoStatus: 'pending_final_avatar_video' },
+    metadata: { definitionVersion: '2026-05-02', videoStatus: 'aula01_published_to_panda_aula02_in_production' },
   },
   'incendio-escolas': {
     slug: 'incendio-escolas',
