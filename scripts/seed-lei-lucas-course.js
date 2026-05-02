@@ -12,10 +12,10 @@ const sourceFiles = Array.from({ length: 8 }, (_, index) =>
 
 const lessonVideoData = {
   1: {
-    videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
-    duration: '5min13',
-    pandaVideoId: '916580d4-cfae-49dd-a28c-45635355a6ca',
-    pandaExternalId: 'c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
+    videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=92543447-ea6c-46fa-9c5e-a82f13bf958e',
+    duration: '5min27',
+    pandaVideoId: 'cb849446-9819-4afd-9726-c55a59de646d',
+    pandaExternalId: '92543447-ea6c-46fa-9c5e-a82f13bf958e',
     pandaFolderId: 'bb6c993a-853b-4aa9-88b1-c108d2800bcb',
     videoStatus: 'published_to_panda',
   },

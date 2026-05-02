@@ -212,12 +212,12 @@ export const courseDefinitions = {
       {
         order: 1,
         title: 'O que a Lei Lucas exige — e o que ela não resolve sozinha',
-        duration: '5min13',
-        videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
+        duration: '5min27',
+        videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=92543447-ea6c-46fa-9c5e-a82f13bf958e',
         metadata: {
           videoStatus: 'published_to_panda',
-          pandaVideoId: '916580d4-cfae-49dd-a28c-45635355a6ca',
-          pandaExternalId: 'c9025a4f-855f-4735-ae1e-fe0fa3e7adbb',
+          pandaVideoId: 'cb849446-9819-4afd-9726-c55a59de646d',
+          pandaExternalId: '92543447-ea6c-46fa-9c5e-a82f13bf958e',
         },
       },
       {
