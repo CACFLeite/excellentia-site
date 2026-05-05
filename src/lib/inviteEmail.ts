@@ -8,7 +8,7 @@ type SendInviteEmailInput = {
 
 export type SendInviteEmailResult = {
   sent: boolean;
-  provider?: 'mailersend' | 'resend';
+  provider?: 'mailersend';
   skipped?: boolean;
   error?: string;
 };
@@ -18,10 +18,6 @@ function getMailerSendFrom() {
     email: process.env.MAILERSEND_FROM_EMAIL || process.env.EXCELLENTIA_INVITE_FROM_EMAIL || 'contato@excellentia-edu.com',
     name: process.env.MAILERSEND_FROM_NAME || process.env.EXCELLENTIA_INVITE_FROM_NAME || 'Excellentia',
   };
-}
-
-function getResendFromAddress() {
-  return process.env.EXCELLENTIA_INVITE_FROM || process.env.RESEND_FROM || 'Excellentia <contato@excellentia-edu.com>';
 }
 
 function escapeHtml(value: string) {
@@ -171,33 +167,7 @@ async function sendViaMailerSend(input: SendInviteEmailInput): Promise<SendInvit
   return { sent: true, provider: 'mailersend' };
 }
 
-async function sendViaResend(input: SendInviteEmailInput): Promise<SendInviteEmailResult> {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = input.to?.trim();
-
-  if (!to) return { sent: false, provider: 'resend', skipped: true, error: 'Colaborador sem e-mail cadastrado.' };
-  if (!apiKey) return { sent: false, provider: 'resend', skipped: true, error: 'RESEND_API_KEY não configurada.' };
-
-  const { subject, text, html } = buildInviteEmail(input);
-
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ from: getResendFromAddress(), to, subject, text, html }),
-  });
-
-  if (!response.ok) {
-    const body = await response.text().catch(() => '');
-    return { sent: false, provider: 'resend', error: `Falha Resend ${response.status}: ${body.slice(0, 500)}` };
-  }
-
-  return { sent: true, provider: 'resend' };
-}
-
 export async function sendInviteEmail(input: SendInviteEmailInput): Promise<SendInviteEmailResult> {
   if (process.env.MAILERSEND_API_KEY) return sendViaMailerSend(input);
-  return sendViaResend(input);
+  return { sent: false, provider: 'mailersend', skipped: true, error: 'MAILERSEND_API_KEY não configurada.' };
 }

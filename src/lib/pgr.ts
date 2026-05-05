@@ -208,7 +208,7 @@ export function generatePgrDocument(formData: PgrFormData) {
     `**Responsável informado:** ${formData.F02 || 'não informado'} — ${formData.F03 || 'cargo não informado'}\n\n` +
     `**Data de geração:** ${now.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })}\n\n` +
     `## Base normativa e escopo\n\n` +
-    `Este rascunho organiza informações para o Gerenciamento de Riscos Ocupacionais previsto na NR-1. O PGR deve conter, no mínimo, inventário de riscos e plano de ação, ser mantido por estabelecimento, revisado quando houver mudanças relevantes e preservado historicamente. O documento não substitui inspeção técnica, medições ambientais, laudos, PCMSO, AEP/AET ou validação por profissional habilitado quando aplicável.\n\n` +
+    `Este documento organiza informações para o Gerenciamento de Riscos Ocupacionais previsto na NR-1. O PGR deve conter, no mínimo, inventário de riscos e plano de ação, ser mantido por estabelecimento, revisado quando houver mudanças relevantes e preservado historicamente. A escola pode designar responsável interno para preenchimento, assinatura e guarda quando isso for compatível com sua realidade e com os riscos levantados; inspeções, medições ambientais, laudos, PCMSO, AEP/AET ou validações técnicas/jurídicas especializadas devem ser acionadas quando a natureza do risco, outra NR, contrato ou autoridade competente exigir.\n\n` +
     `## Caracterização resumida\n\n` +
     `- CNAE informado: ${formData.A06 === 'outro' ? formData.A06_outro : formData.A06 || 'não informado'}\n` +
     `- Grau de risco calculado preliminarmente: ${estimatedRiskGrade}\n` +
@@ -231,7 +231,7 @@ export function generatePgrDocument(formData: PgrFormData) {
       riskCount: risks.length,
       risks,
       source: 'excellentia-pgr-form-v1',
-      legalNote: 'Rascunho operacional baseado na estrutura mínima da NR-1: inventário de riscos e plano de ação. Requer validação técnica antes de uso formal.',
+      legalNote: 'Documento operacional baseado na estrutura mínima da NR-1: inventário de riscos e plano de ação. A escola pode designar responsável interno; validação técnica/jurídica especializada deve ser acionada quando aplicável ao risco ou exigência específica.',
       estimatedRiskGrade,
     },
   };

@@ -83,7 +83,7 @@ export default async function PgrDocumentPage({ params }: { params: { pgrId: str
         </div>
 
         <section className="bg-yellow-50 border border-yellow-200 text-yellow-950 rounded-2xl p-5 text-sm leading-6">
-          Este documento é um rascunho operacional para organização do PGR conforme NR-1. Antes de uso formal, precisa ser validado por responsável técnico/profissional habilitado quando aplicável e integrado aos demais documentos de SST da escola.
+          Este documento organiza o PGR conforme NR-1. A escola pode designar responsável interno para preenchimento, assinatura e guarda quando compatível com sua realidade; apoio técnico, SST ou jurídico deve ser acionado quando a natureza do risco, outra norma, contrato ou autoridade competente exigir. O documento deve ser integrado aos demais registros de SST e governança da escola.
         </section>
 
         <article className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8 print:shadow-none print:border-0">

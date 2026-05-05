@@ -34,8 +34,8 @@ const BlockF: React.FC<BlockFProps> = ({ formData, onFormDataChange }) => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-navy">BLOCO F — Responsável Técnico pelo PGR</h2>
-      <p className="text-sm text-gray-600">Identificação de quem é responsável pelo PGR na escola.</p>
+      <h2 className="text-2xl font-bold text-navy">BLOCO F — Responsável pelo PGR</h2>
+      <p className="text-sm text-gray-600">Identificação de quem a escola designa para preencher, assinar, guardar e revisar o PGR. Pode ser responsável interno ou apoio externo, conforme a realidade da escola e os riscos envolvidos.</p>
 
       <SelectInput
         id="F01"
@@ -48,7 +48,7 @@ const BlockF: React.FC<BlockFProps> = ({ formData, onFormDataChange }) => {
 
       <TextInput
         id="F02"
-        label="F02 — Qual é o nome completo do responsável técnico pelo PGR?"
+        label="F02 — Qual é o nome completo do responsável pelo PGR?"
         value={formData.F02 || ''}
         onChange={(value) => onFormDataChange('F02', value)}
         required

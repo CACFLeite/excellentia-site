@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
-import Anthropic from '@anthropic-ai/sdk'
 import fs from 'fs'
 import path from 'path'
 
+type ChatMessage = { role: 'user' | 'assistant' | 'system'; content: string }
+
 // Carrega a base de conhecimento na inicialização
 function loadKnowledgeBase(): string {
-  const knowledgeDir = path.join(process.cwd(), '..', 'excellentia-app', 'agent-knowledge')
-  
+  const candidateDirs = [
+    path.join(process.cwd(), 'agent-knowledge'),
+    path.join(process.cwd(), '..', 'excellentia-app', 'agent-knowledge'),
+  ]
+
   const files = [
     'bncc-competencias.md',
     'taxonomia-bloom.md',
@@ -16,12 +20,15 @@ function loadKnowledgeBase(): string {
   ]
 
   let knowledge = ''
-  for (const file of files) {
-    const filePath = path.join(knowledgeDir, file)
-    if (fs.existsSync(filePath)) {
-      knowledge += `\n\n### ${file.replace('.md', '').toUpperCase()} ###\n`
-      knowledge += fs.readFileSync(filePath, 'utf-8')
+  for (const knowledgeDir of candidateDirs) {
+    for (const file of files) {
+      const filePath = path.join(knowledgeDir, file)
+      if (fs.existsSync(filePath)) {
+        knowledge += `\n\n### ${file.replace('.md', '').toUpperCase()} ###\n`
+        knowledge += fs.readFileSync(filePath, 'utf-8')
+      }
     }
+    if (knowledge.trim()) break
   }
 
   return knowledge
@@ -77,11 +84,99 @@ O professor pode informar disciplina, série e tema. Use esse contexto para pers
 
 A seguir está sua base de conhecimento com informações sobre BNCC, Taxonomia de Bloom, adaptações para neurodivergentes, modelos de rubrica e planejamento:
 
-${KNOWLEDGE_BASE}
+${KNOWLEDGE_BASE || 'Base local não encontrada nesta implantação. Responda com cautela e peça validação quando a pergunta depender de repertório específico.'}
 
 ---
 
 Responda sempre em português brasileiro. Seja um parceiro pedagógico real — não um gerador de texto genérico.`
+
+function buildUserMessage(message: string, context?: { discipline?: string; grade?: string; topic?: string }) {
+  if (!context || !(context.discipline || context.grade || context.topic)) return message
+
+  const contextParts = []
+  if (context.discipline) contextParts.push(`Disciplina: ${context.discipline}`)
+  if (context.grade) contextParts.push(`Série: ${context.grade}`)
+  if (context.topic) contextParts.push(`Tema/Conteúdo: ${context.topic}`)
+
+  return `[Contexto: ${contextParts.join(' | ')}]\n\n${message}`
+}
+
+function extractAssistantMessage(data: unknown): string | null {
+  if (!data || typeof data !== 'object') return null
+  const obj = data as Record<string, any>
+
+  if (typeof obj.message === 'string') return obj.message
+  if (typeof obj.text === 'string') return obj.text
+  if (typeof obj.output === 'string') return obj.output
+  if (typeof obj.response === 'string') return obj.response
+
+  const choiceContent = obj.choices?.[0]?.message?.content
+  if (typeof choiceContent === 'string') return choiceContent
+
+  const contentText = obj.content?.[0]?.text
+  if (typeof contentText === 'string') return contentText
+
+  return null
+}
+
+async function runCodexOAuthChat(messages: ChatMessage[]) {
+  const endpoint = process.env.OPENCLAW_CODEX_CHAT_ENDPOINT || process.env.OPENCLAW_LLM_TASK_ENDPOINT
+  const token = process.env.OPENCLAW_CODEX_CHAT_TOKEN || process.env.OPENCLAW_LLM_TASK_TOKEN
+
+  if (!endpoint) {
+    return {
+      ok: false as const,
+      status: 503,
+      error: 'Agente educacional não configurado. O Excellentia usa o caminho ChatGPT/Codex OAuth via OpenClaw; configure OPENCLAW_CODEX_CHAT_ENDPOINT para habilitar esta rota em produção.',
+    }
+  }
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify({
+      model: process.env.OPENCLAW_CODEX_MODEL || 'openai-codex/gpt-5.5',
+      system: SYSTEM_PROMPT,
+      messages,
+      max_tokens: 2048,
+      temperature: 0.2,
+    }),
+  })
+
+  const raw = await response.text()
+  let data: unknown = null
+  try {
+    data = raw ? JSON.parse(raw) : null
+  } catch {
+    data = { text: raw }
+  }
+
+  if (!response.ok) {
+    return {
+      ok: false as const,
+      status: response.status,
+      error: `Falha no provedor ChatGPT/Codex OAuth: ${raw.slice(0, 500)}`,
+    }
+  }
+
+  const assistantMessage = extractAssistantMessage(data)
+  if (!assistantMessage) {
+    return {
+      ok: false as const,
+      status: 502,
+      error: 'Resposta inválida do provedor ChatGPT/Codex OAuth.',
+    }
+  }
+
+  return {
+    ok: true as const,
+    message: assistantMessage,
+    raw: data,
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -103,80 +198,28 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    const apiKey = process.env.ANTHROPIC_API_KEY
-    if (!apiKey) {
-      return NextResponse.json(
-        { error: 'Chave da API não configurada' },
-        { status: 500 }
-      )
-    }
-
-    const anthropic = new Anthropic({ apiKey })
-
-    // Monta a mensagem com contexto do professor
-    let userMessage = message
-    if (context && (context.discipline || context.grade || context.topic)) {
-      const contextParts = []
-      if (context.discipline) contextParts.push(`Disciplina: ${context.discipline}`)
-      if (context.grade) contextParts.push(`Série: ${context.grade}`)
-      if (context.topic) contextParts.push(`Tema/Conteúdo: ${context.topic}`)
-
-      if (contextParts.length > 0) {
-        userMessage = `[Contexto: ${contextParts.join(' | ')}]\n\n${message}`
-      }
-    }
-
-    // Monta o histórico de mensagens
-    const messages: Array<{ role: 'user' | 'assistant'; content: string }> = []
+    const userMessage = buildUserMessage(message, context)
+    const messages: ChatMessage[] = []
 
     if (history && history.length > 0) {
-      // Limita o histórico a 10 mensagens para controlar custos
       const recentHistory = history.slice(-10)
-      messages.push(...recentHistory)
+      messages.push(...recentHistory.map((item) => ({ role: item.role, content: item.content })))
     }
 
     messages.push({ role: 'user', content: userMessage })
 
-    // Decide o modelo: Haiku para interações simples, Sonnet para complexas
-    const isComplexRequest =
-      message.length > 500 ||
-      message.toLowerCase().includes('planejamento') ||
-      message.toLowerCase().includes('sequência didática') ||
-      message.toLowerCase().includes('rubrica completa') ||
-      message.toLowerCase().includes('adaptar material completo')
-
-    const model = isComplexRequest
-      ? 'claude-sonnet-4-5'
-      : 'claude-haiku-4-5'
-
-    const response = await anthropic.messages.create({
-      model,
-      max_tokens: 2048,
-      system: SYSTEM_PROMPT,
-      messages,
-    })
-
-    const assistantMessage =
-      response.content[0].type === 'text' ? response.content[0].text : ''
+    const result = await runCodexOAuthChat(messages)
+    if (!result.ok) {
+      return NextResponse.json({ error: result.error }, { status: result.status })
+    }
 
     return NextResponse.json({
-      message: assistantMessage,
-      model,
-      usage: {
-        input_tokens: response.usage.input_tokens,
-        output_tokens: response.usage.output_tokens,
-      },
+      message: result.message,
+      model: process.env.OPENCLAW_CODEX_MODEL || 'openai-codex/gpt-5.5',
+      provider: 'openclaw-codex-oauth',
     })
   } catch (error) {
     console.error('Erro no Agente Educacional:', error)
-
-    if (error instanceof Anthropic.APIError) {
-      return NextResponse.json(
-        { error: `Erro na API: ${error.message}` },
-        { status: error.status || 500 }
-      )
-    }
-
     return NextResponse.json(
       { error: 'Erro interno no servidor. Tente novamente em instantes.' },
       { status: 500 }
