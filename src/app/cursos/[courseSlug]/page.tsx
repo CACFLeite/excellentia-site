@@ -10,8 +10,9 @@ export function generateStaticParams() {
     .map((courseSlug) => ({ courseSlug }));
 }
 
-export function generateMetadata({ params }: { params: { courseSlug: string } }): Metadata {
-  const course = getCourseDefinition(params.courseSlug);
+export async function generateMetadata({ params }: { params: Promise<{ courseSlug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const course = getCourseDefinition(resolvedParams.courseSlug);
 
   if (!course) {
     return { title: 'Curso não encontrado — Excellentia' };
@@ -23,15 +24,17 @@ export function generateMetadata({ params }: { params: { courseSlug: string } })
   };
 }
 
-export default function CoursePage({ params, searchParams }: { params: { courseSlug: string }; searchParams?: { convite?: string } }) {
-  const course = getCourseDefinition(params.courseSlug);
+export default async function CoursePage({ params, searchParams }: { params: Promise<{ courseSlug: string }>; searchParams?: Promise<{ convite?: string }> }) {
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  const course = getCourseDefinition(resolvedParams.courseSlug);
 
   if (!course) {
     notFound();
   }
 
-  if (searchParams?.convite) {
-    return <CourseExperienceClient token={searchParams.convite} courseSlug={params.courseSlug} />;
+  if (resolvedSearchParams?.convite) {
+    return <CourseExperienceClient token={resolvedSearchParams.convite} courseSlug={resolvedParams.courseSlug} />;
   }
 
   return <PublicCoursePage course={course} />;

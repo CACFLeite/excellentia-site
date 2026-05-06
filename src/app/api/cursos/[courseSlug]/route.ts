@@ -8,7 +8,8 @@ function metadataObject(value: unknown): MetadataRecord {
   return value && typeof value === 'object' && !Array.isArray(value) ? (value as MetadataRecord) : {};
 }
 
-export async function GET(request: NextRequest, { params }: { params: { courseSlug: string } }) {
+export async function GET(request: NextRequest, context: { params: Promise<{ courseSlug: string }> }) {
+  const params = await context.params;
   const token = request.nextUrl.searchParams.get('convite');
   const courseSlug = params.courseSlug;
 

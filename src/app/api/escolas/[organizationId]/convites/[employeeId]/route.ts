@@ -9,7 +9,9 @@ function addDays(days: number) {
   return date;
 }
 
-export async function POST(request: NextRequest, { params }: { params: { organizationId: string; employeeId: string } }) {
+export async function POST(request: NextRequest, context: { params: Promise<{ organizationId: string; employeeId: string }> }) {
+  const params = await context.params;
+
   try {
     assertInternalAccess(request);
     const body = await request.json().catch(() => ({}));

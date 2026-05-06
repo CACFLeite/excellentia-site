@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { assertInternalAccess } from '@/lib/invitations';
 
-export async function GET(request: NextRequest, { params }: { params: { organizationId: string } }) {
+export async function GET(request: NextRequest, context: { params: Promise<{ organizationId: string }> }) {
+  const params = await context.params;
+
   try {
     assertInternalAccess(request);
     const communications = await prisma.communication.findMany({
@@ -32,7 +34,9 @@ export async function GET(request: NextRequest, { params }: { params: { organiza
   }
 }
 
-export async function PATCH(request: NextRequest, { params }: { params: { organizationId: string } }) {
+export async function PATCH(request: NextRequest, context: { params: Promise<{ organizationId: string }> }) {
+  const params = await context.params;
+
   try {
     assertInternalAccess(request);
     const body = await request.json();

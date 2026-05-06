@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { use, useEffect, useMemo, useState } from 'react';
 
 type Communication = {
   id: string;
@@ -24,7 +24,8 @@ const statusOptions = [
 
 const statusLabels = Object.fromEntries(statusOptions.map((item) => [item.value, item.label]));
 
-export default function ComunicacoesAdminPage({ params }: { params: { organizationId: string } }) {
+export default function ComunicacoesAdminPage({ params }: { params: Promise<{ organizationId: string }> }) {
+  const resolvedParams = use(params);
   const [communications, setCommunications] = useState<Communication[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,7 @@ export default function ComunicacoesAdminPage({ params }: { params: { organizati
   async function load() {
     setLoading(true);
     setError(null);
-    const response = await fetch(`/api/escolas/${params.organizationId}/comunicacoes`, {
+    const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/comunicacoes`, {
     });
     const data = await response.json();
     if (!response.ok) {
@@ -57,7 +58,7 @@ export default function ComunicacoesAdminPage({ params }: { params: { organizati
   }
 
   async function updateStatus(id: string, status: string) {
-    const response = await fetch(`/api/escolas/${params.organizationId}/comunicacoes`, {
+    const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/comunicacoes`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id, status }),
@@ -68,7 +69,7 @@ export default function ComunicacoesAdminPage({ params }: { params: { organizati
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.organizationId]);
+  }, [resolvedParams.organizationId]);
 
   return (
     <main className="min-h-screen bg-gray-50 py-10 px-4">

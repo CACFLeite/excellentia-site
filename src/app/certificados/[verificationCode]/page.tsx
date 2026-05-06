@@ -3,17 +3,20 @@ import Link from 'next/link';
 import PrintButton from '@/components/PrintButton';
 import { prisma } from '@/lib/prisma';
 
-type Props = { params: { verificationCode: string } };
+type Props = { params: Promise<{ verificationCode: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+
   return {
-    title: `Certificado ${params.verificationCode} — Excellentia`,
+    title: `Certificado ${resolvedParams.verificationCode} — Excellentia`,
     description: 'Verificação pública de certificado Excellentia.',
   };
 }
 
 export default async function CertificadoPage({ params }: Props) {
-  const verificationCode = params.verificationCode.trim().toUpperCase();
+  const resolvedParams = await params;
+  const verificationCode = resolvedParams.verificationCode.trim().toUpperCase();
   const certificate = await prisma.certificate.findUnique({
     where: { verificationCode },
     include: {

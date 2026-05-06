@@ -33,7 +33,9 @@ function buildInitialFeedback(answer: string) {
   };
 }
 
-export async function POST(request: NextRequest, { params }: { params: { courseSlug: string } }) {
+export async function POST(request: NextRequest, context: { params: Promise<{ courseSlug: string }> }) {
+  const params = await context.params;
+
   try {
     const body = await request.json();
     const token = String(body.convite ?? '');

@@ -60,7 +60,7 @@ async function isAllowed(request: NextRequest) {
   return Boolean(expected && received === expected);
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
 type Dashboard = {
   organization: { id: string; name: string; slug: string; status: string; employeeLimit?: number | null };
@@ -32,7 +32,8 @@ type Dashboard = {
   pgrDocuments: Array<{ id: string; status: string; createdAt: string; updatedAt: string; signedAt?: string | null; signedBy?: string | null }>;
 };
 
-export default function PainelEscolaPage({ params }: { params: { organizationId: string } }) {
+export default function PainelEscolaPage({ params }: { params: Promise<{ organizationId: string }> }) {
+  const resolvedParams = use(params);
   const [dashboard, setDashboard] = useState<Dashboard | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,7 @@ export default function PainelEscolaPage({ params }: { params: { organizationId:
   async function load() {
     setLoading(true);
     setError(null);
-    const response = await fetch(`/api/escolas/${params.organizationId}/painel`, {
+    const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/painel`, {
     });
     const data = await response.json();
 
@@ -59,7 +60,7 @@ export default function PainelEscolaPage({ params }: { params: { organizationId:
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.organizationId]);
+  }, [resolvedParams.organizationId]);
 
   function hasValidEmail(email?: string | null) {
     return Boolean(email && /^\S+@\S+\.\S+$/.test(email));
@@ -68,7 +69,7 @@ export default function PainelEscolaPage({ params }: { params: { organizationId:
   async function resendInvite(employeeId: string, sendEmail = false) {
     setError(null);
     setInviteMessages((current) => ({ ...current, [employeeId]: sendEmail ? 'Enviando e-mail...' : 'Gerando link...' }));
-    const response = await fetch(`/api/escolas/${params.organizationId}/convites/${employeeId}`, {
+    const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/convites/${employeeId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ sendEmail }),

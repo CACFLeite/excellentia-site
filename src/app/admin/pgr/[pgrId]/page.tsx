@@ -58,9 +58,10 @@ function renderMarkdown(body: string) {
   return elements;
 }
 
-export default async function PgrDocumentPage({ params }: { params: { pgrId: string } }) {
+export default async function PgrDocumentPage({ params }: { params: Promise<{ pgrId: string }> }) {
+  const resolvedParams = await params;
   const pgr = await prisma.pgrDocument.findUnique({
-    where: { id: params.pgrId },
+    where: { id: resolvedParams.pgrId },
     include: { organization: { select: { id: true, name: true } } },
   });
 

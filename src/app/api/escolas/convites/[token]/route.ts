@@ -6,7 +6,8 @@ function isExpired(date: Date) {
   return date.getTime() < Date.now();
 }
 
-export async function GET(_request: NextRequest, { params }: { params: { token: string } }) {
+export async function GET(_request: NextRequest, context: { params: Promise<{ token: string }> }) {
+  const params = await context.params;
   const invitation = await prisma.employeeInvitation.findUnique({
     where: { tokenHash: hashInviteToken(params.token) },
     include: {
@@ -28,7 +29,9 @@ export async function GET(_request: NextRequest, { params }: { params: { token: 
   });
 }
 
-export async function POST(request: NextRequest, { params }: { params: { token: string } }) {
+export async function POST(request: NextRequest, context: { params: Promise<{ token: string }> }) {
+  const params = await context.params;
+
   try {
     const body = await request.json().catch(() => ({}));
     const tokenHash = hashInviteToken(params.token);

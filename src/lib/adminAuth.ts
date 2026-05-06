@@ -58,8 +58,9 @@ export function getAdminCookieName() {
   return COOKIE_NAME;
 }
 
-export function hasAdminSessionFromCookieStore() {
-  return verifyAdminSessionToken(cookies().get(COOKIE_NAME)?.value);
+export async function hasAdminSessionFromCookieStore() {
+  const cookieStore = await cookies();
+  return verifyAdminSessionToken(cookieStore.get(COOKIE_NAME)?.value);
 }
 
 export function isAdminRequest(request: Request) {

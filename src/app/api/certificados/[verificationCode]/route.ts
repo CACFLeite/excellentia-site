@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-export async function GET(_request: Request, { params }: { params: { verificationCode: string } }) {
+export async function GET(_request: Request, context: { params: Promise<{ verificationCode: string }> }) {
+  const params = await context.params;
   const verificationCode = params.verificationCode.trim().toUpperCase();
 
   const certificate = await prisma.certificate.findUnique({

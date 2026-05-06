@@ -146,9 +146,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const post = posts[params.slug]
+  const resolvedParams = await params
+  const post = posts[resolvedParams.slug]
   if (!post) return { title: 'Post não encontrado — Excellentia' }
   return {
     title: `${post.title} — Excellentia Blog`,
@@ -181,8 +182,9 @@ function renderMarkdown(content: string) {
   })
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = posts[params.slug]
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const post = posts[resolvedParams.slug]
   if (!post) notFound()
 
   return (

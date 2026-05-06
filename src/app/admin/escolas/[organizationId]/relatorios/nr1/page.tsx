@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
 type Report = {
   organization: { name: string; slug: string };
@@ -13,7 +13,8 @@ type Report = {
   institutionalNotes: string[];
 };
 
-export default function RelatorioNR1Page({ params }: { params: { organizationId: string } }) {
+export default function RelatorioNR1Page({ params }: { params: Promise<{ organizationId: string }> }) {
+  const resolvedParams = use(params);
   const [report, setReport] = useState<Report | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ export default function RelatorioNR1Page({ params }: { params: { organizationId:
   async function load() {
     setLoading(true);
     setError(null);
-    const response = await fetch(`/api/escolas/${params.organizationId}/relatorios/nr1`, {
+    const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/relatorios/nr1`, {
     });
     const data = await response.json();
 
@@ -38,7 +39,7 @@ export default function RelatorioNR1Page({ params }: { params: { organizationId:
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.organizationId]);
+  }, [resolvedParams.organizationId]);
 
   return (
     <main className="min-h-screen bg-gray-50 py-10 px-4">
