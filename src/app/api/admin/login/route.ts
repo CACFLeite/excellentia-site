@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => ({}));
   const password = String(body.password ?? '');
 
-  if (!validateAdminPassword(password)) {
+  if (!(await validateAdminPassword(password))) {
     return NextResponse.json({ error: 'Senha administrativa inválida.' }, { status: 401 });
   }
 

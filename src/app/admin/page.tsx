@@ -16,6 +16,11 @@ const cards = [
     description: 'Escolha uma escola para cadastrar colaboradores, importar planilha e gerar convites.',
     href: '/admin/escolas',
   },
+  {
+    title: 'Segurança do painel',
+    description: 'Trocar a senha administrativa diretamente pelo site, sem editar variáveis manualmente.',
+    href: '/admin/seguranca',
+  },
 ];
 
 export default function AdminHomePage() {
@@ -30,7 +35,7 @@ export default function AdminHomePage() {
           </p>
         </div>
 
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {cards.map((card) => (
             <Link key={card.href} href={card.href} className="block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:border-gold transition-colors">
               <h2 className="text-xl font-bold text-navy">{card.title}</h2>

@@ -61,12 +61,12 @@ export default function AcessoEscolarPage({ searchParams }: { searchParams?: { c
             <p className="text-gray-500 text-xs mt-1">Formato: SIGLA-ANO-XXXX (ex: BIS-2026-A3F7)</p>
           </div>
 
-          <a
-            href="https://excellentia-edu.web.app"
+          <Link
+            href="/cursos"
             className="block w-full bg-gold hover:bg-yellow-600 text-white font-bold py-3 rounded-lg text-center transition-colors text-sm"
           >
-            Acessar a plataforma →
-          </a>
+            Acessar cursos →
+          </Link>
         </div>
         )}
 

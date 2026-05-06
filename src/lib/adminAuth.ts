@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
 import { cookies } from 'next/headers';
+import { validateStoredAdminPassword } from '@/lib/adminCredential';
 
 const COOKIE_NAME = 'excellentia_admin_session';
 const SESSION_TTL_SECONDS = 60 * 60 * 8;
@@ -47,7 +48,10 @@ export function verifyAdminSessionToken(token?: string | null) {
   }
 }
 
-export function validateAdminPassword(password: string) {
+export async function validateAdminPassword(password: string) {
+  const storedResult = await validateStoredAdminPassword(password);
+  if (storedResult !== null) return storedResult;
+
   const expected = adminPassword();
   if (!expected) return process.env.NODE_ENV !== 'production';
   if (password.length !== expected.length) return false;
