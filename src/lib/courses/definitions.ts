@@ -192,8 +192,8 @@ export const courseDefinitions = {
     shortTitle: 'Lei Lucas nas Escolas',
     description:
       'Formação Excellentia para preparar equipes escolares, organizar protocolos, registrar evidências e manter continuidade institucional em torno da Lei Lucas, sem substituir o treinamento prático presencial com profissional habilitado.',
-    status: 'draft',
-    availability: 'in_production',
+    status: 'published',
+    availability: 'published',
     audience: 'school_employee',
     track: 'primeiros-socorros',
     area: 'Segurança escolar',
@@ -201,20 +201,20 @@ export const courseDefinitions = {
     modules: 1,
     lessonsCount: 8,
     publicPage: {
-      badge: 'Em produção',
+      badge: 'Conformidade Escolar Essencial',
       headline: 'Lei Lucas nas Escolas',
       summary:
-        'Curso em produção para transformar a Lei Lucas em preparação real: protocolo, responsabilidades, comunicação, registro e evidências ao longo do ano.',
+        'Curso disponível para transformar a Lei Lucas em preparação real: protocolo, responsabilidades, comunicação, registro e evidências ao longo do ano.',
       cards: [
-        { title: '8 aulas', description: 'Roteiros, rubricas e áudios profissionais já preparados' },
+        { title: '8 aulas', description: 'Vídeos já hospedados no Panda Vídeos' },
         { title: 'Protocolo escolar', description: 'Fluxos de acionamento, coordenação, equipe de saúde e comunicação com responsáveis' },
         { title: 'Limite responsável', description: 'Não substitui a prática presencial com profissional habilitado; organiza o antes, o durante e o depois' },
       ],
       courseIntro:
         'A trilha Lei Lucas nas Escolas foi desenhada como camada institucional de preparação, protocolo e evidências. Ela apoia a escola antes, durante e depois do treinamento prático, sem prometer ensinar manobras técnicas por vídeo.',
-      ctaTitle: 'Status de produção',
+      ctaTitle: 'Curso disponível',
       ctaDescription:
-        'Os roteiros, rubricas e áudios estão prontos. A etapa atual é produzir as próximas aulas no padrão audiovisual local aprovado.',
+        'As 8 aulas já estão publicadas no Panda Vídeos e conectadas ao catálogo Excellentia como formação protocolar e documental para escolas.'
     },
     lessons: [
       {
