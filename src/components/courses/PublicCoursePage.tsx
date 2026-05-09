@@ -1,91 +1,106 @@
 import Link from 'next/link';
 import type { CourseDefinition } from '@/lib/courses/definitions';
 
+function publicCards(course: CourseDefinition) {
+  const isAvailable = course.availability === 'published';
+  return [
+    {
+      title: isAvailable ? 'Formação disponível' : 'Formação em estruturação',
+      description: isAvailable
+        ? 'Acesso liberado apenas para participantes vinculados a uma contratação, convite institucional ou plano aplicável.'
+        : 'Trilha prevista no catálogo Excellentia, sujeita à validação final de conteúdo, certificado e escopo.',
+    },
+    {
+      title: 'Certificação',
+      description: 'Certificados são emitidos dentro da experiência autenticada, conforme conclusão e regras da formação.',
+    },
+    {
+      title: 'Uso institucional',
+      description: 'Quando contratada por escola, a formação pode compor registros, relatórios e acompanhamento interno.',
+    },
+  ];
+}
+
 export default function PublicCoursePage({ course }: { course: CourseDefinition }) {
+  const cards = publicCards(course);
+  const isAvailable = course.availability === 'published';
+
   return (
-    <main className="min-h-screen bg-gray-50">
-      <section className="bg-navy text-white py-14 md:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/formacoes" className="text-sm text-gray-300 hover:text-white transition-colors">
+    <main className="min-h-screen bg-[#f7f4ec]">
+      <section className="relative overflow-hidden bg-[#06101c] py-16 text-white md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(244,219,118,.20),transparent_28%),linear-gradient(145deg,#06101c_0%,#0a2749_48%,#02060b_100%)]" />
+        <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(244,219,118,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(244,219,118,.07)_1px,transparent_1px)] [background-size:72px_72px]" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <Link href="/formacoes" className="text-sm font-bold text-slate-300 transition-colors hover:text-white">
             ← Voltar às formações
           </Link>
-          <div className="mt-8 max-w-3xl">
-            <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-wide">
-              {course.publicPage.badge}
+          <div className="mt-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_.78fr]">
+            <div className="max-w-3xl">
+              <div className="mb-6 inline-flex rounded-full border border-gold-light/30 bg-gold-light/10 px-5 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-gold-light">
+                {course.publicPage.badge}
+              </div>
+              <h1 className="text-4xl font-black leading-[1.03] tracking-[-0.04em] md:text-6xl">{course.publicPage.headline}</h1>
+              <p className="mt-7 text-lg leading-8 text-slate-200 md:text-xl">{course.publicPage.summary}</p>
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-5">{course.publicPage.headline}</h1>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">{course.publicPage.summary}</p>
+
+            <div className="rounded-[2.5rem] border border-white/15 bg-white/[0.07] p-7 shadow-2xl backdrop-blur-md">
+              <div className="text-xs font-extrabold uppercase tracking-[0.24em] text-gold-light">acesso protegido</div>
+              <h2 className="mt-4 text-2xl font-black">Conteúdo disponível apenas na experiência autenticada.</h2>
+              <p className="mt-4 leading-7 text-slate-300">
+                A página pública apresenta escopo e finalidade da formação. Aulas, vídeos, atividades, respostas e certificados pertencem ao ambiente de acesso autorizado.
+              </p>
+              <div className="mt-7 flex flex-col gap-3">
+                <Link href="/contato" className="rounded-2xl bg-gold px-6 py-4 text-center font-black text-white transition hover:bg-yellow-600">
+                  Solicitar acesso institucional
+                </Link>
+                <Link href="/formacoes" className="rounded-2xl border border-white/40 px-6 py-4 text-center font-black text-white transition hover:bg-white hover:text-navy">
+                  Ver catálogo de formações
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-10 md:py-14 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {course.publicPage.cards.map((card) => (
-            <div key={card.title} className="rounded-2xl bg-gray-50 border border-gray-100 p-6">
-              <h2 className="text-xl font-bold text-navy mb-2">{card.title}</h2>
-              <p className="text-sm text-gray-600 leading-relaxed">{card.description}</p>
-            </div>
-          ))}
+      <section className="py-14 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {cards.map((card) => (
+              <div key={card.title} className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl">
+                <h2 className="text-2xl font-black text-navy">{card.title}</h2>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{card.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {course.lessons.length > 0 ? (
-        <section className="py-12 md:py-16">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">Aulas da formação</h2>
-              <p className="text-gray-600 leading-relaxed max-w-3xl">
-                {course.publicPage.courseIntro ??
-                  'Colaboradores convidados acessam a experiência formativa pelo link individual recebido da escola, com situações-problema, respostas, feedback formativo e registro de participação.'}
-              </p>
+      <section className="pb-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[2.5rem] border border-slate-200 bg-white p-8 shadow-2xl md:p-10">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_.9fr] lg:items-center">
+              <div>
+                <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">
+                  {isAvailable ? 'formação publicada' : 'formação planejada'}
+                </div>
+                <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-4xl">
+                  {course.publicPage.ctaTitle ?? 'Formação com evidências para escolas'}
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-slate-600">
+                  {course.publicPage.ctaDescription ??
+                    'A Excellentia organiza formações, registros, certificados e relatórios para reduzir improviso e fortalecer a governança formativa da escola.'}
+                </p>
+              </div>
+              <div className="rounded-[2rem] bg-[#f7f4ec] p-6">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-gold">acesso ao conteúdo</p>
+                <p className="mt-4 leading-7 text-slate-700">
+                  Participantes acessam a formação por convite, contrato ou plano elegível. O link público não exibe aulas, vídeos ou atividades internas.
+                </p>
+                <Link href="/contato" className="mt-7 inline-flex rounded-2xl bg-navy px-7 py-4 font-black text-white transition hover:bg-slate-900">
+                  Falar com a Excellentia
+                </Link>
+              </div>
             </div>
-
-            <div className="space-y-10">
-              {course.lessons.map((lesson) => (
-                <article key={lesson.order} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                  <div className="p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-gray-100">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-wide text-gold mb-1">Aula {String(lesson.order).padStart(2, '0')}</p>
-                      <h3 className="text-xl font-bold text-navy">{lesson.title}</h3>
-                    </div>
-                    <span className="text-sm text-gray-500">{lesson.duration}</span>
-                  </div>
-                  {lesson.videoUrl && (
-                    <div className="aspect-video bg-black">
-                      <iframe src={lesson.videoUrl} title={`${course.shortTitle} — ${lesson.title}`} className="w-full h-full" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" allowFullScreen />
-                    </div>
-                  )}
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : (
-        <section className="py-12 md:py-16">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 md:p-10">
-              <p className="text-xs font-bold uppercase tracking-wide text-gold mb-3">Formação em estruturação</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">Conteúdo em produção</h2>
-              <p className="text-gray-600 leading-relaxed max-w-3xl">
-                Esta formação já faz parte da arquitetura de trilhas da Excellentia, mas ainda não está publicada como experiência completa. A publicação final deve ocorrer depois da validação de conteúdo, rubricas, limites técnicos e certificado adequado.
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      <section className="pb-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-navy text-white rounded-2xl p-8 md:p-10">
-            <h2 className="text-2xl font-bold mb-3">{course.publicPage.ctaTitle ?? 'Formação com evidências para escolas'}</h2>
-            <p className="text-gray-300 leading-relaxed mb-6">
-              {course.publicPage.ctaDescription ??
-                'A Excellentia organiza formações, registros, certificados e relatórios para reduzir improviso e fortalecer a governança formativa da escola.'}
-            </p>
-            <Link href="/contato" className="inline-block bg-gold hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-xl transition-colors">
-              Falar com a Excellentia
-            </Link>
           </div>
         </div>
       </section>
