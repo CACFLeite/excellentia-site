@@ -88,8 +88,8 @@ export default function SobrePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <div className="rounded-[2.5rem] border border-slate-200 bg-white p-8 shadow-2xl md:p-10">
+          <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2">
+            <div className="flex h-full flex-col rounded-[2.5rem] border border-slate-200 bg-white p-8 shadow-2xl md:p-10">
               <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">professores</div>
               <h3 className="text-3xl font-black text-navy">Desenvolvimento profissional docente.</h3>
               <p className="mt-5 leading-8 text-slate-600">
@@ -103,12 +103,12 @@ export default function SobrePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/formacoes" className="mt-8 inline-flex rounded-2xl bg-navy px-7 py-4 font-black text-white transition hover:bg-slate-900">
+              <Link href="/formacoes" className="mt-auto inline-flex w-fit rounded-2xl bg-navy px-7 py-4 font-black text-white transition hover:bg-slate-900">
                 Ver formações
               </Link>
             </div>
 
-            <div className="rounded-[2.5rem] border border-slate-200 bg-white p-8 shadow-2xl md:mt-12 md:p-10">
+            <div className="flex h-full flex-col rounded-[2.5rem] border border-slate-200 bg-white p-8 shadow-2xl md:p-10">
               <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">escolas</div>
               <h3 className="text-3xl font-black text-navy">Governança escolar com formação e evidência.</h3>
               <p className="mt-5 leading-8 text-slate-600">
@@ -122,7 +122,7 @@ export default function SobrePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/escolas" className="mt-8 inline-flex rounded-2xl bg-gold px-7 py-4 font-black text-white transition hover:bg-yellow-600">
+              <Link href="/escolas" className="mt-auto inline-flex w-fit rounded-2xl bg-gold px-7 py-4 font-black text-white transition hover:bg-yellow-600">
                 Conhecer escolas
               </Link>
             </div>
@@ -152,22 +152,24 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="bg-navy py-16 text-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
-          <div>
-            <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold-light">próximo passo</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Converse com a Excellentia sobre o melhor formato para sua necessidade.</h2>
-            <p className="mt-4 max-w-2xl leading-7 text-slate-300">
-              Professores podem começar pelas formações individuais. Escolas podem solicitar uma conversa para definição de escopo institucional.
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <Link href="/formacoes" className="rounded-2xl border border-white/40 px-8 py-4 text-center font-black text-white transition hover:bg-white hover:text-navy">
-              Ver formações
-            </Link>
-            <Link href="/contato" className="rounded-2xl bg-gold px-8 py-4 text-center font-black text-white transition hover:bg-yellow-600">
-              Falar com a Excellentia
-            </Link>
+      <section className="bg-[#f7f4ec] px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-navy p-8 text-white shadow-2xl md:p-10">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_auto]">
+            <div>
+              <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold-light">próximo passo</div>
+              <h2 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Converse com a Excellentia sobre o melhor formato para sua necessidade.</h2>
+              <p className="mt-4 max-w-2xl leading-7 text-slate-300">
+                Professores podem começar pelas formações individuais. Escolas podem solicitar uma conversa para definição de escopo institucional.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <Link href="/formacoes" className="rounded-2xl border border-white/40 px-8 py-4 text-center font-black text-white transition hover:bg-white hover:text-navy">
+                Ver formações
+              </Link>
+              <Link href="/contato" className="rounded-2xl bg-gold px-8 py-4 text-center font-black text-white transition hover:bg-yellow-600">
+                Falar com a Excellentia
+              </Link>
+            </div>
           </div>
         </div>
       </section>
