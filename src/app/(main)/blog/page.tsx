@@ -10,6 +10,7 @@ const posts = [
 
   {
     slug: 'riscos-psicossociais-escolas',
+    featured: true,
     title: 'Riscos psicossociais nas escolas: por onde a governança começa',
     excerpt:
       'A norma trouxe urgência para uma realidade que já existia: pressão, conflito, registro, saúde do trabalho e decisão institucional convivem na rotina escolar.',
@@ -111,8 +112,8 @@ const posts = [
 ]
 
 export default function BlogPage() {
-  const featuredPost = posts[0]
-  const remainingPosts = posts.slice(1)
+  const featuredPost = posts.find((post) => post.featured) ?? posts[0]
+  const remainingPosts = posts.filter((post) => post.slug !== featuredPost.slug)
 
   return (
     <>
