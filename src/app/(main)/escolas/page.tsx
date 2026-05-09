@@ -30,14 +30,38 @@ const governancePillars = [
 ]
 
 const formationTracks = [
-  'NR-1 e riscos psicossociais no ambiente escolar',
-  'PGR/GRO e documentação de risco ocupacional',
-  'Lei Lucas, preparação, protocolo e evidências',
-  'LGPD, privacidade e solicitações de titulares',
-  'Bullying, cyberbullying e violência no ambiente escolar',
-  'Proteção integral, ECA, salvaguarda e comunicação responsável',
-  'Incêndio, evacuação, extintores e cultura preventiva',
-  'Formações personalizadas por demanda institucional',
+  {
+    title: 'Riscos psicossociais e saúde do trabalho escolar',
+    href: '/inteligencia-educacional/riscos-psicossociais-escolas',
+  },
+  {
+    title: 'PGR/GRO como governança, não arquivo morto',
+    href: '/inteligencia-educacional/pgr-gro-governanca-escolar',
+  },
+  {
+    title: 'Lei Lucas: protocolo, evidência e limite da formação online',
+    href: '/inteligencia-educacional/lei-lucas-protocolo-evidencias',
+  },
+  {
+    title: 'LGPD escolar, privacidade e solicitações de titulares',
+    href: '/inteligencia-educacional/lgpd-escolar-privacidade',
+  },
+  {
+    title: 'Bullying, cyberbullying e violência no ambiente escolar',
+    href: '/inteligencia-educacional/bullying-cyberbullying-violencia-escolar',
+  },
+  {
+    title: 'Proteção integral, ECA e salvaguarda institucional',
+    href: '/inteligencia-educacional/protecao-integral-eca-salvaguarda',
+  },
+  {
+    title: 'Incêndio, evacuação e cultura preventiva',
+    href: '/inteligencia-educacional/incendio-evacuacao-cultura-preventiva',
+  },
+  {
+    title: 'Formações personalizadas e matriz de risco da escola',
+    href: '/inteligencia-educacional/formacoes-personalizadas-matriz-risco',
+  },
 ]
 
 const operatingFlow = [
@@ -151,19 +175,20 @@ export default function EscolasPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-4 sm:px-6 lg:grid-cols-[.82fr_1.18fr] lg:px-8">
           <div>
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frentes de formação e proteção</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">NR-1 é parte da porta de entrada. A escola precisa de uma agenda mais ampla.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">A escola precisa de uma agenda viva de governança e proteção.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              A plataforma sustenta formações e evidências para temas legais, pedagógicos, trabalhistas e institucionais que afetam a escola antes, durante e depois de uma crise.
+              Cada frente abaixo deve abrir uma conversa de inteligência educacional: por que importa, que risco organiza, quais evidências produz e como a escola pode amadurecer sem improviso.
             </p>
           </div>
           <div className="relative rounded-[2.5rem] border border-slate-200 bg-slate-50 p-6 shadow-2xl md:p-8">
             <div className="absolute left-10 top-12 hidden h-[calc(100%-6rem)] w-[3px] rounded-full bg-gradient-to-b from-gold via-gold/60 to-transparent md:block" />
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {formationTracks.map((item, index) => (
-                <div key={item} className={`rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md ${index % 2 ? 'sm:translate-y-6' : ''}`}>
+                <Link key={item.title} href={item.href} className={`group rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-md ${index % 2 ? 'sm:translate-y-6' : ''}`}>
                   <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-gold-light text-xs font-black text-navy">{String(index + 1).padStart(2, '0')}</div>
-                  <p className="font-bold leading-snug text-navy">{item}</p>
-                </div>
+                  <p className="font-bold leading-snug text-navy">{item.title}</p>
+                  <span className="mt-4 inline-flex text-sm font-extrabold text-gold transition group-hover:translate-x-1">Ler análise →</span>
+                </Link>
               ))}
             </div>
           </div>

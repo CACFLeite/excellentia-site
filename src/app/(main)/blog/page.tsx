@@ -7,6 +7,87 @@ export const metadata: Metadata = {
 }
 
 const posts = [
+
+  {
+    slug: 'riscos-psicossociais-escolas',
+    title: 'Riscos psicossociais nas escolas: por onde a governança começa',
+    excerpt:
+      'A discussão não pode ficar restrita a um prazo normativo. Riscos psicossociais exigem leitura de rotina, evidências e medidas de gestão.',
+    date: '9 de maio de 2026',
+    readTime: '7 min',
+    category: 'Governança',
+    categoryColor: 'bg-navy text-white',
+  },
+  {
+    slug: 'pgr-gro-governanca-escolar',
+    title: 'PGR/GRO na escola: documento técnico ou instrumento de governança?',
+    excerpt:
+      'O PGR só protege a escola quando conversa com a rotina: responsabilidades, registros, formação, acompanhamento e revisão.',
+    date: '9 de maio de 2026',
+    readTime: '6 min',
+    category: 'Compliance',
+    categoryColor: 'bg-gold text-white',
+  },
+  {
+    slug: 'lei-lucas-protocolo-evidencias',
+    title: 'Lei Lucas: protocolo, evidência e o limite da formação online',
+    excerpt:
+      'A formação digital pode preparar, organizar e documentar, mas não substitui a prática presencial necessária em primeiros socorros.',
+    date: '9 de maio de 2026',
+    readTime: '7 min',
+    category: 'Segurança',
+    categoryColor: 'bg-navy text-white',
+  },
+  {
+    slug: 'lgpd-escolar-privacidade',
+    title: 'LGPD escolar: privacidade, titulares e rotina administrativa',
+    excerpt:
+      'Privacidade em escola envolve famílias, alunos, colaboradores, documentos sensíveis e respostas consistentes a solicitações.',
+    date: '9 de maio de 2026',
+    readTime: '6 min',
+    category: 'LGPD',
+    categoryColor: 'bg-gold text-white',
+  },
+  {
+    slug: 'bullying-cyberbullying-violencia-escolar',
+    title: 'Bullying e cyberbullying: quando convivência vira governança',
+    excerpt:
+      'A escola precisa sair da resposta improvisada e estruturar prevenção, registro, comunicação, escalonamento e proteção.',
+    date: '9 de maio de 2026',
+    readTime: '8 min',
+    category: 'Proteção escolar',
+    categoryColor: 'bg-navy text-white',
+  },
+  {
+    slug: 'protecao-integral-eca-salvaguarda',
+    title: 'Proteção integral, ECA e salvaguarda: o que a escola precisa organizar',
+    excerpt:
+      'Salvaguarda institucional exige papel claro dos adultos, canais, documentação, cuidado na comunicação e proteção contra revitimização.',
+    date: '9 de maio de 2026',
+    readTime: '7 min',
+    category: 'Proteção escolar',
+    categoryColor: 'bg-gold text-white',
+  },
+  {
+    slug: 'incendio-evacuacao-cultura-preventiva',
+    title: 'Incêndio e evacuação: cultura preventiva além do extintor',
+    excerpt:
+      'A escola precisa transformar segurança em rotina: orientação, simulação, papéis, evidência e revisão do que não funcionou.',
+    date: '9 de maio de 2026',
+    readTime: '5 min',
+    category: 'Segurança',
+    categoryColor: 'bg-navy text-white',
+  },
+  {
+    slug: 'formacoes-personalizadas-matriz-risco',
+    title: 'Formações personalizadas: a matriz de risco de cada escola',
+    excerpt:
+      'Nem toda escola tem a mesma exposição. A formação personalizada deve nascer de risco real, maturidade institucional e prioridade.',
+    date: '9 de maio de 2026',
+    readTime: '6 min',
+    category: 'Estratégia',
+    categoryColor: 'bg-gold text-white',
+  },
   {
     slug: 'como-se-preparar-para-processos-seletivos',
     title: 'Como se preparar para processos seletivos em escolas particulares',
@@ -65,11 +146,11 @@ export default function BlogPage() {
                     <span className="text-gray-400 text-sm">· {post.readTime} de leitura</span>
                   </div>
                   <h2 className="text-2xl font-bold text-navy mb-3 hover:text-gold transition-colors">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    <Link href={`/inteligencia-educacional/${post.slug}`}>{post.title}</Link>
                   </h2>
                   <p className="text-gray-600 leading-relaxed mb-6">{post.excerpt}</p>
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/inteligencia-educacional/${post.slug}`}
                     className="text-gold font-semibold hover:text-gold-dark transition-colors inline-flex items-center gap-1"
                   >
                     Ler artigo completo
@@ -89,10 +170,10 @@ export default function BlogPage() {
               Conteúdos sobre governança educacional, carreira docente e conformidade escolar direto na sua caixa de entrada.
             </p>
             <Link
-              href="/assinatura"
+              href="/contato"
               className="bg-gold hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-lg transition-colors inline-block"
             >
-              Assinar Excellentia — R$69/mês
+              Falar com a Excellentia
             </Link>
           </div>
         </div>
