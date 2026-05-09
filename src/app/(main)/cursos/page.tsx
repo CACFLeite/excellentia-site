@@ -8,16 +8,16 @@ export const metadata: Metadata = {
     'Formações Excellentia para professores e escolas: carreira docente, governança educacional, compliance escolar, Lei Lucas, LGPD, proteção e segurança institucional.',
 };
 
-const professorSignals = [
-  'Assinatura mensal ou anual para desenvolvimento profissional docente',
-  'Trilhas de carreira, rotina escolar e saúde profissional',
-  'Certificação por formação concluída',
+const professorPlanItems = [
+  'Acesso às formações disponíveis no plano individual',
+  'Certificados emitidos nas formações concluídas',
+  'Novas trilhas incorporadas conforme o catálogo evolui',
 ];
 
-const schoolSignals = [
-  'Formações para equipes escolares e gestores',
-  'Registros, certificados e relatórios para acompanhamento institucional',
-  'Fluxos de apoio para documentos e governança, incluindo PGR quando aplicável',
+const schoolPlanItems = [
+  'Formações destinadas a colaboradores, coordenação e gestão escolar',
+  'Certificados, registros e relatórios vinculados à escola',
+  'Apoio a fluxos institucionais de governança, documentação e acompanhamento',
 ];
 
 const institutionalLayers = [
@@ -116,7 +116,7 @@ export default function CursosPage() {
           <div className="relative min-h-[500px]">
             <div className="absolute inset-4 rounded-[3.5rem] bg-gold-light/10 blur-3xl" />
             <div className="excellentia-float absolute right-2 top-0 w-[92%] rounded-[2.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-2xl backdrop-blur-md md:p-8">
-              <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">duas frentes, uma arquitetura</div>
+              <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">catálogo em duas modalidades</div>
               <div className="mt-8 grid grid-cols-1 gap-4">
                 <div className="rounded-2xl border border-white/10 bg-navy/50 p-5">
                   <div className="text-sm font-black uppercase tracking-[0.2em] text-gold-light">Professores</div>
@@ -127,8 +127,8 @@ export default function CursosPage() {
                   <p className="mt-3 text-sm leading-6 text-slate-300">Pacote institucional para formação de equipes, evidências, relatórios e governança.</p>
                 </div>
                 <div className="mr-8 rounded-2xl border border-white/10 bg-navy/50 p-5">
-                  <div className="text-sm font-black uppercase tracking-[0.2em] text-gold-light">Fluxos de apoio</div>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">Documentos como PGR/GRO entram como processo de gestão, não como formação avulsa.</p>
+                  <div className="text-sm font-black uppercase tracking-[0.2em] text-gold-light">Governança documental</div>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">PGR/GRO, quando aplicável, é tratado como documento e rotina institucional apoiada por registros.</p>
                 </div>
               </div>
             </div>
@@ -152,13 +152,13 @@ export default function CursosPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.82fr_1.18fr]">
             <div>
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frente individual</div>
+              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">professores</div>
               <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Para professores, a assinatura organiza carreira e desenvolvimento profissional.</h2>
               <p className="mt-6 text-lg leading-8 text-slate-600">
                 O plano individual permanece separado da contratação escolar. Ele reúne formações voltadas à carreira docente, processos seletivos, rotina profissional e saúde do trabalho.
               </p>
               <div className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
-                <div className="text-sm font-black uppercase tracking-[0.2em] text-gold">Plano professor</div>
+                <div className="text-sm font-black uppercase tracking-[0.2em] text-gold">Plano individual</div>
                 <p className="mt-3 text-3xl font-black text-navy">R$69/mês <span className="text-base font-bold text-slate-500">ou R$588/ano</span></p>
                 <p className="mt-3 text-sm leading-6 text-slate-600">Contratação individual voltada ao desenvolvimento profissional do professor. Condições comerciais e arrependimento seguem os termos aplicáveis no checkout.</p>
                 <Link href="/assinatura" className="mt-6 inline-flex rounded-2xl bg-gold px-7 py-4 font-black text-white transition hover:bg-yellow-600">
@@ -172,9 +172,9 @@ export default function CursosPage() {
                 <CourseCard key={course.title} {...course} href={index === 0 ? '/assinatura' : undefined} />
               ))}
               <div className="rounded-[2rem] border border-dashed border-navy/25 bg-[#f7f4ec] p-6 shadow-sm">
-                <div className="mb-4 text-xs font-black uppercase tracking-[0.2em] text-gold">como ler essa frente</div>
+                <div className="mb-4 text-xs font-black uppercase tracking-[0.2em] text-gold">incluído no plano</div>
                 <div className="space-y-3">
-                  {professorSignals.map((item) => (
+                  {professorPlanItems.map((item) => (
                     <p key={item} className="text-sm leading-6 text-slate-700">{item}</p>
                   ))}
                 </div>
@@ -188,7 +188,7 @@ export default function CursosPage() {
         <div className="absolute left-[-10rem] top-28 h-96 w-96 rounded-full bg-navy/10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frente institucional</div>
+            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">escolas</div>
             <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Para escolas, as formações integram uma camada de governança e compliance.</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
               A contratação escolar não é uma assinatura individual replicada para vários usuários. Ela envolve trilhas para equipes, registros institucionais, acompanhamento e fluxos de apoio à gestão documental quando aplicável.
@@ -222,7 +222,7 @@ export default function CursosPage() {
               </div>
               <div className="rounded-[2rem] bg-[#f7f4ec] p-6">
                 <div className="space-y-3">
-                  {schoolSignals.map((item) => (
+                  {schoolPlanItems.map((item) => (
                     <p key={item} className="text-sm font-bold leading-6 text-navy">{item}</p>
                   ))}
                 </div>
