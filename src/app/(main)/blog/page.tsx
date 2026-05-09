@@ -12,7 +12,7 @@ const posts = [
     slug: 'riscos-psicossociais-escolas',
     title: 'Riscos psicossociais nas escolas: por onde a governança começa',
     excerpt:
-      'A norma trouxe urgência, mas o problema é mais amplo: a escola precisa ler rotina, pressão, conflito e registro como parte da gestão.',
+      'A norma trouxe urgência para uma realidade que já existia: pressão, conflito, registro, saúde do trabalho e decisão institucional convivem na rotina escolar.',
     date: '9 de maio de 2026',
     readTime: '7 min',
     category: 'Governança',
@@ -22,7 +22,7 @@ const posts = [
     slug: 'pgr-gro-governanca-escolar',
     title: 'PGR/GRO na escola: documento técnico ou instrumento de governança?',
     excerpt:
-      'O PGR ganha valor quando deixa de ser arquivo e passa a conversar com calendário, responsabilidades, formação e revisão da prática.',
+      'O PGR ganha valor quando documento técnico, calendário, responsabilidades, formação e revisão da prática começam a se comunicar.',
     date: '9 de maio de 2026',
     readTime: '6 min',
     category: 'Compliance',
@@ -32,7 +32,7 @@ const posts = [
     slug: 'lei-lucas-protocolo-evidencias',
     title: 'Lei Lucas: protocolo, evidência e o limite da formação online',
     excerpt:
-      'A camada digital pode preparar e documentar, desde que preserve o limite: primeiros socorros exigem prática presencial quando ela é necessária.',
+      'A camada digital ajuda quando prepara, organiza e documenta, preservando o lugar indispensável da prática presencial em primeiros socorros.',
     date: '9 de maio de 2026',
     readTime: '7 min',
     category: 'Segurança',
@@ -42,7 +42,7 @@ const posts = [
     slug: 'lgpd-escolar-privacidade',
     title: 'LGPD escolar: privacidade, titulares e rotina administrativa',
     excerpt:
-      'Privacidade escolar aparece em gestos cotidianos: documentos, imagens, laudos, mensagens, plataformas e respostas a famílias.',
+      'Privacidade escolar se constrói em gestos cotidianos: documentos, imagens, laudos, mensagens, plataformas e respostas a famílias.',
     date: '9 de maio de 2026',
     readTime: '6 min',
     category: 'LGPD',
@@ -52,7 +52,7 @@ const posts = [
     slug: 'bullying-cyberbullying-violencia-escolar',
     title: 'Bullying e cyberbullying: quando convivência vira governança',
     excerpt:
-      'O tema exige mais do que disciplina: envolve registro, comunicação, proporcionalidade, proteção e cuidado com exposição indevida.',
+      'O tema atravessa disciplina, proteção, registro, comunicação, proporcionalidade e cuidado com exposição indevida.',
     date: '9 de maio de 2026',
     readTime: '8 min',
     category: 'Proteção escolar',
@@ -62,7 +62,7 @@ const posts = [
     slug: 'protecao-integral-eca-salvaguarda',
     title: 'Proteção integral, ECA e salvaguarda: o que a escola precisa organizar',
     excerpt:
-      'Proteção integral depende de papéis claros: observar, registrar, encaminhar e comunicar sem improvisar investigação nem expor crianças.',
+      'Proteção integral depende de papéis claros para observar, registrar, encaminhar e comunicar com cuidado diante de sinais ambíguos.',
     date: '9 de maio de 2026',
     readTime: '7 min',
     category: 'Proteção escolar',
@@ -72,7 +72,7 @@ const posts = [
     slug: 'incendio-evacuacao-cultura-preventiva',
     title: 'Incêndio e evacuação: cultura preventiva além do extintor',
     excerpt:
-      'Segurança se sustenta na repetição: orientação, simulação, papéis definidos, registro e revisão das falhas encontradas.',
+      'Segurança se sustenta na repetição de orientação, simulação, definição de papéis, registro e revisão das falhas encontradas.',
     date: '9 de maio de 2026',
     readTime: '5 min',
     category: 'Segurança',
@@ -82,7 +82,7 @@ const posts = [
     slug: 'formacoes-personalizadas-matriz-risco',
     title: 'Formações personalizadas: a matriz de risco de cada escola',
     excerpt:
-      'Personalizar não é trocar a capa do curso; é partir da exposição real, da maturidade da escola e da ordem correta de prioridade.',
+      'Personalizar exige partir da exposição real, da maturidade da escola e da ordem de prioridade, em vez de apenas adaptar a capa do curso.',
     date: '9 de maio de 2026',
     readTime: '6 min',
     category: 'Estratégia',
