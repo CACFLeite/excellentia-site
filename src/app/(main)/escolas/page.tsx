@@ -139,8 +139,8 @@ export default function EscolasPage() {
             </div>
 
             <div className="excellentia-float-slow absolute bottom-0 left-0 w-[66%] rounded-[2rem] border border-white/12 bg-[#06101c]/80 p-6 shadow-2xl backdrop-blur-md">
-              <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">mais que NR-1</div>
-              <p className="mt-3 text-sm leading-6 text-slate-300">A NR-1 é uma frente urgente; a arquitetura é de governança educacional ampla.</p>
+              <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">arquitetura ampla</div>
+              <p className="mt-3 text-sm leading-6 text-slate-300">A escola reúne frentes diferentes de cuidado, formação, registro e decisão institucional.</p>
             </div>
           </div>
         </div>

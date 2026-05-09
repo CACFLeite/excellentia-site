@@ -49,7 +49,7 @@ Na prática, um documento técnico convive com decisões muito concretas: quem o
 
 ## A ponte entre segurança do trabalho e gestão escolar
 
-A escola tem uma ecologia própria. Há professores, alunos, famílias, auxiliares, terceirizados, equipe administrativa, eventos, excursões, comunicação digital e situações de exposição pública. Algumas exigências se aproximam de outros ambientes de trabalho; outras ganham contorno específico pela presença de crianças e adolescentes e pela intensidade relacional da vida escolar.
+A escola tem uma ecologia própria. Há professores, alunos, famílias, auxiliares, terceirizados, equipe administrativa, eventos, estudos do meio, comunicação digital e situações de exposição pública. Algumas exigências se aproximam de outros ambientes de trabalho; outras ganham contorno específico pela presença de crianças e adolescentes e pela intensidade relacional da vida escolar.
 
 Nesse contexto, o PGR/GRO precisa dialogar com o calendário formativo. Um risco apontado no documento pode exigir treinamento, ajuste de processo, protocolo, orientação de liderança ou revisão de comunicação. Em muitos casos, essas respostas acontecem em áreas diferentes da escola; por isso, sem coordenação, a informação se dispersa.
 
