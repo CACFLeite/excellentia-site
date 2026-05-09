@@ -228,10 +228,10 @@ export default function Home() {
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">Próximas etapas</div>
-          <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Receba novidades da Excellentia.</h2>
+          <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">acompanhe a Excellentia</div>
+          <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Receba conteúdos e atualizações da Excellentia.</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            A próxima etapa reunirá formações, evidências e recursos de gestão em uma experiência mais contínua para escolas e professores.
+            Enviaremos novidades sobre formações, governança escolar, compliance educacional e inteligência institucional.
           </p>
           {status === 'success' ? (
             <div className="mx-auto mt-10 max-w-md rounded-2xl border border-gold bg-gold/10 p-6">
