@@ -124,7 +124,7 @@ export const courseDefinitions = {
       headline: 'NR-1 nas Escolas',
       summary: 'Curso introdutório para equipes escolares sobre riscos psicossociais, saúde emocional no trabalho e primeiros passos de adequação institucional.',
       cards: [
-        { title: '8 aulas', description: 'Vídeos já hospedados no Panda Vídeos' },
+        { title: '8 aulas', description: 'Conteúdo liberado apenas na experiência autenticada' },
         { title: 'Equipe escolar', description: 'Conteúdo aplicável a docentes, gestão e colaboradores' },
         { title: 'NR-1/PGR', description: 'Base para diagnóstico, documentação e redução de risco' },
       ],
@@ -206,7 +206,7 @@ export const courseDefinitions = {
       summary:
         'Curso disponível para transformar a Lei Lucas em preparação real: protocolo, responsabilidades, comunicação, registro e evidências ao longo do ano.',
       cards: [
-        { title: '8 aulas', description: 'Vídeos já hospedados no Panda Vídeos' },
+        { title: '8 aulas', description: 'Conteúdo liberado apenas na experiência autenticada' },
         { title: 'Protocolo escolar', description: 'Fluxos de acionamento, coordenação, equipe de saúde e comunicação com responsáveis' },
         { title: 'Limite responsável', description: 'Não substitui a prática presencial com profissional habilitado; organiza o antes, o durante e o depois' },
       ],
@@ -214,7 +214,7 @@ export const courseDefinitions = {
         'A trilha Lei Lucas nas Escolas foi desenhada como camada institucional de preparação, protocolo e evidências. Ela apoia a escola antes, durante e depois do treinamento prático, sem prometer ensinar manobras técnicas por vídeo.',
       ctaTitle: 'Curso disponível',
       ctaDescription:
-        'As 8 aulas já estão publicadas no Panda Vídeos e conectadas ao catálogo Excellentia como formação protocolar e documental para escolas.'
+        'A formação reúne preparação protocolar, organização documental e evidências de participação para escolas, com acesso ao conteúdo completo apenas por convite ou contratação aplicável.'
     },
     lessons: [
       {
