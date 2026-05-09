@@ -94,7 +94,7 @@ export default function Home() {
           <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_.9fr]">
             <div>
               <div className="mb-6 inline-flex rounded-full border border-gold-light/30 bg-gold-light/10 px-5 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-gold-light">
-                Não é mais um catálogo de cursos. É uma operação.
+                Formação, evidência e governança escolar
               </div>
               <h1 className="max-w-4xl text-4xl font-black leading-[1.02] tracking-[-0.04em] md:text-6xl lg:text-7xl">
                 Governança e compliance para escolas de excelência.
@@ -133,29 +133,29 @@ export default function Home() {
 
               <div className="excellentia-float-slow absolute bottom-0 left-0 w-[62%] rounded-[2rem] border border-white/12 bg-[#06101c]/80 p-6 shadow-2xl backdrop-blur-md">
                 <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">jornada conectada</div>
-                <p className="mt-3 text-sm leading-6 text-slate-300">Representação visual de método. Sem métrica simulada, sem dado fictício.</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">Uma visão integrada para organizar prioridades, formação e comprovação institucional.</p>
               </div>
             </div>
           </div>
 
           <div className="mt-24 lg:ml-20">
             <div className="mb-8 max-w-5xl">
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">a página passa a ter um eixo</div>
+              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">governança em movimento</div>
               <h2 className="max-w-5xl text-3xl font-black tracking-[-0.03em] text-white md:text-5xl">
-                O visitante acompanha uma escola saindo do risco difuso para uma operação clara.
+                Da exigência dispersa à rotina institucional acompanhável.
               </h2>
             </div>
 
-            <div className="relative min-h-[560px] lg:min-h-[340px]">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:items-stretch">
               {journeyCards.map((card, index) => {
                 const dark = card.tone === 'dark'
-                const positions = [
-                  'lg:absolute lg:left-0 lg:top-8',
-                  'lg:absolute lg:left-[31%] lg:top-36',
-                  'lg:absolute lg:right-0 lg:top-0',
+                const offsets = [
+                  'lg:mt-8',
+                  'lg:mt-20',
+                  'lg:mt-0',
                 ]
                 return (
-                  <div key={card.title} className={`mb-6 w-full rounded-[2rem] border p-8 shadow-2xl transition duration-500 hover:-translate-y-1 lg:mb-0 lg:w-[31rem] ${positions[index]} ${dark ? 'border-white/12 bg-white/[0.08] text-white backdrop-blur' : 'border-slate-200 bg-white text-navy'}`}>
+                  <div key={card.title} className={`w-full rounded-[2rem] border p-8 shadow-2xl transition duration-500 hover:-translate-y-1 ${offsets[index]} ${dark ? 'border-white/12 bg-white/[0.08] text-white backdrop-blur' : 'border-slate-200 bg-white text-navy'}`}>
                     <div className="mb-6 flex items-center justify-between">
                       <span className={`text-xs font-black uppercase tracking-[0.24em] ${dark ? 'text-gold-light' : 'text-gold'}`}>{card.eyebrow}</span>
                       <span className={`text-3xl font-black ${dark ? 'text-white/25' : 'text-navy/15'}`}>{card.number}</span>
@@ -175,12 +175,12 @@ export default function Home() {
         <div className="absolute right-[-8rem] top-20 h-80 w-80 rounded-full bg-gold/20 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl lg:ml-20">
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">As três frentes não ficam isoladas</div>
+            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frentes conectadas</div>
             <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">
-              Formações, escolas e inteligência aparecem como partes do mesmo sistema.
+              Formações, escolas e inteligência trabalham como partes do mesmo sistema.
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              Em vez de “cards de serviços”, a página mostra uma engrenagem: aprender, comprovar, orientar e amadurecer.
+              A Excellentia conecta aprendizagem, comprovação, orientação e maturidade institucional em uma mesma jornada.
             </p>
           </div>
 
@@ -207,8 +207,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(244,219,118,.18),transparent_30%)]" />
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
           <div>
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">direção final</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] md:text-5xl">Menos “landing page bonita”. Mais operação institucional em movimento.</h2>
+            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">operação institucional</div>
+            <h2 className="text-3xl font-black tracking-[-0.03em] md:text-5xl">Uma presença digital alinhada à operação que a Excellentia entrega.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-300">
               A Excellentia organiza formação, evidência e leitura institucional para que a escola avance por etapas — sem transformar compliance em burocracia solta.
             </p>
