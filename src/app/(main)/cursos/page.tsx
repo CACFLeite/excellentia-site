@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 };
 
 const professorPlanItems = [
-  'Acesso às formações disponíveis no plano individual',
-  'Certificados emitidos nas formações concluídas',
-  'Novas trilhas incorporadas conforme o catálogo evolui',
+  'Curso Gestão de Carreira para Professores disponível no acesso individual',
+  'Certificado emitido após a conclusão das formações elegíveis',
+  'Acesso às próximas formações docentes publicadas no catálogo individual',
 ];
 
 const schoolPlanItems = [
-  'Formações destinadas a colaboradores, coordenação e gestão escolar',
-  'Certificados, registros e relatórios vinculados à escola',
-  'Apoio a fluxos institucionais de governança, documentação e acompanhamento',
+  'Acesso para colaboradores indicados pela escola',
+  'Certificados e registros vinculados à instituição contratante',
+  'Relatórios e acompanhamento conforme o escopo contratado',
 ];
 
 const institutionalLayers = [
@@ -30,8 +30,8 @@ const institutionalLayers = [
     text: 'Certificados, registros de participação e relatórios ajudam a escola a acompanhar lacunas sem depender de controles informais.',
   },
   {
-    title: 'Documentos e fluxos institucionais',
-    text: 'PGR/GRO não aparece como formação isolada: entra como documento e processo de gestão que pode ser apoiado por dados, registros e orientação operacional.',
+    title: 'PGR/GRO e gestão documental',
+    text: 'A escola pode reunir informações, responsáveis, registros e evidências para apoiar a elaboração, revisão e acompanhamento dos documentos institucionais aplicáveis.',
   },
 ];
 
@@ -101,7 +101,7 @@ export default function CursosPage() {
               Trilhas formativas conectadas à carreira docente e à governança escolar.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              A Excellentia reúne formações para professores, equipes escolares e gestores. Algumas trilhas desenvolvem carreira e prática profissional; outras sustentam compliance, registros e maturidade institucional nas escolas.
+              A Excellentia reúne formações para professores, equipes escolares e gestores. As formações individuais apoiam a trajetória profissional docente; as formações institucionais ajudam escolas a preparar equipes, registrar evidências e acompanhar temas sensíveis de governança.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="#professores" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
@@ -120,15 +120,15 @@ export default function CursosPage() {
               <div className="mt-8 grid grid-cols-1 gap-4">
                 <div className="rounded-2xl border border-white/10 bg-navy/50 p-5">
                   <div className="text-sm font-black uppercase tracking-[0.2em] text-gold-light">Professores</div>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">Assinatura individual para carreira, rotina escolar e desenvolvimento profissional.</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">Formações de carreira, processo seletivo, rotina profissional e saúde do trabalho docente.</p>
                 </div>
                 <div className="ml-8 rounded-2xl border border-white/10 bg-white/[0.08] p-5">
                   <div className="text-sm font-black uppercase tracking-[0.2em] text-gold-light">Escolas</div>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">Pacote institucional para formação de equipes, evidências, relatórios e governança.</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">Formações para colaboradores, certificados vinculados à escola e relatórios institucionais.</p>
                 </div>
                 <div className="mr-8 rounded-2xl border border-white/10 bg-navy/50 p-5">
                   <div className="text-sm font-black uppercase tracking-[0.2em] text-gold-light">Governança documental</div>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">PGR/GRO, quando aplicável, é tratado como documento e rotina institucional apoiada por registros.</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">Apoio à organização de informações, registros e responsáveis para documentos institucionais aplicáveis.</p>
                 </div>
               </div>
             </div>
@@ -153,9 +153,9 @@ export default function CursosPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.82fr_1.18fr]">
             <div>
               <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">professores</div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Para professores, a assinatura organiza carreira e desenvolvimento profissional.</h2>
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações para professores em carreira, rotina escolar e desenvolvimento profissional.</h2>
               <p className="mt-6 text-lg leading-8 text-slate-600">
-                O plano individual permanece separado da contratação escolar. Ele reúne formações voltadas à carreira docente, processos seletivos, rotina profissional e saúde do trabalho.
+                O acesso individual começa pela formação de carreira docente e avança para temas ligados a processos seletivos, prática profissional, rotina escolar e saúde do trabalho.
               </p>
               <div className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
                 <div className="text-sm font-black uppercase tracking-[0.2em] text-gold">Plano individual</div>
@@ -189,9 +189,9 @@ export default function CursosPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">escolas</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Para escolas, as formações integram uma camada de governança e compliance.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações institucionais para equipes escolares, registros e evidências.</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              A contratação escolar não é uma assinatura individual replicada para vários usuários. Ela envolve trilhas para equipes, registros institucionais, acompanhamento e fluxos de apoio à gestão documental quando aplicável.
+              A escola pode contratar trilhas para colaboradores, coordenação e gestão, com certificados vinculados à instituição, registros de participação e relatórios para acompanhamento interno.
             </p>
           </div>
 
@@ -215,9 +215,9 @@ export default function CursosPage() {
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_.85fr] lg:items-center">
               <div>
                 <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">pacote escolar</div>
-                <h3 className="text-3xl font-black tracking-[-0.03em] text-navy">Preço e escopo dependem do porte, das trilhas e da camada de acompanhamento.</h3>
+                <h3 className="text-3xl font-black tracking-[-0.03em] text-navy">Pacote escolar sob proposta institucional.</h3>
                 <p className="mt-5 text-lg leading-8 text-slate-600">
-                  O pacote para escolas deve ser tratado em proposta própria, porque pode reunir formações, colaboradores, certificados, relatórios, canal de comunicação, documentos e acompanhamento institucional.
+                  A proposta escolar define número de acessos, formações incluídas, relatórios, certificados, canal de comunicação e eventuais fluxos de apoio documental.
                 </p>
               </div>
               <div className="rounded-[2rem] bg-[#f7f4ec] p-6">
