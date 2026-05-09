@@ -3,10 +3,9 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white mt-auto">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand */}
+    <footer className="mt-auto bg-navy text-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <Link href="/" className="flex items-center">
               <Image
@@ -17,52 +16,50 @@ export default function Footer() {
                 className="h-16 w-auto"
               />
             </Link>
-            <p className="mt-3 text-gray-300 text-sm leading-relaxed">
-              A plataforma do professor profissional.<br />
-              Carreira. Direitos. Saúde.
+            <p className="mt-3 text-sm leading-relaxed text-gray-300">
+              Governança e compliance para escolas de excelência.<br />
+              Formação. Evidência. Gestão educacional.
             </p>
           </div>
 
-          {/* Links */}
           <div>
-            <h3 className="font-semibold text-gold mb-4">Navegação</h3>
-            <ul className="space-y-2 text-gray-300 text-sm">
-              <li><Link href="/cursos" className="hover:text-gold-light transition-colors">Cursos</Link></li>
-              <li><Link href="/curriculo-professor" className="hover:text-gold-light transition-colors">LP Currículo</Link></li>
-              <li><Link href="/blog" className="hover:text-gold-light transition-colors">Blog</Link></li>
-              <li><Link href="/sobre" className="hover:text-gold-light transition-colors">Sobre</Link></li>
-              <li><Link href="/contato" className="hover:text-gold-light transition-colors">Contato</Link></li>
-              <li><Link href="/assinatura" className="hover:text-gold-light transition-colors">Assinatura</Link></li>
+            <h3 className="mb-4 font-semibold text-gold">Navegação</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><Link href="/formacoes" className="transition-colors hover:text-gold-light">Formações</Link></li>
+              <li><Link href="/escolas" className="transition-colors hover:text-gold-light">Escolas</Link></li>
+              <li><Link href="/inteligencia-educacional" className="transition-colors hover:text-gold-light">Inteligência Educacional</Link></li>
+              <li><Link href="/sobre" className="transition-colors hover:text-gold-light">Sobre</Link></li>
+              <li><Link href="/contato" className="transition-colors hover:text-gold-light">Contato</Link></li>
+              <li><Link href="/curriculo-professor" className="transition-colors hover:text-gold-light">LP Currículo</Link></li>
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
-            <h3 className="font-semibold text-gold mb-4">Legal</h3>
-            <ul className="space-y-2 text-gray-300 text-sm">
-              <li><Link href="/privacidade" className="hover:text-gold-light transition-colors">Política de Privacidade</Link></li>
-              <li><Link href="/cancelamento" className="hover:text-gold-light transition-colors">Política de Cancelamento</Link></li>
-              <li><Link href="/privacidade" className="hover:text-gold-light transition-colors">Termos de Uso</Link></li>
+            <h3 className="mb-4 font-semibold text-gold">Legal</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><Link href="/privacidade" className="transition-colors hover:text-gold-light">Política de Privacidade</Link></li>
+              <li><Link href="/cancelamento" className="transition-colors hover:text-gold-light">Política de Cancelamento</Link></li>
+              <li><Link href="/privacidade" className="transition-colors hover:text-gold-light">Termos de Uso</Link></li>
             </ul>
-            <h3 className="font-semibold text-gold mb-4 mt-6">Contato</h3>
-            <p className="text-gray-300 text-sm">
-              <a href="mailto:atendimento@excellentia-edu.com" className="hover:text-gold-light transition-colors">
+            <h3 className="mb-4 mt-6 font-semibold text-gold">Contato</h3>
+            <p className="text-sm text-gray-300">
+              <a href="mailto:atendimento@excellentia-edu.com" className="transition-colors hover:text-gold-light">
                 atendimento@excellentia-edu.com
               </a>
             </p>
-            <p className="text-gray-300 text-sm mt-1">
-              <a href="mailto:juridico@excellentia-edu.com" className="hover:text-gold-light transition-colors">
+            <p className="mt-1 text-sm text-gray-300">
+              <a href="mailto:juridico@excellentia-edu.com" className="transition-colors hover:text-gold-light">
                 juridico@excellentia-edu.com
               </a>{' '}
-              <span className="text-gray-500 text-xs">(jurídico/LGPD)</span>
+              <span className="text-xs text-gray-500">(jurídico/LGPD)</span>
             </p>
-            <p className="text-gray-300 text-sm mt-2">São Paulo, Brasil</p>
+            <p className="mt-2 text-sm text-gray-300">São Paulo, Brasil</p>
           </div>
         </div>
 
-        <div className="border-t border-navy-light mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-navy-light pt-8 text-sm text-gray-400 md:flex-row">
           <p>CACFL Educacional — CNPJ 50.939.805/0001-73 — © 2026 Excellentia. Todos os Direitos Reservados.</p>
-          <p>Desenvolvido com ♥ para os professores do Brasil</p>
+          <p>Desenvolvido para uma educação mais segura, estruturada e preparada.</p>
         </div>
       </div>
     </footer>

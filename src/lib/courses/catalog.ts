@@ -36,7 +36,7 @@ export function getSchoolCatalogCourses() {
     inProduction: course.availability === 'in_production',
     modules: course.modules,
     lessons: course.lessonsCount,
-    href: `/cursos/${course.slug}`,
+    href: `/formacoes/${course.slug}`,
   }));
 }
 

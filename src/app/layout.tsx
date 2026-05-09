@@ -6,13 +6,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Excellentia — Profissionalizar a educação',
-  description: 'Para professores que querem crescer. Para escolas que querem parar de improvisar. Carreira. Direitos. Saúde. Compliance.',
-  keywords: 'professor, carreira docente, gestão de carreira, escola particular, NR1, Lei Lucas, compliance escolar, professionalização educação',
+  title: 'Excellentia — Governança e compliance para escolas de excelência',
+  description: 'Formações, protocolos, evidências e inteligência educacional para escolas que precisam formar, comprovar e proteger.',
+  keywords: 'governança educacional, compliance escolar, formações escolares, NR1, Lei Lucas, LGPD escolas, PGR escolas, evidências escolares',
   authors: [{ name: 'Caio Leite' }],
   openGraph: {
-    title: 'Excellentia — Profissionalizar a educação',
-    description: 'Para professores que querem crescer. Para escolas que querem parar de improvisar.',
+    title: 'Excellentia — Governança e compliance para escolas de excelência',
+    description: 'Formações, protocolos, evidências e inteligência educacional para uma gestão escolar mais segura e estruturada.',
     url: 'https://excellentia-edu.com',
     siteName: 'Excellentia',
     type: 'website',

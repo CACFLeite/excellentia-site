@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { getCatalogCourses } from '@/lib/courses/catalog';
 
 export const metadata: Metadata = {
-  title: 'Cursos — Excellentia',
-  description: 'Acesse todos os cursos da Excellentia com uma única assinatura. Gestão de Carreira, Saúde Emocional, NR-1, Lei Lucas e muito mais.',
+  title: 'Formações — Excellentia',
+  description: 'Acesse as formações da Excellentia em carreira docente, rotina escolar e conformidade institucional: NR-1, Lei Lucas, LGPD e muito mais.',
 };
 
 export default function CursosPage() {
@@ -18,9 +18,9 @@ export default function CursosPage() {
           <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
             Formação continuada e certificável
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Catálogo Excellentia</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Formações Excellentia</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Cursos para carreira docente, rotina escolar e conformidade institucional, com certificado e trilhas em expansão.
+            Formações para carreira docente, rotina escolar e conformidade institucional, com certificado e trilhas em expansão.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/assinatura" className="bg-gold hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors">
@@ -37,7 +37,7 @@ export default function CursosPage() {
       <section className="py-4 bg-gold/10 border-b border-gold/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-navy py-3">
-            <span>Certificado em cada curso</span>
+            <span>Certificado em cada formação</span>
             <span>Trilhas de carreira e conformidade escolar</span>
             <span>Cancele quando quiser</span>
             <span>Garantia de 7 dias</span>
@@ -73,7 +73,7 @@ export default function CursosPage() {
                 )}
                 {'href' in course && course.href ? (
                   <Link href={course.href} className="inline-block text-sm font-bold text-gold hover:text-yellow-700 transition-colors">
-                    {course.available ? 'Acessar curso →' : 'Ver estrutura →'}
+                    {course.available ? 'Acessar formação →' : 'Ver estrutura →'}
                   </Link>
                 ) : null}
                 {!course.available && (
@@ -87,7 +87,7 @@ export default function CursosPage() {
 
             <div className="bg-navy/5 rounded-2xl p-6 border-2 border-dashed border-navy/20 flex flex-col items-center justify-center text-center min-h-[200px]">
               <span className="text-xs font-bold uppercase tracking-wide text-gold mb-3">Sob demanda</span>
-              <p className="text-navy font-semibold text-sm">Cursos personalizados para escolas</p>
+              <p className="text-navy font-semibold text-sm">Formações personalizadas para escolas</p>
               <p className="text-gray-500 text-xs mt-1">Trilhas institucionais conforme necessidade da escola</p>
             </div>
           </div>

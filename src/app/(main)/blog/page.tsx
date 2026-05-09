@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Blog — Excellentia',
-  description: 'Artigos sobre carreira docente, direitos dos professores e saúde emocional.',
+  title: 'Inteligência Educacional — Excellentia',
+  description: 'Análises sobre governança educacional, compliance escolar, carreira docente, direitos dos professores e saúde emocional.',
 }
 
 const posts = [
@@ -37,11 +37,11 @@ export default function BlogPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-              Artigos e insights
+              Análises e guias
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Blog Excellentia</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Inteligência Educacional</h1>
             <p className="text-xl text-gray-300">
-              Conteúdo prático sobre carreira, direitos e saúde para professores.
+              Leituras práticas sobre governança educacional, compliance escolar, carreira, direitos e saúde profissional.
             </p>
           </div>
         </div>
@@ -84,9 +84,9 @@ export default function BlogPage() {
 
           {/* Newsletter CTA */}
           <div className="mt-16 bg-navy text-white rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-3">Receba novos artigos por e-mail</h3>
+            <h3 className="text-2xl font-bold mb-3">Receba novas análises por e-mail</h3>
             <p className="text-gray-300 mb-6">
-              Toda semana um conteúdo novo sobre carreira docente direto na sua caixa de entrada.
+              Conteúdos sobre governança educacional, carreira docente e conformidade escolar direto na sua caixa de entrada.
             </p>
             <Link
               href="/assinatura"

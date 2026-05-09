@@ -6,8 +6,8 @@ export default function PublicCoursePage({ course }: { course: CourseDefinition 
     <main className="min-h-screen bg-gray-50">
       <section className="bg-navy text-white py-14 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/cursos" className="text-sm text-gray-300 hover:text-white transition-colors">
-            ← Voltar ao catálogo
+          <Link href="/formacoes" className="text-sm text-gray-300 hover:text-white transition-colors">
+            ← Voltar às formações
           </Link>
           <div className="mt-8 max-w-3xl">
             <div className="inline-block bg-gold text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-wide">
@@ -34,7 +34,7 @@ export default function PublicCoursePage({ course }: { course: CourseDefinition 
         <section className="py-12 md:py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">Aulas do curso</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">Aulas da formação</h2>
               <p className="text-gray-600 leading-relaxed max-w-3xl">
                 {course.publicPage.courseIntro ??
                   'Colaboradores convidados acessam a experiência formativa pelo link individual recebido da escola, com situações-problema, respostas, feedback formativo e registro de participação.'}
@@ -65,10 +65,10 @@ export default function PublicCoursePage({ course }: { course: CourseDefinition 
         <section className="py-12 md:py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 md:p-10">
-              <p className="text-xs font-bold uppercase tracking-wide text-gold mb-3">Curso em estruturação</p>
+              <p className="text-xs font-bold uppercase tracking-wide text-gold mb-3">Formação em estruturação</p>
               <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">Conteúdo em produção</h2>
               <p className="text-gray-600 leading-relaxed max-w-3xl">
-                Este curso já faz parte da arquitetura de trilhas da Excellentia, mas ainda não está publicado como experiência completa. A publicação final deve ocorrer depois da validação de conteúdo, rubricas, limites técnicos e certificado adequado.
+                Esta formação já faz parte da arquitetura de trilhas da Excellentia, mas ainda não está publicada como experiência completa. A publicação final deve ocorrer depois da validação de conteúdo, rubricas, limites técnicos e certificado adequado.
               </p>
             </div>
           </div>

@@ -14,7 +14,8 @@
     "seed:nr1": "node scripts/seed-nr1-course.js",
     "seed:lei-lucas": "node scripts/seed-lei-lucas-course.js",
     "seed:violencia-escolar": "node scripts/seed-violencia-escolar-course.js",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "test:governance-nav": "node scripts/governance-nav-smoke.mjs"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
