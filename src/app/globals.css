@@ -28,6 +28,46 @@ a {
   text-decoration: none;
 }
 
+.excellentia-flow-path {
+  stroke: #f4db76;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 18 18;
+  opacity: .62;
+  animation: excellentia-path-drift 18s linear infinite;
+}
+
+.excellentia-float {
+  animation: excellentia-float 7s ease-in-out infinite;
+}
+
+.excellentia-float-slow {
+  animation: excellentia-float-slow 9s ease-in-out infinite;
+}
+
+@keyframes excellentia-path-drift {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -180; }
+}
+
+@keyframes excellentia-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes excellentia-float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .excellentia-flow-path,
+  .excellentia-float,
+  .excellentia-float-slow {
+    animation: none !important;
+  }
+}
+
 @layer components {
   .btn-primary {
     @apply inline-block bg-gold text-white font-semibold px-6 py-3 rounded-lg hover:bg-gold-dark transition-colors duration-200 text-center;
