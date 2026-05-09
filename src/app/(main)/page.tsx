@@ -6,7 +6,7 @@ import { useState } from 'react'
 const maturitySteps = [
   {
     number: '01',
-    label: 'Diagnóstico',
+    label: 'Entrada',
     title: 'Risco disperso',
     description: 'Exigências legais, formações, evidências e responsabilidades deixam de ficar espalhadas pela rotina da escola.',
   },
@@ -18,18 +18,13 @@ const maturitySteps = [
   },
   {
     number: '03',
-    label: 'Governança',
-    title: 'Evidência visível',
+    label: 'Saída',
+    title: 'Governança visível',
     description: 'Direção e coordenação ganham leitura de progresso, lacunas e próximos passos para agir com mais segurança.',
   },
 ]
 
-const operatingSignals = [
-  'NR-1',
-  'Lei Lucas',
-  'LGPD',
-  'PGR/GRO',
-]
+const operatingSignals = ['Diagnóstico', 'Formação', 'Evidência', 'Governança']
 
 const fronts = [
   {
@@ -52,10 +47,11 @@ const fronts = [
   },
 ]
 
-const evidenceRows = [
-  { label: 'Trilhas regulatórias', value: '78%' },
-  { label: 'Evidências registradas', value: '64%' },
-  { label: 'Protocolos orientados', value: '86%' },
+const governanceLayers = [
+  'Formar equipes',
+  'Registrar evidências',
+  'Orientar decisões',
+  'Reduzir improviso',
 ]
 
 export default function Home() {
@@ -118,42 +114,29 @@ export default function Home() {
             <div className="relative">
               <div className="absolute -inset-6 rounded-[3rem] bg-gold-light/10 blur-3xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.075] p-6 shadow-2xl backdrop-blur-md md:p-8">
-                <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-6">
-                  <div>
-                    <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">Sistema de maturidade escolar</div>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">Leitura visual da escola: formação, risco, evidência e acompanhamento.</p>
-                  </div>
-                  <div className="rounded-2xl bg-emerald-400/15 px-4 py-2 text-sm font-bold text-emerald-200">ativo</div>
+                <div className="border-b border-white/10 pb-6">
+                  <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">Fluxo de governança educacional</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">Representação visual da jornada: da exigência à formação, da formação à evidência, da evidência à gestão.</p>
                 </div>
 
-                <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-[.72fr_1fr]">
-                  <div className="flex aspect-square items-center justify-center rounded-full border border-gold-light/35 bg-gold-light/10 shadow-[inset_0_0_40px_rgba(244,219,118,.08)]">
-                    <div className="text-center">
-                      <div className="text-5xl font-black text-gold-light">72%</div>
-                      <div className="mt-1 text-xs font-bold uppercase tracking-[0.24em] text-slate-300">evidências</div>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    {evidenceRows.map((row, index) => (
-                      <div key={row.label} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                        <div className="mb-2 flex items-center justify-between text-sm">
-                          <span className="font-semibold text-slate-100">{row.label}</span>
-                          <span className="font-extrabold text-gold-light">{row.value}</span>
-                        </div>
-                        <div className="h-2 overflow-hidden rounded-full bg-white/10">
-                          <div className="h-full rounded-full bg-gold-light transition-all duration-700" style={{ width: row.value, opacity: 0.74 + index * 0.08 }} />
-                        </div>
+                <div className="relative mt-10 min-h-[330px]">
+                  <div className="absolute left-1/2 top-8 h-[245px] w-[245px] -translate-x-1/2 rounded-full border border-gold-light/35 bg-gold-light/10 shadow-[inset_0_0_52px_rgba(244,219,118,.08),0_0_42px_rgba(244,219,118,.10)]" />
+                  <div className="absolute left-1/2 top-[7.7rem] h-4 w-[78%] -translate-x-1/2 rounded-full bg-gradient-to-r from-transparent via-gold-light/70 to-transparent" />
+                  <div className="absolute left-1/2 top-8 hidden h-[245px] w-[245px] -translate-x-1/2 rounded-full border border-gold-light/15 md:block" />
+
+                  <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
+                    {operatingSignals.map((signal, index) => (
+                      <div key={signal} className="group flex min-h-[122px] flex-col items-center justify-between rounded-2xl border border-white/10 bg-navy/45 p-4 text-center shadow-lg transition duration-300 hover:-translate-y-1 hover:border-gold-light/35 hover:bg-navy/65">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold-light text-sm font-black text-navy shadow-[0_0_24px_rgba(244,219,118,.22)]">{index + 1}</span>
+                        <span className="text-sm font-extrabold text-white">{signal}</span>
                       </div>
                     ))}
                   </div>
-                </div>
 
-                <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  {operatingSignals.map((signal) => (
-                    <div key={signal} className="rounded-2xl border border-white/10 bg-navy/40 px-4 py-4 text-center text-sm font-extrabold text-white">
-                      {signal}
-                    </div>
-                  ))}
+                  <div className="absolute bottom-0 left-1/2 w-[88%] -translate-x-1/2 rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-5 text-center">
+                    <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">jornada conectada</div>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">A página apresenta um sistema de relação entre formação, evidência e decisão — sem números fictícios ou dados simulados.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -218,11 +201,9 @@ export default function Home() {
           </div>
           <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.07] p-8 shadow-2xl backdrop-blur">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {['Formar equipes', 'Registrar evidências', 'Orientar decisões', 'Reduzir improviso'].map((item, index) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-                  <div className="mb-4 h-2 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full rounded-full bg-gold-light" style={{ width: `${55 + index * 12}%` }} />
-                  </div>
+              {governanceLayers.map((item, index) => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 transition duration-300 hover:-translate-y-1 hover:border-gold-light/30">
+                  <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-gold-light text-sm font-black text-navy">{index + 1}</div>
                   <p className="font-bold">{item}</p>
                 </div>
               ))}
