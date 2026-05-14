@@ -1,53 +1,101 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
-import { hashInviteToken } from '@/lib/invitations';
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { hashInviteToken } from "@/lib/invitations";
 
 function buildInitialFeedback(answer: string) {
   const trimmed = answer.trim();
-  const concreteSignals = ['rotina', 'frequência', 'frequente', 'intensidade', 'clareza', 'suporte', 'registro', 'ação', 'sobrecarga', 'assédio', 'burnout', 'meta', 'conflito', 'protocolo', 'emergência', 'risco'];
-  const signalCount = concreteSignals.filter((signal) => trimmed.toLowerCase().includes(signal)).length;
+  const concreteSignals = [
+    "rotina",
+    "frequência",
+    "frequente",
+    "intensidade",
+    "clareza",
+    "suporte",
+    "registro",
+    "ação",
+    "sobrecarga",
+    "assédio",
+    "burnout",
+    "meta",
+    "conflito",
+    "protocolo",
+    "emergência",
+    "risco",
+  ];
+  const signalCount = concreteSignals.filter((signal) =>
+    trimmed.toLowerCase().includes(signal),
+  ).length;
 
   if (trimmed.length > 550 && signalCount >= 3) {
     return {
-      level: 'forte',
-      summary: 'Sua resposta apresenta boa conexão com a rotina escolar e mostra atenção a fatores concretos que podem exigir registro, suporte ou ação institucional.',
-      strengths: ['Trouxe elementos concretos da rotina.', 'Relacionou a situação com prevenção e gestão de riscos.'],
-      nextSteps: ['Mantenha esse nível de especificidade nas próximas aulas, sempre ligando exemplos cotidianos a formas de prevenção.'],
+      level: "forte",
+      summary:
+        "Sua resposta apresenta boa conexão com a rotina escolar e mostra atenção a fatores concretos que podem exigir registro, suporte ou ação institucional.",
+      strengths: [
+        "Trouxe elementos concretos da rotina.",
+        "Relacionou a situação com prevenção e gestão de riscos.",
+      ],
+      nextSteps: [
+        "Mantenha esse nível de especificidade nas próximas aulas, sempre ligando exemplos cotidianos a formas de prevenção.",
+      ],
     };
   }
 
   if (trimmed.length > 220) {
     return {
-      level: 'adequada',
-      summary: 'Sua resposta mostra compreensão inicial do tema e já aponta situações relevantes da rotina escolar.',
-      strengths: ['Reconheceu que o tema se liga ao cotidiano do trabalho.', 'Apresentou uma resposta organizada.'],
-      nextSteps: ['Na próxima resposta, fortaleça ainda mais com exemplos concretos e indicação de frequência, intensidade, clareza ou suporte.'],
+      level: "adequada",
+      summary:
+        "Sua resposta mostra compreensão inicial do tema e já aponta situações relevantes da rotina escolar.",
+      strengths: [
+        "Reconheceu que o tema se liga ao cotidiano do trabalho.",
+        "Apresentou uma resposta organizada.",
+      ],
+      nextSteps: [
+        "Na próxima resposta, fortaleça ainda mais com exemplos concretos e indicação de frequência, intensidade, clareza ou suporte.",
+      ],
     };
   }
 
   return {
-    level: 'em desenvolvimento',
-    summary: 'Sua resposta registra uma compreensão inicial do tema e pode ser fortalecida com mais detalhes da rotina vivida na escola.',
-    strengths: ['Você iniciou a conexão entre o conteúdo da aula e a prática escolar.'],
-    nextSteps: ['Procure citar situações mais concretas e explicar por que elas merecem atenção, registro ou ação da escola.'],
+    level: "em desenvolvimento",
+    summary:
+      "Sua resposta registra uma compreensão inicial do tema e pode ser fortalecida com mais detalhes da rotina vivida na escola.",
+    strengths: [
+      "Você iniciou a conexão entre o conteúdo da aula e a prática escolar.",
+    ],
+    nextSteps: [
+      "Procure citar situações mais concretas e explicar por que elas merecem atenção, registro ou ação da escola.",
+    ],
   };
 }
 
-export async function POST(request: NextRequest, context: { params: Promise<{ courseSlug: string }> }) {
+export async function POST(
+  request: NextRequest,
+  context: { params: Promise<{ courseSlug: string }> },
+) {
   const params = await context.params;
 
   try {
     const body = await request.json();
-    const token = String(body.convite ?? '');
-    const activityId = String(body.activityId ?? '');
-    const answer = String(body.answer ?? '').trim();
+    const token = String(body.convite ?? "");
+    const activityId = String(body.activityId ?? "");
+    const answer = String(body.answer ?? "").trim();
 
     if (!token || !activityId || !answer) {
-      return NextResponse.json({ error: 'Convite, atividade e resposta são obrigatórios.' }, { status: 400 });
+      return NextResponse.json(
+        { error: "Convite, atividade e resposta são obrigatórios." },
+        { status: 400 },
+      );
     }
 
     if (answer.length < 40) {
-      return NextResponse.json({ error: 'A resposta precisa ter um pouco mais de contexto para gerar registro formativo.' }, { status: 400 });
+      return NextResponse.json(
+        {
+          error:
+            "A resposta precisa ter um pouco mais de contexto para gerar registro formativo.",
+        },
+        { status: 400 },
+      );
     }
 
     const invitation = await prisma.employeeInvitation.findUnique({
@@ -55,8 +103,16 @@ export async function POST(request: NextRequest, context: { params: Promise<{ co
       include: { employee: true },
     });
 
-    if (!invitation || invitation.status === 'revoked' || invitation.expiresAt.getTime() < Date.now() || !invitation.employeeId) {
-      return NextResponse.json({ error: 'Convite inválido ou expirado.' }, { status: 404 });
+    if (
+      !invitation ||
+      invitation.status === "revoked" ||
+      invitation.expiresAt.getTime() < Date.now() ||
+      !invitation.employeeId
+    ) {
+      return NextResponse.json(
+        { error: "Convite inválido ou expirado." },
+        { status: 404 },
+      );
     }
 
     const activity = await prisma.activity.findUnique({
@@ -64,39 +120,73 @@ export async function POST(request: NextRequest, context: { params: Promise<{ co
       include: { lesson: { include: { course: true } } },
     });
 
-    if (!activity || activity.lesson.course.slug !== params.courseSlug || activity.lesson.course.status !== 'published') {
-      return NextResponse.json({ error: 'Atividade não encontrada.' }, { status: 404 });
+    if (
+      !activity ||
+      activity.lesson.course.slug !== params.courseSlug ||
+      activity.lesson.course.status !== "published"
+    ) {
+      return NextResponse.json(
+        { error: "Atividade não encontrada." },
+        { status: 404 },
+      );
+    }
+
+    const enrollment = await prisma.enrollment.findUnique({
+      where: {
+        employeeId_courseId: {
+          employeeId: invitation.employeeId,
+          courseId: activity.lesson.course.id,
+        },
+      },
+      select: { id: true },
+    });
+
+    if (!enrollment) {
+      return NextResponse.json(
+        {
+          error:
+            "Este curso ainda não foi liberado para este colaborador pela escola.",
+        },
+        { status: 403 },
+      );
     }
 
     const feedback = buildInitialFeedback(answer);
 
     const response = await prisma.$transaction(async (tx) => {
-      await tx.enrollment.upsert({
-        where: { employeeId_courseId: { employeeId: invitation.employeeId!, courseId: activity.lesson.course.id } },
-        create: {
-          organizationId: invitation.organizationId,
-          employeeId: invitation.employeeId!,
-          courseId: activity.lesson.course.id,
-          status: 'in_progress',
+      await tx.enrollment.update({
+        where: { id: enrollment.id },
+        data: {
+          status: "in_progress",
           startedAt: invitation.acceptedAt ?? invitation.createdAt,
         },
-        update: { status: 'in_progress', startedAt: invitation.acceptedAt ?? invitation.createdAt },
       });
 
       const saved = await tx.activityResponse.upsert({
-        where: { employeeId_activityId: { employeeId: invitation.employeeId!, activityId } },
+        where: {
+          employeeId_activityId: {
+            employeeId: invitation.employeeId!,
+            activityId,
+          },
+        },
         create: {
           employeeId: invitation.employeeId!,
           activityId,
           answer,
-          status: 'feedback_ready',
-          metadata: { feedbackMode: 'initial-rule-based', courseSlug: params.courseSlug },
+          status: "feedback_ready",
+          metadata: {
+            feedbackMode: "initial-rule-based",
+            courseSlug: params.courseSlug,
+          },
         },
         update: {
           answer,
-          status: 'feedback_ready',
+          status: "feedback_ready",
           submittedAt: new Date(),
-          metadata: { feedbackMode: 'initial-rule-based', courseSlug: params.courseSlug },
+          metadata: {
+            feedbackMode: "initial-rule-based",
+            courseSlug: params.courseSlug,
+          },
         },
       });
 
@@ -108,23 +198,29 @@ export async function POST(request: NextRequest, context: { params: Promise<{ co
           summary: feedback.summary,
           strengths: feedback.strengths,
           nextSteps: feedback.nextSteps,
-          model: 'initial-rule-based',
+          model: "initial-rule-based",
         },
         update: {
           level: feedback.level,
           summary: feedback.summary,
           strengths: feedback.strengths,
           nextSteps: feedback.nextSteps,
-          model: 'initial-rule-based',
+          model: "initial-rule-based",
         },
       });
 
       return saved;
     });
 
-    return NextResponse.json({ responseId: response.id, feedback }, { status: 201 });
+    return NextResponse.json(
+      { responseId: response.id, feedback },
+      { status: 201 },
+    );
   } catch (error) {
-    console.error('Erro ao salvar resposta de curso:', error);
-    return NextResponse.json({ error: 'Erro interno ao salvar resposta.' }, { status: 500 });
+    console.error("Erro ao salvar resposta de curso:", error);
+    return NextResponse.json(
+      { error: "Erro interno ao salvar resposta." },
+      { status: 500 },
+    );
   }
 }

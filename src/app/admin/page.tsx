@@ -3,7 +3,7 @@ import Link from 'next/link';
 const cards = [
   {
     title: 'Escolas cadastradas',
-    description: 'Buscar escolas já criadas e abrir painel, importação, comunicados e relatório.',
+    description: 'Buscar escolas já criadas e abrir painel, comunicados e relatório interno.',
     href: '/admin/escolas',
   },
   {
@@ -31,7 +31,7 @@ export default function AdminHomePage() {
           <p className="text-sm font-bold uppercase tracking-wide text-gold">Área interna Excellentia</p>
           <h1 className="text-3xl font-extrabold text-navy mt-2">Operação escolar</h1>
           <p className="text-gray-600 mt-2 max-w-3xl">
-            Hub temporário para implantação e acompanhamento das escolas em teste controlado.
+            Hub interno para implantação e acompanhamento das escolas em teste controlado.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default function AdminHomePage() {
         </section>
 
         <section className="rounded-2xl bg-blue-50 border border-blue-100 p-5 text-sm text-blue-950 leading-relaxed">
-          Agora você não precisa guardar o ID manualmente: use “Escolas cadastradas” para encontrar a escola e abrir painel, importação, comunicados ou relatório. O ID continua aparecendo para suporte e integração.
+          Agora você não precisa guardar o ID manualmente: use “Escolas cadastradas” para encontrar a escola e abrir o painel, comunicados ou relatório interno. Importação de colaboradores fica dentro do painel da escola, já vinculada ao contexto correto. O ID continua aparecendo para suporte e integração.
         </section>
       </div>
     </main>

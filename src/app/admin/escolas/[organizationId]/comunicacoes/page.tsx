@@ -28,7 +28,9 @@ export default function ComunicacoesAdminPage({ params }: { params: Promise<{ or
   const resolvedParams = use(params);
   const [communications, setCommunications] = useState<Communication[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [updatingId, setUpdatingId] = useState<string | null>(null);
 
   const summary = useMemo(() => {
     return communications.reduce(
@@ -45,25 +47,59 @@ export default function ComunicacoesAdminPage({ params }: { params: Promise<{ or
   async function load() {
     setLoading(true);
     setError(null);
-    const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/comunicacoes`, {
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      setError(data.error ?? 'Não foi possível carregar comunicações.');
+    setNotice(null);
+
+    try {
+      const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/comunicacoes`);
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error ?? 'Não foi possível carregar comunicações.');
+        setLoading(false);
+        return;
+      }
+
+      setCommunications(data.communications);
+    } catch {
+      setError('Não foi possível carregar comunicações. Verifique sua conexão e tente novamente.');
+    } finally {
       setLoading(false);
-      return;
     }
-    setCommunications(data.communications);
-    setLoading(false);
   }
 
   async function updateStatus(id: string, status: string) {
-    const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/comunicacoes`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id, status }),
-    });
-    if (response.ok) await load();
+    const previousCommunications = communications;
+    const previousStatus = previousCommunications.find((item) => item.id === id)?.status;
+
+    if (previousStatus === status) return;
+
+    setUpdatingId(id);
+    setError(null);
+    setNotice(null);
+    setCommunications((current) => current.map((item) => (item.id === id ? { ...item, status } : item)));
+
+    try {
+      const response = await fetch(`/api/escolas/${resolvedParams.organizationId}/comunicacoes`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, status }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        setCommunications(previousCommunications);
+        setError(data.error ?? 'Não foi possível atualizar o status do comunicado.');
+        return;
+      }
+
+      setCommunications((current) => current.map((item) => (item.id === id ? { ...item, status: data.communication.status } : item)));
+      setNotice('Status do comunicado atualizado.');
+    } catch {
+      setCommunications(previousCommunications);
+      setError('Não foi possível atualizar o status do comunicado. Verifique sua conexão e tente novamente.');
+    } finally {
+      setUpdatingId(null);
+    }
   }
 
   useEffect(() => {
@@ -88,6 +124,7 @@ export default function ComunicacoesAdminPage({ params }: { params: Promise<{ or
         </div>
 
         {error && <div className="rounded-xl bg-red-50 border border-red-100 text-red-700 p-4 text-sm">{error}</div>}
+        {notice && <div className="rounded-xl bg-green-50 border border-green-100 text-green-700 p-4 text-sm">{notice}</div>}
 
         <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
@@ -122,9 +159,10 @@ export default function ComunicacoesAdminPage({ params }: { params: Promise<{ or
                 </div>
                 <div className="flex flex-col items-start md:items-end gap-2">
                   <span className="rounded-full bg-gray-100 text-gray-700 px-3 py-1 text-xs font-bold">{statusLabels[item.status] ?? item.status}</span>
-                  <select value={item.status} onChange={(event) => updateStatus(item.id, event.target.value)} className="rounded-lg border border-gray-300 px-3 py-2 text-sm">
+                  <select value={item.status} onChange={(event) => updateStatus(item.id, event.target.value)} disabled={updatingId === item.id} className="rounded-lg border border-gray-300 px-3 py-2 text-sm disabled:opacity-50">
                     {statusOptions.map((status) => <option key={status.value} value={status.value}>{status.label}</option>)}
                   </select>
+                  {updatingId === item.id && <p className="text-xs text-gray-500">Salvando status...</p>}
                 </div>
               </div>
               <p className="mt-5 text-gray-800 leading-relaxed whitespace-pre-line">{item.message}</p>

@@ -47,12 +47,12 @@ export default function RelatorioNR1Page({ params }: { params: Promise<{ organiz
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 print:hidden">
           <div>
             <p className="text-sm font-bold uppercase tracking-wide text-gold">Área interna Excellentia</p>
-            <h1 className="text-3xl font-extrabold text-navy mt-2">Relatório agregado NR-1</h1>
-            <p className="text-gray-600 mt-2">Resumo institucional de participação, progresso, certificados, comunicações e pontos de atenção.</p>
+            <h1 className="text-3xl font-extrabold text-navy mt-2">Relatório interno NR-1</h1>
+            <p className="text-gray-600 mt-2">Painel operacional da escola: participação, progresso, certificados, comunicações e pontos de atenção já registrados na plataforma.</p>
           </div>
           <div className="flex gap-2">
             <button onClick={load} disabled={loading} className="bg-navy hover:bg-blue-950 disabled:opacity-50 text-white font-bold px-5 py-2 rounded-lg text-sm">
-              {loading ? 'Gerando...' : 'Gerar relatório'}
+              {loading ? 'Atualizando...' : 'Atualizar dados'}
             </button>
             <button onClick={() => window.print()} disabled={!report} className="bg-gold hover:bg-yellow-600 disabled:opacity-50 text-white font-bold px-5 py-2 rounded-lg text-sm">
               Imprimir/PDF
@@ -61,6 +61,13 @@ export default function RelatorioNR1Page({ params }: { params: Promise<{ organiz
         </div>
 
         {error && <div className="rounded-xl bg-red-50 border border-red-100 text-red-700 p-4 text-sm print:hidden">{error}</div>}
+
+        <section className="rounded-2xl border border-blue-100 bg-blue-50 p-5 text-sm leading-relaxed text-blue-950 print:hidden">
+          <p className="font-bold">Relatório operacional interno</p>
+          <p className="mt-1">
+            Esta tela consolida dados que já existem no ambiente administrativo da escola. Ela não substitui o produto comercial de geração assistida de relatórios, pareceres ou documentos sob demanda, que depende de escopo contratado, curadoria e validação própria.
+          </p>
+        </section>
 
         {report && (
           <article className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden print:shadow-none print:border-0">

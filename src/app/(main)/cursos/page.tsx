@@ -81,7 +81,7 @@ function CourseCard({
 }
 
 export default function CursosPage() {
-  const schoolFormations = getSchoolCatalogCourses().filter((course) => !course.href.includes('/pgr-gro-escolas'));
+  const schoolFormations = getSchoolCatalogCourses();
 
   return (
     <>

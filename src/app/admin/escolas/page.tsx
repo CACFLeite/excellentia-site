@@ -54,7 +54,7 @@ export default function EscolasPage() {
           <div>
             <p className="text-sm font-bold uppercase tracking-wide text-gold">Área interna Excellentia</p>
             <h1 className="text-3xl font-extrabold text-navy mt-2">Escolas cadastradas</h1>
-            <p className="text-gray-600 mt-2">Encontre escolas já criadas e continue a implantação.</p>
+            <p className="text-gray-600 mt-2">Encontre escolas já criadas, abra o painel da escola e continue a implantação no contexto correto.</p>
           </div>
           <Link href="/admin/escolas/nova" className="bg-gold hover:bg-yellow-600 text-white font-bold px-5 py-3 rounded-xl text-sm">Cadastrar nova escola</Link>
         </div>
@@ -77,10 +77,9 @@ export default function EscolasPage() {
                   <p className="text-xs text-gray-500 mt-1">Unidade principal: {organization.mainUnit?.name ?? '-'} {organization.mainUnit?.city ? `· ${organization.mainUnit.city}/${organization.mainUnit.state ?? ''}` : ''}</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <Link href={`/admin/escolas/importacao?organizationId=${organization.id}`} className="bg-navy hover:bg-blue-950 text-white font-bold px-4 py-2 rounded-xl text-sm">Importar</Link>
                   <Link href={`/admin/escolas/${organization.id}/painel`} className="bg-gold hover:bg-yellow-600 text-white font-bold px-4 py-2 rounded-xl text-sm">Painel</Link>
                   <Link href={`/admin/escolas/${organization.id}/comunicacoes`} className="bg-white border border-gray-200 hover:border-gold text-navy font-bold px-4 py-2 rounded-xl text-sm">Comunicados</Link>
-                  <Link href={`/admin/escolas/${organization.id}/relatorios/nr1`} className="bg-white border border-gray-200 hover:border-gold text-navy font-bold px-4 py-2 rounded-xl text-sm">Relatório</Link>
+                  <Link href={`/admin/escolas/${organization.id}/relatorios/nr1`} className="bg-white border border-gray-200 hover:border-gold text-navy font-bold px-4 py-2 rounded-xl text-sm">Relatório interno</Link>
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3 text-center text-sm">

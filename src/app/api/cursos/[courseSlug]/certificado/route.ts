@@ -1,28 +1,36 @@
-import crypto from 'node:crypto';
-import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
-import { hashInviteToken } from '@/lib/invitations';
+import crypto from "node:crypto";
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { hashInviteToken } from "@/lib/invitations";
 
 type MetadataRecord = Record<string, unknown>;
 
 function metadataObject(value: unknown): MetadataRecord {
-  return value && typeof value === 'object' && !Array.isArray(value) ? (value as MetadataRecord) : {};
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? (value as MetadataRecord)
+    : {};
 }
 
 function verificationCode(prefix: string) {
-  const safePrefix = prefix.replace(/[^A-Z0-9]/gi, '').toUpperCase() || 'CURSO';
-  return `EXC-${safePrefix}-${crypto.randomBytes(4).toString('hex').toUpperCase()}`;
+  const safePrefix = prefix.replace(/[^A-Z0-9]/gi, "").toUpperCase() || "CURSO";
+  return `EXC-${safePrefix}-${crypto.randomBytes(4).toString("hex").toUpperCase()}`;
 }
 
-export async function POST(request: NextRequest, context: { params: Promise<{ courseSlug: string }> }) {
+export async function POST(
+  request: NextRequest,
+  context: { params: Promise<{ courseSlug: string }> },
+) {
   const params = await context.params;
 
   try {
     const body = await request.json();
-    const token = String(body.convite ?? '');
+    const token = String(body.convite ?? "");
 
     if (!token) {
-      return NextResponse.json({ error: 'Convite obrigatório.' }, { status: 400 });
+      return NextResponse.json(
+        { error: "Convite obrigatório." },
+        { status: 400 },
+      );
     }
 
     const invitation = await prisma.employeeInvitation.findUnique({
@@ -30,8 +38,16 @@ export async function POST(request: NextRequest, context: { params: Promise<{ co
       include: { employee: true, organization: true },
     });
 
-    if (!invitation || invitation.status === 'revoked' || invitation.expiresAt.getTime() < Date.now() || !invitation.employeeId) {
-      return NextResponse.json({ error: 'Convite inválido ou expirado.' }, { status: 404 });
+    if (
+      !invitation ||
+      invitation.status === "revoked" ||
+      invitation.expiresAt.getTime() < Date.now() ||
+      !invitation.employeeId
+    ) {
+      return NextResponse.json(
+        { error: "Convite inválido ou expirado." },
+        { status: 404 },
+      );
     }
 
     const course = await prisma.course.findUnique({
@@ -39,40 +55,70 @@ export async function POST(request: NextRequest, context: { params: Promise<{ co
       include: { lessons: { include: { activities: true } } },
     });
 
-    if (!course || course.status !== 'published') {
-      return NextResponse.json({ error: 'Curso não encontrado ou ainda não publicado.' }, { status: 404 });
+    if (!course || course.status !== "published") {
+      return NextResponse.json(
+        { error: "Curso não encontrado ou ainda não publicado." },
+        { status: 404 },
+      );
     }
 
-    const activityIds = course.lessons.flatMap((lesson) => lesson.activities.map((activity) => activity.id));
+    const activityIds = course.lessons.flatMap((lesson) =>
+      lesson.activities.map((activity) => activity.id),
+    );
     const answeredCount = await prisma.activityResponse.count({
-      where: { employeeId: invitation.employeeId, activityId: { in: activityIds } },
+      where: {
+        employeeId: invitation.employeeId,
+        activityId: { in: activityIds },
+      },
     });
 
     if (answeredCount < activityIds.length) {
       return NextResponse.json(
-        { error: 'O certificado só pode ser emitido após responder todas as atividades.', answeredCount, total: activityIds.length },
+        {
+          error:
+            "O certificado só pode ser emitido após responder todas as atividades.",
+          answeredCount,
+          total: activityIds.length,
+        },
         { status: 400 },
       );
     }
 
+    const existingEnrollment = await prisma.enrollment.findUnique({
+      where: {
+        employeeId_courseId: {
+          employeeId: invitation.employeeId,
+          courseId: course.id,
+        },
+      },
+      select: { id: true },
+    });
+
+    if (!existingEnrollment) {
+      return NextResponse.json(
+        {
+          error:
+            "Este curso ainda não foi liberado para este colaborador pela escola.",
+        },
+        { status: 403 },
+      );
+    }
+
     const courseMetadata = metadataObject(course.metadata);
-    const certificatePrefix = typeof courseMetadata.certificatePrefix === 'string' ? courseMetadata.certificatePrefix : course.slug;
+    const certificatePrefix =
+      typeof courseMetadata.certificatePrefix === "string"
+        ? courseMetadata.certificatePrefix
+        : course.slug;
 
     const certificate = await prisma.$transaction(async (tx) => {
-      const enrollment = await tx.enrollment.upsert({
-        where: { employeeId_courseId: { employeeId: invitation.employeeId!, courseId: course.id } },
-        create: {
-          organizationId: invitation.organizationId,
-          employeeId: invitation.employeeId!,
-          courseId: course.id,
-          status: 'completed',
-          startedAt: invitation.acceptedAt ?? invitation.createdAt,
-          completedAt: new Date(),
-        },
-        update: { status: 'completed', completedAt: new Date() },
+      const enrollment = await tx.enrollment.update({
+        where: { id: existingEnrollment.id },
+        data: { status: "completed", completedAt: new Date() },
       });
 
-      const existing = await tx.certificate.findUnique({ where: { enrollmentId: enrollment.id } });
+      const existing = await tx.certificate.findUnique({
+        where: { enrollmentId: enrollment.id },
+      });
       if (existing) return existing;
 
       return tx.certificate.create({
@@ -86,7 +132,8 @@ export async function POST(request: NextRequest, context: { params: Promise<{ co
             courseTitle: course.title,
             employeeName: invitation.employee?.fullName,
             organizationName: invitation.organization.name,
-            evidence: 'Curso ofertado e respostas enviadas. Feedback formativo sem nota pública qualitativa.',
+            evidence:
+              "Curso ofertado e respostas enviadas. Feedback formativo sem nota pública qualitativa.",
           },
         },
       });
@@ -101,7 +148,10 @@ export async function POST(request: NextRequest, context: { params: Promise<{ co
       },
     });
   } catch (error) {
-    console.error('Erro ao emitir certificado de curso:', error);
-    return NextResponse.json({ error: 'Erro interno ao emitir certificado.' }, { status: 500 });
+    console.error("Erro ao emitir certificado de curso:", error);
+    return NextResponse.json(
+      { error: "Erro interno ao emitir certificado." },
+      { status: 500 },
+    );
   }
 }

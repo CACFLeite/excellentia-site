@@ -173,8 +173,7 @@ export default function NovaEscolaPage() {
             </div>
             <p className="text-sm text-gray-500 mt-3">slug: {created.slug}</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Link href={`/admin/escolas/importacao?organizationId=${created.id}`} className="bg-navy hover:bg-blue-950 text-white font-bold px-5 py-3 rounded-xl text-sm">Importar colaboradores</Link>
-              <Link href={`/admin/escolas/${created.id}/painel`} className="bg-gold hover:bg-yellow-600 text-white font-bold px-5 py-3 rounded-xl text-sm">Abrir painel</Link>
+              <Link href={`/admin/escolas/${created.id}/painel`} className="bg-gold hover:bg-yellow-600 text-white font-bold px-5 py-3 rounded-xl text-sm">Abrir painel da escola</Link>
               <Link href="/admin/escolas" className="bg-white border border-gray-200 hover:border-gold text-navy font-bold px-5 py-3 rounded-xl text-sm">Ver escolas</Link>
             </div>
           </section>

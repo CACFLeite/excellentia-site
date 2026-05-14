@@ -332,7 +332,7 @@ export default function ImportacaoColaboradoresPage() {
             <span className="text-sm font-medium text-gray-700">ID da escola/organização</span>
             <input value={organizationId} onChange={(event) => setOrganizationId(event.target.value)} className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" placeholder="org_..." />
           </label>
-          {!organizationId && <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-100 rounded-xl p-3">Para vir preenchido automaticamente, entre por “Escolas cadastradas” e clique em “Importar” na escola desejada.</p>}
+          {!organizationId && <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-100 rounded-xl p-3">Para vir preenchido automaticamente, entre por “Escolas cadastradas”, abra o painel da escola desejada e acesse “Colaboradores”.</p>}
         </section>
 
       </div>

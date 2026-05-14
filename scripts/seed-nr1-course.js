@@ -16,14 +16,14 @@ const sourceFiles = [
 ];
 
 const lessonDefinitions = [
-  { title: 'Introdução à NR-1 e riscos psicossociais', duration: '2min19', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=e581c5b6-ea70-41b4-9f89-7b5b51cb3b69', pandaVideoId: '404bd859-9526-483a-a5a2-1fd380de9473', pandaExternalId: 'e581c5b6-ea70-41b4-9f89-7b5b51cb3b69', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
-  { title: 'Sinais iniciais de burnout e desgaste', duration: '2min29', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=55c77a38-4377-4212-9489-46e20030700b', pandaVideoId: '657ae26e-81fa-4c17-b893-5a843edd32ef', pandaExternalId: '55c77a38-4377-4212-9489-46e20030700b', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
-  { title: 'Mudanças institucionais, sobrecarga e registros', duration: '2min17', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=faf2d75b-83f8-41f7-b35a-5ac31e418a2c', pandaVideoId: '63d2c87b-0d6f-468b-9008-f17dd4cd5acf', pandaExternalId: 'faf2d75b-83f8-41f7-b35a-5ac31e418a2c', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
-  { title: 'Comunicação de riscos sem exposição indevida', duration: '2min08', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=acd29539-bf7d-4956-b41f-7e943668baab', pandaVideoId: '8866f203-e87a-4ba6-9c51-28fc5ea6f51d', pandaExternalId: 'acd29539-bf7d-4956-b41f-7e943668baab', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
-  { title: 'Mapeamento de riscos em diferentes funções', duration: '2min10', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=635d0e24-ba73-46e9-9e51-94939048c581', pandaVideoId: '4d427229-6cd1-420e-8664-a2cd771b9e62', pandaExternalId: '635d0e24-ba73-46e9-9e51-94939048c581', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
-  { title: 'Canais formais e comunicação profissional', duration: '2min09', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=fbae575c-f70a-42be-b5c5-abca2f19b22c', pandaVideoId: '0fd0ceff-6cbb-4f2e-a917-0840fbd1bce0', pandaExternalId: 'fbae575c-f70a-42be-b5c5-abca2f19b22c', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
-  { title: 'Canal anônimo, proteção e segurança psicológica', duration: '2min05', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=ac17c596-0ccd-4352-b6b7-d6fae3af51de', pandaVideoId: 'f733514e-bb35-462d-bf10-002d09419f21', pandaExternalId: 'ac17c596-0ccd-4352-b6b7-d6fae3af51de', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
-  { title: 'Certificado, evidências e continuidade da NR-1', duration: '2min17', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=e3deb1c4-acdf-450a-a2b0-d0651052944e', pandaVideoId: 'ddfa0f76-d6a8-4b0b-83cb-8a0705c3af8b', pandaExternalId: 'e3deb1c4-acdf-450a-a2b0-d0651052944e', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' }
+  { summary: 'Apresenta a NR-1 (Norma Regulamentadora 1), os riscos psicossociais e o papel da escola na leitura inicial do tema sem transformar o curso em consultoria técnica.', title: 'Introdução à NR-1 e riscos psicossociais', duration: '2min19', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=e581c5b6-ea70-41b4-9f89-7b5b51cb3b69', pandaVideoId: '404bd859-9526-483a-a5a2-1fd380de9473', pandaExternalId: 'e581c5b6-ea70-41b4-9f89-7b5b51cb3b69', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
+  { summary: 'Ajuda equipes escolares a reconhecer sinais iniciais de desgaste, burnout e alerta institucional, preservando limites de atuação e encaminhamento.', title: 'Sinais iniciais de burnout e desgaste', duration: '2min29', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=55c77a38-4377-4212-9489-46e20030700b', pandaVideoId: '657ae26e-81fa-4c17-b893-5a843edd32ef', pandaExternalId: '55c77a38-4377-4212-9489-46e20030700b', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
+  { summary: 'Relaciona mudanças, acúmulo de demandas e registros institucionais para reduzir improviso e apoiar evidências de gestão.', title: 'Mudanças institucionais, sobrecarga e registros', duration: '2min17', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=faf2d75b-83f8-41f7-b35a-5ac31e418a2c', pandaVideoId: '63d2c87b-0d6f-468b-9008-f17dd4cd5acf', pandaExternalId: 'faf2d75b-83f8-41f7-b35a-5ac31e418a2c', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
+  { summary: 'Orienta comunicação responsável de riscos psicossociais, evitando exposição pessoal, acusações improvisadas e ruído institucional.', title: 'Comunicação de riscos sem exposição indevida', duration: '2min08', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=acd29539-bf7d-4956-b41f-7e943668baab', pandaVideoId: '8866f203-e87a-4ba6-9c51-28fc5ea6f51d', pandaExternalId: 'acd29539-bf7d-4956-b41f-7e943668baab', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
+  { summary: 'Mostra como observar riscos em funções diferentes da escola, conectando relatos, rotina e documentação sem criar um curso autônomo de PGR (Programa de Gerenciamento de Riscos) ou GRO (Gerenciamento de Riscos Ocupacionais).', title: 'Mapeamento de riscos em diferentes funções', duration: '2min10', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=635d0e24-ba73-46e9-9e51-94939048c581', pandaVideoId: '4d427229-6cd1-420e-8664-a2cd771b9e62', pandaExternalId: '635d0e24-ba73-46e9-9e51-94939048c581', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
+  { summary: 'Define canais formais, critérios mínimos de registro e postura profissional para que a escola trate riscos sem informalidade perigosa.', title: 'Canais formais e comunicação profissional', duration: '2min09', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=fbae575c-f70a-42be-b5c5-abca2f19b22c', pandaVideoId: '0fd0ceff-6cbb-4f2e-a917-0840fbd1bce0', pandaExternalId: 'fbae575c-f70a-42be-b5c5-abca2f19b22c', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
+  { summary: 'Explica a função de canais protegidos e anônimos, com cuidado para segurança psicológica, apuração responsável e proteção contra retaliação.', title: 'Canal anônimo, proteção e segurança psicológica', duration: '2min05', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=ac17c596-0ccd-4352-b6b7-d6fae3af51de', pandaVideoId: 'f733514e-bb35-462d-bf10-002d09419f21', pandaExternalId: 'ac17c596-0ccd-4352-b6b7-d6fae3af51de', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' },
+  { summary: 'Fecha a trilha com certificado, evidências, continuidade institucional e conexão da NR-1 (Norma Regulamentadora 1) com governança escolar.', title: 'Certificado, evidências e continuidade da NR-1', duration: '2min17', videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=e3deb1c4-acdf-450a-a2b0-d0651052944e', pandaVideoId: 'ddfa0f76-d6a8-4b0b-83cb-8a0705c3af8b', pandaExternalId: 'e3deb1c4-acdf-450a-a2b0-d0651052944e', pandaFolderId: '8ddda579-dbfe-4412-b97d-5be2023e9747', videoStatus: 'published_to_panda' }
 ];
 
 function section(markdown, heading) {
@@ -45,12 +45,15 @@ async function main() {
       title: 'NR-1 para Escolas — Riscos Psicossociais',
       status: 'published',
       description:
-        'Curso Excellentia para formação, registro institucional e compreensão prática da NR-1 no contexto escolar.',
+        'Curso Excellentia para formação, registro institucional e compreensão prática da NR-1 (Norma Regulamentadora 1) no contexto escolar.',
       metadata: {
         audience: 'school_employee',
         track: 'saude-ocupacional',
         certificatePrefix: 'NR1',
         definitionVersion: '2026-05-01',
+        targetAudience: 'Público-alvo sugerido: docentes, gestores, coordenação, secretaria, apoio e demais colaboradores escolares, como recomendação por perfil/função para compreender a camada formativa e documental da NR-1 (Norma Regulamentadora 1). A escola define o envio pelo painel conforme função, risco e política interna.',
+        syllabus: 'Ementa: introdução à NR-1 (Norma Regulamentadora 1), riscos psicossociais, sinais de desgaste, registros institucionais, comunicação segura, canais formais, proteção, evidências e continuidade. PGR (Programa de Gerenciamento de Riscos) e GRO (Gerenciamento de Riscos Ocupacionais) aparecem como camada documental e de governança vinculada à NR-1 (Norma Regulamentadora 1), não como curso autônomo.',
+        lessonSummaries: lessonDefinitions.map((lesson) => lesson.summary),
       },
     },
     create: {
@@ -58,12 +61,15 @@ async function main() {
       title: 'NR-1 para Escolas — Riscos Psicossociais',
       status: 'published',
       description:
-        'Curso Excellentia para formação, registro institucional e compreensão prática da NR-1 no contexto escolar.',
+        'Curso Excellentia para formação, registro institucional e compreensão prática da NR-1 (Norma Regulamentadora 1) no contexto escolar.',
       metadata: {
         audience: 'school_employee',
         track: 'saude-ocupacional',
         certificatePrefix: 'NR1',
         definitionVersion: '2026-05-01',
+        targetAudience: 'Público-alvo sugerido: docentes, gestores, coordenação, secretaria, apoio e demais colaboradores escolares, como recomendação por perfil/função para compreender a camada formativa e documental da NR-1 (Norma Regulamentadora 1). A escola define o envio pelo painel conforme função, risco e política interna.',
+        syllabus: 'Ementa: introdução à NR-1 (Norma Regulamentadora 1), riscos psicossociais, sinais de desgaste, registros institucionais, comunicação segura, canais formais, proteção, evidências e continuidade. PGR (Programa de Gerenciamento de Riscos) e GRO (Gerenciamento de Riscos Ocupacionais) aparecem como camada documental e de governança vinculada à NR-1 (Norma Regulamentadora 1), não como curso autônomo.',
+        lessonSummaries: lessonDefinitions.map((lesson) => lesson.summary),
       },
     },
   });
@@ -98,6 +104,7 @@ async function main() {
         metadata: {
           sourceFile: sourceFiles[i],
           duration: lessonDefinition.duration,
+          summary: lessonDefinition.summary,
           ...(lessonDefinition.pandaVideoId ? { pandaVideoId: lessonDefinition.pandaVideoId } : {}),
           ...(lessonDefinition.pandaExternalId ? { pandaExternalId: lessonDefinition.pandaExternalId } : {}),
           ...(lessonDefinition.pandaFolderId ? { pandaFolderId: lessonDefinition.pandaFolderId } : {}),
@@ -113,6 +120,7 @@ async function main() {
         metadata: {
           sourceFile: sourceFiles[i],
           duration: lessonDefinition.duration,
+          summary: lessonDefinition.summary,
           ...(lessonDefinition.pandaVideoId ? { pandaVideoId: lessonDefinition.pandaVideoId } : {}),
           ...(lessonDefinition.pandaExternalId ? { pandaExternalId: lessonDefinition.pandaExternalId } : {}),
           ...(lessonDefinition.pandaFolderId ? { pandaFolderId: lessonDefinition.pandaFolderId } : {}),

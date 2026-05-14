@@ -83,6 +83,30 @@ enum PgrStatus {
   archived
 }
 
+enum SchoolCourseEvidenceDocumentStatus {
+  draft
+  submitted
+  reviewed
+  approved
+  archived
+}
+
+enum SensitiveEvidenceVaultStatus {
+  intake_pending
+  metadata_only
+  stored_externally
+  archived
+  deleted_by_policy
+}
+
+enum SensitiveEvidenceAttachmentType {
+  image
+  audio
+  video
+  pdf
+  other_document
+}
+
 model AdminCredential {
   id             String   @id @default("primary")
   passwordHash   String
@@ -107,16 +131,21 @@ model Organization {
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
 
-  units               Unit[]
-  members             OrganizationMember[]
-  employees           Employee[]
-  invitations         EmployeeInvitation[]
-  enrollments         Enrollment[]
-  certificates        Certificate[]
-  communications      Communication[]
-  pgrDocuments        PgrDocument[]
-  commercialProposals CommercialProposal[]
-  dataSubjectRequests DataSubjectRequest[]
+  units                   Unit[]
+  members                 OrganizationMember[]
+  employees               Employee[]
+  invitations             EmployeeInvitation[]
+  enrollments             Enrollment[]
+  certificates            Certificate[]
+  communications          Communication[]
+  pgrDocuments            PgrDocument[]
+  courseEvidenceDocuments SchoolCourseEvidenceDocument[]
+  sensitiveEvidenceVaultItems SchoolSensitiveEvidenceVaultItem[]
+  sensitiveEvidenceAuditEvents SchoolSensitiveEvidenceAuditEvent[]
+  emergencyRolesMaps      SchoolEmergencyRolesMap[]
+  fireRiskWalkthroughs    SchoolFireRiskWalkthrough[]
+  commercialProposals     CommercialProposal[]
+  dataSubjectRequests     DataSubjectRequest[]
 
   @@index([status])
 }
@@ -410,6 +439,157 @@ model PgrDocument {
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
   @@index([organizationId, status])
+}
+
+model SchoolCourseEvidenceDocument {
+  id             String                             @id @default(cuid())
+  organizationId String
+  courseSlug     String
+  lessonOrder    Int
+  documentKey    String
+  title          String
+  status         SchoolCourseEvidenceDocumentStatus @default(draft)
+  content        Json
+  metadata       Json?
+  createdAt      DateTime                           @default(now())
+  updatedAt      DateTime                           @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, courseSlug, lessonOrder, documentKey])
+  @@index([organizationId, courseSlug, lessonOrder])
+  @@index([organizationId, status])
+}
+
+model SchoolSensitiveEvidenceVaultItem {
+  id              String                       @id @default(cuid())
+  organizationId  String
+  courseSlug      String
+  lessonOrder     Int?
+  documentKey     String
+  title           String
+  caseReference   String?
+  sensitivity     String                       @default("restricted")
+  status          SensitiveEvidenceVaultStatus @default(metadata_only)
+  retentionPolicy String                       @default("contract-plus-legal-obligation-review")
+  legalHold       Boolean                      @default(false)
+  archivedAt      DateTime?
+  archiveReason   String?
+  metadata        Json?
+  createdBy       String?
+  updatedBy       String?
+  createdAt       DateTime                     @default(now())
+  updatedAt       DateTime                     @updatedAt
+
+  organization Organization                        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  attachments  SchoolSensitiveEvidenceAttachment[]
+  auditEvents  SchoolSensitiveEvidenceAuditEvent[]
+
+  @@index([organizationId, courseSlug, documentKey])
+  @@index([organizationId, status])
+  @@index([organizationId, sensitivity])
+  @@index([organizationId, legalHold])
+}
+
+model SchoolSensitiveEvidenceAttachment {
+  id               String                          @id @default(cuid())
+  organizationId   String
+  vaultItemId      String
+  type             SensitiveEvidenceAttachmentType
+  originalFilename String
+  mimeType         String
+  sizeBytes        Int
+  storageProvider  String?
+  storageObjectKey String?
+  checksumSha256   String?
+  fileStatus       String                          @default("metadata_only")
+  uploadedAt       DateTime?
+  lastAccessedAt   DateTime?
+  deletedAt        DateTime?
+  deletedBy        String?
+  metadata         Json?
+  createdAt        DateTime                        @default(now())
+
+  vaultItem SchoolSensitiveEvidenceVaultItem @relation(fields: [vaultItemId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, vaultItemId])
+  @@index([organizationId, type])
+  @@index([organizationId, fileStatus])
+}
+
+model SchoolSensitiveEvidenceAuditEvent {
+  id             String   @id @default(cuid())
+  organizationId String
+  vaultItemId    String?
+  action         String
+  actor          String
+  actorRole      String?
+  ipHash         String?
+  userAgentHash  String?
+  metadata       Json?
+  createdAt      DateTime @default(now())
+
+  organization Organization                       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  vaultItem    SchoolSensitiveEvidenceVaultItem? @relation(fields: [vaultItemId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt])
+  @@index([organizationId, action])
+  @@index([vaultItemId, createdAt])
+}
+
+model SchoolEmergencyRolesMap {
+  id             String @id @default(cuid())
+  organizationId String
+  courseSlug     String @default("incendio-escolas")
+  lessonOrder    Int    @default(1)
+
+  preventionResponsible    String?
+  preventionSubstitute     String?
+  preventionEvidence       String?
+  preventionGaps           String?
+  alertResponsible         String?
+  alertSubstitute          String?
+  alertEvidence            String?
+  alertGaps                String?
+  evacuationResponsible    String?
+  evacuationSubstitute     String?
+  evacuationEvidence       String?
+  evacuationGaps           String?
+  communicationResponsible String?
+  communicationSubstitute  String?
+  communicationEvidence    String?
+  communicationGaps        String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, courseSlug, lessonOrder])
+  @@index([organizationId])
+}
+
+model SchoolFireRiskWalkthrough {
+  id             String @id @default(cuid())
+  organizationId String
+  courseSlug     String @default("incendio-escolas")
+  lessonOrder    Int    @default(2)
+
+  areasVisited          String?
+  findingsLog           String?
+  simpleCorrectionsPlan String?
+  technicalReferrals    String?
+  suspendedAreas        String?
+  photoEvidenceNotes    String?
+  reviewResponsible     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, courseSlug, lessonOrder])
+  @@index([organizationId])
 }
 
 model CommercialProposal {

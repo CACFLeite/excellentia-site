@@ -12,6 +12,7 @@ const sourceFiles = Array.from({ length: 8 }, (_, index) =>
 
 const lessonVideoData = {
   1: {
+    summary: 'Delimita o que a Lei Lucas exige da escola e reforça que a formação institucional não substitui treinamento prático presencial com profissional habilitado.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=92543447-ea6c-46fa-9c5e-a82f13bf958e',
     duration: '5min27',
     pandaVideoId: 'cb849446-9819-4afd-9726-c55a59de646d',
@@ -20,6 +21,7 @@ const lessonVideoData = {
     videoStatus: 'published_to_panda',
   },
   2: {
+    summary: 'Organiza papéis de adultos na emergência escolar para reduzir improviso, dispersão e omissão no acionamento correto.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=b2a6059f-a4a7-40ff-8d96-0e55904bd011',
     duration: '5min29',
     pandaVideoId: 'b2d81ffb-8631-4a4a-b8c6-d09eef161020',
@@ -28,6 +30,7 @@ const lessonVideoData = {
     videoStatus: 'published_to_panda',
   },
   3: {
+    summary: 'Trabalha fluxos de acionamento: quem chama quem, em qual ordem, com quais informações e por quais canais.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=679de7b7-558f-4b43-a10f-91ffc06ba7fa',
     duration: '4min35',
     pandaVideoId: 'b32cb330-d9dc-4240-8fd9-d06a9318b1d5',
@@ -36,6 +39,7 @@ const lessonVideoData = {
     videoStatus: 'published_to_panda',
   },
   4: {
+    summary: 'Prepara a escola para chegar ao treinamento prático com papéis, espaços, materiais, contatos e registros minimamente organizados.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=f67802e0-1dd5-4bf3-b7e0-81eb3377e883',
     duration: '4min56',
     pandaVideoId: '62fe9184-42ca-4099-9844-95a2a806fa24',
@@ -44,6 +48,7 @@ const lessonVideoData = {
     videoStatus: 'published_to_panda',
   },
   5: {
+    summary: 'Diferencia sinais de alerta em situações recorrentes na escola e orienta reconhecimento e acionamento sem manobras improvisadas.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=7c55774b-f6a8-4db0-80b8-1cfd35d86b80',
     duration: '5min18',
     pandaVideoId: 'd31ce3cc-06df-48d4-aee8-0848ca206d9a',
@@ -52,6 +57,7 @@ const lessonVideoData = {
     videoStatus: 'published_to_panda',
   },
   6: {
+    summary: 'Explica quais competências dependem de simulação presencial supervisionada e por que vídeo não deve substituir prática técnica.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=ba65ed86-0cee-49e1-b818-7e2204dee654',
     duration: '4min19',
     pandaVideoId: '9487fff5-d3e8-466f-9220-44fb5e8b0a16',
@@ -60,6 +66,7 @@ const lessonVideoData = {
     videoStatus: 'published_to_panda',
   },
   7: {
+    summary: 'Transforma a preparação em protocolo interno com pessoas de referência, locais, kits, comunicação e responsáveis.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=cc469d5d-0953-4a3d-abf9-0435d43d1d8a',
     duration: '4min17',
     pandaVideoId: '23c1d8ec-7d73-4de5-a569-90c503f8d0e7',
@@ -68,6 +75,7 @@ const lessonVideoData = {
     videoStatus: 'published_to_panda',
   },
   8: {
+    summary: 'Fecha a trilha com evidências, reciclagem anual, registros e cultura de segurança como rotina institucional contínua.',
     videoUrl: 'https://player-vz-9bd0fea2-c7a.tv.pandavideo.com.br/embed/?v=db5b654a-d368-4d2a-92bc-fbfb9d54bd4f',
     duration: '4min01',
     pandaVideoId: '81d1d82e-ba3b-45ed-ac4e-4131edef51f4',
@@ -140,7 +148,7 @@ async function main() {
     where: { slug: 'lei-lucas-escolas' },
     update: {
       title: 'Lei Lucas nas Escolas — Preparação, Protocolo e Evidências',
-      status: 'draft',
+      status: 'published',
       description:
         'Curso Excellentia para preparação institucional, protocolos, evidências e continuidade da Lei Lucas na rotina escolar, sem substituir treinamento prático presencial com profissional habilitado.',
       metadata: {
@@ -148,6 +156,9 @@ async function main() {
         track: 'primeiros-socorros',
         certificatePrefix: 'LLC',
         definitionVersion: '2026-05-02',
+        targetAudience: 'Público-alvo sugerido: docentes, gestores, coordenação, secretaria, equipe de apoio e demais adultos responsáveis por preparação, acionamento, comunicação e evidências em emergências escolares. A escola define o envio pelo painel conforme função, risco e política interna, sem tratar a lista como bloqueio rígido de distribuição.',
+        syllabus: 'Ementa: obrigações e limites da Lei Lucas; papéis dos adultos; protocolo de acionamento; preparação prévia; reconhecimento de sinais; limites do vídeo; treinamento prático presencial; protocolo interno; evidências e reciclagem anual.',
+        lessonSummaries: Object.values(lessonVideoData).map((lesson) => lesson.summary),
         productionStatus: 'aula01_aula02_aula03_aula04_aula05_aula06_aula07_aula08_published_to_panda',
         practicalTrainingDisclaimer:
           'Não substitui treinamento prático presencial de primeiros socorros ministrado por profissional habilitado quando aplicável.',
@@ -156,7 +167,7 @@ async function main() {
     create: {
       slug: 'lei-lucas-escolas',
       title: 'Lei Lucas nas Escolas — Preparação, Protocolo e Evidências',
-      status: 'draft',
+      status: 'published',
       description:
         'Curso Excellentia para preparação institucional, protocolos, evidências e continuidade da Lei Lucas na rotina escolar, sem substituir treinamento prático presencial com profissional habilitado.',
       metadata: {
@@ -164,6 +175,9 @@ async function main() {
         track: 'primeiros-socorros',
         certificatePrefix: 'LLC',
         definitionVersion: '2026-05-02',
+        targetAudience: 'Público-alvo sugerido: docentes, gestores, coordenação, secretaria, equipe de apoio e demais adultos responsáveis por preparação, acionamento, comunicação e evidências em emergências escolares. A escola define o envio pelo painel conforme função, risco e política interna, sem tratar a lista como bloqueio rígido de distribuição.',
+        syllabus: 'Ementa: obrigações e limites da Lei Lucas; papéis dos adultos; protocolo de acionamento; preparação prévia; reconhecimento de sinais; limites do vídeo; treinamento prático presencial; protocolo interno; evidências e reciclagem anual.',
+        lessonSummaries: Object.values(lessonVideoData).map((lesson) => lesson.summary),
         productionStatus: 'aula01_aula02_aula03_aula04_aula05_aula06_aula07_aula08_published_to_panda',
         practicalTrainingDisclaimer:
           'Não substitui treinamento prático presencial de primeiros socorros ministrado por profissional habilitado quando aplicável.',
@@ -182,6 +196,7 @@ async function main() {
     const lessonMetadata = {
       sourceFile,
       narrationFile: `excellentia-lei-lucas-aula${String(order).padStart(2, '0')}-elevenlabs-v1-2026-05-01.txt`,
+      summary: videoData.summary,
       videoStatus: videoData.videoStatus,
       ...(videoData.duration ? { duration: videoData.duration } : {}),
       ...(videoData.pandaVideoId ? { pandaVideoId: videoData.pandaVideoId } : {}),
