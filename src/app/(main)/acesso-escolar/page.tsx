@@ -62,10 +62,10 @@ export default function AcessoEscolarPage({ searchParams }: { searchParams?: { c
           </div>
 
           <Link
-            href="/cursos"
+            href={`/cursos/${courseSlug}`}
             className="block w-full bg-gold hover:bg-yellow-600 text-white font-bold py-3 rounded-lg text-center transition-colors text-sm"
           >
-            Acessar cursos →
+            Acessar curso →
           </Link>
         </div>
         )}

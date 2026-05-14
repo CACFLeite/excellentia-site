@@ -50,7 +50,8 @@ export async function POST(request: NextRequest, context: { params: Promise<{ or
       });
     });
 
-    const invitationUrl = `${getBaseUrl(request)}/acesso-escolar?convite=${token}`;
+    const courseSlug = 'nr1-escolas';
+    const invitationUrl = `${getBaseUrl(request)}/acesso-escolar?convite=${token}&curso=${encodeURIComponent(courseSlug)}`;
     let emailResult: { sent: boolean; skipped?: boolean; error?: string } | null = null;
 
     if (shouldSendEmail) {

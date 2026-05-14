@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
           invitationId: invitation.id,
           fullName: employee.fullName,
           email: employee.email,
-          invitationUrl: `${baseUrl}/acesso-escolar?convite=${token}`,
+          invitationUrl: `${baseUrl}/acesso-escolar?convite=${token}&curso=nr1-escolas`,
         });
       }
 
