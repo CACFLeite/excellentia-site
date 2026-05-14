@@ -21,7 +21,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        brand: ['var(--font-brand)', 'var(--font-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },

@@ -14,7 +14,7 @@
 - Azul marinho: `#0a2749`
 - Dourado: `#b07908`
 - Dourado claro: `#f4db76`
-- Tipografia: Inter (Google Fonts)
+- Tipografia: Plus Jakarta Sans (títulos/marca) + IBM Plex Sans (texto/UI), via Google Fonts
 
 ## Páginas
 

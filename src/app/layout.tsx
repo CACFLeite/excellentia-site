@@ -1,9 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { IBM_Plex_Sans, Plus_Jakarta_Sans } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-brand',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Excellentia — Governança e compliance para escolas de excelência',
@@ -46,7 +57,7 @@ export default function RootLayout({
           </Script>
         )}
       </head>
-      <body className={inter.className}>
+      <body className={`${ibmPlexSans.variable} ${plusJakartaSans.variable}`}>
         {children}
       </body>
     </html>
