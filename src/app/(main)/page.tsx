@@ -3,27 +3,37 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
-const journeyCards = [
+const governanceFlow = [
   {
     number: '01',
-    eyebrow: 'entrada',
+    eyebrow: 'exigência',
     title: 'Risco disperso',
-    description: 'Exigências legais, formações, documentos e responsabilidades deixam de competir entre si na rotina da escola.',
-    tone: 'dark',
+    description: 'A escola identifica obrigações, prazos e responsabilidades que hoje aparecem soltos.',
   },
   {
     number: '02',
-    eyebrow: 'método',
-    title: 'Formação conectada',
-    description: 'Trilhas, protocolos e registros passam a seguir uma jornada compreensível para gestão, coordenação e equipe.',
-    tone: 'light',
+    eyebrow: 'formação',
+    title: 'Trilha conectada',
+    description: 'Equipes entram em percursos claros, ligados à rotina e aos protocolos da instituição.',
   },
   {
     number: '03',
-    eyebrow: 'saída',
-    title: 'Governança visível',
-    description: 'A escola enxerga lacunas, próximos passos e evidências sem depender de improviso ou memória informal.',
-    tone: 'light',
+    eyebrow: 'evidência',
+    title: 'Registro organizado',
+    description: 'Certificados, atividades e registros deixam rastro auditável sem virar burocracia paralela.',
+  },
+  {
+    number: '04',
+    eyebrow: 'decisão',
+    title: 'Leitura institucional',
+    description: 'Gestão enxerga lacunas, prioridades e próximos passos antes que o improviso decida.',
+  },
+  {
+    number: '05',
+    eyebrow: 'síntese',
+    title: 'Governança Visível',
+    description: 'O resultado é acompanhamento: formação, prova e decisão no mesmo fluxo.',
+    result: true,
   },
 ]
 
@@ -100,7 +110,7 @@ export default function Home() {
                 Governança e compliance para escolas de excelência.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-                Formações, protocolos, evidências e leitura estratégica conectados em uma rotina institucional clara para escolas que precisam formar, comprovar e proteger.
+                Formação, evidência e leitura estratégica em uma rotina clara para escolas que precisam proteger e comprovar.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link href="/escolas" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
@@ -116,7 +126,7 @@ export default function Home() {
               <div className="absolute inset-4 rounded-[3.5rem] bg-gold-light/10 blur-3xl" />
               <div className="excellentia-float absolute right-2 top-0 w-[92%] rounded-[2.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-2xl backdrop-blur-md md:p-8">
                 <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">fluxo de governança educacional</div>
-                <p className="mt-2 max-w-md text-sm leading-6 text-slate-300">Da exigência à formação, da formação à evidência, da evidência à decisão.</p>
+                <p className="mt-2 max-w-md text-sm leading-6 text-slate-300">Exigência, formação, evidência e decisão.</p>
                 <div className="relative mt-10 min-h-[260px]">
                   <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold-light/30 bg-gold-light/10 shadow-[inset_0_0_52px_rgba(244,219,118,.08),0_0_42px_rgba(244,219,118,.10)]" />
                   <div className="absolute left-1/2 top-1/2 h-3 w-[84%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-gold-light/70 to-transparent" />
@@ -133,38 +143,48 @@ export default function Home() {
 
               <div className="excellentia-float-slow absolute bottom-0 left-0 w-[62%] rounded-[2rem] border border-white/12 bg-[#06101c]/80 p-6 shadow-2xl backdrop-blur-md">
                 <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">jornada conectada</div>
-                <p className="mt-3 text-sm leading-6 text-slate-300">Uma visão integrada para organizar prioridades, formação e comprovação institucional.</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">Prioridades, formação e comprovação em uma só leitura.</p>
               </div>
             </div>
           </div>
 
           <div className="mt-24 lg:ml-20">
-            <div className="mb-8 max-w-5xl">
+            <div className="mb-10 max-w-5xl">
               <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">governança em movimento</div>
               <h2 className="max-w-5xl text-3xl font-black tracking-[-0.03em] text-white md:text-5xl">
-                Da exigência dispersa à rotina institucional acompanhável.
+                Da exigência dispersa à Governança Visível.
               </h2>
+              <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 md:text-lg">
+                Uma esteira única: exigência, formação, evidência e decisão passam a revelar a mesma operação.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:items-stretch">
-              {journeyCards.map((card, index) => {
-                const dark = card.tone === 'dark'
-                const offsets = [
-                  'lg:mt-8',
-                  'lg:mt-20',
-                  'lg:mt-0',
-                ]
-                return (
-                  <div key={card.title} className={`w-full rounded-[2rem] border p-8 shadow-2xl transition duration-500 hover:-translate-y-1 ${offsets[index]} ${dark ? 'border-white/12 bg-white/[0.08] text-white backdrop-blur' : 'border-slate-200 bg-white text-navy'}`}>
-                    <div className="mb-6 flex items-center justify-between">
-                      <span className={`text-xs font-black uppercase tracking-[0.24em] ${dark ? 'text-gold-light' : 'text-gold'}`}>{card.eyebrow}</span>
-                      <span className={`text-3xl font-black ${dark ? 'text-white/25' : 'text-navy/15'}`}>{card.number}</span>
+            <div className="relative overflow-hidden rounded-[2.75rem] border border-white/14 bg-white/[0.06] p-6 shadow-2xl shadow-black/20 backdrop-blur md:p-8 lg:p-10">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_88%_28%,rgba(244,219,118,.14),transparent_32%),linear-gradient(112deg,rgba(255,255,255,.08),rgba(255,255,255,.02)_48%,rgba(244,219,118,.08))]" />
+              <div className="absolute left-8 top-8 h-[calc(100%-4rem)] w-px bg-gradient-to-b from-gold-light/20 via-gold-light/70 to-gold-light/20 lg:left-10 lg:right-10 lg:top-1/2 lg:h-px lg:w-auto lg:-translate-y-1/2 lg:bg-gradient-to-r" />
+              <div className="absolute left-8 top-8 hidden h-[calc(100%-4rem)] w-20 rounded-full bg-gold-light/10 blur-3xl lg:left-auto lg:right-6 lg:top-1/2 lg:block lg:h-24 lg:w-72 lg:-translate-y-1/2" />
+
+              <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-0">
+                {governanceFlow.map((step, index) => {
+                  const isResult = step.result
+                  return (
+                    <div key={step.title} className={`relative pl-12 lg:min-h-[320px] lg:px-4 lg:pl-4 ${index % 2 ? 'lg:pt-28' : 'lg:pt-4'}`}>
+                      <div className={`absolute left-0 top-1.5 flex h-16 w-16 items-center justify-center rounded-full border text-sm font-black shadow-[0_0_30px_rgba(244,219,118,.16)] lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 ${index % 2 ? 'lg:-translate-y-[4.8rem]' : 'lg:translate-y-[1.9rem]'} ${isResult ? 'border-gold-light bg-gold-light text-navy' : 'border-white/18 bg-[#06101c] text-gold-light'}`}>
+                        {step.number}
+                      </div>
+
+                      <div className={`relative max-w-sm ${isResult ? 'lg:rounded-[1.8rem] lg:border lg:border-gold-light/24 lg:bg-gold-light/[0.08] lg:p-5' : ''}`}>
+                        <div className={`text-[11px] font-black uppercase tracking-[0.24em] ${isResult ? 'text-gold-light' : 'text-slate-400'}`}>{step.eyebrow}</div>
+                        <h3 className={`mt-3 font-black tracking-[-0.03em] ${isResult ? 'text-2xl text-white md:text-3xl' : 'text-xl text-white md:text-2xl'}`}>{step.title}</h3>
+                        <p className="mt-4 text-sm leading-6 text-slate-300">{step.description}</p>
+                        {isResult && (
+                          <div className="mt-5 h-px w-24 bg-gradient-to-r from-gold-light to-transparent" />
+                        )}
+                      </div>
                     </div>
-                    <h3 className="text-3xl font-black">{card.title}</h3>
-                    <p className={`mt-5 leading-7 ${dark ? 'text-slate-300' : 'text-slate-600'}`}>{card.description}</p>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -177,10 +197,10 @@ export default function Home() {
           <div className="max-w-4xl lg:ml-20">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frentes conectadas</div>
             <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">
-              Formações, escolas e inteligência trabalham como partes do mesmo sistema.
+              Formações, escolas e inteligência no mesmo sistema.
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              A Excellentia conecta aprendizagem, comprovação, orientação e maturidade institucional em uma mesma jornada.
+              Aprendizagem, comprovação e orientação sem camadas soltas.
             </p>
           </div>
 
@@ -208,9 +228,9 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
           <div>
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">operação institucional</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] md:text-5xl">Uma presença digital alinhada à operação que a Excellentia entrega.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] md:text-5xl">Presença digital alinhada à operação real.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              A Excellentia organiza formação, evidência e leitura institucional para que a escola avance por etapas — sem transformar compliance em burocracia solta.
+              Formação, evidência e leitura institucional para avançar sem burocracia solta.
             </p>
           </div>
           <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.07] p-8 shadow-2xl backdrop-blur">
@@ -229,9 +249,9 @@ export default function Home() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">acompanhe a Excellentia</div>
-          <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Receba conteúdos e atualizações da Excellentia.</h2>
+          <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Receba atualizações da Excellentia.</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Enviaremos novidades sobre formações, governança escolar, compliance educacional e inteligência institucional.
+            Novidades sobre formações, governança escolar e inteligência institucional.
           </p>
           {status === 'success' ? (
             <div className="mx-auto mt-10 max-w-md rounded-2xl border border-gold bg-gold/10 p-6">
