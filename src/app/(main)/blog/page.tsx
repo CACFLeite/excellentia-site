@@ -158,9 +158,14 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#06101c] py-20 text-white md:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#06101c_0%,#0a2749_100%)]" />
+      <section className="relative overflow-hidden bg-navy py-20 text-white md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#0a2749_0%,#071d38_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-light/50 to-transparent" />
+        <svg className="pointer-events-none absolute left-0 top-[-5rem] hidden h-[48rem] w-full opacity-50 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
+          <path d="M92 212C304 54 482 302 706 158C934 12 1128 146 1328 58" stroke="#f4db76" strokeOpacity=".34" strokeWidth="3" strokeLinecap="round" />
+          <path d="M210 338C420 196 588 372 808 248C1018 130 1166 206 1294 150" stroke="#f4db76" strokeOpacity=".14" strokeWidth="2" strokeLinecap="round" />
+          <path d="M118 574C334 418 510 634 738 504C952 382 1126 488 1308 404" stroke="#f4db76" strokeOpacity=".18" strokeWidth="2" strokeLinecap="round" />
+        </svg>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[.68fr_1fr] lg:items-start">
             <div className="lg:sticky lg:top-28">
