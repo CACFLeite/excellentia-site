@@ -17,7 +17,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-navy/95 text-white shadow-md backdrop-blur">
+    <nav className="excellentia-nav-surface sticky top-0 z-50 border-b border-gold-light/10 text-white shadow-[0_18px_50px_rgba(2,6,11,.22)] backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-6">
           <Link href="/" className="flex shrink-0 items-center" onClick={() => setMenuOpen(false)}>
@@ -31,12 +31,18 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-5 lg:flex">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="text-sm font-semibold transition-colors hover:text-gold-light">
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/admin/login"
+              className="rounded-full border border-gold-light/50 bg-gold px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-gold/20 transition hover:-translate-y-0.5 hover:bg-yellow-600"
+            >
+              Acessar painel
+            </Link>
           </div>
 
           <button
@@ -56,7 +62,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-navy-dark lg:hidden">
+        <div className="border-t border-gold-light/10 bg-[#06101c]/95 lg:hidden">
           <div className="flex flex-col gap-1 px-4 py-4">
             {navItems.map((item) => (
               <Link
@@ -68,6 +74,13 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/admin/login"
+              className="mt-2 rounded-2xl bg-gold px-3 py-3 text-center font-black text-white transition-colors hover:bg-yellow-600"
+              onClick={() => setMenuOpen(false)}
+            >
+              Acessar painel
+            </Link>
           </div>
         </div>
       )}

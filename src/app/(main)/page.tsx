@@ -40,21 +40,28 @@ const governanceFlow = [
 const fronts = [
   {
     title: 'Formações',
-    eyebrow: 'aprender',
-    description: 'Trilhas de conformidade e desenvolvimento com linguagem aplicável à rotina escolar.',
+    eyebrow: 'camada 01',
+    role: 'O que a escola implementa',
+    description: 'Trilhas e protocolos transformam exigências em prática comum.',
     href: '/formacoes',
+    linkLabel: 'Ver formações',
   },
   {
-    title: 'Escolas',
-    eyebrow: 'comprovar',
-    description: 'Certificados, registros, relatórios e documentação para sustentar decisões institucionais.',
+    title: 'Painel da escola',
+    eyebrow: 'camada 02',
+    role: 'Onde acompanha e comprova',
+    description: 'Certificados, atividades e relatórios organizam evidências por escola.',
     href: '/escolas',
+    linkLabel: 'Conhecer escolas',
+    featured: true,
   },
   {
     title: 'Inteligência Educacional',
-    eyebrow: 'orientar',
-    description: 'Análises e guias para transformar legislação, risco e gestão em leitura estratégica.',
+    eyebrow: 'camada 03',
+    role: 'O repertório que sustenta decisões',
+    description: 'Análises curtas ajudam a ler risco, lei e prioridade institucional.',
     href: '/inteligencia-educacional',
+    linkLabel: 'Ler inteligência',
   },
 ]
 
@@ -114,10 +121,10 @@ export default function Home() {
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link href="/escolas" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
-                  Conhecer escolas
+                  Soluções para escolas
                 </Link>
                 <Link href="/formacoes" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
-                  Ver formações
+                  Formações para professores
                 </Link>
               </div>
             </div>
@@ -195,29 +202,49 @@ export default function Home() {
         <div className="absolute right-[-8rem] top-20 h-80 w-80 rounded-full bg-gold/20 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl lg:ml-20">
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frentes conectadas</div>
+            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">ecossistema excellentia</div>
             <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">
-              Formações, escolas e inteligência no mesmo sistema.
+              Uma plataforma, três camadas integradas.
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              Aprendizagem, comprovação e orientação sem camadas soltas.
+              A escola não precisa escolher entre aprender, comprovar ou decidir melhor. As três camadas operam juntas.
             </p>
           </div>
 
-          <div className="relative mt-16 rounded-[2.75rem] border border-slate-200 bg-white p-6 shadow-2xl md:p-10 lg:ml-20">
-            <div className="absolute left-[12%] right-[12%] top-[7.55rem] hidden h-[3px] bg-gradient-to-r from-gold/10 via-gold to-gold/10 md:block" />
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {fronts.map((front, index) => (
-                <Link key={front.title} href={front.href} className={`group relative rounded-[2rem] border border-slate-100 bg-slate-50 p-7 transition duration-300 hover:-translate-y-1 hover:border-gold/35 hover:bg-white hover:shadow-xl ${index === 1 ? 'md:translate-y-10' : ''}`}>
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-navy text-2xl font-black text-gold-light shadow-lg">
-                    {index + 1}
+          <div className="relative mt-16 overflow-hidden rounded-[2.75rem] border border-slate-200 bg-white p-6 shadow-2xl md:p-10 lg:ml-20">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(244,219,118,.16),transparent_34%),linear-gradient(135deg,rgba(10,39,73,.04),transparent_45%)]" />
+            <div className="absolute left-8 top-16 hidden h-[calc(100%-8rem)] w-px bg-gradient-to-b from-gold/10 via-gold/60 to-gold/10 md:left-1/2 md:block lg:left-10 lg:right-10 lg:top-[8.8rem] lg:h-px lg:w-auto lg:bg-gradient-to-r" />
+
+            <div className="relative grid grid-cols-1 gap-5 md:gap-7 lg:grid-cols-3">
+              {fronts.map((front, index) => {
+                const featured = front.featured
+                return (
+                  <div key={front.title} className={`relative rounded-[2rem] border p-7 transition duration-300 ${featured ? 'border-gold/40 bg-navy text-white shadow-2xl shadow-navy/20 lg:-translate-y-4' : 'border-slate-100 bg-slate-50/80 text-navy'}`}>
+                    <div className={`mb-7 flex h-14 w-14 items-center justify-center rounded-2xl text-lg font-black shadow-lg ${featured ? 'bg-gold-light text-navy' : 'bg-white text-gold ring-1 ring-slate-200'}`}>
+                      {index + 1}
+                    </div>
+                    <div className={`text-xs font-black uppercase tracking-[0.24em] ${featured ? 'text-gold-light' : 'text-gold'}`}>{front.eyebrow}</div>
+                    <h3 className={`mt-3 text-2xl font-black ${featured ? 'text-white' : 'text-navy'}`}>{front.title}</h3>
+                    <p className={`mt-2 text-sm font-extrabold ${featured ? 'text-slate-200' : 'text-slate-500'}`}>{front.role}</p>
+                    <p className={`mt-5 leading-7 ${featured ? 'text-slate-300' : 'text-slate-600'}`}>{front.description}</p>
+                    <Link href={front.href} className={`mt-7 inline-flex text-sm font-extrabold transition hover:translate-x-1 ${featured ? 'text-gold-light' : 'text-gold'}`}>
+                      {front.linkLabel} →
+                    </Link>
                   </div>
-                  <div className="text-xs font-black uppercase tracking-[0.24em] text-gold">{front.eyebrow}</div>
-                  <h3 className="mt-3 text-2xl font-black text-navy">{front.title}</h3>
-                  <p className="mt-4 leading-7 text-slate-600">{front.description}</p>
-                  <span className="mt-6 inline-flex font-extrabold text-gold transition group-hover:translate-x-1">Entrar →</span>
-                </Link>
-              ))}
+                )
+              })}
+            </div>
+
+            <div className="relative mt-12 flex flex-col items-start justify-between gap-5 rounded-[2rem] border border-gold/20 bg-[#f7f4ec] p-6 md:flex-row md:items-center">
+              <div>
+                <div className="text-xs font-black uppercase tracking-[0.24em] text-gold">caminho principal</div>
+                <p className="mt-2 max-w-2xl text-lg font-black leading-7 text-navy">
+                  Para gestores, o ponto de entrada é a escola: dali vêm formação, evidência e leitura institucional.
+                </p>
+              </div>
+              <Link href="/escolas" className="w-full rounded-2xl bg-gold px-7 py-4 text-center font-black text-white shadow-xl shadow-gold/20 transition hover:bg-yellow-600 md:w-auto">
+                Conhecer solução para escolas
+              </Link>
             </div>
           </div>
         </div>

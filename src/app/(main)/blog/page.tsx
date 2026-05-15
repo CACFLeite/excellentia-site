@@ -132,7 +132,7 @@ export default function BlogPage() {
             </div>
             <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] md:text-7xl">Inteligência Educacional</h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              Leituras práticas sobre governança educacional, compliance escolar, carreira, direitos e saúde profissional.
+              Leituras práticas sobre governança, compliance escolar, carreira e saúde profissional.
             </p>
           </div>
 
@@ -155,10 +155,10 @@ export default function BlogPage() {
           <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
               <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold">publicações</div>
-              <h2 className="max-w-3xl text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Temas para decisões mais conscientes na escola.</h2>
+              <h2 className="max-w-3xl text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Temas para decidir melhor na escola.</h2>
             </div>
             <p className="max-w-xl text-lg leading-8 text-slate-600">
-              Conteúdos organizados para apoiar leitura institucional, formação de equipes e maturidade de governança.
+              Conteúdos para apoiar leitura institucional, formação de equipes e governança.
             </p>
           </div>
 
@@ -188,9 +188,9 @@ export default function BlogPage() {
             <div className="grid grid-cols-1 items-center gap-8 p-8 md:p-10 lg:grid-cols-[1fr_auto]">
               <div>
                 <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold-light">acompanhe a inteligência educacional</div>
-                <h3 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Receba novas análises por e-mail</h3>
+                <h3 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Receba novas análises</h3>
                 <p className="mt-4 max-w-2xl leading-7 text-slate-300">
-                  Conteúdos sobre governança educacional, carreira docente e conformidade escolar direto na sua caixa de entrada.
+                  Governança, carreira docente e conformidade escolar na sua caixa de entrada.
                 </p>
               </div>
               <Link href="/contato" className="rounded-2xl bg-gold px-8 py-4 text-center font-black text-white transition hover:bg-yellow-600">

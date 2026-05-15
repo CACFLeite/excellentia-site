@@ -15,7 +15,7 @@ export default function ContatoPage() {
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Fale com a gente</h1>
             <p className="text-xl text-gray-300">
-              Canal para escolas, professores e parceiros que precisam falar com a Excellentia.
+              Canal direto para escolas, professores e parceiros.
             </p>
           </div>
         </div>

@@ -58,7 +58,7 @@ export default function SobrePage() {
             </div>
             <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] md:text-7xl">Formação, evidência e governança para a rotina escolar.</h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              A Excellentia desenvolve formações e recursos institucionais para professores e escolas que precisam organizar carreira, compliance, registros e decisões com mais clareza.
+              A Excellentia desenvolve formações e recursos para organizar carreira docente, compliance escolar, registros e decisões.
             </p>
           </div>
 
@@ -82,9 +82,9 @@ export default function SobrePage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 max-w-4xl">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">atuação</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">A Excellentia atende professores e escolas em camadas complementares.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Professores e escolas em camadas complementares.</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              Para professores, o foco está em desenvolvimento profissional e carreira. Para escolas, o trabalho se amplia para formação de equipes, evidências, relatórios e governança institucional.
+              Para professores, carreira. Para escolas, formação de equipes, evidências, relatórios e governança.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ export default function SobrePage() {
               <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">professores</div>
               <h3 className="text-3xl font-black text-navy">Desenvolvimento profissional docente.</h3>
               <p className="mt-5 leading-8 text-slate-600">
-                A assinatura individual reúne formações para quem deseja se posicionar melhor na carreira, preparar-se para processos seletivos e compreender aspectos práticos da vida profissional em escolas.
+                A assinatura individual reúne formações para carreira, processos seletivos e vida profissional em escolas.
               </p>
               <ul className="mt-7 space-y-4">
                 {professorServices.map((item) => (
@@ -112,7 +112,7 @@ export default function SobrePage() {
               <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">escolas</div>
               <h3 className="text-3xl font-black text-navy">Governança escolar com formação e evidência.</h3>
               <p className="mt-5 leading-8 text-slate-600">
-                Para instituições, a Excellentia apoia a organização de trilhas formativas, participação de colaboradores, registros e leitura de temas sensíveis da gestão escolar.
+                Para instituições, organizamos trilhas, participação, registros e leitura de temas sensíveis.
               </p>
               <ul className="mt-7 space-y-4">
                 {schoolServices.map((item) => (
@@ -134,9 +134,9 @@ export default function SobrePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 max-w-4xl">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">o que esperar</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Serviços desenhados para sair do improviso.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Serviços para sair do improviso.</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              A proposta não é acumular cursos soltos. O trabalho da Excellentia é conectar formação, registro e leitura institucional para que professores e escolas tenham mais clareza sobre próximos passos.
+              A proposta não é acumular cursos soltos: é conectar formação, registro e leitura institucional.
             </p>
           </div>
 
@@ -157,9 +157,9 @@ export default function SobrePage() {
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold-light">próximo passo</div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Converse com a Excellentia sobre o melhor formato para sua necessidade.</h2>
+              <h2 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Converse sobre o melhor formato.</h2>
               <p className="mt-4 max-w-2xl leading-7 text-slate-300">
-                Professores podem começar pelas formações individuais. Escolas podem solicitar uma conversa para definição de escopo institucional.
+                Professores podem começar pelas formações individuais; escolas, por uma conversa de escopo.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">

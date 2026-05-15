@@ -107,7 +107,7 @@ export default function EscolasPage() {
               Uma operação de conformidade para escolas que precisam formar, comprovar e proteger.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              A Excellentia organiza formações, protocolos, certificados, relatórios e inteligência educacional em uma rotina contínua de governança — não apenas em uma resposta pontual à NR-1.
+              A Excellentia organiza formações, protocolos, certificados e relatórios em uma rotina contínua de governança escolar.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="/contato" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
@@ -123,7 +123,7 @@ export default function EscolasPage() {
             <div className="absolute inset-4 rounded-[3.5rem] bg-gold-light/10 blur-3xl" />
             <div className="excellentia-float absolute right-2 top-0 w-[92%] rounded-[2.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-2xl backdrop-blur-md md:p-8">
               <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">central de governança escolar</div>
-              <p className="mt-2 max-w-md text-sm leading-6 text-slate-300">Representação visual do fluxo: obrigação, formação, evidência, orientação e decisão.</p>
+              <p className="mt-2 max-w-md text-sm leading-6 text-slate-300">Obrigação, formação, evidência e decisão.</p>
               <div className="relative mt-10 min-h-[260px]">
                 <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold-light/30 bg-gold-light/10 shadow-[inset_0_0_52px_rgba(244,219,118,.08),0_0_42px_rgba(244,219,118,.10)]" />
                 <div className="absolute left-1/2 top-1/2 h-3 w-[84%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-gold-light/70 to-transparent" />
@@ -140,7 +140,7 @@ export default function EscolasPage() {
 
             <div className="excellentia-float-slow absolute bottom-0 left-0 w-[66%] rounded-[2rem] border border-white/12 bg-[#06101c]/80 p-6 shadow-2xl backdrop-blur-md">
               <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">arquitetura ampla</div>
-              <p className="mt-3 text-sm leading-6 text-slate-300">A escola reúne frentes diferentes de cuidado, formação, registro e decisão institucional.</p>
+              <p className="mt-3 text-sm leading-6 text-slate-300">Cuidado, formação, registro e decisão no mesmo mapa.</p>
             </div>
           </div>
         </div>
@@ -152,10 +152,10 @@ export default function EscolasPage() {
           <div className="max-w-4xl">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">o que a escola passa a operar</div>
             <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">
-              Governança educacional não é um curso isolado. É um sistema de rotina, evidência e decisão.
+              Governança educacional é rotina, evidência e decisão.
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              A página anterior explicava bem a urgência da NR-1, mas deixava escondido o principal: a Excellentia estrutura uma camada permanente de compliance escolar.
+              A Excellentia estrutura uma camada permanente de compliance escolar, sem reduzir a conversa à urgência da NR-1.
             </p>
           </div>
 
@@ -177,7 +177,7 @@ export default function EscolasPage() {
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frentes de formação e proteção</div>
             <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">A escola precisa de uma agenda viva de governança e proteção.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Cada frente abaixo deve abrir uma conversa de inteligência educacional: por que importa, que risco organiza, quais evidências produz e como a escola pode amadurecer sem improviso.
+              Cada frente organiza risco, evidência e próximos passos com menos improviso.
             </p>
           </div>
           <div className="relative rounded-[2.5rem] border border-slate-200 bg-slate-50 p-6 shadow-2xl md:p-8">
@@ -200,9 +200,9 @@ export default function EscolasPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">como a operação se organiza</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] md:text-5xl">A escola não compra apenas conteúdo. Compra previsibilidade operacional.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] md:text-5xl">Mais que conteúdo: previsibilidade operacional.</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              O valor está em transformar temas sensíveis em uma rotina possível de gestão: prioridade, calendário, participação, comprovação e acompanhamento.
+              Temas sensíveis viram prioridade, calendário, participação e comprovação.
             </p>
           </div>
 
@@ -224,7 +224,7 @@ export default function EscolasPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">para quem isso precisa funcionar</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">A mesma governança precisa ser legível para funções diferentes dentro da escola.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Governança legível para funções diferentes.</h2>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {audiences.map((audience, index) => (
@@ -241,9 +241,9 @@ export default function EscolasPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">próximo passo</div>
-          <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Estruture a governança educacional da sua escola antes que ela vire urgência.</h2>
+          <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Estruture a governança antes da urgência.</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            A Excellentia ajuda a escola a começar por onde há maior risco e avançar para uma rotina mais madura de formação, evidência e decisão.
+            Comece pelo maior risco e avance com formação, evidência e decisão.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Link href="/contato" className="rounded-2xl bg-gold px-8 py-4 text-lg font-black text-white transition hover:bg-yellow-600">

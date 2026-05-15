@@ -101,7 +101,7 @@ export default function CursosPage() {
               Trilhas formativas conectadas à carreira docente e à governança escolar.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              A Excellentia reúne formações para professores, equipes escolares e gestores. As formações individuais apoiam a trajetória profissional docente; as formações institucionais ajudam escolas a preparar equipes, registrar evidências e acompanhar temas sensíveis de governança.
+              Formações para professores, equipes e gestores: carreira docente, preparo institucional, evidências e temas sensíveis de governança.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="#professores" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
@@ -153,14 +153,14 @@ export default function CursosPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.82fr_1.18fr]">
             <div>
               <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">professores</div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações para professores em carreira, rotina escolar e desenvolvimento profissional.</h2>
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações para carreira e rotina docente.</h2>
               <p className="mt-6 text-lg leading-8 text-slate-600">
-                O acesso individual começa pela formação de carreira docente e avança para temas ligados a processos seletivos, prática profissional, rotina escolar e saúde do trabalho.
+                O acesso individual começa pela carreira docente e avança para processos seletivos, prática profissional e saúde do trabalho.
               </p>
               <div className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-6">
                 <div className="text-sm font-black uppercase tracking-[0.2em] text-gold">Plano individual</div>
                 <p className="mt-3 text-3xl font-black text-navy">R$69/mês <span className="text-base font-bold text-slate-500">ou R$588/ano</span></p>
-                <p className="mt-3 text-sm leading-6 text-slate-600">Contratação individual voltada ao desenvolvimento profissional do professor. Condições comerciais e arrependimento seguem os termos aplicáveis no checkout.</p>
+                <p className="mt-3 text-sm leading-6 text-slate-600">Contratação individual para desenvolvimento profissional docente.</p>
                 <Link href="/assinatura" className="mt-6 inline-flex rounded-2xl bg-gold px-7 py-4 font-black text-white transition hover:bg-yellow-600">
                   Ver assinatura individual
                 </Link>
@@ -189,9 +189,9 @@ export default function CursosPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">escolas</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações institucionais para equipes escolares, registros e evidências.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações institucionais com registros e evidências.</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              A escola pode contratar trilhas para colaboradores, coordenação e gestão, com certificados vinculados à instituição, registros de participação e relatórios para acompanhamento interno.
+              Trilhas para colaboradores, coordenação e gestão, com certificados institucionais, registros e relatórios.
             </p>
           </div>
 
@@ -217,7 +217,7 @@ export default function CursosPage() {
                 <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">pacote escolar</div>
                 <h3 className="text-3xl font-black tracking-[-0.03em] text-navy">Pacote escolar sob proposta institucional.</h3>
                 <p className="mt-5 text-lg leading-8 text-slate-600">
-                  A proposta escolar define número de acessos, formações incluídas, relatórios, certificados, canal de comunicação e eventuais fluxos de apoio documental.
+                  A proposta define acessos, formações, relatórios, certificados e apoio documental quando aplicável.
                 </p>
               </div>
               <div className="rounded-[2rem] bg-[#f7f4ec] p-6">
