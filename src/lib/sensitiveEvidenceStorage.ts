@@ -1,6 +1,4 @@
 import { createHash, createHmac, randomUUID } from 'node:crypto';
-import { mkdir, readFile, stat, unlink, writeFile } from 'node:fs/promises';
-import path from 'node:path';
 import type { SensitiveEvidenceAttachmentType } from '@prisma/client';
 
 export type SensitiveEvidenceStorageProvider = 'local-private' | 'cloudflare-r2';
@@ -10,9 +8,7 @@ export const SENSITIVE_EVIDENCE_STORAGE_PROVIDER: SensitiveEvidenceStorageProvid
   ? 'cloudflare-r2'
   : 'local-private';
 
-export const SENSITIVE_EVIDENCE_STORAGE_ROOT = path.resolve(
-  process.env.SENSITIVE_EVIDENCE_VAULT_DIR ?? path.join(process.cwd(), '.private-storage', 'sensitive-evidence-vault'),
-);
+export const SENSITIVE_EVIDENCE_STORAGE_ROOT = (process.env.SENSITIVE_EVIDENCE_VAULT_DIR ?? '/tmp/excellentia-sensitive-evidence-vault').replace(/\/$/, '');
 
 export const MAX_ATTACHMENT_SIZE_BY_TYPE: Record<SensitiveEvidenceAttachmentType, number> = {
   image: 15 * 1024 * 1024,
@@ -39,7 +35,7 @@ export const FILENAME_BY_TYPE: Record<SensitiveEvidenceAttachmentType, RegExp> =
 };
 
 export function sanitizeSensitiveEvidenceFilename(filename: string) {
-  const base = path.basename(filename).normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+  const base = filename.split(/[\\/]/).pop()?.normalize('NFKD').replace(/[\u0300-\u036f]/g, '') ?? '';
   return base.replace(/[^A-Za-z0-9._-]/g, '-').replace(/-+/g, '-').slice(0, 120) || 'evidencia';
 }
 
@@ -68,11 +64,16 @@ function assertSafeObjectKey(objectKey: string) {
 
 export function resolveSensitiveEvidencePath(objectKey: string) {
   assertSafeObjectKey(objectKey);
-  const resolved = path.resolve(SENSITIVE_EVIDENCE_STORAGE_ROOT, objectKey);
-  if (!resolved.startsWith(`${SENSITIVE_EVIDENCE_STORAGE_ROOT}${path.sep}`)) {
+  const resolved = `${SENSITIVE_EVIDENCE_STORAGE_ROOT}/${objectKey}`;
+  if (!resolved.startsWith(`${SENSITIVE_EVIDENCE_STORAGE_ROOT}/`)) {
     throw new Error('Chave de storage fora do cofre privado.');
   }
   return resolved;
+}
+
+function dirname(filePath: string) {
+  const index = filePath.lastIndexOf('/');
+  return index > 0 ? filePath.slice(0, index) : '/';
 }
 
 type R2Config = {
@@ -159,18 +160,21 @@ async function assertR2Ok(response: Response, action: string) {
 }
 
 async function writeLocalSensitiveEvidenceFile(objectKey: string, bytes: Buffer) {
+  const { mkdir, writeFile } = await import('node:fs/promises');
   const targetPath = resolveSensitiveEvidencePath(objectKey);
-  await mkdir(path.dirname(targetPath), { recursive: true, mode: 0o700 });
+  await mkdir(dirname(targetPath), { recursive: true, mode: 0o700 });
   await writeFile(targetPath, bytes, { mode: 0o600 });
 }
 
 async function readLocalSensitiveEvidenceFile(objectKey: string) {
+  const { readFile, stat } = await import('node:fs/promises');
   const targetPath = resolveSensitiveEvidencePath(objectKey);
   const [bytes, fileStat] = await Promise.all([readFile(targetPath), stat(targetPath)]);
   return { bytes, sizeBytes: fileStat.size };
 }
 
 async function deleteLocalSensitiveEvidenceFile(objectKey: string) {
+  const { unlink } = await import('node:fs/promises');
   try {
     await unlink(resolveSensitiveEvidencePath(objectKey));
   } catch (error) {

@@ -1,40 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
 
 type ChatMessage = { role: 'user' | 'assistant' | 'system'; content: string }
 
-// Carrega a base de conhecimento na inicialização
-function loadKnowledgeBase(): string {
-  const candidateDirs = [
-    path.join(process.cwd(), 'agent-knowledge'),
-    path.join(process.cwd(), '..', 'excellentia-app', 'agent-knowledge'),
-  ]
-
-  const files = [
-    'bncc-competencias.md',
-    'taxonomia-bloom.md',
-    'adaptacoes-neurodivergencia.md',
-    'rubricas-modelos.md',
-    'planejamento-modelos.md',
-  ]
-
-  let knowledge = ''
-  for (const knowledgeDir of candidateDirs) {
-    for (const file of files) {
-      const filePath = path.join(knowledgeDir, file)
-      if (fs.existsSync(filePath)) {
-        knowledge += `\n\n### ${file.replace('.md', '').toUpperCase()} ###\n`
-        knowledge += fs.readFileSync(filePath, 'utf-8')
-      }
-    }
-    if (knowledge.trim()) break
-  }
-
-  return knowledge
-}
-
-const KNOWLEDGE_BASE = loadKnowledgeBase()
+const KNOWLEDGE_BASE = ''
 
 const SYSTEM_PROMPT = `Você é o Agente Educacional da Excellentia — uma plataforma criada por professores para professores.
 
