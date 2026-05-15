@@ -181,13 +181,14 @@ export default function EscolasPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#06101c] pb-20 text-white">
+      <section className="relative overflow-hidden bg-navy pb-20 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_0%,rgba(244,219,118,.10),transparent_30%),linear-gradient(180deg,#0a2749_0%,#071d38_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
         <svg className="pointer-events-none absolute inset-x-0 top-[-9rem] hidden h-[28rem] w-full opacity-45 lg:block" viewBox="0 0 1440 420" fill="none" aria-hidden="true">
           <path className="excellentia-flow-path" d="M85 252C316 92 490 330 716 188C936 50 1118 160 1320 72" />
           <path d="M210 338C430 198 590 344 810 230C1012 125 1164 194 1290 144" stroke="#f4db76" strokeOpacity=".16" strokeWidth="2" strokeLinecap="round" />
         </svg>
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.06] p-8 text-center shadow-2xl backdrop-blur md:p-12">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">próximo passo</div>
             <h2 className="text-3xl font-black tracking-[-0.035em] md:text-5xl">Organize antes da urgência.</h2>
