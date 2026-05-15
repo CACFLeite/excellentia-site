@@ -20,7 +20,6 @@ const audiences = [
     description: 'Trilhas, certificados, registros e leitura de temas sensíveis para equipes, coordenação e gestão.',
     href: '/escolas',
     cta: 'Conhecer escolas',
-    featured: true,
   },
 ]
 
@@ -46,9 +45,9 @@ export default function SobrePage() {
             <div className="mb-6 inline-flex rounded-full border border-gold-light/30 bg-gold-light/10 px-5 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-gold-light">
               Sobre a Excellentia
             </div>
-            <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] md:text-7xl">Formação, evidência e decisão escolar.</h1>
+            <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] md:text-7xl">Formação escolar com prova e responsabilidade.</h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              A Excellentia organiza conhecimento educacional para que professores avancem e escolas comprovem o que fazem.
+              A Excellentia organiza formação e leitura institucional para professores e escolas que precisam agir com responsabilidade.
             </p>
           </div>
 
@@ -70,42 +69,47 @@ export default function SobrePage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#f7f4ec] py-20">
-        <div className="absolute left-[-10rem] top-20 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
-        <div className="absolute right-[-8rem] bottom-16 h-80 w-80 rounded-full bg-navy/10 blur-3xl" />
+        <div className="absolute left-[-10rem] top-20 h-96 w-96 rounded-full bg-gold/15 blur-3xl" />
+        <div className="absolute right-[-8rem] bottom-16 h-80 w-80 rounded-full bg-navy/8 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 grid gap-6 lg:grid-cols-[.8fr_1fr] lg:items-end">
-            <div>
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">atuação</div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Duas entradas. Uma lógica.</h2>
-            </div>
-            <p className="max-w-2xl text-lg leading-8 text-slate-600 lg:justify-self-end">
-              Para educadores, desenvolvimento profissional. Para instituições, governança visível: formação, certificado, evidência e repertório no mesmo fluxo.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {audiences.map((audience) => (
-              <Link key={audience.label} href={audience.href} className={`group flex min-h-[360px] flex-col rounded-[2.5rem] border p-8 shadow-2xl transition duration-300 hover:-translate-y-1 md:p-10 ${audience.featured ? 'border-navy bg-navy text-white' : 'border-slate-200 bg-white text-navy'}`}>
-                <div className={`mb-5 text-sm font-black uppercase tracking-[0.24em] ${audience.featured ? 'text-gold-light' : 'text-gold'}`}>{audience.label}</div>
-                <h3 className="max-w-xl text-4xl font-black tracking-[-0.04em]">{audience.title}</h3>
-                <p className={`mt-6 max-w-xl text-lg leading-8 ${audience.featured ? 'text-slate-300' : 'text-slate-600'}`}>{audience.description}</p>
-                <span className={`mt-auto inline-flex font-black transition group-hover:translate-x-1 ${audience.featured ? 'text-gold-light' : 'text-gold'}`}>{audience.cta} →</span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-16 overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-xl md:p-10">
-            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <div className="overflow-hidden rounded-[2.75rem] border border-navy/10 bg-white shadow-2xl shadow-navy/10">
+            <div className="grid gap-8 border-b border-navy/10 bg-[#fbf8f0] p-8 md:p-10 lg:grid-cols-[.82fr_1fr] lg:items-end">
               <div>
-                <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold">inteligência educacional</div>
-                <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-4xl">O repertório sustenta a operação.</h2>
-                <p className="mt-4 max-w-2xl leading-7 text-slate-600">
-                  As análises públicas da Excellentia ajudam a traduzir risco, norma e prática escolar em decisões mais claras.
-                </p>
+                <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">atuação</div>
+                <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Dois públicos. A mesma exigência de rigor.</h2>
               </div>
-              <Link href="/inteligencia-educacional" className="rounded-2xl border border-navy/20 px-8 py-4 text-center font-black text-navy transition hover:bg-navy hover:text-white">
-                Ler análises
-              </Link>
+              <p className="max-w-2xl text-lg leading-8 text-slate-600 lg:justify-self-end">
+                Para educadores, formação aplicável. Para instituições, formação, certificado, evidência e repertório no mesmo fluxo.
+              </p>
+            </div>
+
+            <div className="relative p-5 md:p-8">
+              <div className="absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent lg:block" />
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+                {audiences.map((audience) => (
+                  <Link key={audience.label} href={audience.href} className="group flex min-h-[320px] flex-col rounded-[2rem] border border-navy/10 bg-[#f7f4ec] p-7 text-navy transition duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-white md:p-9">
+                    <div className="mb-5 text-sm font-black uppercase tracking-[0.24em] text-gold">{audience.label}</div>
+                    <h3 className="max-w-xl text-4xl font-black tracking-[-0.04em]">{audience.title}</h3>
+                    <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">{audience.description}</p>
+                    <span className="mt-auto inline-flex font-black text-gold transition group-hover:translate-x-1">{audience.cta} →</span>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-5 rounded-[1.75rem] border border-gold/25 bg-gold/10 px-6 py-5 md:px-8">
+                <div className="grid grid-cols-1 items-center gap-4 lg:grid-cols-[1fr_auto]">
+                  <div>
+                    <div className="mb-2 text-xs font-black uppercase tracking-[0.24em] text-gold">inteligência educacional</div>
+                    <p className="text-xl font-black leading-tight text-navy md:text-2xl">Repertório só vale quando orienta a rotina.</p>
+                    <p className="mt-2 max-w-3xl leading-7 text-slate-600">
+                      As análises públicas aproximam risco, norma e prática escolar da decisão cotidiana.
+                    </p>
+                  </div>
+                  <Link href="/inteligencia-educacional" className="rounded-2xl border border-navy/20 px-7 py-3 text-center font-black text-navy transition hover:bg-navy hover:text-white">
+                    Ler análises
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -116,7 +120,7 @@ export default function SobrePage() {
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold-light">próximo passo</div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Comece pelo caminho certo.</h2>
+              <h2 className="text-3xl font-black tracking-[-0.03em] md:text-4xl">Comece pelo escopo certo.</h2>
               <p className="mt-4 max-w-2xl leading-7 text-slate-300">
                 Professores podem iniciar pelas formações. Escolas, por uma conversa de escopo.
               </p>

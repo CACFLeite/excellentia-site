@@ -105,23 +105,23 @@ export default function CursosPage() {
               Formações Excellentia
             </div>
             <h1 className="max-w-4xl text-4xl font-black leading-[1.02] tracking-[-0.04em] md:text-6xl">
-              Formação docente e governança escolar no mesmo ecossistema — sem misturar as jornadas.
+              Formação docente para pessoas. Trilhas institucionais para escolas.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              Cursos individuais para professores. Trilhas institucionais para escolas. Cada caminho com acesso, certificado e finalidade próprios.
+              O professor entra por uma formação individual. A escola entra por escopo, acessos, registros e acompanhamento.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="#professores" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
-                Professores
+                Para professores
               </Link>
               <Link href="#escolas" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
-                Escolas
+                Para escolas
               </Link>
             </div>
           </div>
 
           <div className="rounded-[2.5rem] border border-white/12 bg-white/[0.07] p-7 shadow-2xl backdrop-blur-md md:p-8">
-            <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">duas portas de entrada</div>
+            <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">dois contextos de uso</div>
             <div className="mt-8 space-y-6">
               <div>
                 <p className="text-2xl font-black tracking-[-0.03em]">Professor</p>
@@ -130,7 +130,7 @@ export default function CursosPage() {
               <div className="h-px bg-white/10" />
               <div>
                 <p className="text-2xl font-black tracking-[-0.03em]">Escola</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">Formações para equipes, evidências, relatórios e apoio à governança institucional.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">Formações para equipes, evidências, relatórios e apoio ao rito institucional.</p>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function CursosPage() {
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-[.72fr_1fr] lg:px-8">
           <div>
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">professores e educadores</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Desenvolvimento profissional com foco em carreira e prática.</h2>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formação docente para entrar, permanecer e se posicionar.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-600">
               A trilha individual começa pelo processo seletivo em escolas particulares e cresce para temas de rotina, posicionamento e saúde docente.
             </p>
@@ -176,7 +176,7 @@ export default function CursosPage() {
               <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações institucionais para comprovar, orientar e acompanhar.</h2>
             </div>
             <p className="text-lg leading-8 text-slate-600">
-              A escola contrata trilhas para colaboradores e gestores, com certificados, registros e relatórios no escopo combinado. A formação individual de professores não compete com a solução escolar; ela atende outra jornada.
+              A escola contrata trilhas para colaboradores e gestores, com certificados, registros e relatórios no escopo combinado. A formação individual do professor segue outro rito.
             </p>
           </div>
 
@@ -194,11 +194,11 @@ export default function CursosPage() {
                 A proposta define formações, públicos, acessos, relatórios, certificados e apoio documental quando aplicável.
               </p>
               <Link href="/escolas" className="mt-7 inline-flex rounded-2xl bg-gold px-7 py-4 font-black text-white transition hover:bg-yellow-600">
-                Ver solução para escolas
+                Soluções para escolas
               </Link>
             </div>
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8">
-              <div className="mb-5 text-xs font-black uppercase tracking-[0.22em] text-gold">o que acompanha a operação</div>
+              <div className="mb-5 text-xs font-black uppercase tracking-[0.22em] text-gold">o que acompanha o escopo</div>
               <div className="space-y-4">
                 {institutionalNotes.map((item) => (
                   <p key={item} className="border-b border-slate-100 pb-4 text-sm font-bold uppercase tracking-[0.12em] text-navy last:border-b-0 last:pb-0">{item}</p>

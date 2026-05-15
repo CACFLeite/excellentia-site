@@ -39,7 +39,7 @@ const fronts = [
     title: 'Formações',
     eyebrow: 'camada 01',
     role: 'O que a escola implementa',
-    description: 'Trilhas e protocolos transformam exigências em prática comum.',
+    description: 'Trilhas e protocolos aproximam exigências da prática comum.',
     href: '/formacoes',
     linkLabel: 'Ver formações',
   },
@@ -58,7 +58,7 @@ const fronts = [
     role: 'O repertório que sustenta decisões',
     description: 'Análises curtas ajudam a ler risco, lei e prioridade institucional.',
     href: '/inteligencia-educacional',
-    linkLabel: 'Ler inteligência',
+    linkLabel: 'Ler análises',
   },
 ]
 
@@ -83,10 +83,10 @@ export default function Home() {
                 Formação, evidência e governança escolar
               </div>
               <h1 className="max-w-4xl text-4xl font-black leading-[1.02] tracking-[-0.04em] md:text-6xl lg:text-7xl">
-                Governança e compliance para escolas de excelência.
+                Compliance escolar com rastro institucional.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-                Formação, evidência e leitura estratégica em uma rotina clara para escolas que precisam proteger e comprovar.
+                Formação, registro e leitura de risco para escolas que precisam proteger a rotina e comprovar o que fizeram.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link href="/escolas" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
@@ -131,7 +131,7 @@ export default function Home() {
                 Da exigência dispersa à Governança Visível.
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 md:text-lg">
-                Uma esteira única: exigência, formação, evidência e decisão passam a revelar a mesma operação.
+                Quando obrigação, formação, registro e gestão falam a mesma língua, a escola ganha lastro.
               </p>
             </div>
 
@@ -168,9 +168,9 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-end">
             <div>
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">ecossistema excellentia</div>
+              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">entradas excellentia</div>
               <h2 className="max-w-3xl text-3xl font-black tracking-[-0.03em] md:text-5xl">
-                Escolha o caminho certo para começar.
+                Entre pelo escopo certo.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
                 Para gestores, o ponto de entrada é a escola. Para educadores, as formações organizam prática e certificado.

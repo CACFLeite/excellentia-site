@@ -42,13 +42,13 @@ export default function ContatoForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-10 text-center">
-        <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-green-100 text-green-700 font-extrabold flex items-center justify-center">OK</div>
-        <h3 className="text-2xl font-bold text-navy mb-3">Mensagem enviada</h3>
-        <p className="text-gray-600">{message}</p>
+      <div className="rounded-[2rem] border border-gold/25 bg-white/70 p-8 text-center shadow-sm shadow-navy/5">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold-light text-sm font-extrabold text-navy">OK</div>
+        <h3 className="mb-3 text-2xl font-black text-navy">Mensagem enviada</h3>
+        <p className="text-slate-600">{message}</p>
         <button
           onClick={() => setStatus('idle')}
-          className="mt-6 text-gold hover:text-gold-dark font-semibold transition-colors"
+          className="mt-6 font-extrabold text-gold transition-colors hover:text-gold-dark"
         >
           Enviar outra mensagem
         </button>
@@ -56,11 +56,14 @@ export default function ContatoForm() {
     )
   }
 
+  const fieldClass = 'w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-navy shadow-sm shadow-navy/5 outline-none transition focus:border-gold focus:ring-4 focus:ring-gold/15'
+  const labelClass = 'mb-2 block text-sm font-extrabold text-navy'
+
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-md border border-gray-100 p-8 space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label className="block text-sm font-semibold text-navy mb-2">Nome *</label>
+          <label className={labelClass}>Nome *</label>
           <input
             type="text"
             name="name"
@@ -68,11 +71,11 @@ export default function ContatoForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Seu nome"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+            className={fieldClass}
           />
         </div>
         <div>
-          <label className="block text-sm font-semibold text-navy mb-2">E-mail *</label>
+          <label className={labelClass}>E-mail *</label>
           <input
             type="email"
             name="email"
@@ -80,19 +83,19 @@ export default function ContatoForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="seu@email.com"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+            className={fieldClass}
           />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-navy mb-2">Assunto *</label>
+        <label className={labelClass}>Assunto *</label>
         <select
           name="assunto"
           required
           value={formData.assunto}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+          className={fieldClass}
         >
           <option value="">Selecione o assunto</option>
           <option value="duvida-curso">Dúvida sobre cursos</option>
@@ -104,7 +107,7 @@ export default function ContatoForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-navy mb-2">Mensagem *</label>
+        <label className={labelClass}>Mensagem *</label>
         <textarea
           name="mensagem"
           required
@@ -112,18 +115,18 @@ export default function ContatoForm() {
           onChange={handleChange}
           rows={5}
           placeholder="Escreva sua mensagem..."
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-vertical"
+          className={`${fieldClass} resize-y`}
         />
       </div>
 
       {status === 'error' && (
-        <p className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">{message}</p>
+        <p className="rounded-2xl border border-red-200 bg-red-50 p-3 text-sm font-semibold text-red-700">{message}</p>
       )}
 
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full bg-gold hover:bg-yellow-600 disabled:opacity-60 text-white font-bold px-6 py-4 rounded-lg text-lg transition-colors"
+        className="w-full rounded-2xl bg-gold px-6 py-4 text-lg font-black text-white shadow-xl shadow-gold/15 transition hover:bg-yellow-600 disabled:opacity-60"
       >
         {status === 'loading' ? 'Enviando...' : 'Enviar mensagem →'}
       </button>
