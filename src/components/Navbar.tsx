@@ -31,7 +31,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="hidden items-center gap-5 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="text-sm font-semibold transition-colors hover:text-gold-light">
                 {item.label}
@@ -39,9 +39,15 @@ export default function Navbar() {
             ))}
             <Link
               href="/formacoes"
-              className="rounded-full border border-gold-light/50 bg-gold px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-gold/20 transition hover:-translate-y-0.5 hover:bg-yellow-600"
+              className="rounded-full border border-gold-light/50 bg-gold px-4 py-2.5 text-sm font-black text-white shadow-lg shadow-gold/20 transition hover:-translate-y-0.5 hover:bg-yellow-600"
             >
               Cursos para professores
+            </Link>
+            <Link
+              href="/admin/login"
+              className="rounded-full border border-white/25 px-4 py-2.5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:border-gold-light hover:bg-white/10"
+            >
+              Painel das escolas
             </Link>
           </div>
 
@@ -80,6 +86,13 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Cursos para professores
+            </Link>
+            <Link
+              href="/admin/login"
+              className="rounded-2xl border border-white/20 px-3 py-3 text-center font-black text-white transition-colors hover:bg-white/10"
+              onClick={() => setMenuOpen(false)}
+            >
+              Painel das escolas
             </Link>
           </div>
         </div>
