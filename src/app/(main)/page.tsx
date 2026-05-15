@@ -7,32 +7,32 @@ const governanceFlow = [
   {
     number: '01',
     eyebrow: 'exigência',
-    title: 'Risco disperso',
-    description: 'A escola identifica obrigações, prazos e responsabilidades que hoje aparecem soltos.',
+    title: 'Exigência mapeada',
+    description: 'Obrigações e riscos deixam de ficar soltos.',
   },
   {
     number: '02',
     eyebrow: 'formação',
-    title: 'Trilha conectada',
-    description: 'Equipes entram em percursos claros, ligados à rotina e aos protocolos da instituição.',
+    title: 'Formação ativada',
+    description: 'Equipes entram em trilhas ligadas à rotina.',
   },
   {
     number: '03',
     eyebrow: 'evidência',
-    title: 'Registro organizado',
-    description: 'Certificados, atividades e registros deixam rastro auditável sem virar burocracia paralela.',
+    title: 'Evidência registrada',
+    description: 'Certificados e atividades viram rastro auditável.',
   },
   {
     number: '04',
     eyebrow: 'decisão',
-    title: 'Leitura institucional',
-    description: 'Gestão enxerga lacunas, prioridades e próximos passos antes que o improviso decida.',
+    title: 'Decisão orientada',
+    description: 'A gestão enxerga lacunas e prioridades.',
   },
   {
     number: '05',
-    eyebrow: 'síntese',
+    eyebrow: 'resultado',
     title: 'Governança Visível',
-    description: 'O resultado é acompanhamento: formação, prova e decisão no mesmo fluxo.',
+    description: 'Formação, prova e decisão no mesmo fluxo.',
     result: true,
   },
 ]
@@ -166,27 +166,24 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2.75rem] border border-white/14 bg-white/[0.06] p-6 shadow-2xl shadow-black/20 backdrop-blur md:p-8 lg:p-10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_88%_28%,rgba(244,219,118,.14),transparent_32%),linear-gradient(112deg,rgba(255,255,255,.08),rgba(255,255,255,.02)_48%,rgba(244,219,118,.08))]" />
-              <div className="absolute left-8 top-8 h-[calc(100%-4rem)] w-px bg-gradient-to-b from-gold-light/20 via-gold-light/70 to-gold-light/20 lg:left-10 lg:right-10 lg:top-1/2 lg:h-px lg:w-auto lg:-translate-y-1/2 lg:bg-gradient-to-r" />
-              <div className="absolute left-8 top-8 hidden h-[calc(100%-4rem)] w-20 rounded-full bg-gold-light/10 blur-3xl lg:left-auto lg:right-6 lg:top-1/2 lg:block lg:h-24 lg:w-72 lg:-translate-y-1/2" />
+            <div className="relative py-4 md:py-8 lg:py-12">
+              <div className="pointer-events-none absolute inset-x-0 top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-gold-light/0 via-gold-light/70 to-gold-light/0 lg:block" />
+              <div className="pointer-events-none absolute left-6 top-0 h-full w-px bg-gradient-to-b from-gold-light/0 via-gold-light/65 to-gold-light/0 lg:hidden" />
+              <div className="pointer-events-none absolute right-0 top-8 hidden h-32 w-80 rounded-full bg-gold-light/10 blur-3xl lg:block" />
 
-              <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-0">
-                {governanceFlow.map((step, index) => {
+              <div className="relative grid grid-cols-1 gap-10 pl-16 lg:grid-cols-5 lg:gap-8 lg:pl-0">
+                {governanceFlow.map((step) => {
                   const isResult = step.result
                   return (
-                    <div key={step.title} className={`relative pl-12 lg:min-h-[320px] lg:px-4 lg:pl-4 ${index % 2 ? 'lg:pt-28' : 'lg:pt-4'}`}>
-                      <div className={`absolute left-0 top-1.5 flex h-16 w-16 items-center justify-center rounded-full border text-sm font-black shadow-[0_0_30px_rgba(244,219,118,.16)] lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 ${index % 2 ? 'lg:-translate-y-[4.8rem]' : 'lg:translate-y-[1.9rem]'} ${isResult ? 'border-gold-light bg-gold-light text-navy' : 'border-white/18 bg-[#06101c] text-gold-light'}`}>
+                    <div key={step.title} className="relative lg:min-h-[220px]">
+                      <div className={`absolute -left-16 top-0 flex h-12 w-12 items-center justify-center rounded-full border text-xs font-black shadow-[0_0_28px_rgba(244,219,118,.18)] lg:static lg:mb-8 lg:h-14 lg:w-14 ${isResult ? 'border-gold-light bg-gold-light text-navy' : 'border-white/18 bg-[#06101c] text-gold-light'}`}>
                         {step.number}
                       </div>
 
-                      <div className={`relative max-w-sm ${isResult ? 'lg:rounded-[1.8rem] lg:border lg:border-gold-light/24 lg:bg-gold-light/[0.08] lg:p-5' : ''}`}>
-                        <div className={`text-[11px] font-black uppercase tracking-[0.24em] ${isResult ? 'text-gold-light' : 'text-slate-400'}`}>{step.eyebrow}</div>
-                        <h3 className={`mt-3 font-black tracking-[-0.03em] ${isResult ? 'text-2xl text-white md:text-3xl' : 'text-xl text-white md:text-2xl'}`}>{step.title}</h3>
-                        <p className="mt-4 text-sm leading-6 text-slate-300">{step.description}</p>
-                        {isResult && (
-                          <div className="mt-5 h-px w-24 bg-gradient-to-r from-gold-light to-transparent" />
-                        )}
+                      <div className="max-w-xs lg:max-w-[13rem]">
+                        <div className={`text-[10px] font-black uppercase tracking-[0.22em] ${isResult ? 'text-gold-light' : 'text-slate-400'}`}>{step.eyebrow}</div>
+                        <h3 className={`mt-3 font-black leading-tight tracking-[-0.03em] ${isResult ? 'text-2xl text-white' : 'text-xl text-white'}`}>{step.title}</h3>
+                        <p className="mt-3 text-sm leading-6 text-slate-300">{step.description}</p>
                       </div>
                     </div>
                   )
