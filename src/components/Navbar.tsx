@@ -38,10 +38,10 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/professores"
+              href="/formacoes"
               className="rounded-full border border-gold-light/50 bg-gold px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-gold/20 transition hover:-translate-y-0.5 hover:bg-yellow-600"
             >
-              Área do professor
+              Cursos para professores
             </Link>
           </div>
 
@@ -75,11 +75,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/professores"
+              href="/formacoes"
               className="mt-2 rounded-2xl bg-gold px-3 py-3 text-center font-black text-white transition-colors hover:bg-yellow-600"
               onClick={() => setMenuOpen(false)}
             >
-              Área do professor
+              Cursos para professores
             </Link>
           </div>
         </div>
