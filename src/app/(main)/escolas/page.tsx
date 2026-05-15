@@ -90,9 +90,6 @@ export default function EscolasPage() {
               <Link href="/contato" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
                 Falar com a Excellentia
               </Link>
-              <Link href="/formacoes" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
-                Ver formações
-              </Link>
             </div>
           </div>
 
@@ -104,7 +101,6 @@ export default function EscolasPage() {
                   <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">central da escola</div>
                   <p className="mt-2 max-w-sm text-sm leading-6 text-slate-300">Obrigação, formação, evidência e gestão conectadas.</p>
                 </div>
-                <div className="hidden rounded-full border border-gold-light/30 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-gold-light sm:block">integrado</div>
               </div>
 
               <div className="relative mt-9 min-h-[300px]">
@@ -124,7 +120,7 @@ export default function EscolasPage() {
             </div>
 
             <div className="excellentia-float-slow relative ml-0 mt-2 w-[76%] rounded-[2rem] border border-white/12 bg-[#06101c]/85 p-6 shadow-2xl backdrop-blur-md md:ml-4">
-              <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">sem urgência cega</div>
+              <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">Governança Guiada e Aplicada</div>
               <p className="mt-3 text-sm leading-6 text-slate-300">A escola enxerga o que precisa formar, provar e corrigir.</p>
             </div>
           </div>
@@ -134,6 +130,10 @@ export default function EscolasPage() {
       <section className="relative overflow-hidden bg-[#06101c] py-20 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#06101c_0%,#0a2749_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-light/50 to-transparent" />
+        <svg className="pointer-events-none absolute left-0 top-0 hidden h-full min-h-[880px] w-full opacity-55 lg:block" viewBox="0 0 1440 980" fill="none" aria-hidden="true" preserveAspectRatio="none">
+          <path className="excellentia-flow-path" d="M118 120C320 6 492 242 710 118C918 0 1110 144 1305 58C1378 294 1122 458 920 590C716 724 514 642 344 820" />
+          <path d="M170 220C364 92 548 304 760 190C966 82 1100 226 1260 160" stroke="#f4db76" strokeOpacity=".18" strokeWidth="2" strokeLinecap="round" />
+        </svg>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.78fr_1.22fr] lg:items-end">
             <div>
@@ -147,11 +147,11 @@ export default function EscolasPage() {
           <div className="mt-14 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.055] shadow-2xl backdrop-blur">
             <div className="grid grid-cols-1 lg:grid-cols-4">
               {governancePillars.map((pillar, index) => (
-                <div key={pillar.title} className={`group relative min-h-[270px] border-white/10 p-8 transition duration-300 hover:bg-white/[0.08] lg:border-l ${index === 0 ? 'border-l-0 bg-gold-light text-navy hover:bg-gold-light' : 'text-white'}`}>
-                  <div className={`mb-10 text-xs font-black uppercase tracking-[0.24em] ${index === 0 ? 'text-navy/70' : 'text-gold-light'}`}>{pillar.label}</div>
+                <div key={pillar.title} className={`group relative min-h-[270px] border-white/10 p-8 text-white transition duration-300 hover:bg-white/[0.08] lg:border-l ${index === 0 ? 'border-l-0 bg-navy/65 ring-1 ring-gold-light/30' : ''}`}>
+                  <div className="mb-10 text-xs font-black uppercase tracking-[0.24em] text-gold-light">{pillar.label}</div>
                   <div className="absolute right-8 top-8 text-5xl font-black tracking-[-0.08em] opacity-[0.08]">0{index + 1}</div>
                   <h3 className="max-w-xs text-2xl font-black leading-tight">{pillar.title}</h3>
-                  <p className={`mt-5 leading-7 ${index === 0 ? 'text-navy/75' : 'text-slate-300'}`}>{pillar.text}</p>
+                  <p className="mt-5 leading-7 text-slate-300">{pillar.text}</p>
                 </div>
               ))}
             </div>
@@ -183,6 +183,10 @@ export default function EscolasPage() {
 
       <section className="relative overflow-hidden bg-[#06101c] pb-20 text-white">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+        <svg className="pointer-events-none absolute inset-x-0 top-[-9rem] hidden h-[28rem] w-full opacity-45 lg:block" viewBox="0 0 1440 420" fill="none" aria-hidden="true">
+          <path className="excellentia-flow-path" d="M85 252C316 92 490 330 716 188C936 50 1118 160 1320 72" />
+          <path d="M210 338C430 198 590 344 810 230C1012 125 1164 194 1290 144" stroke="#f4db76" strokeOpacity=".16" strokeWidth="2" strokeLinecap="round" />
+        </svg>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.06] p-8 text-center shadow-2xl backdrop-blur md:p-12">
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">próximo passo</div>
