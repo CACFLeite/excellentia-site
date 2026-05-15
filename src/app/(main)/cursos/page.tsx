@@ -1,18 +1,34 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getSchoolCatalogCourses, teacherCatalogCourses } from '@/lib/courses/catalog';
+import { teacherCatalogCourses } from '@/lib/courses/catalog';
 
 export const metadata: Metadata = {
-  title: 'Formações — Excellentia',
+  title: 'Formação de Professores — Excellentia',
   description:
-    'Formações Excellentia para professores, educadores e escolas: carreira docente, governança educacional, compliance escolar, proteção e segurança institucional.',
+    'Formações Excellentia para professores: carreira docente, processo seletivo, rotina profissional, posicionamento e saúde emocional.',
 };
 
-const institutionalNotes = [
-  'acessos definidos pela escola',
-  'certificados e registros institucionais',
-  'relatórios conforme escopo contratado',
-];
+const teacherDisplayCourses = teacherCatalogCourses.map((course) => {
+  if (course.title === 'Gestão de Carreira para Professores') {
+    return {
+      ...course,
+      description:
+        'O guia completo para processos seletivos da educação privada: currículo profissional, entrevistas, aula teste, planejamento de aula e documentação.',
+    };
+  }
+
+  if (course.title === 'Cotidiano Escolar') {
+    return {
+      ...course,
+      title: 'Rotina Docente',
+      area: 'Rotina profissional',
+      description:
+        'Como navegar o dia a dia da docência com autoridade, limites saudáveis e relações profissionais com coordenação, colegas e famílias.',
+    };
+  }
+
+  return course;
+});
 
 function StatusBadge({ available, inProduction }: { available: boolean; inProduction?: boolean }) {
   return (
@@ -90,69 +106,73 @@ function SpotlightCard({
 }
 
 export default function CursosPage() {
-  const schoolFormations = getSchoolCatalogCourses();
-  const [featuredTeacherCourse, ...upcomingTeacherCourses] = teacherCatalogCourses;
+  const [featuredTeacherCourse, ...upcomingTeacherCourses] = teacherDisplayCourses;
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#06101c] py-20 text-white md:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(244,219,118,.18),transparent_28%),linear-gradient(145deg,#06101c_0%,#0a2749_52%,#02060b_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/55 to-transparent" />
+      <section className="relative overflow-hidden bg-[#06101c] pt-20 text-white md:pt-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_12%,rgba(244,219,118,.20),transparent_28%),radial-gradient(circle_at_9%_35%,rgba(59,130,246,.13),transparent_25%),linear-gradient(145deg,#06101c_0%,#0a2749_44%,#02060b_100%)]" />
+        <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(244,219,118,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(244,219,118,.07)_1px,transparent_1px)] [background-size:72px_72px]" />
+        <svg className="pointer-events-none absolute left-0 top-32 hidden h-[760px] w-full opacity-60 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
+          <path className="excellentia-flow-path" d="M120 240C360 95 520 340 735 220C965 90 1150 220 1275 430" />
+          <path d="M170 335C420 190 580 440 800 315C1010 195 1138 340 1205 500" stroke="#f4db76" strokeOpacity=".18" strokeWidth="2" strokeLinecap="round" />
+        </svg>
 
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-end gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_.58fr] lg:px-8">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-4 pb-20 sm:px-6 lg:grid-cols-[1fr_.9fr] lg:px-8 lg:pb-28">
           <div>
             <div className="mb-6 inline-flex rounded-full border border-gold-light/30 bg-gold-light/10 px-5 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-gold-light">
-              Formações Excellentia
+              Formação de Professores
             </div>
-            <h1 className="max-w-4xl text-4xl font-black leading-[1.02] tracking-[-0.04em] md:text-6xl">
-              Formação docente para pessoas. Trilhas institucionais para escolas.
+            <h1 className="max-w-4xl text-4xl font-black leading-[1.02] tracking-[-0.04em] md:text-6xl lg:text-7xl">
+              Formação docente para crescer com método.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              O professor entra por uma formação individual. A escola entra por escopo, acessos, registros e acompanhamento.
+              Cursos para professores que querem organizar carreira, passar por processos seletivos com mais clareza, sustentar uma rotina profissional melhor e se posicionar com maturidade.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="#professores" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
-                Para professores
+                Ver formações
               </Link>
-              <Link href="#escolas" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
-                Para escolas
+              <Link href="/assinatura" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
+                Assinar agora
               </Link>
             </div>
           </div>
 
-          <div className="rounded-[2.5rem] border border-white/12 bg-white/[0.07] p-7 shadow-2xl backdrop-blur-md md:p-8">
-            <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">dois contextos de uso</div>
-            <div className="mt-8 space-y-6">
-              <div>
-                <p className="text-2xl font-black tracking-[-0.03em]">Professor</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">Carreira, seleção, rotina docente e saúde profissional no acesso individual.</p>
+          <div className="relative min-h-[430px]">
+            <div className="excellentia-float absolute right-2 top-0 w-[92%] rounded-[2.5rem] border border-white/15 bg-white/[0.07] p-6 shadow-2xl backdrop-blur-md md:p-8">
+              <div className="text-xs font-extrabold uppercase tracking-[0.28em] text-gold-light">jornada docente</div>
+              <p className="mt-2 max-w-md text-sm leading-6 text-slate-300">Da apresentação profissional à rotina de trabalho.</p>
+              <div className="relative mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                {['Carreira', 'Seleção', 'Rotina'].map((node, index) => (
+                  <div key={node} className={`group flex min-h-[140px] flex-col justify-between rounded-2xl border border-white/10 bg-navy/45 p-4 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-gold-light/35 hover:bg-navy/65 ${index === 1 ? 'sm:translate-y-10' : ''}`}>
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gold-light text-sm font-black text-navy shadow-[0_0_24px_rgba(244,219,118,.22)]">{index + 1}</span>
+                    <span className="text-lg font-black text-white">{node}</span>
+                  </div>
+                ))}
               </div>
-              <div className="h-px bg-white/10" />
-              <div>
-                <p className="text-2xl font-black tracking-[-0.03em]">Escola</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">Formações para equipes, evidências, relatórios e apoio ao rito institucional.</p>
-              </div>
+            </div>
+
+            <div className="excellentia-float-slow absolute bottom-0 left-0 w-[70%] rounded-[2rem] border border-white/12 bg-[#06101c]/80 p-6 shadow-2xl backdrop-blur-md">
+              <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">formação contínua</div>
+              <p className="mt-3 text-sm leading-6 text-slate-300">Conteúdo direto, certificação e repertório prático para decisões profissionais.</p>
             </div>
           </div>
         </div>
-      </section>
 
-      <section className="border-b border-gold/20 bg-[#f7f4ec] py-5">
-        <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-5 px-4 text-center text-sm font-bold text-navy sm:px-6 md:gap-8 lg:px-8">
-          <span>Certificação nas formações elegíveis</span>
-          <span>Acesso individual ou institucional</span>
-          <span>Registros para acompanhamento escolar</span>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="h-px bg-gradient-to-r from-transparent via-gold-light/65 to-transparent" />
         </div>
       </section>
 
-      <section id="professores" className="relative overflow-hidden bg-white py-24">
-        <div className="absolute right-[-8rem] top-16 h-80 w-80 rounded-full bg-gold/12 blur-3xl" />
+      <section id="professores" className="relative overflow-hidden bg-[#06101c] py-20 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#06101c_0%,#0a2749_100%)]" />
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-[.72fr_1fr] lg:px-8">
           <div>
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">professores e educadores</div>
-            <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formação docente para entrar, permanecer e se posicionar.</h2>
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              A trilha individual começa pelo processo seletivo em escolas particulares e cresce para temas de rotina, posicionamento e saúde docente.
+            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">programas para professores</div>
+            <h2 className="text-3xl font-black tracking-[-0.03em] text-white md:text-5xl">Formação docente para entrar, permanecer e se posicionar.</h2>
+            <p className="mt-6 text-lg leading-8 text-slate-300">
+              A trilha individual começa pela carreira e avança para rotina, posicionamento, relações profissionais e saúde emocional.
             </p>
           </div>
 
@@ -162,48 +182,6 @@ export default function CursosPage() {
               {upcomingTeacherCourses.map((course) => (
                 <FormationRow key={course.title} {...course} />
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="escolas" className="relative overflow-hidden bg-[#f7f4ec] py-24">
-        <div className="absolute left-[-10rem] top-28 h-96 w-96 rounded-full bg-navy/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[.78fr_1fr] lg:items-end">
-            <div>
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">escolas</div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Formações institucionais para comprovar, orientar e acompanhar.</h2>
-            </div>
-            <p className="text-lg leading-8 text-slate-600">
-              A escola contrata trilhas para colaboradores e gestores, com certificados, registros e relatórios no escopo combinado. A formação individual do professor segue outro rito.
-            </p>
-          </div>
-
-          <div className="mt-14 rounded-[2.5rem] border border-white/70 bg-white px-6 shadow-2xl md:px-9">
-            {schoolFormations.map((course) => (
-              <FormationRow key={course.title} {...course} />
-            ))}
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_.76fr] lg:items-center">
-            <div className="rounded-[2rem] border border-navy bg-navy p-8 text-white shadow-2xl">
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">pacote escolar</div>
-              <h3 className="text-3xl font-black tracking-[-0.03em]">Sob proposta institucional.</h3>
-              <p className="mt-5 text-lg leading-8 text-slate-300">
-                A proposta define formações, públicos, acessos, relatórios, certificados e apoio documental quando aplicável.
-              </p>
-              <Link href="/escolas" className="mt-7 inline-flex rounded-2xl bg-gold px-7 py-4 font-black text-white transition hover:bg-yellow-600">
-                Soluções para escolas
-              </Link>
-            </div>
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-8">
-              <div className="mb-5 text-xs font-black uppercase tracking-[0.22em] text-gold">o que acompanha o escopo</div>
-              <div className="space-y-4">
-                {institutionalNotes.map((item) => (
-                  <p key={item} className="border-b border-slate-100 pb-4 text-sm font-bold uppercase tracking-[0.12em] text-navy last:border-b-0 last:pb-0">{item}</p>
-                ))}
-              </div>
             </div>
           </div>
         </div>

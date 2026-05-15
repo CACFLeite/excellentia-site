@@ -158,56 +158,56 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#f7f4ec] py-20 md:py-24">
-        <div className="absolute left-[-10rem] top-16 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
-        <div className="absolute right-[-8rem] bottom-24 h-80 w-80 rounded-full bg-navy/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-[#06101c] py-20 text-white md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#06101c_0%,#0a2749_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-light/50 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[.68fr_1fr] lg:items-start">
             <div className="lg:sticky lg:top-28">
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">próxima leitura</div>
-              <h2 className="max-w-xl text-3xl font-black tracking-[-0.03em] text-navy md:text-5xl">Três leituras para continuar sem dispersar.</h2>
-              <p className="mt-5 max-w-lg text-lg leading-8 text-slate-600">
+              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">próxima leitura</div>
+              <h2 className="max-w-xl text-3xl font-black tracking-[-0.03em] text-white md:text-5xl">Três leituras para continuar sem dispersar.</h2>
+              <p className="mt-5 max-w-lg text-lg leading-8 text-slate-300">
                 A curadoria privilegia prioridade: primeiro a análise central, depois poucas leituras de apoio.
               </p>
             </div>
 
             <div className="space-y-4">
               {essentialPosts.map((post, index) => (
-                <Link key={post.slug} href={`/inteligencia-educacional/${post.slug}`} className="group grid gap-5 rounded-[2rem] border border-slate-200 bg-white/85 p-6 shadow-xl shadow-navy/5 transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:bg-white md:grid-cols-[4.5rem_1fr_auto] md:items-center md:p-7">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-navy text-lg font-black text-gold-light shadow-lg shadow-navy/10">0{index + 1}</div>
+                <Link key={post.slug} href={`/inteligencia-educacional/${post.slug}`} className="group grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.055] p-6 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-gold-light/35 hover:bg-white/[0.085] md:grid-cols-[4.5rem_1fr_auto] md:items-center md:p-7">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gold-light text-lg font-black text-navy shadow-lg shadow-gold/10">0{index + 1}</div>
                   <div>
                     <div className="mb-2 flex flex-wrap items-center gap-3">
                       <span className={`rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] ${post.categoryColor}`}>{post.category}</span>
                       <span className="text-sm text-slate-400">{post.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-black leading-tight text-navy transition group-hover:text-gold md:text-2xl">{post.title}</h3>
-                    <p className="mt-3 max-w-2xl leading-7 text-slate-600">{post.excerpt}</p>
+                    <h3 className="text-xl font-black leading-tight text-white transition group-hover:text-gold-light md:text-2xl">{post.title}</h3>
+                    <p className="mt-3 max-w-2xl leading-7 text-slate-300">{post.excerpt}</p>
                   </div>
-                  <span className="font-extrabold text-gold transition group-hover:translate-x-1">Ler →</span>
+                  <span className="font-extrabold text-gold-light transition group-hover:translate-x-1">Ler →</span>
                 </Link>
               ))}
             </div>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 rounded-[2.5rem] border border-navy/10 bg-white/55 p-6 shadow-xl shadow-navy/5 backdrop-blur md:p-8 lg:grid-cols-[.46fr_1fr] lg:gap-10">
+          <div className="mt-14 grid grid-cols-1 gap-6 rounded-[2.5rem] border border-white/10 bg-white/[0.055] p-6 shadow-2xl backdrop-blur md:p-8 lg:grid-cols-[.46fr_1fr] lg:gap-10">
             <div>
-              <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold">arquivo de análises</div>
-              <h3 className="text-2xl font-black tracking-[-0.03em] text-navy md:text-3xl">Leituras disponíveis, sem competir com a recomendação.</h3>
+              <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold-light">arquivo de análises</div>
+              <h3 className="text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">Leituras disponíveis, sem competir com a recomendação.</h3>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-0 md:grid-cols-2">
               {archivePosts.map((post) => (
-                <Link key={post.slug} href={`/inteligencia-educacional/${post.slug}`} className="group border-t border-slate-200 py-4 transition hover:border-gold/50">
+                <Link key={post.slug} href={`/inteligencia-educacional/${post.slug}`} className="group border-t border-white/10 py-4 transition hover:border-gold-light/50">
                   <div className="flex items-center justify-between gap-4">
-                    <span className="text-[10px] font-black uppercase tracking-[0.18em] text-gold">{post.category}</span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.18em] text-gold-light">{post.category}</span>
                     <span className="shrink-0 text-sm text-slate-400">{post.readTime}</span>
                   </div>
-                  <h4 className="mt-2 font-black leading-snug text-navy transition group-hover:text-gold">{post.title}</h4>
+                  <h4 className="mt-2 font-black leading-snug text-white transition group-hover:text-gold-light">{post.title}</h4>
                 </Link>
               ))}
             </div>
           </div>
 
-          <div className="mt-16 overflow-hidden rounded-[2.5rem] bg-navy text-white shadow-2xl">
+          <div className="mt-16 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.06] text-white shadow-2xl backdrop-blur">
             <div className="grid grid-cols-1 items-center gap-8 p-8 md:p-10 lg:grid-cols-[1fr_auto]">
               <div>
                 <div className="mb-3 text-sm font-black uppercase tracking-[0.24em] text-gold-light">para escolas</div>

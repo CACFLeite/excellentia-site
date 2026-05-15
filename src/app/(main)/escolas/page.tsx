@@ -64,29 +64,6 @@ const formationTracks = [
   },
 ]
 
-const operatingFlow = [
-  'Mapear obrigações',
-  'Planejar calendário',
-  'Convidar equipes',
-  'Registrar evidências',
-  'Orientar decisões',
-]
-
-const audiences = [
-  {
-    title: 'Direção e mantenedores',
-    text: 'Risco, previsibilidade e lastro documental para decisões institucionais.',
-  },
-  {
-    title: 'Coordenação e RH escolar',
-    text: 'Convites, formações, comunicação e pendências em um fluxo mais legível.',
-  },
-  {
-    title: 'Professores e colaboradores',
-    text: 'Conteúdo direto, aplicável e conectado aos dilemas reais da escola.',
-  },
-]
-
 export default function EscolasPage() {
   return (
     <>
@@ -154,55 +131,49 @@ export default function EscolasPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#f7f4ec] py-20">
-        <div className="absolute right-[-10rem] top-8 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-navy/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-[#06101c] py-20 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#06101c_0%,#0a2749_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-light/50 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.78fr_1.22fr] lg:items-end">
             <div>
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">o que muda</div>
-              <h2 className="text-3xl font-black tracking-[-0.035em] text-navy md:text-5xl">
+              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">o que muda</div>
+              <h2 className="text-3xl font-black tracking-[-0.035em] text-white md:text-5xl">
                 Compliance escolar deixa de ser arquivo. Vira sistema.
               </h2>
             </div>
-            <p className="max-w-3xl text-lg leading-8 text-slate-600 lg:pb-2">
-              A proposta não é empilhar cursos. É manter uma camada contínua: formação certa, evidência acessível e gestão com contexto.
-            </p>
           </div>
 
-          <div className="mt-14 overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/70 shadow-xl backdrop-blur">
+          <div className="mt-14 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.055] shadow-2xl backdrop-blur">
             <div className="grid grid-cols-1 lg:grid-cols-4">
               {governancePillars.map((pillar, index) => (
-                <div key={pillar.title} className={`group relative min-h-[270px] border-slate-200/80 p-8 transition duration-300 hover:bg-[#fbf8ef] lg:border-l ${index === 0 ? 'border-l-0 bg-navy text-white hover:bg-navy' : 'text-navy'}`}>
-                  <div className={`mb-10 text-xs font-black uppercase tracking-[0.24em] ${index === 0 ? 'text-gold-light' : 'text-gold'}`}>{pillar.label}</div>
+                <div key={pillar.title} className={`group relative min-h-[270px] border-white/10 p-8 transition duration-300 hover:bg-white/[0.08] lg:border-l ${index === 0 ? 'border-l-0 bg-gold-light text-navy hover:bg-gold-light' : 'text-white'}`}>
+                  <div className={`mb-10 text-xs font-black uppercase tracking-[0.24em] ${index === 0 ? 'text-navy/70' : 'text-gold-light'}`}>{pillar.label}</div>
                   <div className="absolute right-8 top-8 text-5xl font-black tracking-[-0.08em] opacity-[0.08]">0{index + 1}</div>
                   <h3 className="max-w-xs text-2xl font-black leading-tight">{pillar.title}</h3>
-                  <p className={`mt-5 leading-7 ${index === 0 ? 'text-slate-300' : 'text-slate-600'}`}>{pillar.text}</p>
+                  <p className={`mt-5 leading-7 ${index === 0 ? 'text-navy/75' : 'text-slate-300'}`}>{pillar.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="relative mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-14 border-t border-navy/10 px-4 pt-16 sm:px-6 lg:grid-cols-[.78fr_1.22fr] lg:px-8">
+        <div className="relative mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-14 border-t border-white/10 px-4 pt-16 sm:px-6 lg:grid-cols-[.78fr_1.22fr] lg:px-8">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">inteligência educacional</div>
-            <h2 className="text-3xl font-black tracking-[-0.035em] text-navy md:text-5xl">Frentes críticas, uma leitura institucional.</h2>
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Cada tema aponta risco, protocolo e evidência — sem repetir a home, sem tratar a escola como checklist genérico.
-            </p>
+            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">inteligência educacional</div>
+            <h2 className="text-3xl font-black tracking-[-0.035em] text-white md:text-5xl">Frentes críticas, uma leitura institucional.</h2>
           </div>
 
-          <div className="relative rounded-[2.5rem] border border-slate-200/80 bg-white/60 p-4 shadow-xl backdrop-blur md:p-6">
-            <div className="absolute left-10 top-12 hidden h-[calc(100%-6rem)] w-px bg-gradient-to-b from-gold via-gold/60 to-transparent md:block" />
+          <div className="relative rounded-[2.5rem] border border-white/10 bg-white/[0.055] p-4 shadow-2xl backdrop-blur md:p-6">
+            <div className="absolute left-10 top-12 hidden h-[calc(100%-6rem)] w-px bg-gradient-to-b from-gold-light via-gold-light/60 to-transparent md:block" />
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {formationTracks.map((item, index) => (
-                <Link key={item.title} href={item.href} className="group rounded-[1.6rem] border border-slate-100 bg-white/85 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:bg-white hover:shadow-md">
+                <Link key={item.title} href={item.href} className="group rounded-[1.6rem] border border-white/10 bg-white/[0.055] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold-light/35 hover:bg-white/[0.085]">
                   <div className="mb-6 flex items-center justify-between gap-4">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold-light text-xs font-black text-navy">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="text-sm font-extrabold text-gold opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100">Ler →</span>
+                    <span className="text-sm font-extrabold text-gold-light opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100">Ler →</span>
                   </div>
-                  <p className="font-bold leading-snug text-navy">{item.title}</p>
+                  <p className="font-bold leading-snug text-white">{item.title}</p>
                 </Link>
               ))}
             </div>
@@ -210,53 +181,7 @@ export default function EscolasPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-navy py-20 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_84%_18%,rgba(244,219,118,.18),transparent_30%)]" />
-        <div className="absolute inset-x-0 top-20 hidden h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent md:block" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[.86fr_1.14fr] lg:items-center">
-            <div>
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">operação</div>
-              <h2 className="text-3xl font-black tracking-[-0.035em] md:text-5xl">Previsibilidade para temas que não toleram improviso.</h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                O ciclo é simples: identificar, formar, comprovar e ajustar. A força está na continuidade.
-              </p>
-            </div>
-
-            <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.07] p-5 shadow-xl backdrop-blur md:p-7">
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-5">
-                {operatingFlow.map((item, index) => (
-                  <div key={item} className="rounded-3xl border border-white/10 bg-white/[0.06] p-5 transition duration-300 hover:-translate-y-1 hover:border-gold-light/30">
-                    <div className="mb-10 flex h-10 w-10 items-center justify-center rounded-full bg-gold-light text-sm font-black text-navy">{index + 1}</div>
-                    <p className="font-bold leading-snug">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-16 grid grid-cols-1 gap-8 border-t border-white/10 pt-12 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
-            <div>
-              <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">para quem precisa funcionar</div>
-              <h2 className="text-3xl font-black tracking-[-0.035em] md:text-5xl">A mesma governança, lida por papéis diferentes.</h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-              {audiences.map((audience, index) => (
-                <div key={audience.title} className="rounded-3xl border border-white/10 bg-white/[0.055] p-6">
-                  <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-full bg-gold-light text-sm font-black text-navy">0{index + 1}</div>
-                  <div>
-                    <h3 className="text-xl font-black text-white">{audience.title}</h3>
-                    <p className="mt-3 leading-7 text-slate-300">{audience.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-navy pb-20 text-white">
+      <section className="relative overflow-hidden bg-[#06101c] pb-20 text-white">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.06] p-8 text-center shadow-2xl backdrop-blur md:p-12">
@@ -267,10 +192,7 @@ export default function EscolasPage() {
             </p>
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <Link href="/contato" className="rounded-2xl bg-gold px-8 py-4 text-lg font-black text-white transition hover:bg-yellow-600">
-                Falar com a Excellentia
-              </Link>
-              <Link href="/admin/login" className="rounded-2xl border-2 border-white/60 px-8 py-4 text-lg font-black text-white transition hover:bg-white hover:text-navy">
-                Acessar painel da escola
+                Solicitar conversa institucional
               </Link>
             </div>
           </div>
