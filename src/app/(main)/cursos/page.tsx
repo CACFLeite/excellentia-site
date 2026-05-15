@@ -165,8 +165,12 @@ export default function CursosPage() {
         </div>
       </section>
 
-      <section id="professores" className="relative overflow-hidden bg-[#06101c] py-20 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#06101c_0%,#0a2749_100%)]" />
+      <section id="professores" className="relative overflow-hidden bg-navy py-20 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_0%,rgba(244,219,118,.13),transparent_28%),linear-gradient(180deg,#0a2749_0%,#071d38_100%)]" />
+        <svg className="pointer-events-none absolute left-0 top-[-6rem] hidden h-[38rem] w-full opacity-50 lg:block" viewBox="0 0 1440 620" fill="none" aria-hidden="true">
+          <path className="excellentia-flow-path" d="M112 206C316 54 500 292 724 154C942 18 1128 164 1302 78C1378 302 1126 428 928 548" />
+          <path d="M178 310C386 160 552 350 780 230C996 116 1134 240 1260 174" stroke="#f4db76" strokeOpacity=".16" strokeWidth="2" strokeLinecap="round" />
+        </svg>
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-[.72fr_1fr] lg:px-8">
           <div>
             <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">programas para professores</div>
