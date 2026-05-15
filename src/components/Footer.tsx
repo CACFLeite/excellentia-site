@@ -25,7 +25,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 font-semibold text-gold">Navegação</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><Link href="/formacoes" className="transition-colors hover:text-gold-light">Formações</Link></li>
+              <li><Link href="/professores" className="transition-colors hover:text-gold-light">Professores</Link></li>
               <li><Link href="/escolas" className="transition-colors hover:text-gold-light">Escolas</Link></li>
               <li><Link href="/inteligencia-educacional" className="transition-colors hover:text-gold-light">Inteligência Educacional</Link></li>
               <li><Link href="/sobre" className="transition-colors hover:text-gold-light">Sobre</Link></li>

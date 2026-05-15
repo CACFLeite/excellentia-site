@@ -40,7 +40,7 @@ const fronts = [
     eyebrow: 'camada 01',
     role: 'Onde acessam os cursos',
     description: 'Cursos e trilhas para prática docente, carreira, processo seletivo e rotina profissional.',
-    href: '/formacoes',
+    href: '/professores',
     linkLabel: 'Acessar cursos',
   },
   {
@@ -92,7 +92,7 @@ export default function Home() {
                 <Link href="/escolas" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
                   Soluções para escolas
                 </Link>
-                <Link href="/formacoes" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
+                <Link href="/professores" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
                   Cursos para professores
                 </Link>
               </div>
@@ -181,7 +181,7 @@ export default function Home() {
               <Link href="/escolas" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-black text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
                 Soluções para escolas
               </Link>
-              <Link href="/formacoes" className="rounded-2xl border border-white/25 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
+              <Link href="/professores" className="rounded-2xl border border-white/25 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
                 Cursos para professores
               </Link>
             </div>

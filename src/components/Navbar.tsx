@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 const navItems = [
   { label: 'Início', href: '/' },
-  { label: 'Professores', href: '/formacoes' },
+  { label: 'Professores', href: '/professores' },
   { label: 'Escolas', href: '/escolas' },
   { label: 'Inteligência Educacional', href: '/inteligencia-educacional' },
   { label: 'Sobre', href: '/sobre' },
@@ -38,10 +38,10 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/admin/login"
+              href="/professores"
               className="rounded-full border border-gold-light/50 bg-gold px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-gold/20 transition hover:-translate-y-0.5 hover:bg-yellow-600"
             >
-              Acessar painel
+              Área do professor
             </Link>
           </div>
 
@@ -75,11 +75,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/admin/login"
+              href="/professores"
               className="mt-2 rounded-2xl bg-gold px-3 py-3 text-center font-black text-white transition-colors hover:bg-yellow-600"
               onClick={() => setMenuOpen(false)}
             >
-              Acessar painel
+              Área do professor
             </Link>
           </div>
         </div>
