@@ -36,12 +36,12 @@ const governanceFlow = [
 
 const fronts = [
   {
-    title: 'Formações',
+    title: 'Professores',
     eyebrow: 'camada 01',
-    role: 'O que a escola implementa',
-    description: 'Trilhas e protocolos aproximam exigências da prática comum.',
+    role: 'Onde acessam os cursos',
+    description: 'Cursos e trilhas para prática docente, carreira, processo seletivo e rotina profissional.',
     href: '/formacoes',
-    linkLabel: 'Ver formações',
+    linkLabel: 'Acessar cursos',
   },
   {
     title: 'Painel da escola',
@@ -93,7 +93,7 @@ export default function Home() {
                   Soluções para escolas
                 </Link>
                 <Link href="/formacoes" className="rounded-2xl border-2 border-white/55 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
-                  Formações para professores
+                  Cursos para professores
                 </Link>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function Home() {
                 Entre pelo escopo certo.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                Para gestores, o ponto de entrada é a escola. Para educadores, as formações organizam prática e certificado.
+                Para gestores, o ponto de entrada é a escola. Para professores, a área de cursos organiza formação, prática e desenvolvimento profissional.
               </p>
             </div>
 
@@ -182,7 +182,7 @@ export default function Home() {
                 Soluções para escolas
               </Link>
               <Link href="/formacoes" className="rounded-2xl border border-white/25 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white hover:text-navy">
-                Formações para professores
+                Cursos para professores
               </Link>
             </div>
           </div>

@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 const navItems = [
   { label: 'Início', href: '/' },
-  { label: 'Formações', href: '/formacoes' },
+  { label: 'Professores', href: '/formacoes' },
   { label: 'Escolas', href: '/escolas' },
   { label: 'Inteligência Educacional', href: '/inteligencia-educacional' },
   { label: 'Sobre', href: '/sobre' },
@@ -20,13 +20,13 @@ export default function Navbar() {
     <nav className="excellentia-nav-surface sticky top-0 z-50 border-b border-gold-light/10 text-white shadow-[0_18px_50px_rgba(2,6,11,.22)] backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-6">
-          <Link href="/" className="flex shrink-0 items-center" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="flex h-20 w-28 shrink-0 items-center overflow-hidden sm:w-32" onClick={() => setMenuOpen(false)}>
             <Image
               src="/logo.png"
               alt="Excellentia"
               width={180}
               height={180}
-              className="h-20 w-auto"
+              className="h-24 w-24 max-w-none object-contain sm:h-28 sm:w-28"
               priority
             />
           </Link>
