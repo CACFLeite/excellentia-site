@@ -38,14 +38,14 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/formacoes"
+              href="/acesso-professor"
               className="rounded-full border border-gold-light/50 bg-gold px-4 py-2.5 text-sm font-black text-white shadow-lg shadow-gold/20 transition hover:-translate-y-0.5 hover:bg-yellow-600"
             >
               Cursos para professores
             </Link>
             <Link
               href="/admin/login"
-              className="rounded-full border border-white/25 px-4 py-2.5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:border-gold-light hover:bg-white/10"
+              className="rounded-full border border-gold-light/50 bg-gold px-4 py-2.5 text-sm font-black text-white shadow-lg shadow-gold/20 transition hover:-translate-y-0.5 hover:bg-yellow-600"
             >
               Painel das escolas
             </Link>
@@ -81,7 +81,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/formacoes"
+              href="/acesso-professor"
               className="mt-2 rounded-2xl bg-gold px-3 py-3 text-center font-black text-white transition-colors hover:bg-yellow-600"
               onClick={() => setMenuOpen(false)}
             >
@@ -89,7 +89,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/admin/login"
-              className="rounded-2xl border border-white/20 px-3 py-3 text-center font-black text-white transition-colors hover:bg-white/10"
+              className="rounded-2xl bg-gold px-3 py-3 text-center font-black text-white transition-colors hover:bg-yellow-600"
               onClick={() => setMenuOpen(false)}
             >
               Painel das escolas

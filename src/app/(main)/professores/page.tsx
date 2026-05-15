@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 const accessCards = [
   {
-    title: 'Ver cursos disponíveis',
-    description: 'Catálogo público de formações para professores, com escopo, temas e trilhas previstas.',
-    href: '/formacoes',
-    label: 'Abrir catálogo',
+    title: 'Acessar cursos',
+    description: 'Entrada para professor com assinatura, convite institucional ou link autorizado.',
+    href: '/acesso-professor',
+    label: 'Entrar nos cursos',
     featured: true,
   },
   {
