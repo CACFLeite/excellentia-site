@@ -6,44 +6,44 @@ const renataWhatsApp = 'https://wa.me/5511952133049?text=Ol%C3%A1%2C%20Renata.%2
 
 export const metadata: Metadata = {
   title: 'Governança escolar para proteger sua instituição | Excellentia',
-  description: 'Governança escolar, formação e evidências para escolas que precisam organizar conformidade, registros e proteção institucional.',
+  description: 'Governança escolar, formação e evidências para transformar obrigações em lastro institucional e decisões sustentáveis.',
 }
 
 const flowSteps = [
   {
     label: 'Diagnóstico',
     title: 'Leitura inicial da escola',
-    text: 'Identificamos prioridades de governança, riscos sensíveis e pontos que exigem registro institucional.',
+    text: 'A escola identifica prioridades, riscos sensíveis e pontos que precisam sair do improviso para ganhar registro institucional.',
   },
   {
     label: 'Formação',
     title: 'Trilhas para a equipe',
-    text: 'Transformamos temas obrigatórios e críticos em jornadas claras para direção, coordenação e colaboradores.',
+    text: 'Temas obrigatórios e críticos viram jornadas formativas para direção, coordenação e colaboradores.',
   },
   {
     label: 'Evidências',
     title: 'Registros e comprovação',
-    text: 'Organizamos certificados, respostas, documentos e indicadores para sustentar decisões da gestão.',
+    text: 'Certificados, respostas, documentos e indicadores passam a compor lastro para a gestão escolar.',
   },
   {
     label: 'Gestão',
     title: 'Acompanhamento contínuo',
-    text: 'A escola passa a enxergar lacunas, próximos passos e rotinas de proteção com mais previsibilidade.',
+    text: 'Lacunas, próximos passos e rotinas de proteção deixam de ficar dispersos e passam a orientar decisões.',
   },
 ]
 
 const capabilities = [
   {
     title: 'Formação aplicada',
-    text: 'Trilhas para temas obrigatórios e sensíveis da rotina escolar, com linguagem clara para equipes reais.',
+    text: 'Temas obrigatórios e sensíveis entram na rotina da escola como formação compreensível, aplicável e registrável.',
   },
   {
     title: 'Evidências organizadas',
-    text: 'Registros, certificados e respostas deixam de ficar dispersos e passam a compor lastro institucional.',
+    text: 'Registros, certificados e respostas deixam de ser peças soltas e passam a formar lastro institucional.',
   },
   {
     title: 'Leitura de governança',
-    text: 'A direção enxerga prioridades, lacunas e próximos passos sem depender de improviso documental.',
+    text: 'A direção passa a enxergar prioridades, lacunas e próximos passos com base em evidências, não em improviso documental.',
   },
 ]
 
@@ -112,7 +112,7 @@ export default function DirecionalEscolasPage() {
               Governança escolar, formação e evidências para proteger sua instituição.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-200 md:text-xl">
-              A Excellentia ajuda escolas privadas a transformar obrigações, cursos, registros e riscos institucionais em uma rotina clara de governança.
+              A Excellentia ajuda escolas privadas a transformar obrigações, formações, registros e riscos institucionais em um ecossistema claro de governança.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a href={renataWhatsApp} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
@@ -139,7 +139,7 @@ export default function DirecionalEscolasPage() {
               Da obrigação ao lastro institucional.
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              O trabalho não começa por um arquivo isolado. Começa por uma leitura de risco, passa pela formação da equipe, organiza evidências e devolve clareza para a direção.
+              O trabalho começa quando normas, formações e registros deixam de existir em paralelo e passam a sustentar uma mesma rotina institucional.
             </p>
           </div>
 
@@ -161,7 +161,7 @@ export default function DirecionalEscolasPage() {
               </h2>
             </div>
             <p className="text-lg leading-8 text-slate-300">
-              NR-1, Lei Lucas, LGPD, proteção integral, convivência e riscos psicossociais não funcionam bem como ações isoladas. A direção precisa formar pessoas, registrar evidências, acompanhar lacunas e organizar respostas antes da urgência.
+              NR-1, Lei Lucas, LGPD, proteção integral, convivência e riscos psicossociais exigem mais que ações pontuais. A escola precisa formar pessoas, registrar evidências e organizar respostas antes que a urgência defina o ritmo.
             </p>
           </div>
 
@@ -212,7 +212,7 @@ export default function DirecionalEscolasPage() {
             Governança escolar não se improvisa quando o problema aparece.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-            Ela se estrutura com formação, evidências e uma rotina clara de decisão.
+            Ela se estrutura quando formação, evidências e rotina decisória passam a funcionar dentro do mesmo sistema.
           </p>
           <div className="mt-8">
             <Link href="/escolas" className="font-bold text-gold-light transition hover:text-white">

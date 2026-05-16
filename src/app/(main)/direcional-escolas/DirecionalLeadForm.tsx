@@ -65,9 +65,9 @@ export default function DirecionalLeadForm() {
     <form onSubmit={handleSubmit} className="rounded-[2rem] border border-white/12 bg-white/[0.07] p-6 shadow-2xl backdrop-blur md:p-8">
       <div className="mb-6">
         <div className="text-xs font-black uppercase tracking-[0.24em] text-gold-light">diagnóstico inicial</div>
-        <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">Converse sobre a governança da sua escola.</h2>
+        <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">Inicie uma leitura institucional da sua escola.</h2>
         <p className="mt-3 text-sm leading-6 text-slate-300">
-          Envie os dados principais para a Excellentia entender o contexto e indicar o próximo passo.
+          Envie os dados principais para a Excellentia entender o contexto, as prioridades e o melhor próximo passo.
         </p>
         <p className="mt-2 text-xs leading-5 text-slate-400">
           Usaremos essas informações apenas para retornar o contato sobre governança escolar e soluções Excellentia.
