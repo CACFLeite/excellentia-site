@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import TeacherAccessForm from './TeacherAccessForm'
 
 export const metadata: Metadata = {
   title: 'Acesso do Professor — Excellentia',
@@ -25,6 +26,7 @@ export default function AcessoProfessorPage() {
             <p className="mt-7 text-lg leading-8 text-slate-200 md:text-xl">
               Professores acessam os cursos por link autorizado, convite institucional ou assinatura individual. O catálogo público fica separado da área de acesso.
             </p>
+            <TeacherAccessForm />
           </div>
         </div>
       </section>

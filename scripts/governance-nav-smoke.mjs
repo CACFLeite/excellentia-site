@@ -8,7 +8,7 @@ const navbar = fs.readFileSync(navbarPath, 'utf8')
 
 const requiredNav = [
   { label: 'Início', href: '/' },
-  { label: 'Formações', href: '/formacoes' },
+  { label: 'Professores', href: '/professores' },
   { label: 'Escolas', href: '/escolas' },
   { label: 'Inteligência Educacional', href: '/inteligencia-educacional' },
   { label: 'Sobre', href: '/sobre' },
@@ -17,9 +17,13 @@ const requiredNav = [
 
 const requiredRoutes = [
   '/',
+  '/acesso-professor',
+  '/professores',
   '/formacoes',
   '/formacoes/lei-lucas-escolas',
   '/formacoes/nr1-escolas',
+  '/assinatura',
+  '/acesso-escolar',
   '/cursos',
   '/cursos/lei-lucas-escolas',
   '/inteligencia-educacional',
@@ -42,8 +46,16 @@ for (const item of requiredNav) {
   if (!hasLabel) failures.push(`Navbar label missing: ${item.label}`)
 }
 
-if (navbar.includes('Cursos') || navbar.includes('Blog')) {
-  failures.push('Navbar must use the approved public labels Formações and Inteligência Educacional, not Cursos/Blog')
+if (!navbar.includes('Cursos para professores') || !navbar.includes('href="/acesso-professor"')) {
+  failures.push('Navbar must expose the approved CTA Cursos para professores pointing to /acesso-professor')
+}
+
+if (!navbar.includes('Painel das escolas') || !navbar.includes('href="/admin/login"')) {
+  failures.push('Navbar must expose the school panel CTA pointing to /admin/login')
+}
+
+if (navbar.includes('Blog')) {
+  failures.push('Navbar must use the approved public label Inteligência Educacional, not Blog')
 }
 
 function routeExists(route) {
