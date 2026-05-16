@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getTeacherSessionFromCookie } from '@/lib/teacherAuth';
+import { getTeacherSessionFromRequest } from '@/lib/teacherAuth';
 import { prisma } from '@/lib/prisma';
 import { teacherCatalogCourses } from '@/lib/courses/catalog';
 
@@ -7,8 +7,8 @@ function slugify(value: string) {
   return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
-export async function GET() {
-  const session = await getTeacherSessionFromCookie();
+export async function GET(request: Request) {
+  const session = await getTeacherSessionFromRequest(request);
   if (!session) return NextResponse.json({ error: 'Não autenticado.' }, { status: 401 });
 
   const courseAccess = await prisma.teacherCourseAccess.findMany({

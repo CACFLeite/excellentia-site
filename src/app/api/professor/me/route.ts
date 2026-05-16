@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { getTeacherSessionFromCookie } from '@/lib/teacherAuth';
+import { getTeacherSessionFromRequest } from '@/lib/teacherAuth';
 
-export async function GET() {
-  const session = await getTeacherSessionFromCookie();
+export async function GET(request: Request) {
+  const session = await getTeacherSessionFromRequest(request);
   if (!session) return NextResponse.json({ authenticated: false }, { status: 401 });
 
   return NextResponse.json({

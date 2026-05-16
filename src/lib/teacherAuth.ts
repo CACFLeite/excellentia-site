@@ -63,9 +63,7 @@ export async function createTeacherSession(subscriberId: string) {
   return { token, expiresAt };
 }
 
-export async function getTeacherSessionFromCookie() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get(TEACHER_SESSION_COOKIE)?.value;
+export async function getTeacherSessionByToken(token?: string | null) {
   if (!token) return null;
 
   const session = await prisma.teacherSession.findUnique({
@@ -75,6 +73,25 @@ export async function getTeacherSessionFromCookie() {
 
   if (!session || session.revokedAt || session.expiresAt <= new Date()) return null;
   return session;
+}
+
+export async function getTeacherSessionFromCookie() {
+  const cookieStore = await cookies();
+  return getTeacherSessionByToken(cookieStore.get(TEACHER_SESSION_COOKIE)?.value);
+}
+
+export async function getTeacherSessionFromRequest(request: Request) {
+  const authorization = request.headers.get('authorization') ?? '';
+  const bearerToken = authorization.match(/^Bearer\s+(.+)$/i)?.[1]?.trim();
+  const headerToken = request.headers.get('x-excellentia-teacher-session')?.trim();
+  const cookieToken = request.headers
+    .get('cookie')
+    ?.split(';')
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(TEACHER_SESSION_COOKIE + '='))
+    ?.slice(TEACHER_SESSION_COOKIE.length + 1);
+
+  return getTeacherSessionByToken(bearerToken || headerToken || cookieToken);
 }
 
 export async function revokeTeacherSessionFromCookie() {
