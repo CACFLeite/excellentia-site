@@ -125,6 +125,10 @@ export async function POST(request: Request) {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   const payload = await request.text();
 
+  if (!secret && process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'STRIPE_WEBHOOK_SECRET não configurado.' }, { status: 500 });
+  }
+
   if (secret && !verifyStripeSignature(payload, request.headers.get('stripe-signature'), secret)) {
     return NextResponse.json({ error: 'Invalid Stripe signature.' }, { status: 400 });
   }
