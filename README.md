@@ -15,6 +15,7 @@
 - Dourado: `#b07908`
 - Dourado claro: `#f4db76`
 - Tipografia: Plus Jakarta Sans (títulos/marca) + IBM Plex Sans (texto/UI), via Google Fonts
+- E-mails HTML: IBM Plex Sans com fallback seguro (`Arial, Helvetica, sans-serif`); não usar Inter/Branding SF como fonte ativa
 
 ## Páginas
 

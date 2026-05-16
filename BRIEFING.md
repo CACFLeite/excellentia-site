@@ -12,6 +12,7 @@ Deploy: Vercel. Domínio: excellentia-edu.com.
 - Branco: #ffffff (texto sobre fundo escuro)
 - Cinza claro: #f8f8f8 (fundos secundários)
 - Tipografia: Plus Jakarta Sans (marca/títulos/CTAs) + IBM Plex Sans (corpo/UI), via Google Fonts
+- E-mails HTML devem usar IBM Plex Sans com fallback seguro; não reintroduzir Inter/Branding SF como fonte ativa
 - NÃO usar verde, roxo ou cores fora da paleta acima
 - Tom: profissional, autoridade, parceria — NUNCA infantil
 
