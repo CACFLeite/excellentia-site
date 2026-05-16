@@ -70,7 +70,7 @@ export default function DirecionalLeadForm() {
           Envie os dados principais para a Excellentia entender o contexto e indicar o próximo passo.
         </p>
         <p className="mt-2 text-xs leading-5 text-slate-400">
-          Os dados ficam registrados para a campanha Direcional e geram aviso interno para acompanhamento comercial.
+          Usaremos essas informações apenas para retornar o contato sobre governança escolar e soluções Excellentia.
         </p>
       </div>
 
@@ -154,7 +154,7 @@ export default function DirecionalLeadForm() {
         disabled={status === 'loading'}
         className="mt-6 min-h-12 w-full rounded-2xl bg-gold px-5 py-3 text-base font-black text-white shadow-lg shadow-gold/20 transition hover:bg-yellow-600 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === 'loading' ? 'Enviando...' : 'Solicitar conversa institucional'}
+        {status === 'loading' ? 'Enviando...' : 'Enviar solicitação'}
       </button>
 
       {message && (

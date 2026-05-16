@@ -11,24 +11,24 @@ export const metadata: Metadata = {
 
 const flowSteps = [
   {
-    label: 'Mapear',
-    title: 'Riscos e obrigações',
-    text: 'A escola identifica frentes críticas, urgências regulatórias e lacunas de rotina.',
+    label: 'Diagnóstico',
+    title: 'Leitura inicial da escola',
+    text: 'Identificamos prioridades de governança, riscos sensíveis e pontos que exigem registro institucional.',
   },
   {
-    label: 'Formar',
-    title: 'Equipe e liderança',
-    text: 'Trilhas objetivas levam o tema para quem precisa agir no cotidiano escolar.',
+    label: 'Formação',
+    title: 'Trilhas para a equipe',
+    text: 'Transformamos temas obrigatórios e críticos em jornadas claras para direção, coordenação e colaboradores.',
   },
   {
-    label: 'Registrar',
-    title: 'Evidências verificáveis',
-    text: 'Certificados, respostas e documentos compõem lastro institucional.',
+    label: 'Evidências',
+    title: 'Registros e comprovação',
+    text: 'Organizamos certificados, respostas, documentos e indicadores para sustentar decisões da gestão.',
   },
   {
-    label: 'Decidir',
-    title: 'Governança contínua',
-    text: 'A direção acompanha prioridades e próximos passos sem improviso.',
+    label: 'Gestão',
+    title: 'Acompanhamento contínuo',
+    text: 'A escola passa a enxergar lacunas, próximos passos e rotinas de proteção com mais previsibilidade.',
   },
 ]
 
@@ -116,10 +116,7 @@ export default function DirecionalEscolasPage() {
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a href={renataWhatsApp} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-gold px-8 py-4 text-center text-lg font-extrabold text-white shadow-2xl shadow-gold/20 transition hover:bg-yellow-600">
-                Falar com Renata
-              </a>
-              <a href="#diagnostico" className="rounded-2xl border border-white/25 bg-white/10 px-8 py-4 text-center text-lg font-extrabold text-white transition hover:bg-white/15">
-                Solicitar diagnóstico
+                Agende sua consultoria
               </a>
             </div>
             <p className="mt-5 text-sm font-semibold text-slate-300">WhatsApp direto: (11) 95213-3049</p>
@@ -183,54 +180,27 @@ export default function DirecionalEscolasPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#f8fafc] py-20 text-navy">
-        <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(rgba(10,39,73,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(10,39,73,.05)_1px,transparent_1px)] [background-size:76px_76px]" />
+      <section className="relative overflow-hidden bg-[#06101c] py-20 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_24%,rgba(244,219,118,.10),transparent_30%),linear-gradient(180deg,#06101c_0%,#0a2749_48%,#06101c_100%)]" />
+        <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(244,219,118,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(244,219,118,.06)_1px,transparent_1px)] [background-size:76px_76px]" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
           <div>
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold">frentes cobertas</div>
+            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">frentes cobertas</div>
             <h2 className="text-3xl font-black tracking-[-0.025em] md:text-5xl">
               Uma base para formar, registrar e decidir.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-700">
+            <p className="mt-6 text-lg leading-8 text-slate-300">
               A proposta não é tratar cada obrigação como um arquivo separado. É organizar uma operação formativa e documental que ajude a escola a sustentar suas decisões.
             </p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
             {tracks.map((track, index) => (
-              <div key={track} className="group rounded-2xl border border-slate-200 bg-white p-5 font-bold text-navy shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-xl">
-                <span className="mb-4 block text-xs font-black uppercase tracking-[0.18em] text-gold">0{index + 1}</span>
+              <div key={track} className="group rounded-2xl border border-white/10 bg-white/[0.06] p-5 font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-gold-light/40 hover:bg-white/[0.09] hover:shadow-xl">
+                <span className="mb-4 block text-xs font-black uppercase tracking-[0.18em] text-gold-light">0{index + 1}</span>
                 {track}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-navy py-20 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(244,219,118,.13),transparent_30%),linear-gradient(180deg,#0a2749_0%,#06101c_100%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.88fr_1.12fr] lg:px-8">
-          <div>
-            <div className="mb-4 text-sm font-black uppercase tracking-[0.24em] text-gold-light">canal comercial</div>
-            <h2 className="text-3xl font-black tracking-[-0.025em] md:text-5xl">
-              Dois caminhos para iniciar a conversa.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              O formulário entra logo no início da página para captar o lead enquanto o interesse está ativo. Para quem prefere contato direto, o WhatsApp da Renata permanece visível como canal comercial da campanha.
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            <a href="#diagnostico" className="rounded-[2rem] border border-white/12 bg-white/[0.07] p-7 shadow-xl backdrop-blur transition hover:-translate-y-1 hover:border-gold-light/35">
-              <div className="text-xs font-black uppercase tracking-[0.22em] text-gold-light">formulário</div>
-              <h3 className="mt-4 text-2xl font-black">Lead próprio da escola</h3>
-              <p className="mt-4 leading-7 text-slate-300">Os dados entram no banco da Excellentia e geram notificação interna para acompanhamento.</p>
-            </a>
-            <a href={renataWhatsApp} target="_blank" rel="noopener noreferrer" className="rounded-[2rem] border border-gold-light/30 bg-gold p-7 text-white shadow-xl shadow-gold/20 transition hover:-translate-y-1 hover:bg-yellow-600">
-              <div className="text-xs font-black uppercase tracking-[0.22em] text-white/80">whatsapp</div>
-              <h3 className="mt-4 text-2xl font-black">Falar com Renata</h3>
-              <p className="mt-4 leading-7 text-white/90">(11) 95213-3049 com mensagem de origem da campanha Direcional.</p>
-            </a>
           </div>
         </div>
       </section>
