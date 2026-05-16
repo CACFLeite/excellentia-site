@@ -190,7 +190,7 @@ export default function DirecionalEscolasPage() {
               Uma base para formar, registrar e decidir.
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              A proposta não é tratar cada obrigação como um arquivo separado. É organizar uma operação formativa e documental que ajude a escola a sustentar suas decisões.
+              Sua escola passa a tratar obrigações como um ecossistema documental, não como arquivos separados: uma organização formativa e documental que ajuda a sustentar decisões.
             </p>
           </div>
 
