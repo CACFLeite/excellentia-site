@@ -23,7 +23,7 @@ export default async function ProfessorCoursesPage() {
     description: access.course.description ?? 'Curso disponível na sua assinatura Excellentia.',
     slug: access.course.slug,
     available: access.course.status === 'published',
-    href: '/formacoes/' + access.course.slug,
+    href: '/professor/cursos/' + access.course.slug,
   }))
 
   const fallbackCourses = teacherCatalogCourses.map((course) => ({

@@ -23,7 +23,7 @@ export async function GET() {
     slug: access.course.slug,
     status: access.course.status,
     available: access.course.status === 'published',
-    href: '/formacoes/' + access.course.slug,
+    href: '/professor/cursos/' + access.course.slug,
     source: 'database',
   }));
 
