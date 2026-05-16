@@ -47,6 +47,8 @@ RESEND_API_KEY=         # Chave Resend para envio de emails
 CONTACT_EMAIL=atendimento@excellentia-edu.com
 MAILERLITE_API_KEY=     # Chave MailerLite para captura de leads
 MAILERLITE_CURRICULO_GROUP_ID=183684901612029007
+MAILERLITE_DIRECIONAL_ESCOLAS_GROUP_ID= # Opcional: grupo MailerLite para leads da campanha Direcional
+EXCELLENTIA_DIRECIONAL_NOTIFY_EMAIL=    # Opcional: e-mail interno para receber leads Direcional
 ```
 
 ## Desenvolvimento
