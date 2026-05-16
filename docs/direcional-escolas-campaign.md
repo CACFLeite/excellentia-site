@@ -22,8 +22,14 @@ O formulário da landing envia para:
 Comportamento:
 
 - valida nome, e-mail, WhatsApp e escola;
+- grava o lead na tabela `CampaignLead` com `campaign="direcional-escolas"`;
 - envia notificação interna por e-mail para `EXCELLENTIA_DIRECIONAL_NOTIFY_EMAIL` ou `CONTACT_EMAIL`;
 - só envia para MailerLite se `MAILERLITE_DIRECIONAL_ESCOLAS_GROUP_ID` estiver configurado, evitando contato solto sem segmentação.
+
+Banco:
+
+- migration: `prisma/migrations/202605161410_campaign_leads/migration.sql`;
+- produção Neon Excellentia recebeu a migration em 2026-05-16.
 
 ## Próxima Etapa
 

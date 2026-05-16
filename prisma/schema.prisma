@@ -681,3 +681,23 @@ model CommercialProposal {
 
   @@index([status, createdAt])
 }
+
+model CampaignLead {
+  id        String   @id @default(cuid())
+  campaign  String
+  source    String?
+  name      String
+  email     String
+  phone     String
+  school    String
+  role      String?
+  priority  String?
+  status    String   @default("new")
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([campaign, createdAt])
+  @@index([email])
+  @@index([status, createdAt])
+}

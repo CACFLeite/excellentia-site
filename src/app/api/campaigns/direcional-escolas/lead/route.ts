@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { subscribeToMailerLite } from '@/lib/mailerlite'
+import { prisma } from '@/lib/prisma'
 import { sendTransactionalEmail } from '@/lib/transactionalEmail'
 
 function escapeHtml(value: string) {
@@ -33,6 +34,23 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Informe um e-mail válido.' }, { status: 400 })
     }
 
+    const campaignLead = await prisma.campaignLead.create({
+      data: {
+        campaign: 'direcional-escolas',
+        source: 'Direcional Escolas',
+        name,
+        email,
+        phone,
+        school,
+        role: role || null,
+        priority: priority || null,
+        metadata: {
+          landingPath: '/direcional-escolas',
+          whatsappDestination: '5511952133049',
+        },
+      },
+    })
+
     const groupId = process.env.MAILERLITE_DIRECIONAL_ESCOLAS_GROUP_ID
     if (groupId) {
       const mailerLiteResult = await subscribeToMailerLite({
@@ -63,6 +81,7 @@ export async function POST(request: NextRequest) {
     const text = [
       'Novo lead da campanha Direcional Escolas',
       '',
+      `ID: ${campaignLead.id}`,
       `Nome: ${name}`,
       `E-mail: ${email}`,
       `WhatsApp: ${phone}`,
@@ -83,6 +102,7 @@ export async function POST(request: NextRequest) {
             <h1 style="margin:10px 0 0;font-size:24px;">Novo lead da campanha Direcional Escolas</h1>
           </div>
           <div style="background:#f8fafc;border:1px solid #e2e8f0;border-top:0;padding:24px;border-radius:0 0 14px 14px;">
+            <p><strong>ID interno:</strong> ${campaignLead.id}</p>
             <p><strong>Nome:</strong> ${safe.name}</p>
             <p><strong>E-mail:</strong> <a href="mailto:${safe.email}">${safe.email}</a></p>
             <p><strong>WhatsApp:</strong> ${safe.phone}</p>

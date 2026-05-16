@@ -69,6 +69,9 @@ export default function DirecionalLeadForm() {
         <p className="mt-3 text-sm leading-6 text-slate-300">
           Envie os dados principais para a Excellentia entender o contexto e indicar o próximo passo.
         </p>
+        <p className="mt-2 text-xs leading-5 text-slate-400">
+          Os dados ficam registrados para a campanha Direcional e geram aviso interno para acompanhamento comercial.
+        </p>
       </div>
 
       <div className="grid gap-4">
