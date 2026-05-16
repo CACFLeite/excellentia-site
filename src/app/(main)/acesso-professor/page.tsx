@@ -5,7 +5,7 @@ import TeacherAccessForm from './TeacherAccessForm'
 export const metadata: Metadata = {
   title: 'Acesso do Professor — Excellentia',
   description:
-    'Entrada para professores acessarem cursos Excellentia por assinatura individual, convite institucional ou link autorizado.',
+    'Entrada segura para professores acessarem os cursos Excellentia vinculados à assinatura individual.',
 }
 
 export default function AcessoProfessorPage() {
@@ -24,7 +24,7 @@ export default function AcessoProfessorPage() {
               Entre nos cursos pelo caminho correto.
             </h1>
             <p className="mt-7 text-lg leading-8 text-slate-200 md:text-xl">
-              Professores acessam os cursos por link autorizado, convite institucional ou assinatura individual. O catálogo público fica separado da área de acesso.
+              Informe seu e-mail para receber um link seguro e acessar os cursos vinculados à sua assinatura Excellentia.
             </p>
             <TeacherAccessForm />
           </div>
