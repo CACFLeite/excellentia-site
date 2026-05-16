@@ -28,6 +28,19 @@ function getCustomerName(object: Record<string, unknown>) {
   return customerDetails?.name || null;
 }
 
+function isTeacherCheckout(object: Record<string, unknown>) {
+  const metadata = object.metadata as { product?: string } | undefined;
+  if (metadata?.product === 'teacher_subscription') return true;
+
+  const paymentLink = typeof object.payment_link === 'string' ? object.payment_link : null;
+  const allowedPaymentLinks = (process.env.STRIPE_TEACHER_PAYMENT_LINK_IDS || '')
+    .split(',')
+    .map((value) => value.trim())
+    .filter(Boolean);
+
+  return Boolean(paymentLink && allowedPaymentLinks.includes(paymentLink));
+}
+
 function stripeDate(value: unknown) {
   return typeof value === 'number' ? new Date(value * 1000) : null;
 }
@@ -52,6 +65,8 @@ async function grantPublishedTeacherCourses(subscriberId: string) {
 }
 
 async function handleCheckoutCompleted(object: Record<string, unknown>) {
+  if (!isTeacherCheckout(object)) return;
+
   const email = getCustomerEmail(object);
   if (!email) return;
 
