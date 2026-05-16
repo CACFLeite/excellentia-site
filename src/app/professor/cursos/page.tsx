@@ -31,7 +31,7 @@ export default async function ProfessorCoursesPage() {
     description: course.description,
     slug: slugify(course.title),
     available: course.available,
-    href: course.available ? '/formacoes' : null,
+    href: course.available ? (course.href ?? '/formacoes') : null,
   }))
 
   const courses = dbCourses.length > 0 ? dbCourses : fallbackCourses

@@ -8,6 +8,7 @@ export const teacherCatalogCourses = [
     available: true,
     modules: 5,
     lessons: 20,
+    href: '/formacoes/gestao-carreira-professores',
   },
   {
     title: 'Cotidiano Escolar',

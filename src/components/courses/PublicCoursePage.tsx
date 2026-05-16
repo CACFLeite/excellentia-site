@@ -3,6 +3,27 @@ import type { CourseDefinition } from '@/lib/courses/definitions';
 
 function publicCards(course: CourseDefinition) {
   const isAvailable = course.availability === 'published';
+  const isTeacherCourse = course.audience === 'teacher_subscriber';
+
+  if (isTeacherCourse) {
+    return [
+      {
+        title: isAvailable ? 'Curso disponível' : 'Curso em estruturação',
+        description: isAvailable
+          ? 'Acesso liberado para professores com assinatura individual ativa.'
+          : 'Trilha prevista no catálogo Excellentia, sujeita à validação final de conteúdo, certificado e escopo.',
+      },
+      {
+        title: 'Acesso do professor',
+        description: 'Depois da compra, o professor entra por login via e-mail e visualiza os cursos vinculados à assinatura.',
+      },
+      {
+        title: 'Aplicação prática',
+        description: 'Conteúdo voltado à carreira docente, processo seletivo, entrevista, aula teste e organização profissional.',
+      },
+    ];
+  }
+
   return [
     {
       title: isAvailable ? 'Formação disponível' : 'Formação em estruturação',
@@ -24,6 +45,7 @@ function publicCards(course: CourseDefinition) {
 export default function PublicCoursePage({ course }: { course: CourseDefinition }) {
   const cards = publicCards(course);
   const isAvailable = course.availability === 'published';
+  const isTeacherCourse = course.audience === 'teacher_subscriber';
 
   return (
     <main className="min-h-screen bg-[#f7f4ec]">
@@ -47,11 +69,13 @@ export default function PublicCoursePage({ course }: { course: CourseDefinition 
               <div className="text-xs font-extrabold uppercase tracking-[0.24em] text-gold-light">acesso protegido</div>
               <h2 className="mt-4 text-2xl font-black">Conteúdo disponível apenas na experiência autenticada.</h2>
               <p className="mt-4 leading-7 text-slate-300">
-                A página pública apresenta escopo e finalidade da formação. Aulas, vídeos, atividades, respostas e certificados pertencem ao ambiente de acesso autorizado.
+                {isTeacherCourse
+                  ? 'A página pública apresenta escopo e finalidade do curso. Aulas, atividades e certificados ficam dentro da área autenticada do professor.'
+                  : 'A página pública apresenta escopo e finalidade da formação. Aulas, vídeos, atividades, respostas e certificados pertencem ao ambiente de acesso autorizado.'}
               </p>
               <div className="mt-7 flex flex-col gap-3">
-                <Link href="/contato" className="rounded-2xl bg-gold px-6 py-4 text-center font-black text-white transition hover:bg-yellow-600">
-                  Solicitar acesso institucional
+                <Link href={isTeacherCourse ? '/acesso-professor' : '/contato'} className="rounded-2xl bg-gold px-6 py-4 text-center font-black text-white transition hover:bg-yellow-600">
+                  {isTeacherCourse ? 'Acessar como professor' : 'Solicitar acesso institucional'}
                 </Link>
                 <Link href="/formacoes" className="rounded-2xl border border-white/40 px-6 py-4 text-center font-black text-white transition hover:bg-white hover:text-navy">
                   Ver catálogo de formações
@@ -94,10 +118,12 @@ export default function PublicCoursePage({ course }: { course: CourseDefinition 
               <div className="rounded-[2rem] bg-[#f7f4ec] p-6">
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-gold">acesso ao conteúdo</p>
                 <p className="mt-4 leading-7 text-slate-700">
-                  Participantes acessam a formação por convite, contrato ou plano elegível. O link público não exibe aulas, vídeos ou atividades internas.
+                  {isTeacherCourse
+                    ? 'Professores com assinatura ativa acessam o curso pela área do professor. O link público não exibe aulas, vídeos ou atividades internas.'
+                    : 'Participantes acessam a formação por convite, contrato ou plano elegível. O link público não exibe aulas, vídeos ou atividades internas.'}
                 </p>
-                <Link href="/contato" className="mt-7 inline-flex rounded-2xl bg-navy px-7 py-4 font-black text-white transition hover:bg-slate-900">
-                  Falar com a Excellentia
+                <Link href={isTeacherCourse ? '/acesso-professor' : '/contato'} className="mt-7 inline-flex rounded-2xl bg-navy px-7 py-4 font-black text-white transition hover:bg-slate-900">
+                  {isTeacherCourse ? 'Entrar na área do professor' : 'Falar com a Excellentia'}
                 </Link>
               </div>
             </div>

@@ -33,7 +33,7 @@ export async function GET() {
     slug: slugify(course.title),
     status: course.available ? 'published' : 'draft',
     available: course.available,
-    href: course.available ? '/formacoes' : null,
+    href: course.available ? (course.href ?? '/formacoes') : null,
     source: 'catalog',
   }));
 

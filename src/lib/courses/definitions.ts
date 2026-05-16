@@ -105,7 +105,156 @@ const nr1Lessons: CourseLessonDefinition[] = [
   }
 ];
 
+const teacherCareerLessons: CourseLessonDefinition[] = [
+  {
+    order: 1,
+    title: 'Como escolas particulares selecionam professores',
+    metadata: { module: 'Como escolas decidem contratações', summary: 'Apresenta a lógica real de um processo seletivo escolar e os atores que influenciam a contratação.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 2,
+    title: 'Critérios explícitos e critérios silenciosos',
+    metadata: { module: 'Como escolas decidem contratações', summary: 'Diferencia o que aparece na vaga do que costuma pesar na decisão de contratação.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 3,
+    title: 'O que a escola tenta evitar ao contratar',
+    metadata: { module: 'Como escolas decidem contratações', summary: 'Organiza sinais de risco percebidos por direção, coordenação e RH durante a seleção.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 4,
+    title: 'Sinais de cultura institucional antes de aceitar uma vaga',
+    metadata: { module: 'Como escolas decidem contratações', summary: 'Ajuda o professor a ler contexto, exigências e riscos da escola antes da decisão profissional.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 5,
+    title: 'Estrutura ideal do currículo docente',
+    metadata: { module: 'Currículo de professor', summary: 'Define a arquitetura de um currículo docente claro, profissional e orientado ao tipo de vaga.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 6,
+    title: 'Como apresentar formação, experiência e resultados',
+    metadata: { module: 'Currículo de professor', summary: 'Mostra como traduzir trajetória docente em evidências de prática, repertório e maturidade profissional.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 7,
+    title: 'Como adaptar currículo por segmento e função',
+    metadata: { module: 'Currículo de professor', summary: 'Adapta currículo para educação infantil, fundamental, médio, coordenação ou área específica.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 8,
+    title: 'Erros que eliminam antes da entrevista',
+    metadata: { module: 'Currículo de professor', summary: 'Identifica excessos, lacunas e escolhas de apresentação que reduzem chance de avanço.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 9,
+    title: 'Preparação antes da entrevista',
+    metadata: { module: 'Entrevista individual', summary: 'Organiza pesquisa, narrativa profissional e leitura da escola antes da conversa com a banca.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 10,
+    title: 'Como falar de trajetória sem parecer genérico',
+    metadata: { module: 'Entrevista individual', summary: 'Constrói respostas consistentes sobre percurso, escolhas, repertório e identidade docente.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 11,
+    title: 'Perguntas comuns e perguntas-armadilha',
+    metadata: { module: 'Entrevista individual', summary: 'Prepara respostas para conflitos, autoridade, família, inclusão, resultados e desligamentos.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 12,
+    title: 'Leitura política da entrevista',
+    metadata: { module: 'Entrevista individual', summary: 'Mostra como observar entrevistadores, prioridades ocultas e sinais de cultura institucional.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 13,
+    title: 'Entrevista coletiva e dinâmica de grupo',
+    metadata: { module: 'Dinâmica e posicionamento', summary: 'Orienta participação em dinâmicas sem competição infantil, apagamento ou performance artificial.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 14,
+    title: 'Quando liderar e quando observar',
+    metadata: { module: 'Dinâmica e posicionamento', summary: 'Trabalha presença profissional, escuta, colaboração e leitura do momento em seleção coletiva.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 15,
+    title: 'Como lidar com divergência e comparação',
+    metadata: { module: 'Dinâmica e posicionamento', summary: 'Prepara o professor para exposição, conflito controlado e avaliação comparativa.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 16,
+    title: 'Critérios silenciosos em dinâmicas coletivas',
+    metadata: { module: 'Dinâmica e posicionamento', summary: 'Explica o que a escola observa além da resposta certa em situações coletivas.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 17,
+    title: 'Como planejar uma aula teste',
+    metadata: { module: 'Aula-teste e contratação', summary: 'Organiza objetivo, entrada, desenvolvimento, fechamento, tempo e evidência de aprendizagem.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 18,
+    title: 'O que a banca observa na aula teste',
+    metadata: { module: 'Aula-teste e contratação', summary: 'Mostra como demonstrar domínio, intencionalidade pedagógica e manejo sem rigidez.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 19,
+    title: 'Planejamento, sequência didática e documentação',
+    metadata: { module: 'Aula-teste e contratação', summary: 'Diferencia plano de aula, sequência didática, objetivos, avaliação e evidências.', contentStatus: 'outline_pending_full_media' },
+  },
+  {
+    order: 20,
+    title: 'Disponibilidade, proposta e decisão profissional',
+    metadata: { module: 'Aula-teste e contratação', summary: 'Fecha a trilha com documentação, disponibilidade, negociação e avaliação da proposta antes de aceitar.', contentStatus: 'outline_pending_full_media' },
+  },
+];
+
 export const courseDefinitions = {
+  'gestao-carreira-professores': {
+    slug: 'gestao-carreira-professores',
+    title: 'Gestão de Carreira para Professores',
+    shortTitle: 'Carreira para Professores',
+    description:
+      'Curso Excellentia para professores que querem atravessar processos seletivos de escolas particulares com mais preparo, leitura de contexto e posicionamento profissional.',
+    status: 'published',
+    availability: 'published',
+    audience: 'teacher_subscriber',
+    track: 'carreira-docente',
+    area: 'Carreira docente',
+    certificatePrefix: 'GCP',
+    modules: 5,
+    lessonsCount: 20,
+    publicPage: {
+      badge: 'Curso individual para professores',
+      headline: 'Gestão de Carreira para Professores',
+      summary:
+        'Um guia prático para currículo, entrevista, dinâmica, aula teste, planejamento e decisão profissional em processos seletivos de escolas particulares.',
+      cards: [
+        { title: '20 aulas', description: 'Estrutura organizada em 5 módulos para professores assinantes' },
+        { title: 'Processo seletivo', description: 'Currículo, entrevista, dinâmica, aula teste e documentação' },
+        { title: 'Carreira docente', description: 'Leitura de contexto, posicionamento profissional e tomada de decisão' },
+      ],
+      courseIntro:
+        'Esta é a página pública do curso. Professores assinantes acessam a experiência completa pela área autenticada, com vínculo individual de acesso.',
+      ctaTitle: 'Curso disponível para assinantes',
+      ctaDescription:
+        'A assinatura individual libera a área do professor e vincula automaticamente os cursos publicados para professores à conta autenticada.',
+    },
+    lessons: teacherCareerLessons,
+    complianceNotes: [
+      'Curso formativo e profissional; não garante contratação nem substitui análise individual de currículo ou mentoria personalizada.',
+      'As aulas e atividades internas pertencem à área autenticada do professor assinante.',
+    ],
+    metadata: {
+      audience: 'teacher_subscriber',
+      teacherSubscriber: true,
+      definitionVersion: '2026-05-16',
+      productionStatus: 'technical_access_seed_available_content_outline_pending_full_media',
+      targetAudience: 'Professores que buscam vagas, recolocação, preparação para processos seletivos ou melhor posicionamento profissional em escolas particulares.',
+      syllabus: 'Processo seletivo escolar, currículo docente, entrevista individual, dinâmica coletiva, aula teste, planejamento, sequência didática, documentação, disponibilidade e decisão profissional.',
+      lessonSummaries: teacherCareerLessons.map((lesson) => lesson.metadata?.summary),
+    },
+  },
+
   'nr1-escolas': {
     slug: 'nr1-escolas',
     title: 'NR-1 para Escolas — Riscos Psicossociais',
