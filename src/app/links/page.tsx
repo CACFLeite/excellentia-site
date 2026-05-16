@@ -31,7 +31,7 @@ export default function LinksPage() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '2rem 1rem',
-        fontFamily: 'Inter, system-ui, sans-serif',
+        fontFamily: 'var(--font-sans), system-ui, sans-serif',
       }}
     >
       {/* Cabeçalho */}
@@ -60,6 +60,7 @@ export default function LinksPage() {
             fontWeight: 700,
             margin: '0 0 0.5rem',
             letterSpacing: '-0.02em',
+            fontFamily: 'var(--font-brand), var(--font-sans), system-ui, sans-serif',
           }}
         >
           Excellentia

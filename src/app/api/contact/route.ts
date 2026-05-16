@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       subject: `Contato via site: ${assunto || 'Sem assunto'} — ${name}`,
       text: [`Nome: ${name}`, `E-mail: ${email}`, `Assunto: ${assunto || 'Sem assunto'}`, '', String(mensagem)].join('\n'),
       html: `
-        <div style="font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="font-family: 'IBM Plex Sans', Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #0a2749; padding: 24px; border-radius: 12px 12px 0 0;">
             <h1 style="color: white; margin: 0; font-size: 24px;">Excel<span style="color: #b07908">lentia</span></h1>
             <p style="color: #94a3b8; margin: 8px 0 0; font-size: 14px;">Nova mensagem de contato</p>

@@ -11,7 +11,7 @@ Deploy: Vercel. Domínio: excellentia-edu.com.
 - Dourado claro: #f4db76 (acentos sutis)
 - Branco: #ffffff (texto sobre fundo escuro)
 - Cinza claro: #f8f8f8 (fundos secundários)
-- Tipografia: Inter (Google Fonts)
+- Tipografia: Plus Jakarta Sans (marca/títulos/CTAs) + IBM Plex Sans (corpo/UI), via Google Fonts
 - NÃO usar verde, roxo ou cores fora da paleta acima
 - Tom: profissional, autoridade, parceria — NUNCA infantil
 
